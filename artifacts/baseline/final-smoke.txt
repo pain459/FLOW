@@ -1,0 +1,4 @@
+sh scripts/smoke.sh
+ Container chaosloop-tests-run-c9eb363f0a0b Creating
+ Container chaosloop-tests-run-c9eb363f0a0b Created
+{"status": "PASS", "transfer_id": "66869da6-03e1-45f2-a1ae-e213ec28b5cc", "request_id": "91c2f62b-5aae-4ffa-bfaa-2a4be52cac9d"}

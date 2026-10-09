@@ -1,0 +1,287 @@
+name: chaosloop
+x-infra-logging: &infra-logging
+  driver: json-file
+  options: {max-size: '10m', max-file: '3'}
+x-app: &app
+  build: .
+  image: chaosloop-pulsepay:phase1
+  init: true
+  restart: unless-stopped
+  stop_grace_period: 20s
+  mem_limit: 384m
+  cpus: 1.0
+  read_only: true
+  tmpfs: [/tmp]
+  security_opt: [no-new-privileges:true]
+  cap_drop: [ALL]
+  networks: [internal]
+  environment: &env
+    DATABASE_URL: postgresql+asyncpg://pulsepay_app:${APP_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+    REDIS_URL: redis://redis:6379/0
+    PULSEPAY_CURRENCY: ${PULSEPAY_CURRENCY:-INR}
+    LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4317
+    DB_POOL_SIZE: ${DB_POOL_SIZE:-8}
+    DB_TIMEOUT_SECONDS: ${DB_TIMEOUT_SECONDS:-5}
+    REQUEST_TIMEOUT_SECONDS: ${REQUEST_TIMEOUT_SECONDS:-12}
+    CACHE_TTL_SECONDS: ${CACHE_TTL_SECONDS:-5}
+    SEED_VERSION: ${SEED_VERSION:-phase1-v1}
+    WORKER_POLL_SECONDS: ${WORKER_POLL_SECONDS:-1}
+    RECLAIM_IDLE_MS: ${RECLAIM_IDLE_MS:-10000}
+  logging:
+    driver: fluentd
+    options:
+      fluentd-address: '127.0.0.1:24224'
+      fluentd-async: 'true'
+      fluentd-buffer-limit: '4096'
+      fluentd-write-timeout: '1s'
+      tag: 'pulsepay.{{.Name}}'
+      mode: non-blocking
+      max-buffer-size: 4m
+      cache-max-size: 10m
+      cache-max-file: '3'
+
+services:
+  postgres:
+    build: {context: ., dockerfile: Dockerfile.postgres}
+    image: chaosloop-postgres:phase1
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-pulsepay}
+      POSTGRES_USER: ${POSTGRES_USER:-pulsepay_owner}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run bootstrap}
+      APP_PASSWORD: ${APP_PASSWORD:?run bootstrap}
+      WORKER_PASSWORD: ${WORKER_PASSWORD:?run bootstrap}
+      VERIFIER_PASSWORD: ${VERIFIER_PASSWORD:?run bootstrap}
+      MIGRATOR_PASSWORD: ${MIGRATOR_PASSWORD:?run bootstrap}
+    volumes: [pg-data:/var/lib/postgresql/data]
+    networks: [internal]
+    restart: unless-stopped
+    stop_grace_period: 30s
+    mem_limit: 768m
+    cpus: 1.0
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+  redis:
+    image: redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9
+    command: [redis-server, --appendonly, "yes", --appendfsync, always, --maxmemory, 128mb, --maxmemory-policy, noeviction]
+    volumes: [redis-data:/data]
+    networks: [internal]
+    restart: unless-stopped
+    stop_grace_period: 15s
+    mem_limit: 256m
+    cpus: 0.5
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+  migrate:
+    <<: *app
+    restart: "no"
+    environment:
+      <<: *env
+      DATABASE_URL: postgresql+asyncpg://pulsepay_migrator:${MIGRATOR_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+    command: [alembic, upgrade, head]
+    depends_on:
+      postgres: {condition: service_healthy}
+  api:
+    <<: *app
+    networks: [internal, edge]
+    ports: ["127.0.0.1:${API_PORT:-8080}:8080"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8080/health/live', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  tests:
+    <<: *app
+    profiles: [test]
+    restart: "no"
+    read_only: false
+    command: [pytest, -q]
+    environment:
+      <<: *env
+      TEST_ADMIN_URL: postgresql+asyncpg://${POSTGRES_USER:-pulsepay_owner}:${POSTGRES_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      MIGRATOR_DATABASE_URL: postgresql+asyncpg://pulsepay_migrator:${MIGRATOR_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      WORKER_DATABASE_URL: postgresql+asyncpg://pulsepay_worker:${WORKER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      VERIFIER_DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      PYTEST_ADDOPTS: "-o cache_dir=/tmp/pulsepay-pytest-cache"
+      RUFF_CACHE_DIR: /tmp/pulsepay-ruff-cache
+      MYPY_CACHE_DIR: /tmp/pulsepay-mypy-cache
+      GRAFANA_PASSWORD: ${GRAFANA_PASSWORD:?run bootstrap}
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+  seed:
+    <<: *app
+    profiles: [tools]
+    restart: "no"
+    command: [python, -m, shared.seed]
+    environment:
+      <<: *env
+      SEED_ACCOUNT_COUNT: ${SEED_ACCOUNT_COUNT:-200}
+      SEED_BALANCE_MINOR: ${SEED_BALANCE_MINOR:-100000}
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+  outbox-relay:
+    <<: *app
+    command: [python, -m, workers.outbox_relay.main]
+    environment:
+      <<: *env
+      DATABASE_URL: postgresql+asyncpg://pulsepay_worker:${WORKER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      SERVICE_NAME: outbox-relay
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck: &worker-health
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:9100/health/live',timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+  event-worker:
+    <<: *app
+    command: [python, -m, workers.event_consumer.main]
+    environment:
+      <<: *env
+      DATABASE_URL: postgresql+asyncpg://pulsepay_worker:${WORKER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      SERVICE_NAME: event-worker
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck: *worker-health
+  telemetry-init:
+    logging: *infra-logging
+    # One-off ownership setup for disposable telemetry volumes.
+    image: alpine:3.21.3@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c
+    profiles: [observability]
+    command: [sh, -c, 'chown -R 10001:10001 /tempo /loki']
+    volumes: [tempo-data:/tempo, loki-data:/loki]
+    networks: [internal]
+    restart: 'no'
+    mem_limit: 32m
+    cpus: 0.25
+  verifier:
+    <<: *app
+    profiles: [observability, verify]
+    command: [python, -m, verifier.main]
+    environment:
+      <<: *env
+      DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      SERVICE_NAME: verifier
+      VERIFIER_INTERVAL_SECONDS: ${VERIFIER_INTERVAL_SECONDS:-15}
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck: *worker-health
+  activity:
+    <<: *app
+    profiles: [activity]
+    command: [python, -m, activity.main]
+    environment:
+      <<: *env
+      DATABASE_URL: postgresql+asyncpg://disabled@postgres:5432/${POSTGRES_DB:-pulsepay}
+      SERVICE_NAME: activity
+      ACTIVITY_ENABLED: ${ACTIVITY_ENABLED:-false}
+      ACTIVITY_MODE: ${ACTIVITY_MODE:-mixed}
+      ACTIVITY_CONCURRENCY: ${ACTIVITY_CONCURRENCY:-2}
+      ACTIVITY_MAX_AMOUNT_MINOR: ${ACTIVITY_MAX_AMOUNT_MINOR:-100}
+      ACTIVITY_TARGET_RPS: ${ACTIVITY_TARGET_RPS:-2}
+      ACTIVITY_READ_PERCENT: ${ACTIVITY_READ_PERCENT:-60}
+      ACTIVITY_SEED: ${ACTIVITY_SEED:-42}
+      SEED_ACCOUNT_COUNT: ${SEED_ACCOUNT_COUNT:-200}
+      SEED_BALANCE_MINOR: ${SEED_BALANCE_MINOR:-100000}
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck: *worker-health
+  prometheus:
+    logging: *infra-logging
+    image: prom/prometheus:v3.2.1@sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62
+    profiles: [observability]
+    command: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.retention.time=24h, --storage.tsdb.retention.size=256MB]
+    volumes: [./observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro, prom-data:/prometheus]
+    ports: ['127.0.0.1:9090:9090']
+    networks: [internal, edge]
+    restart: unless-stopped
+    mem_limit: 384m
+    cpus: 0.5
+    stop_grace_period: 20s
+  grafana:
+    logging: *infra-logging
+    image: grafana/grafana:11.6.0@sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb
+    profiles: [observability]
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?run bootstrap}
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      GF_ANALYTICS_REPORTING_ENABLED: 'false'
+      GF_ANALYTICS_CHECK_FOR_UPDATES: 'false'
+    volumes: [grafana-data:/var/lib/grafana, ./observability/grafana/provisioning:/etc/grafana/provisioning:ro, ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro]
+    ports: ['127.0.0.1:3000:3000']
+    networks: [internal, edge]
+    restart: unless-stopped
+    mem_limit: 384m
+    cpus: 0.5
+    stop_grace_period: 20s
+  otel-collector:
+    logging: *infra-logging
+    image: otel/opentelemetry-collector-contrib:0.123.0@sha256:e39311df1f3d941923c00da79ac7ba6269124a870ee87e3c3ad24d60f8aee4d2
+    profiles: [observability]
+    command: [--config=/etc/otel/config.yaml]
+    volumes: [./observability/otel/config.yaml:/etc/otel/config.yaml:ro]
+    networks: [internal]
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
+    stop_grace_period: 15s
+  tempo:
+    logging: *infra-logging
+    image: grafana/tempo:2.7.2@sha256:4b0277a9b572a4b1fa43b01468e58911ec214dd69d033f2cd476596d14de9fe3
+    profiles: [observability]
+    user: '10001:10001'
+    command: [-config.file=/etc/tempo/config.yaml]
+    volumes: [./observability/tempo/config.yaml:/etc/tempo/config.yaml:ro, tempo-data:/var/tempo]
+    networks: [internal]
+    depends_on: {telemetry-init: {condition: service_completed_successfully}}
+    restart: unless-stopped
+    mem_limit: 384m
+    cpus: 0.5
+    stop_grace_period: 20s
+  loki:
+    logging: *infra-logging
+    image: grafana/loki:3.4.2@sha256:58a6c186ce78ba04d58bfe2a927eff296ba733a430df09645d56cdc158f3ba08
+    profiles: [observability]
+    user: '10001:10001'
+    command: [-config.file=/etc/loki/config.yaml]
+    volumes: [./observability/loki/config.yaml:/etc/loki/config.yaml:ro, loki-data:/loki]
+    networks: [internal]
+    depends_on: {telemetry-init: {condition: service_completed_successfully}}
+    restart: unless-stopped
+    mem_limit: 384m
+    cpus: 0.5
+    stop_grace_period: 20s
+  log-collector:
+    logging: *infra-logging
+    image: fluent/fluent-bit:3.2.10@sha256:d6dec000c4929a439562525728c708f6e99800d7ddc82efd6aa4f45f3a20b562
+    profiles: [observability]
+    command: [-c, /fluent-bit/etc/config.yaml]
+    volumes: [./observability/log-collector/config.yaml:/fluent-bit/etc/config.yaml:ro, log-buffer:/buffers]
+    ports: ['127.0.0.1:24224:24224']
+    networks: [internal, edge]
+    restart: unless-stopped
+    mem_limit: 128m
+    cpus: 0.25
+    stop_grace_period: 10s
+
+networks:
+  internal: {internal: true}
+  edge:
+volumes:
+  pg-data:
+  redis-data:
+  prom-data:
+  grafana-data:
+  tempo-data:
+  loki-data:
+  log-buffer:

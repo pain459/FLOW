@@ -1,0 +1,383 @@
+Generated local .env; secrets not printed
+ Image chaosloop-postgres:phase1 Building
+ Image chaosloop-pulsepay:phase1 Building
+ Image chaosloop-pulsepay:phase1 Building
+ Image chaosloop-pulsepay:phase1 Building
+ Image chaosloop-pulsepay:phase1 Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.45kB done
+#1 DONE 0.0s
+
+#2 [event-worker internal] load build definition from Dockerfile
+#2 transferring dockerfile: 839B done
+#2 DONE 0.0s
+
+#3 [postgres internal] load build definition from Dockerfile.postgres
+#3 transferring dockerfile: 225B done
+#3 DONE 0.0s
+
+#4 [migrate internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#4 DONE 0.0s
+
+#5 [postgres internal] load metadata for docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad
+#5 DONE 0.0s
+
+#6 [event-worker internal] load .dockerignore
+#6 transferring context: 116B done
+#6 DONE 0.0s
+
+#7 [event-worker build 1/4] FROM docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#7 resolve docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db 0.0s done
+#7 DONE 0.0s
+
+#8 [postgres 1/2] FROM docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad
+#8 resolve docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad 0.0s done
+#8 DONE 0.0s
+
+#9 [postgres internal] load build context
+#9 transferring context: 774B done
+#9 DONE 0.0s
+
+#10 [postgres 2/2] COPY --chmod=0644 scripts/init-db.sh /docker-entrypoint-initdb.d/10-roles.sh
+#10 CACHED
+
+#11 [outbox-relay internal] load build context
+#11 transferring context: 230.77kB 0.0s done
+#11 DONE 0.0s
+
+#12 [event-worker build 4/4] RUN pip install --no-cache-dir --prefix=/install -r requirements.lock
+#12 CACHED
+
+#13 [event-worker build 3/4] COPY requirements.lock ./
+#13 CACHED
+
+#14 [event-worker runtime 3/5] COPY --from=build /install /usr/local
+#14 CACHED
+
+#15 [event-worker build 2/4] WORKDIR /build
+#15 CACHED
+
+#16 [event-worker runtime 2/5] RUN groupadd -g 10001 pulsepay && useradd -u 10001 -g pulsepay -m pulsepay
+#16 CACHED
+
+#17 [event-worker runtime 4/5] WORKDIR /app
+#17 CACHED
+
+#18 [postgres] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:90fc3678f7193960904521f7af772cceb37d646e9c44e7b3623b987d89d1c1cd done
+#18 exporting config sha256:1d82ce40912668fcf5c0b19bb093062805176c63d3645943aee7264f441a49bf done
+#18 exporting attestation manifest sha256:95d877f6aa77c703c9e1e57290bc8357cd2adef9070fa8d966acdf33bd549092 done
+#18 exporting manifest list sha256:cf87cd5e890eceb3f4e18e972df08dd49c3f89fefc9b236008a1fcc5926d8f54 done
+#18 naming to docker.io/library/chaosloop-postgres:phase1 done
+#18 unpacking to docker.io/library/chaosloop-postgres:phase1 done
+#18 DONE 0.0s
+
+#19 [migrate runtime 5/5] COPY --chown=pulsepay:pulsepay . .
+#19 DONE 0.0s
+
+#20 [postgres] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [event-worker] exporting to image
+#21 exporting layers 0.0s done
+#21 exporting manifest sha256:efd2540582b81e4ee2f7e8e61b13194c93cffcb29619caabf39495ffea43ca57 0.0s done
+#21 exporting config sha256:64976099cf447aea5e374245e315050390c15646e549cc63c39b782dfa3d359e 0.0s done
+#21 exporting attestation manifest sha256:420950d603d3ef51abc90fca5ab357d36265492288d2d494afd2320612a77a58 0.0s done
+#21 exporting manifest list sha256:a09ab6ed4b3fea26ac664f43e03698410ccae9da33cbf4c094124768d5962c92 0.0s done
+#21 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#21 unpacking to docker.io/library/chaosloop-pulsepay:phase1 0.0s done
+#21 DONE 0.1s
+
+#22 [outbox-relay] exporting to image
+#22 exporting layers 0.0s done
+#22 exporting manifest sha256:b7fa3254b9b07bcedcaed73a12fab2c92abb1e1439059763c3dbb572bb6c6399 0.0s done
+#22 exporting config sha256:eddc3cae56dc75e0d5c08a2e3f6151bceb015b50552fb6d3040bc29e2a387227 0.0s done
+#22 exporting attestation manifest sha256:1da8def86c1cebcf262e6db963e13ec682eb97067aa157c39070b90200dc6601 0.0s done
+#22 exporting manifest list sha256:1b9195de8baa477ec85ae2a19d92a0a0417eee05b1121caf0024e5155b802803 done
+#22 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#22 unpacking to docker.io/library/chaosloop-pulsepay:phase1 0.0s done
+#22 DONE 0.1s
+
+#23 [api] exporting to image
+#23 exporting layers 0.0s done
+#23 exporting manifest sha256:e19dee37f0188870365b760beed1f56b6a5881a98581d5e90b974879aaf1a54e done
+#23 exporting config sha256:4fded5c086908321e71a429fbbc156a19387a5e57c763d4edbae20d33b95401d 0.0s done
+#23 exporting attestation manifest sha256:40bf589445a5275b9dcec8bb545a4688051240d5eb8774cd8efad08a3375ddad 0.0s done
+#23 exporting manifest list sha256:3c37e77045c8ed6015a0368f83c4138e497f8577582457fcbe1c2029e4283516 done
+#23 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#23 unpacking to docker.io/library/chaosloop-pulsepay:phase1 0.0s done
+#23 DONE 0.1s
+
+#24 [migrate] exporting to image
+#24 exporting layers 0.0s done
+#24 exporting manifest sha256:be43b0092a358f7eac711bf93ac22459191411d5688fe3fe0c50e2d3835fa255 0.0s done
+#24 exporting config sha256:f517c171866d00239e337d9fafb7bd1690a286d3619b6fcf61a2d590c56bcb31 0.0s done
+#24 exporting attestation manifest sha256:26f52b22e0b7f35e279d6437aff1bdcb6bb3a9554858b62809ad76b5d41fc491 0.0s done
+#24 exporting manifest list sha256:6c7f89590d09c5835cc7666d4cceaf2526b0c54f55ae659605b01292693f6f5d done
+#24 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#24 unpacking to docker.io/library/chaosloop-pulsepay:phase1 0.0s done
+#24 DONE 0.1s
+
+#25 [event-worker] resolving provenance for metadata file
+#25 DONE 0.0s
+
+#26 [api] resolving provenance for metadata file
+#26 DONE 0.0s
+
+#27 [outbox-relay] resolving provenance for metadata file
+#27 DONE 0.0s
+
+#28 [migrate] resolving provenance for metadata file
+#28 DONE 0.0s
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-postgres:phase1 Built
+ Network chaosloop-bootstrap-check_internal Creating
+ Network chaosloop-bootstrap-check_internal Creating
+ Volume chaosloop-bootstrap-check_redis-data Creating
+ Volume chaosloop-bootstrap-check_redis-data Creating
+ Volume chaosloop-bootstrap-check_pg-data Creating
+ Volume chaosloop-bootstrap-check_pg-data Creating
+ Volume chaosloop-bootstrap-check_pg-data Created
+ Volume chaosloop-bootstrap-check_pg-data Created
+ Volume chaosloop-bootstrap-check_redis-data Created
+ Volume chaosloop-bootstrap-check_redis-data Created
+ Network chaosloop-bootstrap-check_internal Created
+ Network chaosloop-bootstrap-check_internal Created
+ Container chaosloop-bootstrap-check-redis-1 Creating
+ Container chaosloop-bootstrap-check-postgres-1 Creating
+ Container chaosloop-bootstrap-check-postgres-1 Created
+ Container chaosloop-bootstrap-check-redis-1 Created
+ Container chaosloop-bootstrap-check-postgres-1 Starting
+ Container chaosloop-bootstrap-check-redis-1 Starting
+ Container chaosloop-bootstrap-check-postgres-1 Started
+ Container chaosloop-bootstrap-check-redis-1 Started
+ Container chaosloop-bootstrap-check-postgres-1 Running
+ Container chaosloop-bootstrap-check-postgres-1 Waiting
+ Container chaosloop-bootstrap-check-postgres-1 Healthy
+ Container chaosloop-bootstrap-check-migrate-run-81fc3c682237 Creating
+ Container chaosloop-bootstrap-check-migrate-run-81fc3c682237 Created
+ Image chaosloop-pulsepay:phase1 Building
+ Image chaosloop-pulsepay:phase1 Building
+ Image chaosloop-pulsepay:phase1 Building
+ Image chaosloop-postgres:phase1 Building
+ Image chaosloop-pulsepay:phase1 Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.45kB done
+#1 DONE 0.0s
+
+#2 [postgres internal] load build definition from Dockerfile.postgres
+#2 transferring dockerfile: 225B done
+#2 DONE 0.0s
+
+#3 [event-worker internal] load build definition from Dockerfile
+#3 transferring dockerfile: 839B done
+#3 DONE 0.0s
+
+#4 [postgres internal] load metadata for docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad
+#4 DONE 0.0s
+
+#5 [api internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#5 DONE 0.0s
+
+#6 [migrate internal] load .dockerignore
+#6 transferring context: 116B done
+#6 DONE 0.0s
+
+#7 [postgres internal] load build context
+#7 transferring context: 67B done
+#7 DONE 0.0s
+
+#8 [outbox-relay internal] load build context
+#8 transferring context: 230.06kB 0.0s done
+#8 DONE 0.0s
+
+#9 [migrate build 1/4] FROM docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#9 resolve docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db 0.0s done
+#9 DONE 0.0s
+
+#10 [outbox-relay build 3/4] COPY requirements.lock ./
+#10 CACHED
+
+#11 [outbox-relay runtime 4/5] WORKDIR /app
+#11 CACHED
+
+#12 [outbox-relay build 2/4] WORKDIR /build
+#12 CACHED
+
+#13 [outbox-relay build 4/4] RUN pip install --no-cache-dir --prefix=/install -r requirements.lock
+#13 CACHED
+
+#14 [outbox-relay runtime 3/5] COPY --from=build /install /usr/local
+#14 CACHED
+
+#15 [outbox-relay runtime 2/5] RUN groupadd -g 10001 pulsepay && useradd -u 10001 -g pulsepay -m pulsepay
+#15 CACHED
+
+#16 [outbox-relay runtime 5/5] COPY --chown=pulsepay:pulsepay . .
+#16 CACHED
+
+#17 [postgres 1/2] FROM docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad
+#17 resolve docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad 0.0s done
+#17 DONE 0.0s
+
+#18 [postgres 2/2] COPY --chmod=0644 scripts/init-db.sh /docker-entrypoint-initdb.d/10-roles.sh
+#18 CACHED
+
+#19 [migrate] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:be43b0092a358f7eac711bf93ac22459191411d5688fe3fe0c50e2d3835fa255 done
+#19 exporting config sha256:f517c171866d00239e337d9fafb7bd1690a286d3619b6fcf61a2d590c56bcb31 done
+#19 exporting attestation manifest sha256:4cb6427c0505b97b5280ebbdd821307fd8bcbfa7f33858fe1fe0b4bf8da32dde 0.0s done
+#19 exporting manifest list sha256:44f29b145044e51487ecc6e1d62240051f120e88897eb0427cc5033d5c8dbebc 0.0s done
+#19 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#19 unpacking to docker.io/library/chaosloop-pulsepay:phase1 0.0s done
+#19 DONE 0.1s
+
+#20 [outbox-relay] exporting to image
+#20 exporting layers done
+#20 exporting manifest sha256:b7fa3254b9b07bcedcaed73a12fab2c92abb1e1439059763c3dbb572bb6c6399 done
+#20 exporting config sha256:eddc3cae56dc75e0d5c08a2e3f6151bceb015b50552fb6d3040bc29e2a387227 done
+#20 exporting attestation manifest sha256:52ee9b316fd6b6d647fb074057bba6436d1c98d78452346434452ff84b2a0cff 0.0s done
+#20 exporting manifest list sha256:d00e4190b3cc0545761a86dd04302acaa2670fd1b01c34146fb82893d7bc04e0 0.0s done
+#20 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#20 unpacking to docker.io/library/chaosloop-pulsepay:phase1 done
+#20 DONE 0.1s
+
+#21 [event-worker] exporting to image
+#21 exporting layers done
+#21 exporting manifest sha256:efd2540582b81e4ee2f7e8e61b13194c93cffcb29619caabf39495ffea43ca57 done
+#21 exporting config sha256:64976099cf447aea5e374245e315050390c15646e549cc63c39b782dfa3d359e done
+#21 exporting attestation manifest sha256:5354affae4856c3d1908980bc7911959877b9ba354b5831c99a8f448e55bdc81 0.0s done
+#21 exporting manifest list sha256:e2b8f362c5a71cf779f9167f5cae2d9a8830fd33e3ae955fd7b3c772cf95241b 0.0s done
+#21 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#21 unpacking to docker.io/library/chaosloop-pulsepay:phase1 0.0s done
+#21 DONE 0.1s
+
+#22 [postgres] exporting to image
+#22 exporting layers done
+#22 exporting manifest sha256:90fc3678f7193960904521f7af772cceb37d646e9c44e7b3623b987d89d1c1cd done
+#22 exporting config sha256:1d82ce40912668fcf5c0b19bb093062805176c63d3645943aee7264f441a49bf done
+#22 exporting attestation manifest sha256:4dcc9b629f2e44245da2320ff28eebaa84c8be977892fa3a50cf0ee464b55fc2 0.0s done
+#22 exporting manifest list sha256:0d904eba12c086d63caa7be78cc1378d836aeba6f7392dc8eeeac648cc8226f9 0.0s done
+#22 naming to docker.io/library/chaosloop-postgres:phase1 done
+#22 unpacking to docker.io/library/chaosloop-postgres:phase1 done
+#22 DONE 0.1s
+
+#23 [api] exporting to image
+#23 exporting layers done
+#23 exporting manifest sha256:e19dee37f0188870365b760beed1f56b6a5881a98581d5e90b974879aaf1a54e done
+#23 exporting config sha256:4fded5c086908321e71a429fbbc156a19387a5e57c763d4edbae20d33b95401d done
+#23 exporting attestation manifest sha256:a2a8832a816ae5a95ccd07626736f991cbd37fe4c210f6d4e4a8d0eff872fd93 0.0s done
+#23 exporting manifest list sha256:2f5881092a021c4b3ddcfab96fcf0729ae790011649283ab5a9c0539b0cd4982 0.0s done
+#23 naming to docker.io/library/chaosloop-pulsepay:phase1 done
+#23 unpacking to docker.io/library/chaosloop-pulsepay:phase1 0.0s done
+#23 DONE 0.1s
+
+#24 [migrate] resolving provenance for metadata file
+#24 DONE 0.0s
+
+#25 [event-worker] resolving provenance for metadata file
+#25 DONE 0.0s
+
+#26 [postgres] resolving provenance for metadata file
+#26 DONE 0.0s
+
+#27 [outbox-relay] resolving provenance for metadata file
+#27 DONE 0.0s
+
+#28 [api] resolving provenance for metadata file
+#28 DONE 0.0s
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-pulsepay:phase1 Built
+ Image chaosloop-postgres:phase1 Built
+ Container chaosloop-bootstrap-check-redis-1 Running
+ Container chaosloop-bootstrap-check-postgres-1 Running
+ Container chaosloop-bootstrap-check-migrate-1 Creating
+ Network chaosloop-bootstrap-check_edge Creating
+ Network chaosloop-bootstrap-check_edge Creating
+ Network chaosloop-bootstrap-check_edge Created
+ Network chaosloop-bootstrap-check_edge Created
+ Container chaosloop-bootstrap-check-migrate-1 Created
+ Container chaosloop-bootstrap-check-outbox-relay-1 Creating
+ Container chaosloop-bootstrap-check-event-worker-1 Creating
+ Container chaosloop-bootstrap-check-api-1 Creating
+ Container chaosloop-bootstrap-check-outbox-relay-1 Created
+ Container chaosloop-bootstrap-check-api-1 Created
+ Container chaosloop-bootstrap-check-event-worker-1 Created
+ Container chaosloop-bootstrap-check-postgres-1 Waiting
+ Container chaosloop-bootstrap-check-postgres-1 Healthy
+ Container chaosloop-bootstrap-check-migrate-1 Starting
+ Container chaosloop-bootstrap-check-migrate-1 Started
+ Container chaosloop-bootstrap-check-migrate-1 Waiting
+ Container chaosloop-bootstrap-check-migrate-1 Waiting
+ Container chaosloop-bootstrap-check-migrate-1 Waiting
+ Container chaosloop-bootstrap-check-migrate-1 Exited
+ Container chaosloop-bootstrap-check-api-1 Starting
+ Container chaosloop-bootstrap-check-migrate-1 Exited
+ Container chaosloop-bootstrap-check-outbox-relay-1 Starting
+ Container chaosloop-bootstrap-check-migrate-1 Exited
+ Container chaosloop-bootstrap-check-event-worker-1 Starting
+ Container chaosloop-bootstrap-check-api-1 Started
+ Container chaosloop-bootstrap-check-outbox-relay-1 Started
+ Container chaosloop-bootstrap-check-event-worker-1 Started
+ Container chaosloop-bootstrap-check-postgres-1 Running
+ Container chaosloop-bootstrap-check-postgres-1 Waiting
+ Container chaosloop-bootstrap-check-postgres-1 Healthy
+ Container chaosloop-bootstrap-check-migrate-1 Starting
+ Container chaosloop-bootstrap-check-migrate-1 Started
+ Container chaosloop-bootstrap-check-migrate-1 Waiting
+ Container chaosloop-bootstrap-check-migrate-1 Exited
+ Container chaosloop-bootstrap-check-seed-run-3f650f0e721f Creating
+ Container chaosloop-bootstrap-check-seed-run-3f650f0e721f Created
+{"seed_version": "phase1-v1", "account_count": 200, "total_issued_minor": 20000000, "currency": "INR", "account_ids": ["2c958f12-addb-5521-ae8d-2d60a0706360", "97e8ea8f-531a-5f9b-b64a-1ccd3d9c90bb", "983b5b46-ba2d-50f5-8b65-06639b74fa8d", "71d21195-8f7e-5141-b6ef-93057d338343", "b9dedb55-d72f-5a49-a463-016431c2b91d", "040c04ac-0420-5a4d-ac12-f07e6f66467c", "7d20bb78-7fcf-5126-b5fb-05e730721bff", "d69a0105-e5a4-5219-9105-62ff87d77c7c", "61e36022-fff8-5022-9b82-0001a749435a", "d509628f-d072-5e17-b7ab-8067e8c8623d", "3b17a0a8-f073-54cd-ae7f-dcd20fb6adcb", "fc8bd99a-7353-596b-a93e-824359396eaa", "35696c9a-3133-5b97-a6eb-a3bbf2cce7ca", "2d6b8640-cbdd-50e7-bb5a-0effd57a81ba", "a919f963-9c8f-505b-8790-03f5e8ccd6a4", "e67ea6ec-d1b7-5438-a3ef-b87c299547e7", "c85000ff-d65e-5372-a90b-4ebbc3415b23", "9bea2928-488c-574e-9341-25315efd7dce", "2754cd2d-8a8e-5a18-bb66-3b33db77afbf", "bac9b5d1-374e-5793-9588-99e615b6da63", "6af21e3d-c73f-5de3-9e5a-0719fea7777d", "449a3a79-6dff-5612-8335-ce037af20732", "1e9a5f4b-3c3d-5475-a533-deb2e9f53ce3", "d1b938ed-efcf-51b4-9963-81530cafefa7", "d1bad7dc-266a-56bd-8ab8-95e275c71a53", "5fe9da07-a340-54fb-ada5-8d66a0706a21", "68bf6c29-1900-53a9-920f-2002c5045496", "2c1d66a8-c803-5d6c-af84-871668f4aba1", "798156e8-193a-5098-b9a5-1feddd859289", "9f5900be-d3be-501c-8785-bdfdf36c9bb7", "86ea7492-2a0d-51fb-8f55-63d02f4bd20c", "16c6a8e1-f723-5093-8a65-cfa02c186d26", "f3f31fd1-5af7-54ac-bea0-a46f3e2ca055", "e6ac935d-fe1b-522c-af64-0f441cf16c53", "60612bbb-2477-5c35-8577-8b771c336c8b", "1aea3168-69f3-5450-bb9b-217439be6499", "7123c7d6-bb56-5615-bbca-72c6b7ef5f88", "96400fba-44cf-5a0c-bc3d-c68877a98603", "79cbe5f9-b290-5b78-91b0-aa94a8a67047", "03ed05fc-827e-5453-958c-76caa30a580c", "37c3b199-2294-51b5-8aeb-de47d9e5910f", "2eb47d42-0f86-5b3f-ae78-2a0fe586d8b2", "9bbae3ad-dd5f-501c-ad3e-07163823512f", "b2a2cab6-6099-514d-943b-0405bc39b0cf", "be42a418-2211-52fb-8655-61b47734a4c9", "61df124b-c9f3-53b1-af91-a58c70b32512", "b519b23f-f813-59fa-bb98-f410a8a6ecb8", "5421f552-dcbd-5f7c-9849-503a982b03e9", "eecb3f77-bb2c-5b97-8f18-a112cee7622d", "555b3b01-03ce-5532-977f-05b766daaa51", "16059e1f-533d-57ba-b6cc-9a0c1015108a", "af6bf639-7132-53cd-b81a-a8a49e64f5b1", "c0dbfdc3-1c59-5bcf-9449-5545a8254341", "a525fda6-9abc-57b9-8f82-3f4f8e98b285", "50f08e35-4ed6-54a1-98a1-a4515a7cd012", "93274c61-4687-57ae-857a-619408b3829a", "7cb0f821-f8d3-5d84-a010-a39694d94b49", "8bf0a017-8199-5f59-afeb-526f6604c273", "caf9f86a-7900-5f85-990d-a60331bf5e05", "1e9bc8d9-171e-596d-873c-8cdb162ca05d", "97ec9d00-9484-5d0f-84b1-8e5496111be5", "e525b43f-85eb-5a18-9e8c-ac70e95034db", "f1a62dad-fef9-5c39-b87b-bdcc8e541864", "2b3fc9ed-680d-54a9-b2ee-a6a4ee60f45a", "7c9ff1c3-23c7-5c13-a24c-40f68607127f", "494e2345-15d3-56f7-9a01-42f0ced0c101", "4f80084c-1880-51b6-9edb-dab0f9478cee", "a64d8aae-1286-5f9b-811c-5581f5f9658f", "f1a45852-6f39-5ee3-8607-99d4e7fe8a3a", "558431cd-e469-5af7-b992-35a9dae7b64f", "44e5f437-d90f-5947-9aa5-cf82fca36c92", "10ac4b5d-91ec-507a-8ae4-09955fb91f8d", "494b3f49-5ec1-5b90-ac8b-233eaf20d676", "cefcca67-b4b3-5964-8e6e-777b7508eede", "0720d354-8853-59f0-8a24-485fdaf4e8c5", "c2373adb-4918-5de3-8a94-18a91ad88225", "0ed4a08e-a756-526f-8a45-75f06a0b8f3e", "2ecbfeb8-0ba0-54c7-b26c-3e8feceadacc", "1b0a4d59-a871-5181-add8-7a0d35b5dd05", "c93ba6ed-1c58-55df-bfd2-941e046debd0", "cd76a069-4065-5050-8232-33d34a9a1c5d", "9e3bd4a2-b9ad-59d9-aab4-e40692625460", "111b0603-2485-5980-8357-c0a6c78a0e98", "e2aafe7b-7dd8-5f5f-997c-b6f1256fad7c", "1e0882af-bf59-5da6-854a-6a47a81e8f04", "9a757dcf-c947-54bb-917a-93f9c7bb4229", "887a30e1-4ac5-5f30-8d23-e6587f54f2f6", "d2c0f63c-1050-5a30-af9f-10a9eb237a08", "6f9b75b9-2ded-5507-a58e-ba46ff0e426d", "12532866-1747-5758-9b3b-169d2d775021", "23dc8d72-1831-5989-b585-06ecac8b2935", "8f845c73-fa5a-5414-a7e8-ffa607bbba14", "531d108a-9da4-54bc-b141-ef430a2bbe45", "4314a222-8c63-52a8-ad42-76a5c0667bba", "46e5ab63-7fd8-5c94-aa37-e00ec73e8da7", "3f3e7409-9713-556c-8262-a093a3086049", "3cb7bb98-3fd0-5377-93e8-eee32bc1bb80", "ad061db0-b567-5f9f-ac40-ace95b7cb231", "e894dce9-0012-5f8c-b85f-853fad30edfc", "10382609-40bd-5a26-8339-cb1fd6778e1a", "2ed57183-0d86-526d-b5df-c3e736f6e02e", "aca74a5c-6bfd-52c2-ba00-f7bc4f9fe07d", "a21ba28e-d711-56a0-80f1-48e19735595a", "75dc660e-0daf-5708-b315-77d74200eac7", "c6ad052a-389a-5f78-83a0-0ccda367ff64", "864adb3c-41e2-5f84-a3ec-8c4825873e2a", "edef3d70-811b-5375-89d1-c872d7b2dc2e", "aabb3865-2796-5d39-945a-f5bdde95ebe8", "1eedb8c4-971b-51c8-8f97-318f2787c386", "1c9c3e67-e38c-50e2-a73b-62d23d814f19", "c5c6e0dc-e834-5606-8517-a9277b678132", "888a6c83-b230-5b72-8543-a1f04da15e67", "e0648866-d588-5f87-90fa-0b9f63bb69c1", "16d2b049-fd15-5db5-a5fd-36f7e7388d56", "380cea15-a1a1-5a03-ace1-6f6ed5d59a95", "a565505e-ed80-545b-ba75-0485b00ae870", "f6f6a614-a088-52fd-a97f-4baa87bf74ff", "ffce3956-572e-58da-a947-78b0086787f7", "eb40f84e-c339-5c94-824e-3356b6ded337", "49b00637-c63d-5020-affe-df39e73ed4a4", "5595b79d-02ab-556f-a1ab-f530cfcae429", "b564257a-3af6-5948-b108-c77a944f642a", "a3a9f506-0167-5395-8e00-8b17570d3ff0", "b86d5307-c23a-58c1-af75-413e1b050233", "68d1e1c6-6c14-5ad3-8aab-5f6190919f18", "74ff81dd-1027-52f0-a28f-d840cfaee2de", "300725c8-1540-551b-8339-982a8573d2db", "20e87902-553c-59c6-b4de-967841fb548b", "9457d29d-27ae-53c9-acd2-c346708457a3", "d25fc3fa-3288-5a6e-99be-e71b7b7fb19b", "34c46eab-a9bc-5210-985c-6a0bf846576d", "62e478c9-ce91-5ea5-860a-cb0e588ab66e", "6dd85f35-1bd9-599f-8d49-e3f64acfc54d", "423b47ff-d065-5ac2-93c8-dbe73a803d52", "e698cead-14fa-5cc1-b7f7-c924da0e2f0b", "69f67740-4f3d-57b4-9ffe-be01dd6c9f15", "1637d5b3-5b32-54df-b67d-2a925fc75260", "a18f551d-f200-5a31-85c0-9225e00a71f8", "a17b45e3-cb5a-5364-8c19-9b80d0943160", "4057104c-7ed7-59e1-ae47-ad471fa6262e", "f9f3b662-726d-5110-981c-0a065cf3680d", "e1d25498-655e-56a9-bf66-72898c7549ab", "6a42960b-8688-56e8-a8b0-419c312414e0", "ddd15571-e1a3-55c3-9975-595d80c8a934", "1d862f52-db40-584d-af27-aeb2a9725fe4", "cd56f022-474f-53cb-8d53-413035deb7ea", "4643d173-bd50-5e8f-9dda-a82aac23a84e", "77d61f5f-bb77-5bb8-b420-2fd61f00e412", "fa9080ee-e769-5d3c-a00a-796d392ab8ab", "513cbf15-24e9-50a0-bd12-17b36fdea430", "b9048c43-5840-5af2-963c-619bba4d4222", "bc16a261-9057-5871-9e54-f3177abe87d6", "46971d0d-9849-52e9-8b0c-c117b678b182", "7c8c0ab3-9c79-57a9-a5ec-13519196f9cb", "30198ef4-8a5b-59fa-9254-08dd3a952c56", "078ec747-07db-5145-b0f9-813248c46449", "e27211d5-1d39-5f6a-922c-ce9674322213", "b666b7c5-389f-52f2-bc0d-668dd06ca48d", "600b43cf-245b-5b0a-bc81-db1f4e417a3a", "a1b83444-f071-5ca6-8d92-532979091179", "d6179b24-abb6-51ad-9689-9894ed315ab0", "69f3b08f-6677-5d35-964f-f0ed181cbc34", "bc9c1f4a-0659-5724-8cf8-aad2e129385b", "fddfe0fc-372f-5bf4-ba92-dda3dff3675f", "ae4963ba-199b-5eb5-b10a-baea7c647201", "431e30d1-c014-50e0-80a7-0bb6c921b021", "870bec5b-3439-54ad-b70b-2abe30277487", "1397483a-6c7c-57bb-bec0-33c982c572cd", "f8a07c3b-2935-5d0c-856d-a919500f99c3", "574e8b4c-b1b5-530a-b2ee-5654ccb3b13d", "9f92b06c-55d8-5269-9260-bb7dc63e0a04", "1c986228-bbab-509d-a9d8-4f381d2bf6ed", "76c84494-3f4c-5e8d-82f8-45e2adac1899", "2ee10b30-1475-5c1d-8cc8-f90ac48a8b44", "e2b6fd4e-50cd-5e33-83dd-5d96d3d33a5e", "a40267ee-4447-5e8e-b5d2-59ad1b3ed315", "dff9f36b-ef9f-5436-9c6a-fe525911cc82", "fe54ece9-faac-58b1-ae89-d10d11791b4c", "ba189133-edc7-5562-afb1-752174fb8658", "718d8717-29d9-5409-b8fd-a2ec2af6fe76", "ff882fe7-8ed4-598e-9c4e-781c89e152cd", "3a5a34e4-c161-5d49-8ae9-912c7849d78e", "bfdfb07a-b538-5e44-8b7a-e7594aead35b", "1ef65e6d-6e78-570e-9e6a-381f6b20c1b5", "dc676b48-16b2-5bef-b173-5f381c600a6a", "29ef3d3c-cb4a-5413-b6ac-be2ee2958474", "28c433cf-325a-5c43-9dc3-3c2b04f651ab", "e3a99f3f-62df-5fff-af85-22e20aca7227", "c5dac027-305a-5e31-b713-261bfbb45eef", "3a3fd689-ef3b-566f-8995-1f3d2937480e", "8e306f5c-f990-504d-ad3a-86acb4853c1b", "80fb1bac-eac9-5ec3-a7b4-74d8629e0bea", "4137e541-95c3-54f0-87d2-fbc19b5da73d", "4aab0e45-703c-55f0-aa1c-d53fc5395a67", "b751d214-5185-5eee-b0c3-3583eb6a5f53", "b029f9b5-8136-5597-98bb-383385e0e03b", "d8d3a15d-d198-5586-9645-734397c545c1", "897f5218-92d5-51a7-89a8-a82aec2af2a6", "d23bf0f9-4184-51fd-90a4-35e4d8926ba8", "784c7321-b9a4-513e-a4ad-f538a4ef5992"]}
+ Container chaosloop-bootstrap-check-tests-run-e08958c9d849 Creating
+ Container chaosloop-bootstrap-check-tests-run-e08958c9d849 Created
+{"status": "PASS", "transfer_id": "8f524ff6-b6cd-4c19-bdc3-b344ef3a9577", "request_id": "36a625ff-61f2-457b-8bf3-37d6cc2dd5c1"}
+ Container chaosloop-bootstrap-check-verifier-run-dd0209a728a7 Creating
+ Container chaosloop-bootstrap-check-verifier-run-dd0209a728a7 Created
+{"check_run_id": "a38a5dd6-dec8-4ae3-8a64-4f59e9b46c78", "started_at": "2026-10-09T14:32:20.591663+00:00", "status": "PASS", "checks": [{"name": "global_conservation", "status": "PASS", "inspected_records": 200, "violations": 0, "details": []}, {"name": "ledger_balance_reconciliation", "status": "PASS", "inspected_records": 200, "violations": 0, "details": []}, {"name": "account_state", "status": "PASS", "inspected_records": 200, "violations": 0, "details": []}, {"name": "provisioning_evidence", "status": "PASS", "inspected_records": 1, "violations": 0, "details": []}, {"name": "transfer_double_entry", "status": "PASS", "inspected_records": 1, "violations": 0, "details": []}, {"name": "ledger_topology", "status": "PASS", "inspected_records": 202, "violations": 0, "details": []}, {"name": "transfer_state", "status": "PASS", "inspected_records": 1, "violations": 0, "details": []}, {"name": "idempotency_uniqueness", "status": "PASS", "inspected_records": 1, "violations": 0, "details": []}, {"name": "durable_event_contract", "status": "PASS", "inspected_records": 1, "violations": 0, "details": []}, {"name": "committed_outbox", "status": "PASS", "inspected_records": 1, "violations": 0, "details": []}, {"name": "projection_receipts", "status": "PASS", "inspected_records": 1, "violations": 0, "details": []}, {"name": "event_delivery_lag", "status": "PASS", "inspected_records": 1, "violations": 0, "details": [{"outbox_pending": 0, "oldest_pending_seconds": 0.0, "overdue_projections": 0, "quarantined_messages": 0}]}], "snapshot": {"isolation": "repeatable read", "read_only": true}, "events": {"outbox_pending": 0, "oldest_pending_seconds": 0.0, "overdue_projections": 0, "quarantined_messages": 0}, "totals": {"accounts": 200, "transfers": 1, "balance_minor": 20000000, "provisioned_minor": 20000000}, "finished_at": "2026-10-09T14:32:20.629030+00:00"}
+NAME                                       IMAGE                                                                                          COMMAND                  SERVICE        CREATED         STATUS                            PORTS
+chaosloop-bootstrap-check-api-1            chaosloop-pulsepay:phase1                                                                      "uvicorn apps.pulsep…"   api            4 seconds ago   Up 3 seconds (health: starting)   127.0.0.1:18080->8080/tcp
+chaosloop-bootstrap-check-event-worker-1   chaosloop-pulsepay:phase1                                                                      "python -m workers.e…"   event-worker   4 seconds ago   Up 3 seconds (health: starting)
+chaosloop-bootstrap-check-outbox-relay-1   chaosloop-pulsepay:phase1                                                                      "python -m workers.o…"   outbox-relay   4 seconds ago   Up 3 seconds (health: starting)
+chaosloop-bootstrap-check-postgres-1       sha256:cf87cd5e890eceb3f4e18e972df08dd49c3f89fefc9b236008a1fcc5926d8f54                        "docker-entrypoint.s…"   postgres       8 seconds ago   Up 8 seconds (healthy)            5432/tcp
+chaosloop-bootstrap-check-redis-1          redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9   "docker-entrypoint.s…"   redis          8 seconds ago   Up 8 seconds (healthy)            6379/tcp
+ Container chaosloop-bootstrap-check-event-worker-1 Stopping
+ Container chaosloop-bootstrap-check-outbox-relay-1 Stopping
+ Container chaosloop-bootstrap-check-api-1 Stopping
+ Container chaosloop-bootstrap-check-redis-1 Stopping
+ Container chaosloop-bootstrap-check-redis-1 Stopped
+ Container chaosloop-bootstrap-check-redis-1 Removing
+ Container chaosloop-bootstrap-check-redis-1 Removed
+ Container chaosloop-bootstrap-check-outbox-relay-1 Stopped
+ Container chaosloop-bootstrap-check-outbox-relay-1 Removing
+ Container chaosloop-bootstrap-check-outbox-relay-1 Removed
+ Container chaosloop-bootstrap-check-event-worker-1 Stopped
+ Container chaosloop-bootstrap-check-event-worker-1 Removing
+ Container chaosloop-bootstrap-check-event-worker-1 Removed
+ Container chaosloop-bootstrap-check-api-1 Stopped
+ Container chaosloop-bootstrap-check-api-1 Removing
+ Container chaosloop-bootstrap-check-api-1 Removed
+ Container chaosloop-bootstrap-check-migrate-1 Stopping
+ Container chaosloop-bootstrap-check-migrate-1 Stopped
+ Container chaosloop-bootstrap-check-migrate-1 Removing
+ Container chaosloop-bootstrap-check-migrate-1 Removed
+ Container chaosloop-bootstrap-check-postgres-1 Stopping
+ Container chaosloop-bootstrap-check-postgres-1 Stopped
+ Container chaosloop-bootstrap-check-postgres-1 Removing
+ Container chaosloop-bootstrap-check-postgres-1 Removed
+ Network chaosloop-bootstrap-check_internal Removing
+ Volume chaosloop-bootstrap-check_redis-data Removing
+ Volume chaosloop-bootstrap-check_pg-data Removing
+ Network chaosloop-bootstrap-check_edge Removing
+ Volume chaosloop-bootstrap-check_redis-data Removed
+ Volume chaosloop-bootstrap-check_pg-data Removed
+ Network chaosloop-bootstrap-check_internal Removed
+ Network chaosloop-bootstrap-check_edge Removed
+CLEAN BOOTSTRAP PASS; disposable project removed; baseline project retained

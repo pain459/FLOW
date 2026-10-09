@@ -1,0 +1,48 @@
+{
+  "uid": "pulsepay-explorer",
+  "title": "Trace and Logs Explorer",
+  "schemaVersion": 40,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "JSON logs: service, request_id and trace_id",
+      "type": "logs",
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 12
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "{job=\"pulsepay\"} | json"
+        }
+      ],
+      "options": {
+        "showTime": true
+      }
+    },
+    {
+      "id": 2,
+      "title": "Traces — select TraceID in a log line to open Tempo",
+      "type": "text",
+      "gridPos": {
+        "x": 0,
+        "y": 12,
+        "w": 24,
+        "h": 4
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "[Open Tempo Explore](/explore?left=%7B%22datasource%22%3A%22tempo%22%7D)\n\nLogs link trace_id to Tempo; Tempo links service and trace ID to Loki. Asynchronous consumers carry causal span links."
+      }
+    }
+  ]
+}

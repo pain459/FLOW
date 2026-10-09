@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "request_id": "observability-cb0b7126f13147f6b66ee339ebebcd5b",
+  "request_trace_id": "4c03a95202c5da21a18fcd3261ef94c3",
+  "worker_trace_id": "61d58ed9fe6db601ed2cc722946f3198",
+  "checked_prometheus_panels": 22,
+  "provisioned_datasources": [
+    "loki",
+    "prometheus",
+    "tempo"
+  ]
+}

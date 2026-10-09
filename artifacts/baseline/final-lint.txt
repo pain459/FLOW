@@ -1,0 +1,15 @@
+docker compose run --rm tests sh -c 'ruff check . && ruff format --check . && mypy apps shared workers verifier activity'
+ Container chaosloop-postgres-1 Running
+ Container chaosloop-migrate-1 Recreate
+ Container chaosloop-migrate-1 Recreated
+ Container chaosloop-postgres-1 Waiting
+ Container chaosloop-postgres-1 Healthy
+ Container chaosloop-migrate-1 Starting
+ Container chaosloop-migrate-1 Started
+ Container chaosloop-migrate-1 Waiting
+ Container chaosloop-migrate-1 Exited
+ Container chaosloop-tests-run-0644ebe15213 Creating
+ Container chaosloop-tests-run-0644ebe15213 Created
+All checks passed!
+64 files already formatted
+Success: no issues found in 46 source files

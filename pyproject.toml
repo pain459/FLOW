@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools==75.8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chaosloop-pulsepay"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.115.12", "uvicorn==0.34.2", "pydantic-settings==2.9.1",
+  "sqlalchemy==2.0.40", "asyncpg==0.30.0", "alembic==1.15.2",
+  "redis==5.2.1", "httpx==0.28.1", "prometheus-client==0.21.1",
+  "opentelemetry-sdk==1.32.1", "opentelemetry-exporter-otlp-proto-grpc==1.32.1",
+  "opentelemetry-instrumentation-fastapi==0.53b1",
+  "opentelemetry-instrumentation-sqlalchemy==0.53b1",
+  "opentelemetry-instrumentation-httpx==0.53b1",
+  "opentelemetry-instrumentation-redis==0.53b1",
+  "pytest==8.3.5", "pytest-asyncio==0.26.0", "ruff==0.11.7", "mypy==1.15.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["apps*", "shared*", "workers*", "verifier*", "activity*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+addopts = "-o cache_dir=/tmp/pulsepay-pytest-cache"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+python_version = "3.12"
+ignore_missing_imports = true
+check_untyped_defs = true

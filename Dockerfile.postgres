@@ -1,0 +1,2 @@
+FROM postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad
+COPY --chmod=0644 scripts/init-db.sh /docker-entrypoint-initdb.d/10-roles.sh

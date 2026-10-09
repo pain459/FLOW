@@ -1,0 +1,32 @@
+from prometheus_client import Counter, Gauge, Histogram
+
+http_requests = Counter("http_requests_total", "HTTP requests", ["method", "route", "status_class"])
+http_duration = Histogram("http_request_duration_seconds", "HTTP latency", ["method", "route"])
+transfers = Counter("pulsepay_transfers_total", "Transfer requests", ["outcome"])
+transfer_duration = Histogram("pulsepay_transfer_duration_seconds", "Transfer service latency")
+pool_checked_out = Gauge("pulsepay_db_pool_checked_out", "Checked out DB connections")
+pool_wait = Histogram("pulsepay_db_pool_wait_seconds", "Connection checkout wait")
+db_errors = Counter("pulsepay_db_errors_total", "DB errors", ["type"])
+redis_operations = Counter(
+    "pulsepay_redis_operations_total", "Redis operations", ["operation", "outcome"]
+)
+cache_hits = Counter("pulsepay_cache_hits_total", "Summary cache hits")
+cache_misses = Counter("pulsepay_cache_misses_total", "Summary cache misses")
+outbox_pending = Gauge("pulsepay_outbox_pending", "Unpublished events")
+outbox_oldest = Gauge("pulsepay_outbox_oldest_age_seconds", "Oldest unpublished event age")
+events = Counter("pulsepay_events_processed_total", "Consumer effects", ["outcome"])
+event_lag = Histogram("pulsepay_event_processing_lag_seconds", "Commit to projection time")
+consumer_pending = Gauge("pulsepay_consumer_pending", "Pending deliveries")
+consumer_oldest = Gauge("pulsepay_consumer_oldest_pending_age_seconds", "Oldest pending idle age")
+consumer_lag = Gauge("pulsepay_consumer_lag", "Undelivered consumer group entries")
+verification = Gauge(
+    "pulsepay_verification_status", "PASS=0 FAIL=1 UNKNOWN=2 DEGRADED=3", ["check"]
+)
+activity_requests = Counter(
+    "pulsepay_activity_requests_total", "Synthetic HTTP requests", ["operation", "outcome"]
+)
+activity_duration = Histogram(
+    "pulsepay_activity_request_duration_seconds", "Synthetic HTTP latency", ["operation"]
+)
+activity_pending = Gauge("pulsepay_activity_pending", "HTTP operations in flight")
+service_up = Gauge("pulsepay_service_up", "Observed component reachable", ["service"])
