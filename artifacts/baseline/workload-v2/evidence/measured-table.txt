@@ -1,0 +1,13 @@
+load-20261010T142802Z-4e7c8c3c nominal PASS 20.175 50.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T143047Z-98732486 nominal PASS 20.216666666666665 52.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T143332Z-08f6e69c nominal PASS 20.216666666666665 45.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T143619Z-f1dbe502 read_heavy PASS 39.59166666666667 33.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T143903Z-c607b40b write_heavy PASS 30.308333333333334 47.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T144150Z-27806932 hot_accounts PASS 30.108333333333334 47.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T144434Z-beb7778f burst FAILED 148.175 15.0 {'postflight': 'DEGRADED', 'preflight': 'PASS'}
+load-20261010T151059Z-d5d0876f burst PASS 120.4 9.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T151337Z-1de1e018 step_ramp PASS 20.166666666666668 53.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T151419Z-5eca19d3 soak PASS 10.1 44.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T151502Z-28d50ec3 journeys PASS 16.433333333333334 18.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T151543Z-96edc7ad nominal PASS 20.2 23.0 {'postflight': 'PASS', 'preflight': 'PASS'}
+load-20261010T153512Z-07e1739e nominal INTERRUPTED 5.256928220707402 13.0 {'postflight': 'PASS', 'preflight': 'PASS'}

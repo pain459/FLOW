@@ -1,0 +1,67 @@
+# Optional PulsePay workloads. This overlay never changes core financial services.
+services:
+  load-controller:
+    build: {context: ., dockerfile: load_generator/Dockerfile}
+    image: ${LOAD_IMAGE:-pulsepay-load:v1}
+    profiles: [load]
+    init: true
+    restart: 'no'
+    read_only: true
+    tmpfs: ["/tmp:size=64m,mode=1777"]
+    volumes: [load-reports:/reports]
+    networks: [internal]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    mem_limit: ${LOAD_MEMORY_LIMIT:-768m}
+    cpus: ${LOAD_CPU_LIMIT:-1.0}
+    pids_limit: 128
+    stop_grace_period: 45s
+    # Published only by the explicit manual UI wrapper using --service-ports.
+    ports: ["127.0.0.1:${LOCUST_UI_PORT:-8089}:8089"]
+    environment:
+      DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      SERVICE_NAME: load-controller
+      LOAD_TARGET: http://api:8080
+      LOAD_REPORTS: /reports
+      LOAD_REPORT_BUDGET_MIB: ${LOAD_REPORT_BUDGET_MIB:-512}
+      PYTEST_ADDOPTS: '-o cache_dir=/tmp/pulsepay-load-tests'
+      RUFF_CACHE_DIR: /tmp/pulsepay-load-ruff
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:9101/metrics',timeout=2)"]
+      interval: 5s
+      timeout: 2s
+      retries: 12
+    logging: {driver: json-file, options: {max-size: '10m', max-file: '3'}}
+  load-guard:
+    image: ${LOAD_IMAGE:-pulsepay-load:v1}
+    profiles: [load]
+    command: [sleep, '14700']
+    init: true
+    restart: 'no'
+    read_only: true
+    networks: [internal]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    mem_limit: 32m
+    cpus: 0.1
+    pids_limit: 16
+    logging: {driver: json-file, options: {max-size: '1m', max-file: '2'}}
+  load-resources:
+    image: ${LOAD_IMAGE:-pulsepay-load:v1}
+    profiles: [load]
+    command: [python, -m, load_generator.controller.cli, resource-stream]
+    init: true
+    restart: 'no'
+    read_only: true
+    tmpfs: ["/tmp:size=16m,mode=1777"]
+    volumes: [load-reports:/reports]
+    environment: {LOAD_REPORTS: /reports}
+    networks: [internal]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 32
+    logging: {driver: json-file, options: {max-size: '1m', max-file: '2'}}
+volumes:
+  load-reports:

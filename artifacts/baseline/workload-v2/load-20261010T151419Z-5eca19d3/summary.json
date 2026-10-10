@@ -1,0 +1,397 @@
+{
+  "artifact_paths": [
+    "manifest.json",
+    "summary.json",
+    "summary.md",
+    "locust-stats.csv",
+    "time-series.json",
+    "verifier-pre.json",
+    "verifier-post.json",
+    "errors.jsonl"
+  ],
+  "business": {
+    "business_rejections": 0,
+    "confirmed_commits": 121,
+    "duplicate_replays": 3,
+    "expected_rejections": 0,
+    "unique_transfer_attempts": 121,
+    "unknown_outcomes": 0
+  },
+  "environment": {
+    "machine": {
+      "architecture": "aarch64",
+      "docker_cpus": 18,
+      "docker_memory_bytes": 8317267968,
+      "docker_version": "29.8.2",
+      "kernel": "7.0.14-linuxkit",
+      "os": "linux"
+    },
+    "services": {
+      "api": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "event-worker": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "grafana": {
+        "config": {},
+        "cpu_limit": 0.5,
+        "health": null,
+        "image_id": "sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb",
+        "image_tag": "grafana/grafana:11.6.0@sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "load-controller": {
+        "config": {},
+        "cpu_limit": null,
+        "health": null,
+        "image_id": "sha256:fcb6d437d077187cb34a497373627425fd393fa8598a6b46ef4fc371c79fe95a",
+        "image_tag": "sha256:fcb6d437d077187cb34a497373627425fd393fa8598a6b46ef4fc371c79fe95a",
+        "memory_limit_bytes": null,
+        "running": null
+      },
+      "outbox-relay": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "postgres": {
+        "config": {},
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:a11194343f86f178aa96b5901791a536595946b8ef1c9cc1213c6d08a699ea3e",
+        "image_tag": "pulsepay-postgres:v1",
+        "memory_limit_bytes": 805306368,
+        "running": true
+      },
+      "prometheus": {
+        "config": {},
+        "cpu_limit": 0.5,
+        "health": null,
+        "image_id": "sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62",
+        "image_tag": "prom/prometheus:v3.2.1@sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "redis": {
+        "config": {},
+        "cpu_limit": 0.5,
+        "health": "healthy",
+        "image_id": "sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+        "image_tag": "redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+        "memory_limit_bytes": 268435456,
+        "running": true
+      },
+      "verifier": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "VERIFIER_INTERVAL_SECONDS": "15",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      }
+    }
+  },
+  "failures": [],
+  "generator_limits": {
+    "cpu_limit": 1.0,
+    "cpu_usage_usec": 296320,
+    "memory_bytes": 29417472,
+    "memory_limit_bytes": 805306368
+  },
+  "generator_saturation_observed": false,
+  "git_sha": "bdffebd6e5c13c74f2109f3dfebba244e0d6e075",
+  "health": {
+    "postflight": "HEALTHY",
+    "preflight": "HEALTHY"
+  },
+  "http": {
+    "completed": 303,
+    "failed": 0,
+    "latency_by_operation": {
+      "account_read": {
+        "p50_ms": 14.0,
+        "p95_ms": 34.0,
+        "p99_ms": 34.0
+      },
+      "balance_read": {
+        "p50_ms": 17.0,
+        "p95_ms": 59.0,
+        "p99_ms": 60.0
+      },
+      "history_read": {
+        "p50_ms": 33.0,
+        "p95_ms": 63.0,
+        "p99_ms": 66.0
+      },
+      "summary_read": {
+        "p50_ms": 23.0,
+        "p95_ms": 62.0,
+        "p99_ms": 66.0
+      },
+      "transfer_status": {
+        "p50_ms": 24.0,
+        "p95_ms": 61.0,
+        "p99_ms": 61.0
+      },
+      "transfer_write": {
+        "p50_ms": 25.0,
+        "p95_ms": 39.0,
+        "p99_ms": 63.0
+      }
+    },
+    "operations": {
+      "account_read": 34,
+      "balance_read": 42,
+      "history_read": 37,
+      "summary_read": 55,
+      "transfer_status": 11,
+      "transfer_write": 124
+    },
+    "outcomes": {
+      "replay": 3,
+      "success": 300
+    },
+    "p50_ms": 23.0,
+    "p95_ms": 44.0,
+    "p99_ms": 64.0,
+    "request_body_bytes": 19709,
+    "response_bytes": 276350,
+    "valid_reads": 179,
+    "valid_transfer_submissions": 124
+  },
+  "http_agreement": {
+    "api_http_delta": 248.0,
+    "generator_http_delta": 263,
+    "reason": "Prometheus scrapes every 5 seconds; allow two scrape windows plus bounded inflight completion.",
+    "status": "PASS",
+    "tolerance_requests": 102.68124848895424,
+    "window_seconds": 25.613245248794556
+  },
+  "integrity": {
+    "postflight": "PASS",
+    "preflight": "PASS"
+  },
+  "load": {
+    "achieved_rps": 10.1,
+    "configured_users": 20,
+    "mode": "closed_loop",
+    "offered_operations_per_second": 10.0,
+    "peak_users": 20,
+    "target_operations_per_second": 10.0,
+    "target_rps": null
+  },
+  "observation_gaps": [
+    "DB_LOCK_WAITS_SLOW_QUERIES_DEADLOCKS_NOT_EXPORTED",
+    "api_5xx_counter",
+    "redis_failures_counter",
+    "worker_retries_counter"
+  ],
+  "profile": "soak",
+  "profile_sha256": "a016e9fd2ce8b30dfb14a091a80de830b670e725714f4ab46a687a36d931b2be",
+  "resource_peaks": {
+    "api": {
+      "cpu_percent": 4.57,
+      "memory_bytes": 80289464.32,
+      "memory_percent": 19.94
+    },
+    "event-worker": {
+      "cpu_percent": 2.64,
+      "memory_bytes": 73347891.2,
+      "memory_percent": 18.22
+    },
+    "outbox-relay": {
+      "cpu_percent": 1.96,
+      "memory_bytes": 71900856.32,
+      "memory_percent": 17.86
+    },
+    "postgres": {
+      "cpu_percent": 4.19,
+      "memory_bytes": 125095116.8,
+      "memory_percent": 15.53
+    },
+    "redis": {
+      "cpu_percent": 1.75,
+      "memory_bytes": 14889779.2,
+      "memory_percent": 5.55
+    },
+    "verifier": {
+      "cpu_percent": 0.27,
+      "memory_bytes": 74532782.08,
+      "memory_percent": 18.51
+    }
+  },
+  "result": "PASS",
+  "run_id": "load-20261010T151419Z-5eca19d3",
+  "schema_version": 1,
+  "timing": {
+    "finished_at": "2026-10-10T15:14:58.840467+00:00",
+    "measured_seconds": 30,
+    "measurement_end_utc": "2026-10-10T15:14:56.086605+00:00",
+    "measurement_start_utc": "2026-10-10T15:14:26.086605+00:00"
+  },
+  "volume": {
+    "post": {
+      "accounts": 200,
+      "active_accounts": 200,
+      "balance_minor": "20000000",
+      "ledger_entries": 7402,
+      "oldest_pending_seconds": 0.0,
+      "outbox_pending": 0,
+      "projections": 3601,
+      "provisioned_minor": "20000000",
+      "transfers": 3601
+    },
+    "pre": {
+      "accounts": 200,
+      "active_accounts": 200,
+      "balance_minor": "20000000",
+      "ledger_entries": 7106,
+      "oldest_pending_seconds": 0.0,
+      "outbox_pending": 0,
+      "projections": 3453,
+      "provisioned_minor": "20000000",
+      "transfers": 3453
+    }
+  },
+  "warmup": {
+    "confirmed_commits": 21,
+    "http": 50,
+    "labels": {
+      "account_read|2xx|success": 5,
+      "balance_read|2xx|success": 6,
+      "history_read|2xx|success": 8,
+      "summary_read|2xx|success": 7,
+      "transfer_status|2xx|success": 3,
+      "transfer_write|2xx|success": 21
+    },
+    "latencies": {
+      "10": 6,
+      "11": 4,
+      "12": 2,
+      "13": 2,
+      "14": 3,
+      "15": 5,
+      "16": 9,
+      "17": 3,
+      "18": 3,
+      "19": 1,
+      "21": 2,
+      "22": 3,
+      "6": 2,
+      "7": 1,
+      "8": 3,
+      "9": 1
+    },
+    "logical_attempts": 21,
+    "offered": 50,
+    "operation_latencies": {
+      "account_read:10": 1,
+      "account_read:11": 1,
+      "account_read:13": 1,
+      "account_read:15": 1,
+      "account_read:8": 1,
+      "balance_read:12": 1,
+      "balance_read:15": 2,
+      "balance_read:18": 1,
+      "balance_read:6": 1,
+      "balance_read:7": 1,
+      "history_read:10": 1,
+      "history_read:11": 1,
+      "history_read:16": 2,
+      "history_read:17": 1,
+      "history_read:19": 1,
+      "history_read:8": 1,
+      "history_read:9": 1,
+      "summary_read:10": 1,
+      "summary_read:14": 2,
+      "summary_read:15": 1,
+      "summary_read:17": 1,
+      "summary_read:18": 1,
+      "summary_read:8": 1,
+      "transfer_status:16": 2,
+      "transfer_status:6": 1,
+      "transfer_write:10": 3,
+      "transfer_write:11": 2,
+      "transfer_write:12": 1,
+      "transfer_write:13": 1,
+      "transfer_write:14": 1,
+      "transfer_write:15": 1,
+      "transfer_write:16": 5,
+      "transfer_write:17": 1,
+      "transfer_write:18": 1,
+      "transfer_write:21": 2,
+      "transfer_write:22": 3
+    },
+    "operations": {
+      "account_read": 5,
+      "balance_read": 6,
+      "history_read": 8,
+      "summary_read": 7,
+      "transfer_status": 3,
+      "transfer_write": 21
+    },
+    "outcomes": {
+      "success": 50
+    },
+    "request_body_bytes": 3337,
+    "response_bytes": 55932,
+    "valid_reads": 29,
+    "valid_transfer_submissions": 21
+  }
+}

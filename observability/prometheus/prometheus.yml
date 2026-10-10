@@ -8,11 +8,13 @@ scrape_configs:
     static_configs: [{targets: ['outbox-relay:9100']}]
   - job_name: event-worker
     static_configs: [{targets: ['event-worker:9100']}]
-  - job_name: activity
-    static_configs: [{targets: ['activity:9100']}]
   - job_name: verifier
     static_configs: [{targets: ['verifier:9100']}]
   - job_name: prometheus
     static_configs: [{targets: ['localhost:9090']}]
+  - job_name: load
+    static_configs: [{targets: ['load-controller:9101']}]
+  - job_name: locust
+    static_configs: [{targets: ['locust:9101']}]
   - job_name: otel-collector
     static_configs: [{targets: ['otel-collector:8888']}]

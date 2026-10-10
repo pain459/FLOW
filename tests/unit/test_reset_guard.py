@@ -9,7 +9,11 @@ import pytest
 
 @pytest.mark.parametrize(
     "ack,project,allowed",
-    [(None, "chaosloop", False), ("chaosloop", "other", False), ("chaosloop", "chaosloop", True)],
+    [
+        (None, "chaosloop", False),
+        ("chaosloop", "other", False),
+        ("chaosloop", "chaosloop", True),
+    ],
 )
 def test_reset_requires_acknowledgement_and_exact_project(tmp_path, ack, project, allowed):
     fake = tmp_path / "docker"

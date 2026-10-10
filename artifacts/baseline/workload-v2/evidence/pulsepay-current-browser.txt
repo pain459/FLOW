@@ -1,0 +1,64 @@
+sh scripts/ui-test.sh
+ Container chaosloop-postgres-1 Running 
+ Container chaosloop-redis-1 Running 
+ Container chaosloop-postgres-1 Running 
+ Container chaosloop-postgres-1 Waiting 
+ Container chaosloop-postgres-1 Healthy 
+ Container chaosloop-migrate-run-dc2b72c2c039 Creating 
+ Container chaosloop-migrate-run-dc2b72c2c039 Created 
+ Image pulsepay-browser-tests:v1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile.browser-tests
+#2 transferring dockerfile: 570B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 116B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0
+#5 resolve mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0 done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 297.55kB done
+#6 DONE 0.0s
+
+#7 [3/6] COPY requirements.lock ./
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.lock && pip install --no-cache-dir playwright==1.63.0
+#8 CACHED
+
+#9 [2/6] WORKDIR /app
+#9 CACHED
+
+#10 [5/6] RUN useradd --uid 10001 --create-home pulsepay && mkdir /evidence && chown pulsepay:pulsepay /evidence
+#10 CACHED
+
+#11 [6/6] COPY --chown=pulsepay:pulsepay . .
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers 0.0s done
+#12 exporting manifest sha256:b2f0fdaa556696b496b576a2173929f724032b0bccf15d7769e1e1668777b522 done
+#12 exporting config sha256:00aeb7e67066e50a9cd65edef2f6ab390d91d261d42ee7402b0e72d9db8b5436 done
+#12 exporting attestation manifest sha256:7a0d797d66b55892e5fc675599f305c8a0b739a956fe17a593427f8e24b0e7d2 done
+#12 exporting manifest list sha256:79c206c7d2e73eea4527d51691785bc3b8be11ab38d35933f888bce71865b731 done
+#12 naming to docker.io/library/pulsepay-browser-tests:v1 done
+#12 unpacking to docker.io/library/pulsepay-browser-tests:v1 0.0s done
+#12 DONE 0.1s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image pulsepay-browser-tests:v1 Built 
+ Container chaosloop-ui-tests-23198 Creating 
+ Container chaosloop-ui-tests-23198 Created 
+.......                                                                  [100%]
+7 passed in 8.90s

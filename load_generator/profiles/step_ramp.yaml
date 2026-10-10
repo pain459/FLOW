@@ -1,0 +1,23 @@
+schema_version: 1
+name: step_ramp
+seed: 4217
+mode: closed_loop
+users: 10
+spawn_rate_users_per_second: 10
+duration_seconds: 1500
+warmup_seconds: 30
+cooldown_seconds: 180
+target_operations_per_second: null
+mix:
+  account_read: 0.1200
+  balance_read: 0.1500
+  summary_read: 0.1500
+  history_read: 0.1200
+  transfer_status: 0.0600
+  transfer_write: 0.4000
+stages:
+  - {seconds: 300, users: 10}
+  - {seconds: 300, users: 25}
+  - {seconds: 300, users: 50}
+  - {seconds: 300, users: 100}
+  - {seconds: 300, users: 150}

@@ -44,7 +44,6 @@ async def main():
                     "status": "PASS",
                     "browser_errors": errors,
                     "independent_verification": signals["verification"]["status"],
-                    "activity": signals["activity"]["status"],
                     "screenshots": 5,
                 }
             )

@@ -20,18 +20,10 @@ class Settings(BaseSettings):
     reclaim_idle_ms: int = Field(default=10000, ge=100, le=60000)
     seed_account_count: int = Field(default=200, ge=2, le=500)
     seed_balance_minor: int = Field(default=100000, ge=1, le=1000000000)
-    seed_version: str = "phase1-v1"
-    activity_enabled: bool = False
-    activity_mode: str = Field(default="mixed", pattern=r"^(off|steady|mixed)$")
-    activity_target_rps: float = Field(default=2, gt=0, le=5)
-    activity_read_percent: int = Field(default=60, ge=0, le=100)
-    activity_seed: int = 42
-    activity_concurrency: int = Field(default=2, ge=1, le=4)
-    activity_max_amount_minor: int = Field(default=100, ge=1, le=1000)
+    seed_version: str = "pulsepay-v1"
     api_url: str = "http://api:8080"
     verifier_interval_seconds: float = Field(default=15, ge=1, le=300)
     verifier_report_url: str = "http://verifier:9100/report"
-    activity_status_url: str = "http://activity:9100/health/dependencies"
 
 
 @lru_cache

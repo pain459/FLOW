@@ -1,0 +1,12 @@
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "CREATED", "timestamp": "2026-10-10T15:35:12.055487+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "VALIDATING", "timestamp": "2026-10-10T15:35:12.079739+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "PREFLIGHT", "timestamp": "2026-10-10T15:35:12.080350+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "READY", "timestamp": "2026-10-10T15:35:12.580002+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "WARMUP", "timestamp": "2026-10-10T15:35:12.580697+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "RUNNING", "timestamp": "2026-10-10T15:35:18.445901+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "STOPPING", "timestamp": "2026-10-10T15:35:27.758171+00:00", "reason": "OPERATOR_CANCELLED"}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "STOPPED", "timestamp": "2026-10-10T15:35:27.825213+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "COOLDOWN", "timestamp": "2026-10-10T15:35:27.825857+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "VERIFYING", "timestamp": "2026-10-10T15:35:29.891447+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "REPORTING", "timestamp": "2026-10-10T15:35:30.389894+00:00", "reason": ""}
+{"run_id": "load-20261010T153512Z-07e1739e", "status": "INTERRUPTED", "timestamp": "2026-10-10T15:35:30.391732+00:00", "reason": ""}

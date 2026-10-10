@@ -204,6 +204,7 @@ cython_debug/
 # .vscode/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
+artifacts/load-runs/
 
 # Ruff stuff:
 .ruff_cache/
@@ -219,3 +220,8 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 /artifacts/*
+# Curated, sanitized qualification references; raw runs remain ignored.
+!/artifacts/baseline/
+/artifacts/baseline/*
+!/artifacts/baseline/workload-v1/
+!/artifacts/baseline/workload-v2/

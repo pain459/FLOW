@@ -1,0 +1,19 @@
+schema_version: 1
+name: hot_accounts
+seed: 4217
+mode: closed_loop
+users: 50
+spawn_rate_users_per_second: 10
+duration_seconds: 600
+warmup_seconds: 30
+target_operations_per_second: 30
+mix:
+  account_read: 0.0800
+  balance_read: 0.1000
+  summary_read: 0.1000
+  history_read: 0.0800
+  transfer_status: 0.0400
+  transfer_write: 0.6000
+accounts:
+  selection: hot
+  hot_account_count: 5

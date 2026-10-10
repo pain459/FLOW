@@ -4,14 +4,15 @@ x-infra-logging: &infra-logging
   options: {max-size: '10m', max-file: '3'}
 x-app: &app
   build: .
-  image: chaosloop-pulsepay:phase1
+  image: pulsepay-api:v1
   init: true
   restart: unless-stopped
   stop_grace_period: 20s
   mem_limit: 384m
   cpus: 1.0
   read_only: true
-  tmpfs: [/tmp]
+  tmpfs: ["/tmp:size=64m,mode=1777"]
+  pids_limit: 128
   security_opt: [no-new-privileges:true]
   cap_drop: [ALL]
   networks: [internal]
@@ -25,15 +26,14 @@ x-app: &app
     DB_TIMEOUT_SECONDS: ${DB_TIMEOUT_SECONDS:-5}
     REQUEST_TIMEOUT_SECONDS: ${REQUEST_TIMEOUT_SECONDS:-12}
     CACHE_TTL_SECONDS: ${CACHE_TTL_SECONDS:-5}
-    SEED_VERSION: ${SEED_VERSION:-phase1-v1}
+    SEED_VERSION: ${SEED_VERSION:-pulsepay-v1}
     WORKER_POLL_SECONDS: ${WORKER_POLL_SECONDS:-1}
     RECLAIM_IDLE_MS: ${RECLAIM_IDLE_MS:-10000}
     VERIFIER_REPORT_URL: ${VERIFIER_REPORT_URL:-http://verifier:9100/report}
-    ACTIVITY_STATUS_URL: ${ACTIVITY_STATUS_URL:-http://activity:9100/health/dependencies}
   logging:
     driver: fluentd
     options:
-      fluentd-address: '127.0.0.1:24224'
+      fluentd-address: '127.0.0.1:${LOG_COLLECTOR_PORT:-24224}'
       fluentd-async: 'true'
       fluentd-buffer-limit: '4096'
       fluentd-write-timeout: '1s'
@@ -44,9 +44,41 @@ x-app: &app
       cache-max-file: '3'
 
 services:
+  locust:
+    build: {context: ., dockerfile: load_generator/Dockerfile}
+    image: ${LOAD_IMAGE:-pulsepay-load:v1}
+    command: [python, -m, load_generator.stack_ui]
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs: ["/tmp:size=64m,mode=1777"]
+    volumes: [load-reports:/reports]
+    networks: [internal, edge]
+    ports: ["127.0.0.1:${LOCUST_UI_PORT:-8089}:8089"]
+    mem_limit: ${LOAD_MEMORY_LIMIT:-768m}
+    cpus: ${LOAD_CPU_LIMIT:-1.0}
+    pids_limit: 128
+    stop_grace_period: 45s
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    environment:
+      DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      SERVICE_NAME: locust
+      LOAD_TARGET: http://api:8080
+      LOAD_REPORTS: /reports
+      LOAD_REPORT_BUDGET_MIB: ${LOAD_REPORT_BUDGET_MIB:-512}
+      LOCUST_PROFILE: ${LOCUST_PROFILE:-nominal}
+      LOCUST_DURATION_SECONDS: ${LOCUST_DURATION_SECONDS:-600}
+      LOCUST_WARMUP_SECONDS: ${LOCUST_WARMUP_SECONDS:-30}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8089/',timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    logging: *infra-logging
   postgres:
     build: {context: ., dockerfile: Dockerfile.postgres}
-    image: chaosloop-postgres:phase1
+    image: pulsepay-postgres:v1
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-pulsepay}
       POSTGRES_USER: ${POSTGRES_USER:-pulsepay_owner}
@@ -123,7 +155,7 @@ services:
   ui-tests:
     <<: *app
     build: {context: ., dockerfile: Dockerfile.browser-tests}
-    image: chaosloop-ui-tests:phase1
+    image: pulsepay-browser-tests:v1
     profiles: [ui-test]
     restart: 'no'
     read_only: false
@@ -195,33 +227,13 @@ services:
     depends_on:
       migrate: {condition: service_completed_successfully}
     healthcheck: *worker-health
-  activity:
-    <<: *app
-    profiles: [activity]
-    command: [python, -m, activity.main]
-    environment:
-      <<: *env
-      DATABASE_URL: postgresql+asyncpg://disabled@postgres:5432/${POSTGRES_DB:-pulsepay}
-      SERVICE_NAME: activity
-      ACTIVITY_ENABLED: ${ACTIVITY_ENABLED:-false}
-      ACTIVITY_MODE: ${ACTIVITY_MODE:-mixed}
-      ACTIVITY_CONCURRENCY: ${ACTIVITY_CONCURRENCY:-2}
-      ACTIVITY_MAX_AMOUNT_MINOR: ${ACTIVITY_MAX_AMOUNT_MINOR:-100}
-      ACTIVITY_TARGET_RPS: ${ACTIVITY_TARGET_RPS:-2}
-      ACTIVITY_READ_PERCENT: ${ACTIVITY_READ_PERCENT:-60}
-      ACTIVITY_SEED: ${ACTIVITY_SEED:-42}
-      SEED_ACCOUNT_COUNT: ${SEED_ACCOUNT_COUNT:-200}
-      SEED_BALANCE_MINOR: ${SEED_BALANCE_MINOR:-100000}
-    depends_on:
-      api: {condition: service_healthy}
-    healthcheck: *worker-health
   prometheus:
     logging: *infra-logging
     image: prom/prometheus:v3.2.1@sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62
     profiles: [observability]
     command: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.retention.time=24h, --storage.tsdb.retention.size=256MB]
     volumes: [./observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro, prom-data:/prometheus]
-    ports: ['127.0.0.1:9090:9090']
+    ports: ['127.0.0.1:${PROMETHEUS_PORT:-9090}:9090']
     networks: [internal, edge]
     restart: unless-stopped
     mem_limit: 384m
@@ -237,7 +249,7 @@ services:
       GF_ANALYTICS_REPORTING_ENABLED: 'false'
       GF_ANALYTICS_CHECK_FOR_UPDATES: 'false'
     volumes: [grafana-data:/var/lib/grafana, ./observability/grafana/provisioning:/etc/grafana/provisioning:ro, ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro]
-    ports: ['127.0.0.1:3000:3000']
+    ports: ['127.0.0.1:${GRAFANA_PORT:-3000}:3000']
     networks: [internal, edge]
     restart: unless-stopped
     mem_limit: 384m
@@ -286,7 +298,7 @@ services:
     profiles: [observability]
     command: [-c, /fluent-bit/etc/config.yaml]
     volumes: [./observability/log-collector/config.yaml:/fluent-bit/etc/config.yaml:ro, log-buffer:/buffers]
-    ports: ['127.0.0.1:24224:24224']
+    ports: ['127.0.0.1:${LOG_COLLECTOR_PORT:-24224}:24224']
     networks: [internal, edge]
     restart: unless-stopped
     mem_limit: 128m
@@ -304,3 +316,4 @@ volumes:
   tempo-data:
   loki-data:
   log-buffer:
+  load-reports:

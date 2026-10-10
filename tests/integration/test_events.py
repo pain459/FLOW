@@ -13,7 +13,9 @@ async def pipeline(lab):
     from workers.event_consumer.main import Consumer
 
     config = Settings(
-        database_url=lab.worker_url, stream_name="test:" + uuid4().hex, reclaim_idle_ms=100
+        database_url=lab.worker_url,
+        stream_name="test:" + uuid4().hex,
+        reclaim_idle_ms=100,
     )
     db = Database(config)
     redis = Redis.from_url(config.redis_url, decode_responses=True)

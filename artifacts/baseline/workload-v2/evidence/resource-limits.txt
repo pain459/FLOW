@@ -1,0 +1,89 @@
+ Container chaosloop-tests-run-264e7ec3fda0 Creating 
+ Container chaosloop-tests-run-264e7ec3fda0 Created 
+{
+  "api": {
+    "cpus": 1,
+    "memory_mib": 384.0
+  },
+  "event-worker": {
+    "cpus": 1,
+    "memory_mib": 384.0
+  },
+  "grafana": {
+    "cpus": 0.5,
+    "memory_mib": 384.0
+  },
+  "load-controller": {
+    "cpus": 1,
+    "memory_mib": 768.0
+  },
+  "load-guard": {
+    "cpus": 0.1,
+    "memory_mib": 32.0
+  },
+  "load-resources": {
+    "cpus": 0.25,
+    "memory_mib": 128.0
+  },
+  "locust": {
+    "cpus": 1,
+    "memory_mib": 768.0
+  },
+  "log-collector": {
+    "cpus": 0.25,
+    "memory_mib": 128.0
+  },
+  "loki": {
+    "cpus": 0.5,
+    "memory_mib": 384.0
+  },
+  "migrate": {
+    "cpus": 1,
+    "memory_mib": 384.0
+  },
+  "otel-collector": {
+    "cpus": 0.5,
+    "memory_mib": 256.0
+  },
+  "outbox-relay": {
+    "cpus": 1,
+    "memory_mib": 384.0
+  },
+  "postgres": {
+    "cpus": 1,
+    "memory_mib": 768.0
+  },
+  "prometheus": {
+    "cpus": 0.5,
+    "memory_mib": 384.0
+  },
+  "redis": {
+    "cpus": 0.5,
+    "memory_mib": 256.0
+  },
+  "seed": {
+    "cpus": 1,
+    "memory_mib": 384.0
+  },
+  "telemetry-init": {
+    "cpus": 0.25,
+    "memory_mib": 32.0
+  },
+  "tempo": {
+    "cpus": 0.5,
+    "memory_mib": 384.0
+  },
+  "tests": {
+    "cpus": 1,
+    "memory_mib": 384.0
+  },
+  "ui-tests": {
+    "cpus": 1,
+    "memory_mib": 1024.0
+  },
+  "verifier": {
+    "cpus": 1,
+    "memory_mib": 384.0
+  }
+}
+All service resource limits: PASS

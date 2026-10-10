@@ -1,0 +1,450 @@
+ Container chaosloop-load-baseline-loki-1 Running 
+ Container chaosloop-load-baseline-otel-collector-1 Running 
+ Container chaosloop-load-baseline-redis-1 Running 
+ Container chaosloop-load-baseline-tempo-1 Running 
+ Container chaosloop-load-baseline-log-collector-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-grafana-1 Running 
+ Container chaosloop-load-baseline-prometheus-1 Running 
+ Container chaosloop-load-baseline-locust-1 Creating 
+ Container chaosloop-load-baseline-migrate-1 Recreate 
+ Container chaosloop-load-baseline-locust-1 Created 
+ Container chaosloop-load-baseline-migrate-1 Recreated 
+ Container chaosloop-load-baseline-api-1 Recreate 
+ Container chaosloop-load-baseline-event-worker-1 Recreate 
+ Container chaosloop-load-baseline-outbox-relay-1 Recreate 
+ Container chaosloop-load-baseline-verifier-1 Recreate 
+ Container chaosloop-load-baseline-verifier-1 Recreated 
+ Container chaosloop-load-baseline-outbox-relay-1 Recreated 
+ Container chaosloop-load-baseline-event-worker-1 Recreated 
+ Container chaosloop-load-baseline-api-1 Recreated 
+ Container chaosloop-load-baseline-locust-1 Starting 
+ Container chaosloop-load-baseline-telemetry-init-1 Starting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-locust-1 Started 
+ Container chaosloop-load-baseline-telemetry-init-1 Started 
+ Container chaosloop-load-baseline-telemetry-init-1 Waiting 
+ Container chaosloop-load-baseline-telemetry-init-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-telemetry-init-1 Exited 
+ Container chaosloop-load-baseline-telemetry-init-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-redis-1 Waiting 
+ Container chaosloop-load-baseline-otel-collector-1 Waiting 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-grafana-1 Waiting 
+ Container chaosloop-load-baseline-prometheus-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-loki-1 Waiting 
+ Container chaosloop-load-baseline-tempo-1 Waiting 
+ Container chaosloop-load-baseline-locust-1 Waiting 
+ Container chaosloop-load-baseline-telemetry-init-1 Waiting 
+ Container chaosloop-load-baseline-log-collector-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-log-collector-1 Healthy 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-loki-1 Healthy 
+ Container chaosloop-load-baseline-tempo-1 Healthy 
+ Container chaosloop-load-baseline-grafana-1 Healthy 
+ Container chaosloop-load-baseline-redis-1 Healthy 
+ Container chaosloop-load-baseline-otel-collector-1 Healthy 
+ Container chaosloop-load-baseline-telemetry-init-1 Exited 
+ Container chaosloop-load-baseline-prometheus-1 Healthy 
+ Container chaosloop-load-baseline-locust-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-api-1 Healthy 
+ Image pulsepay-load:v1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 562B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.00kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 116B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 4.91kB done
+#5 DONE 0.0s
+
+#6 [build 1/4] FROM docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#6 resolve docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db done
+#6 DONE 0.0s
+
+#7 [stage-1 8/9] COPY --chown=pulsepay:pulsepay apps/pulsepay/schemas apps/pulsepay/schemas
+#7 CACHED
+
+#8 [build 2/4] WORKDIR /build
+#8 CACHED
+
+#9 [build 3/4] COPY load_generator/requirements.lock ./
+#9 CACHED
+
+#10 [stage-1 4/9] WORKDIR /app
+#10 CACHED
+
+#11 [build 4/4] RUN pip install --no-cache-dir --prefix=/install -r requirements.lock
+#11 CACHED
+
+#12 [stage-1 6/9] COPY --chown=pulsepay:pulsepay shared shared
+#12 CACHED
+
+#13 [stage-1 7/9] COPY --chown=pulsepay:pulsepay verifier verifier
+#13 CACHED
+
+#14 [stage-1 2/9] RUN groupadd -g 10001 pulsepay && useradd -u 10001 -g pulsepay -m pulsepay && mkdir /reports && chown pulsepay:pulsepay /reports
+#14 CACHED
+
+#15 [stage-1 3/9] COPY --from=build /install /usr/local
+#15 CACHED
+
+#16 [stage-1 5/9] COPY --chown=pulsepay:pulsepay load_generator load_generator
+#16 CACHED
+
+#17 [stage-1 9/9] COPY --chown=pulsepay:pulsepay tests tests
+#17 CACHED
+
+#18 exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:13395e05b90365839ffa8a252dd212a790e9fb3a617c05993752d9301b1688e0 done
+#18 exporting config sha256:ad818bc19a6ea71732df98c3f43abb6cbdf4bb136654b0454e73dbc1d4f15bb8 done
+#18 exporting attestation manifest sha256:87422c17c28575d1cf4a7f8e2a1e5595eae1281035f2ca3d1647d02ff37700c6 done
+#18 exporting manifest list sha256:fcb6d437d077187cb34a497373627425fd393fa8598a6b46ef4fc371c79fe95a done
+#18 naming to docker.io/library/pulsepay-load:v1 done
+#18 unpacking to docker.io/library/pulsepay-load:v1 done
+#18 DONE 0.0s
+
+#19 resolving provenance for metadata file
+#19 DONE 0.0s
+ Image pulsepay-load:v1 Built 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopping 
+ Container chaosloop-load-baseline-api-1 Stopping 
+ Container chaosloop-load-baseline-verifier-1 Stopping 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopped 
+ Container chaosloop-load-baseline-verifier-1 Stopped 
+ Container chaosloop-load-baseline-event-worker-1 Stopped 
+ Container chaosloop-load-baseline-api-1 Stopped 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-api-1 Healthy 
+Nominal qualification repetition 1
+ Container chaosloop-load-baseline-load-controller-run-d3bf7b04a052 Creating 
+ Container chaosloop-load-baseline-load-controller-run-d3bf7b04a052 Created 
+ Container chaosloop-load-baseline-verifier-1 Stopping 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopping 
+ Container chaosloop-load-baseline-api-1 Stopping 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopped 
+ Container chaosloop-load-baseline-verifier-1 Stopped 
+ Container chaosloop-load-baseline-event-worker-1 Stopped 
+ Container chaosloop-load-baseline-api-1 Stopped 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-api-1 Healthy 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+Nominal qualification repetition 2
+ Container chaosloop-load-baseline-load-controller-run-3e5bb7dfb592 Creating 
+ Container chaosloop-load-baseline-load-controller-run-3e5bb7dfb592 Created 
+ Container chaosloop-load-baseline-api-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopping 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopping 
+ Container chaosloop-load-baseline-verifier-1 Stopping 
+ Container chaosloop-load-baseline-verifier-1 Stopped 
+ Container chaosloop-load-baseline-event-worker-1 Stopped 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopped 
+ Container chaosloop-load-baseline-api-1 Stopped 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-api-1 Healthy 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+Nominal qualification repetition 3
+ Container chaosloop-load-baseline-load-controller-run-cba416c5ec7e Creating 
+ Container chaosloop-load-baseline-load-controller-run-cba416c5ec7e Created 
+ Container chaosloop-load-baseline-load-controller-run-e5a24a4fb2ef Creating 
+ Container chaosloop-load-baseline-load-controller-run-e5a24a4fb2ef Created 
+ Container chaosloop-load-baseline-verifier-1 Stopping 
+ Container chaosloop-load-baseline-api-1 Stopping 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopped 
+ Container chaosloop-load-baseline-verifier-1 Stopped 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopped 
+ Container chaosloop-load-baseline-api-1 Stopped 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+ Container chaosloop-load-baseline-api-1 Healthy 
+Qualification trial read_heavy
+ Container chaosloop-load-baseline-verifier-1 Stopping 
+ Container chaosloop-load-baseline-api-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopping 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopped 
+ Container chaosloop-load-baseline-verifier-1 Stopped 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopped 
+ Container chaosloop-load-baseline-api-1 Stopped 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-api-1 Healthy 
+Qualification trial write_heavy
+ Container chaosloop-load-baseline-outbox-relay-1 Stopping 
+ Container chaosloop-load-baseline-api-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopping 
+ Container chaosloop-load-baseline-verifier-1 Stopping 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopped 
+ Container chaosloop-load-baseline-verifier-1 Stopped 
+ Container chaosloop-load-baseline-event-worker-1 Stopped 
+ Container chaosloop-load-baseline-api-1 Stopped 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+ Container chaosloop-load-baseline-api-1 Healthy 
+Qualification trial hot_accounts
+ Container chaosloop-load-baseline-outbox-relay-1 Stopping 
+ Container chaosloop-load-baseline-verifier-1 Stopping 
+ Container chaosloop-load-baseline-event-worker-1 Stopping 
+ Container chaosloop-load-baseline-api-1 Stopping 
+ Container chaosloop-load-baseline-verifier-1 Stopped 
+ Container chaosloop-load-baseline-event-worker-1 Stopped 
+ Container chaosloop-load-baseline-outbox-relay-1 Stopped 
+ Container chaosloop-load-baseline-api-1 Stopped 
+ Container chaosloop-load-baseline-postgres-1 Running 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-verifier-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-api-1 Starting 
+ Container chaosloop-load-baseline-outbox-relay-1 Starting 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-event-worker-1 Starting 
+ Container chaosloop-load-baseline-verifier-1 Started 
+ Container chaosloop-load-baseline-api-1 Started 
+ Container chaosloop-load-baseline-outbox-relay-1 Started 
+ Container chaosloop-load-baseline-event-worker-1 Started 
+ Container chaosloop-load-baseline-migrate-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Waiting 
+ Container chaosloop-load-baseline-api-1 Waiting 
+ Container chaosloop-load-baseline-outbox-relay-1 Waiting 
+ Container chaosloop-load-baseline-event-worker-1 Waiting 
+ Container chaosloop-load-baseline-verifier-1 Waiting 
+ Container chaosloop-load-baseline-postgres-1 Healthy 
+ Container chaosloop-load-baseline-migrate-1 Exited 
+ Container chaosloop-load-baseline-api-1 Healthy 
+ Container chaosloop-load-baseline-verifier-1 Healthy 
+ Container chaosloop-load-baseline-event-worker-1 Healthy 
+ Container chaosloop-load-baseline-outbox-relay-1 Healthy 
+Qualification trial burst

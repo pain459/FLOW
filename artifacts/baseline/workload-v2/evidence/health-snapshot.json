@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "status": "HEALTHY",
+    "core_transactions_ready": true,
+    "observed_at": "2026-10-10T14:36:29.499803+00:00",
+    "dependencies": {
+      "postgres": {
+        "status": "HEALTHY",
+        "observed_at": "2026-10-10T14:36:29.499803+00:00",
+        "signal_age_seconds": 0,
+        "reason": "READY"
+      },
+      "redis": {
+        "status": "HEALTHY",
+        "observed_at": "2026-10-10T14:36:29.499803+00:00",
+        "signal_age_seconds": 0,
+        "reason": "REACHABLE"
+      },
+      "outbox-relay": {
+        "status": "HEALTHY",
+        "observed_at": "2026-10-10T14:36:29.042187+00:00",
+        "signal_age_seconds": 0.459188,
+        "last_success_at": "2026-10-10T14:36:29.039895+00:00",
+        "last_failure_at": null,
+        "reason": "PROGRESS_CHECK"
+      },
+      "event-worker": {
+        "status": "HEALTHY",
+        "observed_at": "2026-10-10T14:36:28.753694+00:00",
+        "signal_age_seconds": 0.747681,
+        "last_success_at": "2026-10-10T14:36:28.233491+00:00",
+        "last_failure_at": null,
+        "reason": "PROGRESS_CHECK"
+      }
+    },
+    "instrumentation": {
+      "status": "UNKNOWN",
+      "reason": "EXPORT_DELIVERY_NOT_CONFIRMED"
+    }
+  },
+  "locust": {
+    "state": "ready"
+  }
+}

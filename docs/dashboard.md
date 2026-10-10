@@ -1,13 +1,13 @@
 # PulsePay operator dashboard
 
-Open http://127.0.0.1:8080/ after `make up`. Use `make seed` for deterministic fake accounts and `make breathe` for low-rate activity, independent verification and observability. An idle core stack correctly shows UNKNOWN for absent optional processes. The dashboard runs in the existing non-root API image, with same-origin HTML, CSS and native JavaScript modules; no host Node, external scripts, frontend server or additional published port is needed.
+Open http://127.0.0.1:8080/ after `make up`. Use `make seed` for deterministic fake accounts. `make up` includes observability; Locust traffic starts only on demand. Missing verifier evidence is UNKNOWN. The dashboard runs in the existing non-root API image, with same-origin HTML, CSS and native JavaScript modules; no host Node, external scripts, frontend server or additional published port is needed.
 
 ## Views and behavior
 
 - **Overview:** funds and provisioning totals, account and transfer counts, pending outbox age, actual per-minute committed transfers, latest transfers, independent checks and a clickable architecture diagram.
 - **Accounts:** bounded reference search and cursor pages, authoritative metadata and paginated immutable ledger entries. Create account writes through the existing API and starts at zero balance.
 - **Transfers:** cursor-paginated commits, source/destination references, event delivery state, exact debit/credit entries and request/event/trace correlation. Queued publication and pending processing are distinguished from committed financial state.
-- **System:** API, PostgreSQL, Redis, relay, worker, activity and verifier observations, reason codes, observation age and last progress where available. Links open Grafana, Prometheus and OpenAPI.
+- **System:** API, PostgreSQL, Redis, relay, worker, on-demand Locust and verifier observations, reason codes, observation age and last progress where available. Links open Grafana, Prometheus and OpenAPI.
 
 Overview SQL reads run in one REPEATABLE READ, READ ONLY snapshot. They are observations, not independent proofs of correctness. Verification comes exclusively from the separate SELECT-only verifier's report. Optional report URLs are fixed server configuration, never browser-supplied targets; intake has a two-second deadline, a 64 KiB bound and typed validation. Missing, malformed, contradictory or more-than-30-second-old evidence is UNKNOWN. Genuine UNKNOWN checks keep unavailable counts null and display a dash.
 
@@ -24,7 +24,7 @@ All routes below are under `/api/v1/dashboard` and have typed OpenAPI responses.
 | GET route | Response |
 |---|---|
 | root | currency, snapshot timestamp, totals, thirty minute bins, twelve latest transfers |
-| `/signals` | separately observed verification and activity; missing evidence UNKNOWN |
+| `/signals` | separately observed verification; missing evidence UNKNOWN |
 | `/accounts` | items, next_cursor; limit 1–100, reference search up to 128 characters |
 | `/accounts/{id}` | authoritative account metadata with string balance |
 | `/accounts/{id}/ledger` | string-money ledger page; limit 1–100 |

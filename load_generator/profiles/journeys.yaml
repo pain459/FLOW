@@ -1,0 +1,15 @@
+schema_version: 1
+name: journeys
+seed: 4217
+mode: closed_loop
+users: 10
+spawn_rate_users_per_second: 5
+duration_seconds: 120
+warmup_seconds: 30
+target_operations_per_second: 10
+mix:
+  journey: 0.80
+  summary_read: 0.10
+  rejection: 0.10
+retry:
+  deliberate_replay_percent: 25

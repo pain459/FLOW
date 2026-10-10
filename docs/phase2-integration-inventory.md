@@ -1,0 +1,33 @@
+# PulsePay workload integration inventory
+
+Audited 2026-10-10 on branch `feat/pulsepay-dashboard`, revision `bdffebd` (dashboard changes committed by the user). Existing working application is authoritative. No new branch is created.
+
+## Runtime contracts
+
+- Compose project `chaosloop`, private `internal` network and loopback `edge` services. API service `api:8080`, host `127.0.0.1:8080`; database `postgres:5432`; Redis `redis:6379`; workers `outbox-relay:9100` and `event-worker:9100`; verifier `verifier:9100`; activity `activity:9100`; Prometheus `prometheus:9090`; Grafana `grafana:3000`.
+- Core boot includes PostgreSQL, Redis, migration, API, relay and consumer. Activity is opt-in and configured off by default; the inspected live lab is currently breathing. Observability includes verifier, Prometheus, Grafana, Loki, Tempo, collector and Fluent Bit. No application authentication exists.
+- `/health/live` checks process only. `/health/ready` requires database/schema revision `0002`. `/health/dependencies` exposes database, optional Redis and persisted relay/worker heartbeats, with timestamps and `core_transactions_ready`. Independent `/report` is available on the verifier; `python -m verifier.main --once` independently reconciles a SELECT-only REPEATABLE READ snapshot and returns PASS=0/FAIL=1/UNKNOWN=2/DEGRADED=3.
+
+## HTTP and dataset
+
+- Normal reads: `/api/v1/accounts/{id}`, `/balance`, `/summary`, `/transactions?limit=...&cursor=...`; transfer lookup `/api/v1/transfers/{id}`. Normal create writes start at zero. Transfer POST fields are `source_account_id`, `destination_account_id`, integer `amount_minor`, three-letter currency. Required `Idempotency-Key`: bounded ASCII; new commit 201, replay 200 with original ID; response contains request ID. Successful replays validate both ID and payload. Uncertain response retries the identical key/body.
+- Summary is explicitly non-authoritative with cache/freshness fields. History has at most 100 entries and a bounded cursor. Common errors are safe code/message/request_id envelopes: insufficient funds/invalid transfer 422, inactive/idempotency conflict 409, missing account/transfer 404, database unavailable 503.
+- Existing dashboard discovery `/api/v1/dashboard/accounts` gives bounded searchable/cursor pages. Financial values there are decimal strings; Python converts them to exact integers. Dashboard root totals/activity come from a consistent read-only snapshot. No new financial SQL or HTTP provisioning route is needed.
+- `make seed` invokes the explicit ledger provisioning job. Default is 200 deterministic accounts funded with 100,000 minor units each (INR), known issued total 20,000,000. Existing seed version/external refs are persisted data identifiers. New installations will use `pulsepay-v1`; an existing private `.env` retains its prior seed identifier to avoid reissuing funds or changing account IDs. Load discovery selects funded active accounts by HTTP and never provisions during measurement.
+
+## Signals and gaps
+
+Existing names: `http_requests_total`, `http_request_duration_seconds`, `pulsepay_transfers_total`, `pulsepay_transfer_duration_seconds`, `pulsepay_db_pool_checked_out`, `pulsepay_db_pool_wait_seconds`, `pulsepay_db_errors_total`, `pulsepay_redis_operations_total`, `pulsepay_cache_hits_total`, `pulsepay_cache_misses_total`, `pulsepay_outbox_pending`, `pulsepay_outbox_oldest_age_seconds`, `pulsepay_events_processed_total`, `pulsepay_event_processing_lag_seconds`, `pulsepay_consumer_pending`, `pulsepay_consumer_lag`, `pulsepay_verification_status`, activity requests/latency/pending and `pulsepay_service_up`. Existing instrumented services scrape every five seconds. Grafana uses provisioned Prometheus/Loki/Tempo sources and JSON dashboards.
+
+DB lock/slow-query/deadlock counters and full container CPU/memory/network metrics are not currently exported. Application pool wait/error metrics must not be relabeled as those missing observations. A socket-free host Docker wrapper will capture explicit service ceilings/images/environment and sample resource observations; missing values remain null with a documented gap. Generator resources come from its own cgroup/process. Prometheus quantiles aggregate histogram buckets before histogram_quantile.
+
+## Fixed integration approach
+
+- One additive `compose.load.yaml`, opt-in `load-controller`, same private network, no Docker socket. Headless Locust is a finite child process, separated from controller/verifier async runtimes. Independent orchestration can start/stop without restarting the application. Initial mode is single generator; modular multi-process workers are supported inside its limited container rather than requiring privileged container management. A separately requested manual Locust UI uses `make load-ui` and publishes only localhost:8089; it is disabled during normal boot and distinct from qualified headless measurements.
+- Operator shell wrappers use Docker only. They stop activity for measured runs, capture its actual status and restore it after completion; `combined` is explicit. Profiles are strict versioned YAML with warmup, measured schedule, concurrency/duration caps and closed-loop operation-rate ceiling. Offered logical operations and actual HTTP request throughput are distinct.
+- Kernel file lock and durable run state prevent overlapping runs. A finite runtime, process-group shutdown, cancellation file and postflight verifier preserve partial evidence without unlimited orphaned traffic. Reports use a dedicated named volume and explicit Docker export to gitignored `artifacts/load-runs`.
+- Public application names, image tags and UI labels will use PulsePay/workload language. Historical acceptance filenames and existing persisted seed identifiers remain provenance, not runtime phase switches. No fault injection or decision engine is included.
+
+## User-directed changes after the initial audit
+
+The initial inventory above records the system inspected before integration. The user's later instructions supersede its activity and optional-UI assumptions: the background activity service, settings, metrics and breathe commands were removed; `combined` is no longer a valid profile. Normal `make up` starts observability and a persistent resource-capped `locust` service on localhost:8089, idle until Start. Manual sessions share a lock with optional headless runs. The application dashboard links to Locust and Grafana. Historical seed identifiers and measured earlier evidence remain unchanged. See [current commands](phase2-load-generator.md) and [resource budget](resources.md).

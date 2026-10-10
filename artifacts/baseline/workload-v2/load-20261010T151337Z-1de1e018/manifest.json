@@ -1,0 +1,3981 @@
+{
+  "accounts": [
+    {
+      "balance_minor": "100307",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:98",
+      "id": "fff2f83a-8908-596b-9d89-6123309e1f53",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.418297Z"
+    },
+    {
+      "balance_minor": "100695",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:71",
+      "id": "fed4dd36-06ef-5f01-8d47-5ce3d079710d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.342372Z"
+    },
+    {
+      "balance_minor": "100072",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:19",
+      "id": "fd861929-cbb8-59d1-9057-785bba62c394",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.307608Z"
+    },
+    {
+      "balance_minor": "100154",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:189",
+      "id": "fc23713a-de3c-57bf-b8a6-db276aa464b4",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.343733Z"
+    },
+    {
+      "balance_minor": "99754",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:43",
+      "id": "fa0c257c-b78d-5c70-96b3-c927de0207df",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.996523Z"
+    },
+    {
+      "balance_minor": "100049",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:100",
+      "id": "f9f64dd7-e2d9-5630-80e8-c1bd45131f6f",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.352882Z"
+    },
+    {
+      "balance_minor": "100269",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:44",
+      "id": "f86740ab-320e-562e-9e90-4547100daa99",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.325157Z"
+    },
+    {
+      "balance_minor": "99561",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:199",
+      "id": "f853035a-0f19-51b2-9fbb-30d3a81dd5f1",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.241420Z"
+    },
+    {
+      "balance_minor": "99594",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:115",
+      "id": "f768cfec-32ae-5c52-9165-d1cf7cdebdaf",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.502935Z"
+    },
+    {
+      "balance_minor": "99942",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:48",
+      "id": "f73528bf-009f-5bbb-9f0d-2b5f2a4c440b",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:22.045776Z"
+    },
+    {
+      "balance_minor": "100315",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:198",
+      "id": "f39775d5-384f-568f-a34d-04a787fc8819",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.733043Z"
+    },
+    {
+      "balance_minor": "99769",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:103",
+      "id": "f354a98c-3ecf-5c0d-b923-b0667cac60fe",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.480074Z"
+    },
+    {
+      "balance_minor": "99691",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:35",
+      "id": "f25c2d3f-5dfb-558c-be0f-b6509fa57f0e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.785917Z"
+    },
+    {
+      "balance_minor": "99606",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:55",
+      "id": "f21b54ac-b7ad-52d0-a0e7-af5586ef9655",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.285930Z"
+    },
+    {
+      "balance_minor": "100220",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:5",
+      "id": "f1f0173c-8a11-57c0-8b1a-6e5f3aeadd8e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.043940Z"
+    },
+    {
+      "balance_minor": "99772",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:122",
+      "id": "f047d462-549a-5755-a14e-60886e7facb4",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.245097Z"
+    },
+    {
+      "balance_minor": "99957",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:87",
+      "id": "ec329eb7-2d8e-5a7d-9cf9-b9de6ea78f38",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.934223Z"
+    },
+    {
+      "balance_minor": "100633",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:130",
+      "id": "eab85882-b00a-5642-8117-e526b910b107",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.605452Z"
+    },
+    {
+      "balance_minor": "100316",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:101",
+      "id": "e742bfcf-58d6-59e1-aac6-e6353ce9a48b",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.086492Z"
+    },
+    {
+      "balance_minor": "100265",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:158",
+      "id": "e70a638f-a94b-5b17-89d2-89fb45143f2e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.480074Z"
+    },
+    {
+      "balance_minor": "100159",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:24",
+      "id": "e549367a-fa63-583e-b745-0791e326025c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.334650Z"
+    },
+    {
+      "balance_minor": "100256",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:162",
+      "id": "e36220c9-deee-54e3-9faf-fdd4965fa440",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.578424Z"
+    },
+    {
+      "balance_minor": "100242",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:119",
+      "id": "dd6da006-b6f7-5fdd-bfd0-b0baec2a6c67",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:22.329737Z"
+    },
+    {
+      "balance_minor": "100044",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:114",
+      "id": "dccdccfa-e2cc-5a2c-9b8d-fe3f18dba752",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.349898Z"
+    },
+    {
+      "balance_minor": "100097",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:164",
+      "id": "dc508623-60e2-54cb-a243-0825c533417b",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.375652Z"
+    },
+    {
+      "balance_minor": "100050",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:6",
+      "id": "dbf25b3a-435c-5a78-afdd-6a007a725bc6",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.364147Z"
+    },
+    {
+      "balance_minor": "100118",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:190",
+      "id": "d991908f-d00d-5576-99d3-254a0df0bf7e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.072584Z"
+    },
+    {
+      "balance_minor": "99778",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:161",
+      "id": "d7b232a5-616e-5d79-91ca-222782a627b5",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:20.718272Z"
+    },
+    {
+      "balance_minor": "99961",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:8",
+      "id": "d6f575c3-ec04-5f85-8778-97da44ff9f64",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.191678Z"
+    },
+    {
+      "balance_minor": "99798",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:64",
+      "id": "d5930f60-786f-5eaa-905a-f97b0dd5a207",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.143754Z"
+    },
+    {
+      "balance_minor": "100017",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:59",
+      "id": "d4b95483-3151-5fa7-8d08-2886c4dbf316",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.161961Z"
+    },
+    {
+      "balance_minor": "99559",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:30",
+      "id": "d4a29c2e-44e9-5869-b893-a9175aa31740",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.031890Z"
+    },
+    {
+      "balance_minor": "99565",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:29",
+      "id": "d3a13038-5b25-5c35-affe-df012153a438",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.561902Z"
+    },
+    {
+      "balance_minor": "100186",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:83",
+      "id": "d376c6fa-dc2a-5162-a16f-c9f134119686",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.147868Z"
+    },
+    {
+      "balance_minor": "100265",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:34",
+      "id": "d1d1f4ba-f05b-5649-90c2-d886a1574016",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:23.588778Z"
+    },
+    {
+      "balance_minor": "99799",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:79",
+      "id": "d0dbd7aa-81ec-595b-b1af-385dde222849",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.453082Z"
+    },
+    {
+      "balance_minor": "99837",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:53",
+      "id": "d018cb10-7218-5d25-b97f-3606139da732",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.071807Z"
+    },
+    {
+      "balance_minor": "99865",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:186",
+      "id": "cffd2b9b-f3fa-53c9-976a-4b9ff2df2300",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.379586Z"
+    },
+    {
+      "balance_minor": "100092",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:73",
+      "id": "cf3891a9-d911-5f63-8571-dd3977f55d38",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.277856Z"
+    },
+    {
+      "balance_minor": "99913",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:129",
+      "id": "ce5a2b62-cf59-5942-bf50-fb8730fe0d3c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.456365Z"
+    },
+    {
+      "balance_minor": "100117",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:51",
+      "id": "cd2c31bd-bd43-5b52-87e7-f3024cb69ad0",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.273973Z"
+    },
+    {
+      "balance_minor": "99900",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:49",
+      "id": "ccae2401-4803-5d60-8705-8984363cd2ed",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.268265Z"
+    },
+    {
+      "balance_minor": "99239",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:171",
+      "id": "cc7cb5b3-55f4-569f-83f3-3d0d2fcb52fc",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:23.948602Z"
+    },
+    {
+      "balance_minor": "99817",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:32",
+      "id": "cc7a9b5c-4672-5a7d-b7cc-83f42a6565d0",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.874969Z"
+    },
+    {
+      "balance_minor": "100102",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:127",
+      "id": "cbd04bfb-62b0-51b8-87ea-94ea11426b72",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.455348Z"
+    },
+    {
+      "balance_minor": "99490",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:110",
+      "id": "ca915c06-6cef-5e5b-a7ce-13480d7e395a",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.435107Z"
+    },
+    {
+      "balance_minor": "100029",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:196",
+      "id": "c9db7c80-09d6-55f3-9356-f93c4e815e37",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.463081Z"
+    },
+    {
+      "balance_minor": "100332",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:27",
+      "id": "c8e11997-3884-5414-9d68-01fa91045716",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.579983Z"
+    },
+    {
+      "balance_minor": "99776",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:12",
+      "id": "c6c0c5de-4860-539c-b38d-fd8d379f835a",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:21.952269Z"
+    },
+    {
+      "balance_minor": "100344",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:56",
+      "id": "c625d466-727d-5a96-90ec-bf764c01593d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.860569Z"
+    },
+    {
+      "balance_minor": "99764",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:108",
+      "id": "c3f42011-129f-58da-9f86-47955fb99750",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.353369Z"
+    },
+    {
+      "balance_minor": "99653",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:179",
+      "id": "c34c2146-693a-55ac-98b3-9550946b2ba0",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:24.613704Z"
+    },
+    {
+      "balance_minor": "100157",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:146",
+      "id": "c2feb22d-7af0-5b90-a853-79431b80d8ae",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:23.896937Z"
+    },
+    {
+      "balance_minor": "99621",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:136",
+      "id": "c27eda6b-5342-57fe-b457-526768c8e0b1",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.520658Z"
+    },
+    {
+      "balance_minor": "99963",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:192",
+      "id": "c16f8111-276d-58a6-8823-d7a1177b258a",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.334650Z"
+    },
+    {
+      "balance_minor": "99973",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:17",
+      "id": "c000de71-ad6d-5b0e-a568-9c8fc39c37d6",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.132401Z"
+    },
+    {
+      "balance_minor": "99862",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:16",
+      "id": "bfc1653c-5f6d-55a7-bd0c-edf4dd137995",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.802244Z"
+    },
+    {
+      "balance_minor": "99665",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:72",
+      "id": "bfbe9229-48c4-54cb-9f86-aabeda8b6c98",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.651977Z"
+    },
+    {
+      "balance_minor": "99821",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:85",
+      "id": "bd47a7a9-8ee8-57ed-91c8-4641bee11555",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.463081Z"
+    },
+    {
+      "balance_minor": "100018",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:165",
+      "id": "bb5c4f96-fd13-547e-a304-b2e9ddf116b3",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.860569Z"
+    },
+    {
+      "balance_minor": "99880",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:175",
+      "id": "ba41d17e-60e0-57d9-a5ac-1b5b565c0adf",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.132401Z"
+    },
+    {
+      "balance_minor": "100541",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:67",
+      "id": "b940aa94-7f9e-585f-81e1-0ac21824696e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.424556Z"
+    },
+    {
+      "balance_minor": "100459",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:0",
+      "id": "b6ebf83b-dc42-53ab-b995-fffbca55ab77",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.574100Z"
+    },
+    {
+      "balance_minor": "100090",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:13",
+      "id": "b6ca8ec9-8917-5bf2-943c-9676b61b60a1",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.675425Z"
+    },
+    {
+      "balance_minor": "99538",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:185",
+      "id": "b649f8ac-9a8b-59ab-8d9b-85d4f694a1e0",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.675894Z"
+    },
+    {
+      "balance_minor": "100002",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:144",
+      "id": "b5d15704-1f7b-5ff5-b0fb-5813f9a51b63",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.728313Z"
+    },
+    {
+      "balance_minor": "100405",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:28",
+      "id": "b496723a-2567-59e6-b489-d13a92540965",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.490900Z"
+    },
+    {
+      "balance_minor": "99528",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:63",
+      "id": "affb700a-35e6-5261-9b96-56e35cb344b3",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.349158Z"
+    },
+    {
+      "balance_minor": "100112",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:125",
+      "id": "af564398-39c9-5f8d-a217-d642df08af9e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.919659Z"
+    },
+    {
+      "balance_minor": "100488",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:113",
+      "id": "af2e1e4e-d46a-5b95-a912-0577d47efd15",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.619252Z"
+    },
+    {
+      "balance_minor": "100026",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:154",
+      "id": "aec0c29a-6300-5e1d-a868-e1e46f6933e2",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.615324Z"
+    },
+    {
+      "balance_minor": "99794",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:78",
+      "id": "ac0133ca-a13e-5d6a-8a51-c5c1397171ba",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.557008Z"
+    },
+    {
+      "balance_minor": "100025",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:62",
+      "id": "ab3137a4-36ab-512c-ad99-8ed7fe682f03",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.780952Z"
+    },
+    {
+      "balance_minor": "99935",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:124",
+      "id": "a9d471eb-c63b-5fac-bf38-9e8ac6c8d7ff",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.113275Z"
+    },
+    {
+      "balance_minor": "99945",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:149",
+      "id": "a55d6e09-29c7-5a6b-8bee-3c57dd897d32",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.200867Z"
+    },
+    {
+      "balance_minor": "99959",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:46",
+      "id": "a306d24c-8f3f-5ae5-a8d0-a757b10b8cd7",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.175371Z"
+    },
+    {
+      "balance_minor": "100283",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:197",
+      "id": "a186b257-6100-5b8b-b4ef-f2b7c252eda5",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.103740Z"
+    },
+    {
+      "balance_minor": "99792",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:159",
+      "id": "a0b340fc-5ebd-5255-8006-e62065072009",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.578424Z"
+    },
+    {
+      "balance_minor": "99553",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:97",
+      "id": "9eba9c1d-1e23-58fe-a3f8-79531417069d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.437057Z"
+    },
+    {
+      "balance_minor": "100200",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:61",
+      "id": "9da62027-2e65-5eb9-b63e-e9e88ae0e16f",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.623987Z"
+    },
+    {
+      "balance_minor": "100128",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:15",
+      "id": "9bd710c4-125a-5ff5-ab27-16b1702450e6",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:16.415097Z"
+    },
+    {
+      "balance_minor": "99802",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:155",
+      "id": "9b13732c-bd76-5ef6-add2-3a4f19adf356",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:23.720771Z"
+    },
+    {
+      "balance_minor": "99511",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:111",
+      "id": "97beeaa4-faec-54a2-aa5f-fd0ec54d571d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.873228Z"
+    },
+    {
+      "balance_minor": "99651",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:163",
+      "id": "9733681f-19a7-503d-b1a9-da3777f4d835",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.715542Z"
+    },
+    {
+      "balance_minor": "99501",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:120",
+      "id": "96b0c879-6eb3-5bf5-a393-0cb613bcbc99",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.064458Z"
+    },
+    {
+      "balance_minor": "99823",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:102",
+      "id": "95fd32b9-9885-5fea-8659-62268b31e57e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.147868Z"
+    },
+    {
+      "balance_minor": "100228",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:36",
+      "id": "94f4ad4b-f9a6-55a1-bdec-f781fd015db6",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.393503Z"
+    },
+    {
+      "balance_minor": "99809",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:168",
+      "id": "937fe4ba-4de0-58bb-929e-1d692fae55df",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.721270Z"
+    },
+    {
+      "balance_minor": "100089",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:86",
+      "id": "935e9450-02fc-5987-a9a6-e7f32a6ad3c8",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.729826Z"
+    },
+    {
+      "balance_minor": "100023",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:151",
+      "id": "929e0442-0bc0-5422-9a89-c55487cbf3ff",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.237626Z"
+    },
+    {
+      "balance_minor": "99717",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:39",
+      "id": "92700b2e-c8c9-5d6b-b159-afa1e4fd0d53",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:23.915429Z"
+    },
+    {
+      "balance_minor": "100262",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:132",
+      "id": "926895b4-3a2f-57f8-88e1-1e259d9d6bbf",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.394870Z"
+    },
+    {
+      "balance_minor": "99720",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:156",
+      "id": "9249ac2f-8387-5363-89f9-a89c23b2dfd6",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.593849Z"
+    },
+    {
+      "balance_minor": "99715",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:184",
+      "id": "91fded0e-7496-5f9a-96e4-f50d2f5d9279",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.776166Z"
+    },
+    {
+      "balance_minor": "99951",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:135",
+      "id": "8c1d1860-29fd-5051-abcf-3f2d45ce6946",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.672576Z"
+    },
+    {
+      "balance_minor": "100158",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:99",
+      "id": "8b85e561-9545-53db-8e0d-eb120e21e7dc",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.064867Z"
+    },
+    {
+      "balance_minor": "100019",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:138",
+      "id": "8a254e0f-189e-5b68-8d6f-9a8234f01fca",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.605452Z"
+    },
+    {
+      "balance_minor": "99940",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:118",
+      "id": "86e0a846-7f80-50ae-8547-a0f001a89323",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.715542Z"
+    },
+    {
+      "balance_minor": "99531",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:1",
+      "id": "868638bb-fed9-5869-9050-dc95b07ce971",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.675425Z"
+    },
+    {
+      "balance_minor": "100244",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:131",
+      "id": "8653b5d6-b614-5f31-82b4-f54aabebfa54",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:24.831635Z"
+    },
+    {
+      "balance_minor": "99824",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:25",
+      "id": "84ec6dc5-3d5f-5996-a203-87d5a2fb2d5c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.695959Z"
+    },
+    {
+      "balance_minor": "99686",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:123",
+      "id": "801be55e-d8ae-50d6-b37c-724a30fda8a1",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.934473Z"
+    },
+    {
+      "balance_minor": "99695",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:112",
+      "id": "7f6c0864-f0df-5ef8-bea8-8c4701773e0d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.045250Z"
+    },
+    {
+      "balance_minor": "99803",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:74",
+      "id": "7e493114-5b1e-551b-b5d6-b9c33773db8d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.678892Z"
+    },
+    {
+      "balance_minor": "100116",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:173",
+      "id": "7bc71e93-3db7-5c19-a948-98601c549bb3",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.579983Z"
+    },
+    {
+      "balance_minor": "100060",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:89",
+      "id": "7acaff88-624f-5155-85ad-a4fd9f64a91a",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.593849Z"
+    },
+    {
+      "balance_minor": "100245",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:194",
+      "id": "78ebc882-adda-5e5d-b639-2a93925a7b12",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.479933Z"
+    },
+    {
+      "balance_minor": "100133",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:107",
+      "id": "78d8d4eb-cca0-5a6d-b88d-0fd65d60cd95",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.221022Z"
+    },
+    {
+      "balance_minor": "100167",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:169",
+      "id": "788ba6a6-6161-5d92-a836-ff767f57657e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.058349Z"
+    },
+    {
+      "balance_minor": "99972",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:22",
+      "id": "785e08b2-514a-5f5b-889e-2263e7c9ea44",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.307608Z"
+    },
+    {
+      "balance_minor": "99829",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:57",
+      "id": "76ed4ce2-b1de-53ca-9641-ae8885292dc4",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:22.326020Z"
+    },
+    {
+      "balance_minor": "100107",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:183",
+      "id": "76841acb-5487-5851-8c1e-aa6bb4d04607",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.343733Z"
+    },
+    {
+      "balance_minor": "99545",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:42",
+      "id": "751a5523-f312-5736-bc2f-b2c77faec3e4",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.598679Z"
+    },
+    {
+      "balance_minor": "99819",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:167",
+      "id": "71de1bff-6c7e-5f2f-a6a4-4b11a3df6fa3",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.364147Z"
+    },
+    {
+      "balance_minor": "100394",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:166",
+      "id": "6f09707c-6893-5fb1-8155-cb7d2aa76aa2",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.418297Z"
+    },
+    {
+      "balance_minor": "100456",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:11",
+      "id": "6da567a5-0526-5fde-a31d-e34c4aad7a34",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.086492Z"
+    },
+    {
+      "balance_minor": "99743",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:9",
+      "id": "6cc674d9-41ab-5c56-ba87-bf44cb68773c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.321183Z"
+    },
+    {
+      "balance_minor": "99580",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:178",
+      "id": "6c803ee1-b321-514d-a87b-df3b162a3c7f",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.036505Z"
+    },
+    {
+      "balance_minor": "100056",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:177",
+      "id": "6c7a84d6-bbf9-595f-ba6a-e9be1de7a2de",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.780952Z"
+    },
+    {
+      "balance_minor": "99766",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:147",
+      "id": "68907abd-a1cb-56a0-83e2-c694931c3a3b",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.728313Z"
+    },
+    {
+      "balance_minor": "100228",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:150",
+      "id": "66be364c-35da-5c63-84d5-48266c84aff8",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:24.659546Z"
+    },
+    {
+      "balance_minor": "100702",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:65",
+      "id": "64dffedb-abcb-5344-99cd-c5c0d1cefc85",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.487235Z"
+    },
+    {
+      "balance_minor": "100465",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:104",
+      "id": "63e6d92d-fd9e-510c-9afa-caec37a2d42d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.815168Z"
+    },
+    {
+      "balance_minor": "100055",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:40",
+      "id": "62427e58-e27d-55fa-8d85-23c5d957d99e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:23.330711Z"
+    },
+    {
+      "balance_minor": "100096",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:33",
+      "id": "62103e88-326e-54c7-b141-9d458f6af4ab",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.687556Z"
+    },
+    {
+      "balance_minor": "99944",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:38",
+      "id": "61759bb8-1048-5897-a5ed-2fa97fe679ce",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.767455Z"
+    },
+    {
+      "balance_minor": "100624",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:4",
+      "id": "5da16357-2121-5104-9f69-368b4aa2fee3",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.839671Z"
+    },
+    {
+      "balance_minor": "99878",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:2",
+      "id": "5d477f68-464e-52bd-8e50-0cdf1654c2d7",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.988056Z"
+    },
+    {
+      "balance_minor": "100275",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:14",
+      "id": "5d0e900e-c53e-5612-bf9e-0c0adfd07554",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.007111Z"
+    },
+    {
+      "balance_minor": "99891",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:140",
+      "id": "5a6f50b5-8a9b-5175-be62-3955ca425d4c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.337455Z"
+    },
+    {
+      "balance_minor": "99574",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:76",
+      "id": "5a4d2520-658a-50cc-9298-9275bf5bc731",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.131873Z"
+    },
+    {
+      "balance_minor": "100343",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:92",
+      "id": "58588920-f98c-537f-9ce6-f9b50ec7d91b",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.685782Z"
+    },
+    {
+      "balance_minor": "99828",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:145",
+      "id": "554e5f03-ffc2-5379-9bd1-201453e61fef",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.502935Z"
+    },
+    {
+      "balance_minor": "100323",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:191",
+      "id": "54ad9a7b-a29c-512e-b4de-d7032325be73",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.695959Z"
+    },
+    {
+      "balance_minor": "99594",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:170",
+      "id": "53880ffa-e4f3-59ad-aaa7-124fec808746",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.211969Z"
+    },
+    {
+      "balance_minor": "99915",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:187",
+      "id": "52ecf120-896c-5a32-ac85-8f86cebdb3fd",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.680641Z"
+    },
+    {
+      "balance_minor": "99645",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:54",
+      "id": "50024687-76f8-58fd-a404-0abebaab2fd5",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.842209Z"
+    },
+    {
+      "balance_minor": "100193",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:69",
+      "id": "4d7878a6-361f-5712-83ef-2caf32b1bf72",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.733043Z"
+    },
+    {
+      "balance_minor": "100392",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:18",
+      "id": "4d58aa23-e51d-54fb-972e-d21761aa9e43",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.167099Z"
+    },
+    {
+      "balance_minor": "99613",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:70",
+      "id": "4d3928cb-46c1-53ae-b84a-96e0f236a408",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.294187Z"
+    },
+    {
+      "balance_minor": "100126",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:181",
+      "id": "4b98c8c5-7556-5e90-a5cd-88f401923cd0",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.161945Z"
+    },
+    {
+      "balance_minor": "100756",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:176",
+      "id": "4a65862d-3f8d-58b9-a668-3c5af8d1c938",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.716273Z"
+    },
+    {
+      "balance_minor": "100044",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:141",
+      "id": "4983b33b-693d-532f-a994-531765dd9303",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.064216Z"
+    },
+    {
+      "balance_minor": "100279",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:93",
+      "id": "48449275-8751-5524-b208-b5c7cbe81c12",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.321183Z"
+    },
+    {
+      "balance_minor": "99989",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:157",
+      "id": "472cc3bb-205d-50cb-ae2e-e38c13341e3c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.651977Z"
+    },
+    {
+      "balance_minor": "100310",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:88",
+      "id": "46b8c088-763d-5e4c-a197-eb805e606d6f",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.767455Z"
+    },
+    {
+      "balance_minor": "100518",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:37",
+      "id": "4693199a-55f9-5e22-826e-1aa75c3e2081",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.007349Z"
+    },
+    {
+      "balance_minor": "99540",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:23",
+      "id": "4692b2c2-6ecc-5711-a724-83695f233c1d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.304810Z"
+    },
+    {
+      "balance_minor": "100030",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:7",
+      "id": "422618f1-0509-5929-9a8a-34335f82762a",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.469784Z"
+    },
+    {
+      "balance_minor": "100185",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:31",
+      "id": "41fa8540-f3ca-5735-b25d-c45df11e06c5",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.988056Z"
+    },
+    {
+      "balance_minor": "99852",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:58",
+      "id": "401820af-0fbb-5521-9410-ccadabb60850",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.721270Z"
+    },
+    {
+      "balance_minor": "100101",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:106",
+      "id": "3f2d4f47-ad3a-5ffc-b175-c967a9e608b5",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.989373Z"
+    },
+    {
+      "balance_minor": "100259",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:117",
+      "id": "3d55e63c-59b3-58d7-a796-24c0505bb37c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.490900Z"
+    },
+    {
+      "balance_minor": "99364",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:41",
+      "id": "3c8848f7-5a76-5455-b6e6-93830ade4289",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.143754Z"
+    },
+    {
+      "balance_minor": "99718",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:26",
+      "id": "3bc11013-217e-5c50-a169-5a0fbf3f89ab",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:27.561902Z"
+    },
+    {
+      "balance_minor": "99275",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:139",
+      "id": "36dc3e19-52b7-58c6-9417-a7cfc780ce62",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.360782Z"
+    },
+    {
+      "balance_minor": "100103",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:21",
+      "id": "35297069-fdcc-54e3-ba49-15a27b11493d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:23.807750Z"
+    },
+    {
+      "balance_minor": "99447",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:66",
+      "id": "34398966-7e09-554a-926f-62100092611f",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.375652Z"
+    },
+    {
+      "balance_minor": "100255",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:82",
+      "id": "33a0e5a0-28e0-50e6-b95d-a27e847b2c4e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.237626Z"
+    },
+    {
+      "balance_minor": "100156",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:94",
+      "id": "3356aeda-7799-5412-ac87-18cc4d7bdc09",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.961427Z"
+    },
+    {
+      "balance_minor": "100070",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:75",
+      "id": "334620f0-ea3d-532f-adcd-ce0ab031dac3",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.072584Z"
+    },
+    {
+      "balance_minor": "100266",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:137",
+      "id": "315cce30-fa09-5c13-8f50-46c9132a30a0",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.464345Z"
+    },
+    {
+      "balance_minor": "99887",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:10",
+      "id": "31330eff-c5ae-5340-87dd-347d0b6948a9",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.524292Z"
+    },
+    {
+      "balance_minor": "99924",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:47",
+      "id": "2f4c8437-ca6d-5694-a152-6525916a0dcc",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.547027Z"
+    },
+    {
+      "balance_minor": "100678",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:95",
+      "id": "2ecd72cc-60a2-55ae-a3dd-47a7506e23eb",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.956554Z"
+    },
+    {
+      "balance_minor": "99995",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:68",
+      "id": "2bf4b7fb-f9a7-5d38-9158-a48e4be55899",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.538453Z"
+    },
+    {
+      "balance_minor": "100163",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:148",
+      "id": "28c572a9-1366-525e-9a2b-1db1b535ba42",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.131599Z"
+    },
+    {
+      "balance_minor": "100088",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:142",
+      "id": "2753dbdb-e56d-56cf-a94a-f43f1f7abfbc",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.086794Z"
+    },
+    {
+      "balance_minor": "100098",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:81",
+      "id": "259b23e1-48f8-5dd4-821e-4c96ee25e8aa",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:19.670573Z"
+    },
+    {
+      "balance_minor": "100731",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:80",
+      "id": "22763a8a-fca7-5f60-88c2-68a8beea2819",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.615324Z"
+    },
+    {
+      "balance_minor": "100246",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:77",
+      "id": "1f180aeb-f5f6-5ce7-a5ee-bd55a4db53a7",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:21.224882Z"
+    },
+    {
+      "balance_minor": "100511",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:90",
+      "id": "1ea0f658-029f-5d86-83f7-44a58c774c32",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.433475Z"
+    },
+    {
+      "balance_minor": "100087",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:193",
+      "id": "1bcbca1d-37ee-51d8-a230-36d723d4622d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.353369Z"
+    },
+    {
+      "balance_minor": "100413",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:116",
+      "id": "1b9f56e6-1828-5b3a-8302-cb28035d18c7",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.557008Z"
+    },
+    {
+      "balance_minor": "99495",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:105",
+      "id": "1b73a0d7-e080-5de1-a458-fa3b9a6179b9",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:26.467858Z"
+    },
+    {
+      "balance_minor": "100199",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:195",
+      "id": "19a0b3da-2eed-55cb-a00b-801eb3927a62",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.403416Z"
+    },
+    {
+      "balance_minor": "100409",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:20",
+      "id": "18d7645d-02be-5a65-a4d8-afae891ec844",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.761407Z"
+    },
+    {
+      "balance_minor": "100613",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:180",
+      "id": "17fb10e1-d6f3-5def-8b58-512f5bc7149b",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.339318Z"
+    },
+    {
+      "balance_minor": "99483",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:45",
+      "id": "179bb5ec-0e01-5e9c-81ac-f7c934ca230f",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.556335Z"
+    },
+    {
+      "balance_minor": "99490",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:52",
+      "id": "176b68ae-c5fd-516f-ab11-3fdd8cb922ae",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.934223Z"
+    },
+    {
+      "balance_minor": "99751",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:152",
+      "id": "16772365-609f-59be-8599-0303acbf614f",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.403416Z"
+    },
+    {
+      "balance_minor": "100608",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:160",
+      "id": "161e242d-adba-5eba-befc-7fe786b3502c",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.685782Z"
+    },
+    {
+      "balance_minor": "100017",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:174",
+      "id": "161b10f7-af15-5592-83e9-530efec12708",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.874969Z"
+    },
+    {
+      "balance_minor": "100447",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:188",
+      "id": "14dc9489-6b65-538c-9033-eb7586918d65",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:25.128056Z"
+    },
+    {
+      "balance_minor": "99573",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:109",
+      "id": "14c9ead3-9e54-56c6-911e-63579e431548",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.091704Z"
+    },
+    {
+      "balance_minor": "99873",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:172",
+      "id": "148fadb7-0cd5-5b90-8bd4-98fd0b30315d",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.268265Z"
+    },
+    {
+      "balance_minor": "99545",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:96",
+      "id": "1441e6e1-800d-5667-a01f-ae8901b45d0e",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.193400Z"
+    },
+    {
+      "balance_minor": "100156",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:133",
+      "id": "11862a65-5776-5172-9abb-524453ef66a6",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.062066Z"
+    },
+    {
+      "balance_minor": "99995",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:153",
+      "id": "1003e04b-3aa5-55d6-bef3-d45a24740591",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:28.888702Z"
+    },
+    {
+      "balance_minor": "99594",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:3",
+      "id": "0e20ba08-1276-5142-b062-bdcd6ac5bea2",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.706834Z"
+    },
+    {
+      "balance_minor": "100053",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:91",
+      "id": "0cb1256f-deb9-5598-968b-776fb817b807",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.026063Z"
+    },
+    {
+      "balance_minor": "100129",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:128",
+      "id": "0c8aca2d-fe48-5cd7-aeee-944c879fd773",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.062066Z"
+    },
+    {
+      "balance_minor": "100093",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:84",
+      "id": "0c7dd8f6-eec1-5a2f-b309-05d6719c8372",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.703132Z"
+    },
+    {
+      "balance_minor": "100543",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:182",
+      "id": "0a6fc453-9263-5227-acbe-82d2d5f70897",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.678892Z"
+    },
+    {
+      "balance_minor": "99995",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:143",
+      "id": "07d0aaaf-68cc-5069-85b6-effc0c1cb127",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.703132Z"
+    },
+    {
+      "balance_minor": "100003",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:121",
+      "id": "0535fc5d-625a-5b71-b928-217d9e914e69",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.761407Z"
+    },
+    {
+      "balance_minor": "99647",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:126",
+      "id": "039f9d11-b750-5636-a25d-8edff135c9c4",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:30.706834Z"
+    },
+    {
+      "balance_minor": "99763",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:50",
+      "id": "0178091e-b559-5978-bd8e-666f50401e42",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:24.435871Z"
+    },
+    {
+      "balance_minor": "100059",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:134",
+      "id": "008bc99f-34f6-57d2-8a2f-e1d56a8d84c5",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.574100Z"
+    },
+    {
+      "balance_minor": "99867",
+      "created_at": "2026-10-10T12:33:55.665640Z",
+      "currency": "INR",
+      "external_ref": "seed:pulsepay-v1:60",
+      "id": "004c90ae-a750-54d0-ad41-4179847b331a",
+      "status": "active",
+      "updated_at": "2026-10-10T15:12:29.064458Z"
+    }
+  ],
+  "created_at": "2026-10-10T15:13:37.301124+00:00",
+  "dataset": {
+    "account_ids": [
+      "004c90ae-a750-54d0-ad41-4179847b331a",
+      "008bc99f-34f6-57d2-8a2f-e1d56a8d84c5",
+      "0178091e-b559-5978-bd8e-666f50401e42",
+      "039f9d11-b750-5636-a25d-8edff135c9c4",
+      "0535fc5d-625a-5b71-b928-217d9e914e69",
+      "07d0aaaf-68cc-5069-85b6-effc0c1cb127",
+      "0a6fc453-9263-5227-acbe-82d2d5f70897",
+      "0c7dd8f6-eec1-5a2f-b309-05d6719c8372",
+      "0c8aca2d-fe48-5cd7-aeee-944c879fd773",
+      "0cb1256f-deb9-5598-968b-776fb817b807",
+      "0e20ba08-1276-5142-b062-bdcd6ac5bea2",
+      "1003e04b-3aa5-55d6-bef3-d45a24740591",
+      "11862a65-5776-5172-9abb-524453ef66a6",
+      "1441e6e1-800d-5667-a01f-ae8901b45d0e",
+      "148fadb7-0cd5-5b90-8bd4-98fd0b30315d",
+      "14c9ead3-9e54-56c6-911e-63579e431548",
+      "14dc9489-6b65-538c-9033-eb7586918d65",
+      "161b10f7-af15-5592-83e9-530efec12708",
+      "161e242d-adba-5eba-befc-7fe786b3502c",
+      "16772365-609f-59be-8599-0303acbf614f",
+      "176b68ae-c5fd-516f-ab11-3fdd8cb922ae",
+      "179bb5ec-0e01-5e9c-81ac-f7c934ca230f",
+      "17fb10e1-d6f3-5def-8b58-512f5bc7149b",
+      "18d7645d-02be-5a65-a4d8-afae891ec844",
+      "19a0b3da-2eed-55cb-a00b-801eb3927a62",
+      "1b73a0d7-e080-5de1-a458-fa3b9a6179b9",
+      "1b9f56e6-1828-5b3a-8302-cb28035d18c7",
+      "1bcbca1d-37ee-51d8-a230-36d723d4622d",
+      "1ea0f658-029f-5d86-83f7-44a58c774c32",
+      "1f180aeb-f5f6-5ce7-a5ee-bd55a4db53a7",
+      "22763a8a-fca7-5f60-88c2-68a8beea2819",
+      "259b23e1-48f8-5dd4-821e-4c96ee25e8aa",
+      "2753dbdb-e56d-56cf-a94a-f43f1f7abfbc",
+      "28c572a9-1366-525e-9a2b-1db1b535ba42",
+      "2bf4b7fb-f9a7-5d38-9158-a48e4be55899",
+      "2ecd72cc-60a2-55ae-a3dd-47a7506e23eb",
+      "2f4c8437-ca6d-5694-a152-6525916a0dcc",
+      "31330eff-c5ae-5340-87dd-347d0b6948a9",
+      "315cce30-fa09-5c13-8f50-46c9132a30a0",
+      "334620f0-ea3d-532f-adcd-ce0ab031dac3",
+      "3356aeda-7799-5412-ac87-18cc4d7bdc09",
+      "33a0e5a0-28e0-50e6-b95d-a27e847b2c4e",
+      "34398966-7e09-554a-926f-62100092611f",
+      "35297069-fdcc-54e3-ba49-15a27b11493d",
+      "36dc3e19-52b7-58c6-9417-a7cfc780ce62",
+      "3bc11013-217e-5c50-a169-5a0fbf3f89ab",
+      "3c8848f7-5a76-5455-b6e6-93830ade4289",
+      "3d55e63c-59b3-58d7-a796-24c0505bb37c",
+      "3f2d4f47-ad3a-5ffc-b175-c967a9e608b5",
+      "401820af-0fbb-5521-9410-ccadabb60850",
+      "41fa8540-f3ca-5735-b25d-c45df11e06c5",
+      "422618f1-0509-5929-9a8a-34335f82762a",
+      "4692b2c2-6ecc-5711-a724-83695f233c1d",
+      "4693199a-55f9-5e22-826e-1aa75c3e2081",
+      "46b8c088-763d-5e4c-a197-eb805e606d6f",
+      "472cc3bb-205d-50cb-ae2e-e38c13341e3c",
+      "48449275-8751-5524-b208-b5c7cbe81c12",
+      "4983b33b-693d-532f-a994-531765dd9303",
+      "4a65862d-3f8d-58b9-a668-3c5af8d1c938",
+      "4b98c8c5-7556-5e90-a5cd-88f401923cd0",
+      "4d3928cb-46c1-53ae-b84a-96e0f236a408",
+      "4d58aa23-e51d-54fb-972e-d21761aa9e43",
+      "4d7878a6-361f-5712-83ef-2caf32b1bf72",
+      "50024687-76f8-58fd-a404-0abebaab2fd5",
+      "52ecf120-896c-5a32-ac85-8f86cebdb3fd",
+      "53880ffa-e4f3-59ad-aaa7-124fec808746",
+      "54ad9a7b-a29c-512e-b4de-d7032325be73",
+      "554e5f03-ffc2-5379-9bd1-201453e61fef",
+      "58588920-f98c-537f-9ce6-f9b50ec7d91b",
+      "5a4d2520-658a-50cc-9298-9275bf5bc731",
+      "5a6f50b5-8a9b-5175-be62-3955ca425d4c",
+      "5d0e900e-c53e-5612-bf9e-0c0adfd07554",
+      "5d477f68-464e-52bd-8e50-0cdf1654c2d7",
+      "5da16357-2121-5104-9f69-368b4aa2fee3",
+      "61759bb8-1048-5897-a5ed-2fa97fe679ce",
+      "62103e88-326e-54c7-b141-9d458f6af4ab",
+      "62427e58-e27d-55fa-8d85-23c5d957d99e",
+      "63e6d92d-fd9e-510c-9afa-caec37a2d42d",
+      "64dffedb-abcb-5344-99cd-c5c0d1cefc85",
+      "66be364c-35da-5c63-84d5-48266c84aff8",
+      "68907abd-a1cb-56a0-83e2-c694931c3a3b",
+      "6c7a84d6-bbf9-595f-ba6a-e9be1de7a2de",
+      "6c803ee1-b321-514d-a87b-df3b162a3c7f",
+      "6cc674d9-41ab-5c56-ba87-bf44cb68773c",
+      "6da567a5-0526-5fde-a31d-e34c4aad7a34",
+      "6f09707c-6893-5fb1-8155-cb7d2aa76aa2",
+      "71de1bff-6c7e-5f2f-a6a4-4b11a3df6fa3",
+      "751a5523-f312-5736-bc2f-b2c77faec3e4",
+      "76841acb-5487-5851-8c1e-aa6bb4d04607",
+      "76ed4ce2-b1de-53ca-9641-ae8885292dc4",
+      "785e08b2-514a-5f5b-889e-2263e7c9ea44",
+      "788ba6a6-6161-5d92-a836-ff767f57657e",
+      "78d8d4eb-cca0-5a6d-b88d-0fd65d60cd95",
+      "78ebc882-adda-5e5d-b639-2a93925a7b12",
+      "7acaff88-624f-5155-85ad-a4fd9f64a91a",
+      "7bc71e93-3db7-5c19-a948-98601c549bb3",
+      "7e493114-5b1e-551b-b5d6-b9c33773db8d",
+      "7f6c0864-f0df-5ef8-bea8-8c4701773e0d",
+      "801be55e-d8ae-50d6-b37c-724a30fda8a1",
+      "84ec6dc5-3d5f-5996-a203-87d5a2fb2d5c",
+      "8653b5d6-b614-5f31-82b4-f54aabebfa54",
+      "868638bb-fed9-5869-9050-dc95b07ce971",
+      "86e0a846-7f80-50ae-8547-a0f001a89323",
+      "8a254e0f-189e-5b68-8d6f-9a8234f01fca",
+      "8b85e561-9545-53db-8e0d-eb120e21e7dc",
+      "8c1d1860-29fd-5051-abcf-3f2d45ce6946",
+      "91fded0e-7496-5f9a-96e4-f50d2f5d9279",
+      "9249ac2f-8387-5363-89f9-a89c23b2dfd6",
+      "926895b4-3a2f-57f8-88e1-1e259d9d6bbf",
+      "92700b2e-c8c9-5d6b-b159-afa1e4fd0d53",
+      "929e0442-0bc0-5422-9a89-c55487cbf3ff",
+      "935e9450-02fc-5987-a9a6-e7f32a6ad3c8",
+      "937fe4ba-4de0-58bb-929e-1d692fae55df",
+      "94f4ad4b-f9a6-55a1-bdec-f781fd015db6",
+      "95fd32b9-9885-5fea-8659-62268b31e57e",
+      "96b0c879-6eb3-5bf5-a393-0cb613bcbc99",
+      "9733681f-19a7-503d-b1a9-da3777f4d835",
+      "97beeaa4-faec-54a2-aa5f-fd0ec54d571d",
+      "9b13732c-bd76-5ef6-add2-3a4f19adf356",
+      "9bd710c4-125a-5ff5-ab27-16b1702450e6",
+      "9da62027-2e65-5eb9-b63e-e9e88ae0e16f",
+      "9eba9c1d-1e23-58fe-a3f8-79531417069d",
+      "a0b340fc-5ebd-5255-8006-e62065072009",
+      "a186b257-6100-5b8b-b4ef-f2b7c252eda5",
+      "a306d24c-8f3f-5ae5-a8d0-a757b10b8cd7",
+      "a55d6e09-29c7-5a6b-8bee-3c57dd897d32",
+      "a9d471eb-c63b-5fac-bf38-9e8ac6c8d7ff",
+      "ab3137a4-36ab-512c-ad99-8ed7fe682f03",
+      "ac0133ca-a13e-5d6a-8a51-c5c1397171ba",
+      "aec0c29a-6300-5e1d-a868-e1e46f6933e2",
+      "af2e1e4e-d46a-5b95-a912-0577d47efd15",
+      "af564398-39c9-5f8d-a217-d642df08af9e",
+      "affb700a-35e6-5261-9b96-56e35cb344b3",
+      "b496723a-2567-59e6-b489-d13a92540965",
+      "b5d15704-1f7b-5ff5-b0fb-5813f9a51b63",
+      "b649f8ac-9a8b-59ab-8d9b-85d4f694a1e0",
+      "b6ca8ec9-8917-5bf2-943c-9676b61b60a1",
+      "b6ebf83b-dc42-53ab-b995-fffbca55ab77",
+      "b940aa94-7f9e-585f-81e1-0ac21824696e",
+      "ba41d17e-60e0-57d9-a5ac-1b5b565c0adf",
+      "bb5c4f96-fd13-547e-a304-b2e9ddf116b3",
+      "bd47a7a9-8ee8-57ed-91c8-4641bee11555",
+      "bfbe9229-48c4-54cb-9f86-aabeda8b6c98",
+      "bfc1653c-5f6d-55a7-bd0c-edf4dd137995",
+      "c000de71-ad6d-5b0e-a568-9c8fc39c37d6",
+      "c16f8111-276d-58a6-8823-d7a1177b258a",
+      "c27eda6b-5342-57fe-b457-526768c8e0b1",
+      "c2feb22d-7af0-5b90-a853-79431b80d8ae",
+      "c34c2146-693a-55ac-98b3-9550946b2ba0",
+      "c3f42011-129f-58da-9f86-47955fb99750",
+      "c625d466-727d-5a96-90ec-bf764c01593d",
+      "c6c0c5de-4860-539c-b38d-fd8d379f835a",
+      "c8e11997-3884-5414-9d68-01fa91045716",
+      "c9db7c80-09d6-55f3-9356-f93c4e815e37",
+      "ca915c06-6cef-5e5b-a7ce-13480d7e395a",
+      "cbd04bfb-62b0-51b8-87ea-94ea11426b72",
+      "cc7a9b5c-4672-5a7d-b7cc-83f42a6565d0",
+      "cc7cb5b3-55f4-569f-83f3-3d0d2fcb52fc",
+      "ccae2401-4803-5d60-8705-8984363cd2ed",
+      "cd2c31bd-bd43-5b52-87e7-f3024cb69ad0",
+      "ce5a2b62-cf59-5942-bf50-fb8730fe0d3c",
+      "cf3891a9-d911-5f63-8571-dd3977f55d38",
+      "cffd2b9b-f3fa-53c9-976a-4b9ff2df2300",
+      "d018cb10-7218-5d25-b97f-3606139da732",
+      "d0dbd7aa-81ec-595b-b1af-385dde222849",
+      "d1d1f4ba-f05b-5649-90c2-d886a1574016",
+      "d376c6fa-dc2a-5162-a16f-c9f134119686",
+      "d3a13038-5b25-5c35-affe-df012153a438",
+      "d4a29c2e-44e9-5869-b893-a9175aa31740",
+      "d4b95483-3151-5fa7-8d08-2886c4dbf316",
+      "d5930f60-786f-5eaa-905a-f97b0dd5a207",
+      "d6f575c3-ec04-5f85-8778-97da44ff9f64",
+      "d7b232a5-616e-5d79-91ca-222782a627b5",
+      "d991908f-d00d-5576-99d3-254a0df0bf7e",
+      "dbf25b3a-435c-5a78-afdd-6a007a725bc6",
+      "dc508623-60e2-54cb-a243-0825c533417b",
+      "dccdccfa-e2cc-5a2c-9b8d-fe3f18dba752",
+      "dd6da006-b6f7-5fdd-bfd0-b0baec2a6c67",
+      "e36220c9-deee-54e3-9faf-fdd4965fa440",
+      "e549367a-fa63-583e-b745-0791e326025c",
+      "e70a638f-a94b-5b17-89d2-89fb45143f2e",
+      "e742bfcf-58d6-59e1-aac6-e6353ce9a48b",
+      "eab85882-b00a-5642-8117-e526b910b107",
+      "ec329eb7-2d8e-5a7d-9cf9-b9de6ea78f38",
+      "f047d462-549a-5755-a14e-60886e7facb4",
+      "f1f0173c-8a11-57c0-8b1a-6e5f3aeadd8e",
+      "f21b54ac-b7ad-52d0-a0e7-af5586ef9655",
+      "f25c2d3f-5dfb-558c-be0f-b6509fa57f0e",
+      "f354a98c-3ecf-5c0d-b923-b0667cac60fe",
+      "f39775d5-384f-568f-a34d-04a787fc8819",
+      "f73528bf-009f-5bbb-9f0d-2b5f2a4c440b",
+      "f768cfec-32ae-5c52-9165-d1cf7cdebdaf",
+      "f853035a-0f19-51b2-9fbb-30d3a81dd5f1",
+      "f86740ab-320e-562e-9e90-4547100daa99",
+      "f9f64dd7-e2d9-5630-80e8-c1bd45131f6f",
+      "fa0c257c-b78d-5c70-96b3-c927de0207df",
+      "fc23713a-de3c-57bf-b8a6-db276aa464b4",
+      "fd861929-cbb8-59d1-9057-785bba62c394",
+      "fed4dd36-06ef-5f01-8d47-5ce3d079710d",
+      "fff2f83a-8908-596b-9d89-6123309e1f53"
+    ],
+    "currency": "INR",
+    "funded_count": 200,
+    "initial_funding": [
+      {
+        "balance_minor": 99867,
+        "external_ref": "seed:pulsepay-v1:60",
+        "id": "004c90ae-a750-54d0-ad41-4179847b331a"
+      },
+      {
+        "balance_minor": 100059,
+        "external_ref": "seed:pulsepay-v1:134",
+        "id": "008bc99f-34f6-57d2-8a2f-e1d56a8d84c5"
+      },
+      {
+        "balance_minor": 99763,
+        "external_ref": "seed:pulsepay-v1:50",
+        "id": "0178091e-b559-5978-bd8e-666f50401e42"
+      },
+      {
+        "balance_minor": 99647,
+        "external_ref": "seed:pulsepay-v1:126",
+        "id": "039f9d11-b750-5636-a25d-8edff135c9c4"
+      },
+      {
+        "balance_minor": 100003,
+        "external_ref": "seed:pulsepay-v1:121",
+        "id": "0535fc5d-625a-5b71-b928-217d9e914e69"
+      },
+      {
+        "balance_minor": 99995,
+        "external_ref": "seed:pulsepay-v1:143",
+        "id": "07d0aaaf-68cc-5069-85b6-effc0c1cb127"
+      },
+      {
+        "balance_minor": 100543,
+        "external_ref": "seed:pulsepay-v1:182",
+        "id": "0a6fc453-9263-5227-acbe-82d2d5f70897"
+      },
+      {
+        "balance_minor": 100093,
+        "external_ref": "seed:pulsepay-v1:84",
+        "id": "0c7dd8f6-eec1-5a2f-b309-05d6719c8372"
+      },
+      {
+        "balance_minor": 100129,
+        "external_ref": "seed:pulsepay-v1:128",
+        "id": "0c8aca2d-fe48-5cd7-aeee-944c879fd773"
+      },
+      {
+        "balance_minor": 100053,
+        "external_ref": "seed:pulsepay-v1:91",
+        "id": "0cb1256f-deb9-5598-968b-776fb817b807"
+      },
+      {
+        "balance_minor": 99594,
+        "external_ref": "seed:pulsepay-v1:3",
+        "id": "0e20ba08-1276-5142-b062-bdcd6ac5bea2"
+      },
+      {
+        "balance_minor": 99995,
+        "external_ref": "seed:pulsepay-v1:153",
+        "id": "1003e04b-3aa5-55d6-bef3-d45a24740591"
+      },
+      {
+        "balance_minor": 100156,
+        "external_ref": "seed:pulsepay-v1:133",
+        "id": "11862a65-5776-5172-9abb-524453ef66a6"
+      },
+      {
+        "balance_minor": 99545,
+        "external_ref": "seed:pulsepay-v1:96",
+        "id": "1441e6e1-800d-5667-a01f-ae8901b45d0e"
+      },
+      {
+        "balance_minor": 99873,
+        "external_ref": "seed:pulsepay-v1:172",
+        "id": "148fadb7-0cd5-5b90-8bd4-98fd0b30315d"
+      },
+      {
+        "balance_minor": 99573,
+        "external_ref": "seed:pulsepay-v1:109",
+        "id": "14c9ead3-9e54-56c6-911e-63579e431548"
+      },
+      {
+        "balance_minor": 100447,
+        "external_ref": "seed:pulsepay-v1:188",
+        "id": "14dc9489-6b65-538c-9033-eb7586918d65"
+      },
+      {
+        "balance_minor": 100017,
+        "external_ref": "seed:pulsepay-v1:174",
+        "id": "161b10f7-af15-5592-83e9-530efec12708"
+      },
+      {
+        "balance_minor": 100608,
+        "external_ref": "seed:pulsepay-v1:160",
+        "id": "161e242d-adba-5eba-befc-7fe786b3502c"
+      },
+      {
+        "balance_minor": 99751,
+        "external_ref": "seed:pulsepay-v1:152",
+        "id": "16772365-609f-59be-8599-0303acbf614f"
+      },
+      {
+        "balance_minor": 99490,
+        "external_ref": "seed:pulsepay-v1:52",
+        "id": "176b68ae-c5fd-516f-ab11-3fdd8cb922ae"
+      },
+      {
+        "balance_minor": 99483,
+        "external_ref": "seed:pulsepay-v1:45",
+        "id": "179bb5ec-0e01-5e9c-81ac-f7c934ca230f"
+      },
+      {
+        "balance_minor": 100613,
+        "external_ref": "seed:pulsepay-v1:180",
+        "id": "17fb10e1-d6f3-5def-8b58-512f5bc7149b"
+      },
+      {
+        "balance_minor": 100409,
+        "external_ref": "seed:pulsepay-v1:20",
+        "id": "18d7645d-02be-5a65-a4d8-afae891ec844"
+      },
+      {
+        "balance_minor": 100199,
+        "external_ref": "seed:pulsepay-v1:195",
+        "id": "19a0b3da-2eed-55cb-a00b-801eb3927a62"
+      },
+      {
+        "balance_minor": 99495,
+        "external_ref": "seed:pulsepay-v1:105",
+        "id": "1b73a0d7-e080-5de1-a458-fa3b9a6179b9"
+      },
+      {
+        "balance_minor": 100413,
+        "external_ref": "seed:pulsepay-v1:116",
+        "id": "1b9f56e6-1828-5b3a-8302-cb28035d18c7"
+      },
+      {
+        "balance_minor": 100087,
+        "external_ref": "seed:pulsepay-v1:193",
+        "id": "1bcbca1d-37ee-51d8-a230-36d723d4622d"
+      },
+      {
+        "balance_minor": 100511,
+        "external_ref": "seed:pulsepay-v1:90",
+        "id": "1ea0f658-029f-5d86-83f7-44a58c774c32"
+      },
+      {
+        "balance_minor": 100246,
+        "external_ref": "seed:pulsepay-v1:77",
+        "id": "1f180aeb-f5f6-5ce7-a5ee-bd55a4db53a7"
+      },
+      {
+        "balance_minor": 100731,
+        "external_ref": "seed:pulsepay-v1:80",
+        "id": "22763a8a-fca7-5f60-88c2-68a8beea2819"
+      },
+      {
+        "balance_minor": 100098,
+        "external_ref": "seed:pulsepay-v1:81",
+        "id": "259b23e1-48f8-5dd4-821e-4c96ee25e8aa"
+      },
+      {
+        "balance_minor": 100088,
+        "external_ref": "seed:pulsepay-v1:142",
+        "id": "2753dbdb-e56d-56cf-a94a-f43f1f7abfbc"
+      },
+      {
+        "balance_minor": 100163,
+        "external_ref": "seed:pulsepay-v1:148",
+        "id": "28c572a9-1366-525e-9a2b-1db1b535ba42"
+      },
+      {
+        "balance_minor": 99995,
+        "external_ref": "seed:pulsepay-v1:68",
+        "id": "2bf4b7fb-f9a7-5d38-9158-a48e4be55899"
+      },
+      {
+        "balance_minor": 100678,
+        "external_ref": "seed:pulsepay-v1:95",
+        "id": "2ecd72cc-60a2-55ae-a3dd-47a7506e23eb"
+      },
+      {
+        "balance_minor": 99924,
+        "external_ref": "seed:pulsepay-v1:47",
+        "id": "2f4c8437-ca6d-5694-a152-6525916a0dcc"
+      },
+      {
+        "balance_minor": 99887,
+        "external_ref": "seed:pulsepay-v1:10",
+        "id": "31330eff-c5ae-5340-87dd-347d0b6948a9"
+      },
+      {
+        "balance_minor": 100266,
+        "external_ref": "seed:pulsepay-v1:137",
+        "id": "315cce30-fa09-5c13-8f50-46c9132a30a0"
+      },
+      {
+        "balance_minor": 100070,
+        "external_ref": "seed:pulsepay-v1:75",
+        "id": "334620f0-ea3d-532f-adcd-ce0ab031dac3"
+      },
+      {
+        "balance_minor": 100156,
+        "external_ref": "seed:pulsepay-v1:94",
+        "id": "3356aeda-7799-5412-ac87-18cc4d7bdc09"
+      },
+      {
+        "balance_minor": 100255,
+        "external_ref": "seed:pulsepay-v1:82",
+        "id": "33a0e5a0-28e0-50e6-b95d-a27e847b2c4e"
+      },
+      {
+        "balance_minor": 99447,
+        "external_ref": "seed:pulsepay-v1:66",
+        "id": "34398966-7e09-554a-926f-62100092611f"
+      },
+      {
+        "balance_minor": 100103,
+        "external_ref": "seed:pulsepay-v1:21",
+        "id": "35297069-fdcc-54e3-ba49-15a27b11493d"
+      },
+      {
+        "balance_minor": 99275,
+        "external_ref": "seed:pulsepay-v1:139",
+        "id": "36dc3e19-52b7-58c6-9417-a7cfc780ce62"
+      },
+      {
+        "balance_minor": 99718,
+        "external_ref": "seed:pulsepay-v1:26",
+        "id": "3bc11013-217e-5c50-a169-5a0fbf3f89ab"
+      },
+      {
+        "balance_minor": 99364,
+        "external_ref": "seed:pulsepay-v1:41",
+        "id": "3c8848f7-5a76-5455-b6e6-93830ade4289"
+      },
+      {
+        "balance_minor": 100259,
+        "external_ref": "seed:pulsepay-v1:117",
+        "id": "3d55e63c-59b3-58d7-a796-24c0505bb37c"
+      },
+      {
+        "balance_minor": 100101,
+        "external_ref": "seed:pulsepay-v1:106",
+        "id": "3f2d4f47-ad3a-5ffc-b175-c967a9e608b5"
+      },
+      {
+        "balance_minor": 99852,
+        "external_ref": "seed:pulsepay-v1:58",
+        "id": "401820af-0fbb-5521-9410-ccadabb60850"
+      },
+      {
+        "balance_minor": 100185,
+        "external_ref": "seed:pulsepay-v1:31",
+        "id": "41fa8540-f3ca-5735-b25d-c45df11e06c5"
+      },
+      {
+        "balance_minor": 100030,
+        "external_ref": "seed:pulsepay-v1:7",
+        "id": "422618f1-0509-5929-9a8a-34335f82762a"
+      },
+      {
+        "balance_minor": 99540,
+        "external_ref": "seed:pulsepay-v1:23",
+        "id": "4692b2c2-6ecc-5711-a724-83695f233c1d"
+      },
+      {
+        "balance_minor": 100518,
+        "external_ref": "seed:pulsepay-v1:37",
+        "id": "4693199a-55f9-5e22-826e-1aa75c3e2081"
+      },
+      {
+        "balance_minor": 100310,
+        "external_ref": "seed:pulsepay-v1:88",
+        "id": "46b8c088-763d-5e4c-a197-eb805e606d6f"
+      },
+      {
+        "balance_minor": 99989,
+        "external_ref": "seed:pulsepay-v1:157",
+        "id": "472cc3bb-205d-50cb-ae2e-e38c13341e3c"
+      },
+      {
+        "balance_minor": 100279,
+        "external_ref": "seed:pulsepay-v1:93",
+        "id": "48449275-8751-5524-b208-b5c7cbe81c12"
+      },
+      {
+        "balance_minor": 100044,
+        "external_ref": "seed:pulsepay-v1:141",
+        "id": "4983b33b-693d-532f-a994-531765dd9303"
+      },
+      {
+        "balance_minor": 100756,
+        "external_ref": "seed:pulsepay-v1:176",
+        "id": "4a65862d-3f8d-58b9-a668-3c5af8d1c938"
+      },
+      {
+        "balance_minor": 100126,
+        "external_ref": "seed:pulsepay-v1:181",
+        "id": "4b98c8c5-7556-5e90-a5cd-88f401923cd0"
+      },
+      {
+        "balance_minor": 99613,
+        "external_ref": "seed:pulsepay-v1:70",
+        "id": "4d3928cb-46c1-53ae-b84a-96e0f236a408"
+      },
+      {
+        "balance_minor": 100392,
+        "external_ref": "seed:pulsepay-v1:18",
+        "id": "4d58aa23-e51d-54fb-972e-d21761aa9e43"
+      },
+      {
+        "balance_minor": 100193,
+        "external_ref": "seed:pulsepay-v1:69",
+        "id": "4d7878a6-361f-5712-83ef-2caf32b1bf72"
+      },
+      {
+        "balance_minor": 99645,
+        "external_ref": "seed:pulsepay-v1:54",
+        "id": "50024687-76f8-58fd-a404-0abebaab2fd5"
+      },
+      {
+        "balance_minor": 99915,
+        "external_ref": "seed:pulsepay-v1:187",
+        "id": "52ecf120-896c-5a32-ac85-8f86cebdb3fd"
+      },
+      {
+        "balance_minor": 99594,
+        "external_ref": "seed:pulsepay-v1:170",
+        "id": "53880ffa-e4f3-59ad-aaa7-124fec808746"
+      },
+      {
+        "balance_minor": 100323,
+        "external_ref": "seed:pulsepay-v1:191",
+        "id": "54ad9a7b-a29c-512e-b4de-d7032325be73"
+      },
+      {
+        "balance_minor": 99828,
+        "external_ref": "seed:pulsepay-v1:145",
+        "id": "554e5f03-ffc2-5379-9bd1-201453e61fef"
+      },
+      {
+        "balance_minor": 100343,
+        "external_ref": "seed:pulsepay-v1:92",
+        "id": "58588920-f98c-537f-9ce6-f9b50ec7d91b"
+      },
+      {
+        "balance_minor": 99574,
+        "external_ref": "seed:pulsepay-v1:76",
+        "id": "5a4d2520-658a-50cc-9298-9275bf5bc731"
+      },
+      {
+        "balance_minor": 99891,
+        "external_ref": "seed:pulsepay-v1:140",
+        "id": "5a6f50b5-8a9b-5175-be62-3955ca425d4c"
+      },
+      {
+        "balance_minor": 100275,
+        "external_ref": "seed:pulsepay-v1:14",
+        "id": "5d0e900e-c53e-5612-bf9e-0c0adfd07554"
+      },
+      {
+        "balance_minor": 99878,
+        "external_ref": "seed:pulsepay-v1:2",
+        "id": "5d477f68-464e-52bd-8e50-0cdf1654c2d7"
+      },
+      {
+        "balance_minor": 100624,
+        "external_ref": "seed:pulsepay-v1:4",
+        "id": "5da16357-2121-5104-9f69-368b4aa2fee3"
+      },
+      {
+        "balance_minor": 99944,
+        "external_ref": "seed:pulsepay-v1:38",
+        "id": "61759bb8-1048-5897-a5ed-2fa97fe679ce"
+      },
+      {
+        "balance_minor": 100096,
+        "external_ref": "seed:pulsepay-v1:33",
+        "id": "62103e88-326e-54c7-b141-9d458f6af4ab"
+      },
+      {
+        "balance_minor": 100055,
+        "external_ref": "seed:pulsepay-v1:40",
+        "id": "62427e58-e27d-55fa-8d85-23c5d957d99e"
+      },
+      {
+        "balance_minor": 100465,
+        "external_ref": "seed:pulsepay-v1:104",
+        "id": "63e6d92d-fd9e-510c-9afa-caec37a2d42d"
+      },
+      {
+        "balance_minor": 100702,
+        "external_ref": "seed:pulsepay-v1:65",
+        "id": "64dffedb-abcb-5344-99cd-c5c0d1cefc85"
+      },
+      {
+        "balance_minor": 100228,
+        "external_ref": "seed:pulsepay-v1:150",
+        "id": "66be364c-35da-5c63-84d5-48266c84aff8"
+      },
+      {
+        "balance_minor": 99766,
+        "external_ref": "seed:pulsepay-v1:147",
+        "id": "68907abd-a1cb-56a0-83e2-c694931c3a3b"
+      },
+      {
+        "balance_minor": 100056,
+        "external_ref": "seed:pulsepay-v1:177",
+        "id": "6c7a84d6-bbf9-595f-ba6a-e9be1de7a2de"
+      },
+      {
+        "balance_minor": 99580,
+        "external_ref": "seed:pulsepay-v1:178",
+        "id": "6c803ee1-b321-514d-a87b-df3b162a3c7f"
+      },
+      {
+        "balance_minor": 99743,
+        "external_ref": "seed:pulsepay-v1:9",
+        "id": "6cc674d9-41ab-5c56-ba87-bf44cb68773c"
+      },
+      {
+        "balance_minor": 100456,
+        "external_ref": "seed:pulsepay-v1:11",
+        "id": "6da567a5-0526-5fde-a31d-e34c4aad7a34"
+      },
+      {
+        "balance_minor": 100394,
+        "external_ref": "seed:pulsepay-v1:166",
+        "id": "6f09707c-6893-5fb1-8155-cb7d2aa76aa2"
+      },
+      {
+        "balance_minor": 99819,
+        "external_ref": "seed:pulsepay-v1:167",
+        "id": "71de1bff-6c7e-5f2f-a6a4-4b11a3df6fa3"
+      },
+      {
+        "balance_minor": 99545,
+        "external_ref": "seed:pulsepay-v1:42",
+        "id": "751a5523-f312-5736-bc2f-b2c77faec3e4"
+      },
+      {
+        "balance_minor": 100107,
+        "external_ref": "seed:pulsepay-v1:183",
+        "id": "76841acb-5487-5851-8c1e-aa6bb4d04607"
+      },
+      {
+        "balance_minor": 99829,
+        "external_ref": "seed:pulsepay-v1:57",
+        "id": "76ed4ce2-b1de-53ca-9641-ae8885292dc4"
+      },
+      {
+        "balance_minor": 99972,
+        "external_ref": "seed:pulsepay-v1:22",
+        "id": "785e08b2-514a-5f5b-889e-2263e7c9ea44"
+      },
+      {
+        "balance_minor": 100167,
+        "external_ref": "seed:pulsepay-v1:169",
+        "id": "788ba6a6-6161-5d92-a836-ff767f57657e"
+      },
+      {
+        "balance_minor": 100133,
+        "external_ref": "seed:pulsepay-v1:107",
+        "id": "78d8d4eb-cca0-5a6d-b88d-0fd65d60cd95"
+      },
+      {
+        "balance_minor": 100245,
+        "external_ref": "seed:pulsepay-v1:194",
+        "id": "78ebc882-adda-5e5d-b639-2a93925a7b12"
+      },
+      {
+        "balance_minor": 100060,
+        "external_ref": "seed:pulsepay-v1:89",
+        "id": "7acaff88-624f-5155-85ad-a4fd9f64a91a"
+      },
+      {
+        "balance_minor": 100116,
+        "external_ref": "seed:pulsepay-v1:173",
+        "id": "7bc71e93-3db7-5c19-a948-98601c549bb3"
+      },
+      {
+        "balance_minor": 99803,
+        "external_ref": "seed:pulsepay-v1:74",
+        "id": "7e493114-5b1e-551b-b5d6-b9c33773db8d"
+      },
+      {
+        "balance_minor": 99695,
+        "external_ref": "seed:pulsepay-v1:112",
+        "id": "7f6c0864-f0df-5ef8-bea8-8c4701773e0d"
+      },
+      {
+        "balance_minor": 99686,
+        "external_ref": "seed:pulsepay-v1:123",
+        "id": "801be55e-d8ae-50d6-b37c-724a30fda8a1"
+      },
+      {
+        "balance_minor": 99824,
+        "external_ref": "seed:pulsepay-v1:25",
+        "id": "84ec6dc5-3d5f-5996-a203-87d5a2fb2d5c"
+      },
+      {
+        "balance_minor": 100244,
+        "external_ref": "seed:pulsepay-v1:131",
+        "id": "8653b5d6-b614-5f31-82b4-f54aabebfa54"
+      },
+      {
+        "balance_minor": 99531,
+        "external_ref": "seed:pulsepay-v1:1",
+        "id": "868638bb-fed9-5869-9050-dc95b07ce971"
+      },
+      {
+        "balance_minor": 99940,
+        "external_ref": "seed:pulsepay-v1:118",
+        "id": "86e0a846-7f80-50ae-8547-a0f001a89323"
+      },
+      {
+        "balance_minor": 100019,
+        "external_ref": "seed:pulsepay-v1:138",
+        "id": "8a254e0f-189e-5b68-8d6f-9a8234f01fca"
+      },
+      {
+        "balance_minor": 100158,
+        "external_ref": "seed:pulsepay-v1:99",
+        "id": "8b85e561-9545-53db-8e0d-eb120e21e7dc"
+      },
+      {
+        "balance_minor": 99951,
+        "external_ref": "seed:pulsepay-v1:135",
+        "id": "8c1d1860-29fd-5051-abcf-3f2d45ce6946"
+      },
+      {
+        "balance_minor": 99715,
+        "external_ref": "seed:pulsepay-v1:184",
+        "id": "91fded0e-7496-5f9a-96e4-f50d2f5d9279"
+      },
+      {
+        "balance_minor": 99720,
+        "external_ref": "seed:pulsepay-v1:156",
+        "id": "9249ac2f-8387-5363-89f9-a89c23b2dfd6"
+      },
+      {
+        "balance_minor": 100262,
+        "external_ref": "seed:pulsepay-v1:132",
+        "id": "926895b4-3a2f-57f8-88e1-1e259d9d6bbf"
+      },
+      {
+        "balance_minor": 99717,
+        "external_ref": "seed:pulsepay-v1:39",
+        "id": "92700b2e-c8c9-5d6b-b159-afa1e4fd0d53"
+      },
+      {
+        "balance_minor": 100023,
+        "external_ref": "seed:pulsepay-v1:151",
+        "id": "929e0442-0bc0-5422-9a89-c55487cbf3ff"
+      },
+      {
+        "balance_minor": 100089,
+        "external_ref": "seed:pulsepay-v1:86",
+        "id": "935e9450-02fc-5987-a9a6-e7f32a6ad3c8"
+      },
+      {
+        "balance_minor": 99809,
+        "external_ref": "seed:pulsepay-v1:168",
+        "id": "937fe4ba-4de0-58bb-929e-1d692fae55df"
+      },
+      {
+        "balance_minor": 100228,
+        "external_ref": "seed:pulsepay-v1:36",
+        "id": "94f4ad4b-f9a6-55a1-bdec-f781fd015db6"
+      },
+      {
+        "balance_minor": 99823,
+        "external_ref": "seed:pulsepay-v1:102",
+        "id": "95fd32b9-9885-5fea-8659-62268b31e57e"
+      },
+      {
+        "balance_minor": 99501,
+        "external_ref": "seed:pulsepay-v1:120",
+        "id": "96b0c879-6eb3-5bf5-a393-0cb613bcbc99"
+      },
+      {
+        "balance_minor": 99651,
+        "external_ref": "seed:pulsepay-v1:163",
+        "id": "9733681f-19a7-503d-b1a9-da3777f4d835"
+      },
+      {
+        "balance_minor": 99511,
+        "external_ref": "seed:pulsepay-v1:111",
+        "id": "97beeaa4-faec-54a2-aa5f-fd0ec54d571d"
+      },
+      {
+        "balance_minor": 99802,
+        "external_ref": "seed:pulsepay-v1:155",
+        "id": "9b13732c-bd76-5ef6-add2-3a4f19adf356"
+      },
+      {
+        "balance_minor": 100128,
+        "external_ref": "seed:pulsepay-v1:15",
+        "id": "9bd710c4-125a-5ff5-ab27-16b1702450e6"
+      },
+      {
+        "balance_minor": 100200,
+        "external_ref": "seed:pulsepay-v1:61",
+        "id": "9da62027-2e65-5eb9-b63e-e9e88ae0e16f"
+      },
+      {
+        "balance_minor": 99553,
+        "external_ref": "seed:pulsepay-v1:97",
+        "id": "9eba9c1d-1e23-58fe-a3f8-79531417069d"
+      },
+      {
+        "balance_minor": 99792,
+        "external_ref": "seed:pulsepay-v1:159",
+        "id": "a0b340fc-5ebd-5255-8006-e62065072009"
+      },
+      {
+        "balance_minor": 100283,
+        "external_ref": "seed:pulsepay-v1:197",
+        "id": "a186b257-6100-5b8b-b4ef-f2b7c252eda5"
+      },
+      {
+        "balance_minor": 99959,
+        "external_ref": "seed:pulsepay-v1:46",
+        "id": "a306d24c-8f3f-5ae5-a8d0-a757b10b8cd7"
+      },
+      {
+        "balance_minor": 99945,
+        "external_ref": "seed:pulsepay-v1:149",
+        "id": "a55d6e09-29c7-5a6b-8bee-3c57dd897d32"
+      },
+      {
+        "balance_minor": 99935,
+        "external_ref": "seed:pulsepay-v1:124",
+        "id": "a9d471eb-c63b-5fac-bf38-9e8ac6c8d7ff"
+      },
+      {
+        "balance_minor": 100025,
+        "external_ref": "seed:pulsepay-v1:62",
+        "id": "ab3137a4-36ab-512c-ad99-8ed7fe682f03"
+      },
+      {
+        "balance_minor": 99794,
+        "external_ref": "seed:pulsepay-v1:78",
+        "id": "ac0133ca-a13e-5d6a-8a51-c5c1397171ba"
+      },
+      {
+        "balance_minor": 100026,
+        "external_ref": "seed:pulsepay-v1:154",
+        "id": "aec0c29a-6300-5e1d-a868-e1e46f6933e2"
+      },
+      {
+        "balance_minor": 100488,
+        "external_ref": "seed:pulsepay-v1:113",
+        "id": "af2e1e4e-d46a-5b95-a912-0577d47efd15"
+      },
+      {
+        "balance_minor": 100112,
+        "external_ref": "seed:pulsepay-v1:125",
+        "id": "af564398-39c9-5f8d-a217-d642df08af9e"
+      },
+      {
+        "balance_minor": 99528,
+        "external_ref": "seed:pulsepay-v1:63",
+        "id": "affb700a-35e6-5261-9b96-56e35cb344b3"
+      },
+      {
+        "balance_minor": 100405,
+        "external_ref": "seed:pulsepay-v1:28",
+        "id": "b496723a-2567-59e6-b489-d13a92540965"
+      },
+      {
+        "balance_minor": 100002,
+        "external_ref": "seed:pulsepay-v1:144",
+        "id": "b5d15704-1f7b-5ff5-b0fb-5813f9a51b63"
+      },
+      {
+        "balance_minor": 99538,
+        "external_ref": "seed:pulsepay-v1:185",
+        "id": "b649f8ac-9a8b-59ab-8d9b-85d4f694a1e0"
+      },
+      {
+        "balance_minor": 100090,
+        "external_ref": "seed:pulsepay-v1:13",
+        "id": "b6ca8ec9-8917-5bf2-943c-9676b61b60a1"
+      },
+      {
+        "balance_minor": 100459,
+        "external_ref": "seed:pulsepay-v1:0",
+        "id": "b6ebf83b-dc42-53ab-b995-fffbca55ab77"
+      },
+      {
+        "balance_minor": 100541,
+        "external_ref": "seed:pulsepay-v1:67",
+        "id": "b940aa94-7f9e-585f-81e1-0ac21824696e"
+      },
+      {
+        "balance_minor": 99880,
+        "external_ref": "seed:pulsepay-v1:175",
+        "id": "ba41d17e-60e0-57d9-a5ac-1b5b565c0adf"
+      },
+      {
+        "balance_minor": 100018,
+        "external_ref": "seed:pulsepay-v1:165",
+        "id": "bb5c4f96-fd13-547e-a304-b2e9ddf116b3"
+      },
+      {
+        "balance_minor": 99821,
+        "external_ref": "seed:pulsepay-v1:85",
+        "id": "bd47a7a9-8ee8-57ed-91c8-4641bee11555"
+      },
+      {
+        "balance_minor": 99665,
+        "external_ref": "seed:pulsepay-v1:72",
+        "id": "bfbe9229-48c4-54cb-9f86-aabeda8b6c98"
+      },
+      {
+        "balance_minor": 99862,
+        "external_ref": "seed:pulsepay-v1:16",
+        "id": "bfc1653c-5f6d-55a7-bd0c-edf4dd137995"
+      },
+      {
+        "balance_minor": 99973,
+        "external_ref": "seed:pulsepay-v1:17",
+        "id": "c000de71-ad6d-5b0e-a568-9c8fc39c37d6"
+      },
+      {
+        "balance_minor": 99963,
+        "external_ref": "seed:pulsepay-v1:192",
+        "id": "c16f8111-276d-58a6-8823-d7a1177b258a"
+      },
+      {
+        "balance_minor": 99621,
+        "external_ref": "seed:pulsepay-v1:136",
+        "id": "c27eda6b-5342-57fe-b457-526768c8e0b1"
+      },
+      {
+        "balance_minor": 100157,
+        "external_ref": "seed:pulsepay-v1:146",
+        "id": "c2feb22d-7af0-5b90-a853-79431b80d8ae"
+      },
+      {
+        "balance_minor": 99653,
+        "external_ref": "seed:pulsepay-v1:179",
+        "id": "c34c2146-693a-55ac-98b3-9550946b2ba0"
+      },
+      {
+        "balance_minor": 99764,
+        "external_ref": "seed:pulsepay-v1:108",
+        "id": "c3f42011-129f-58da-9f86-47955fb99750"
+      },
+      {
+        "balance_minor": 100344,
+        "external_ref": "seed:pulsepay-v1:56",
+        "id": "c625d466-727d-5a96-90ec-bf764c01593d"
+      },
+      {
+        "balance_minor": 99776,
+        "external_ref": "seed:pulsepay-v1:12",
+        "id": "c6c0c5de-4860-539c-b38d-fd8d379f835a"
+      },
+      {
+        "balance_minor": 100332,
+        "external_ref": "seed:pulsepay-v1:27",
+        "id": "c8e11997-3884-5414-9d68-01fa91045716"
+      },
+      {
+        "balance_minor": 100029,
+        "external_ref": "seed:pulsepay-v1:196",
+        "id": "c9db7c80-09d6-55f3-9356-f93c4e815e37"
+      },
+      {
+        "balance_minor": 99490,
+        "external_ref": "seed:pulsepay-v1:110",
+        "id": "ca915c06-6cef-5e5b-a7ce-13480d7e395a"
+      },
+      {
+        "balance_minor": 100102,
+        "external_ref": "seed:pulsepay-v1:127",
+        "id": "cbd04bfb-62b0-51b8-87ea-94ea11426b72"
+      },
+      {
+        "balance_minor": 99817,
+        "external_ref": "seed:pulsepay-v1:32",
+        "id": "cc7a9b5c-4672-5a7d-b7cc-83f42a6565d0"
+      },
+      {
+        "balance_minor": 99239,
+        "external_ref": "seed:pulsepay-v1:171",
+        "id": "cc7cb5b3-55f4-569f-83f3-3d0d2fcb52fc"
+      },
+      {
+        "balance_minor": 99900,
+        "external_ref": "seed:pulsepay-v1:49",
+        "id": "ccae2401-4803-5d60-8705-8984363cd2ed"
+      },
+      {
+        "balance_minor": 100117,
+        "external_ref": "seed:pulsepay-v1:51",
+        "id": "cd2c31bd-bd43-5b52-87e7-f3024cb69ad0"
+      },
+      {
+        "balance_minor": 99913,
+        "external_ref": "seed:pulsepay-v1:129",
+        "id": "ce5a2b62-cf59-5942-bf50-fb8730fe0d3c"
+      },
+      {
+        "balance_minor": 100092,
+        "external_ref": "seed:pulsepay-v1:73",
+        "id": "cf3891a9-d911-5f63-8571-dd3977f55d38"
+      },
+      {
+        "balance_minor": 99865,
+        "external_ref": "seed:pulsepay-v1:186",
+        "id": "cffd2b9b-f3fa-53c9-976a-4b9ff2df2300"
+      },
+      {
+        "balance_minor": 99837,
+        "external_ref": "seed:pulsepay-v1:53",
+        "id": "d018cb10-7218-5d25-b97f-3606139da732"
+      },
+      {
+        "balance_minor": 99799,
+        "external_ref": "seed:pulsepay-v1:79",
+        "id": "d0dbd7aa-81ec-595b-b1af-385dde222849"
+      },
+      {
+        "balance_minor": 100265,
+        "external_ref": "seed:pulsepay-v1:34",
+        "id": "d1d1f4ba-f05b-5649-90c2-d886a1574016"
+      },
+      {
+        "balance_minor": 100186,
+        "external_ref": "seed:pulsepay-v1:83",
+        "id": "d376c6fa-dc2a-5162-a16f-c9f134119686"
+      },
+      {
+        "balance_minor": 99565,
+        "external_ref": "seed:pulsepay-v1:29",
+        "id": "d3a13038-5b25-5c35-affe-df012153a438"
+      },
+      {
+        "balance_minor": 99559,
+        "external_ref": "seed:pulsepay-v1:30",
+        "id": "d4a29c2e-44e9-5869-b893-a9175aa31740"
+      },
+      {
+        "balance_minor": 100017,
+        "external_ref": "seed:pulsepay-v1:59",
+        "id": "d4b95483-3151-5fa7-8d08-2886c4dbf316"
+      },
+      {
+        "balance_minor": 99798,
+        "external_ref": "seed:pulsepay-v1:64",
+        "id": "d5930f60-786f-5eaa-905a-f97b0dd5a207"
+      },
+      {
+        "balance_minor": 99961,
+        "external_ref": "seed:pulsepay-v1:8",
+        "id": "d6f575c3-ec04-5f85-8778-97da44ff9f64"
+      },
+      {
+        "balance_minor": 99778,
+        "external_ref": "seed:pulsepay-v1:161",
+        "id": "d7b232a5-616e-5d79-91ca-222782a627b5"
+      },
+      {
+        "balance_minor": 100118,
+        "external_ref": "seed:pulsepay-v1:190",
+        "id": "d991908f-d00d-5576-99d3-254a0df0bf7e"
+      },
+      {
+        "balance_minor": 100050,
+        "external_ref": "seed:pulsepay-v1:6",
+        "id": "dbf25b3a-435c-5a78-afdd-6a007a725bc6"
+      },
+      {
+        "balance_minor": 100097,
+        "external_ref": "seed:pulsepay-v1:164",
+        "id": "dc508623-60e2-54cb-a243-0825c533417b"
+      },
+      {
+        "balance_minor": 100044,
+        "external_ref": "seed:pulsepay-v1:114",
+        "id": "dccdccfa-e2cc-5a2c-9b8d-fe3f18dba752"
+      },
+      {
+        "balance_minor": 100242,
+        "external_ref": "seed:pulsepay-v1:119",
+        "id": "dd6da006-b6f7-5fdd-bfd0-b0baec2a6c67"
+      },
+      {
+        "balance_minor": 100256,
+        "external_ref": "seed:pulsepay-v1:162",
+        "id": "e36220c9-deee-54e3-9faf-fdd4965fa440"
+      },
+      {
+        "balance_minor": 100159,
+        "external_ref": "seed:pulsepay-v1:24",
+        "id": "e549367a-fa63-583e-b745-0791e326025c"
+      },
+      {
+        "balance_minor": 100265,
+        "external_ref": "seed:pulsepay-v1:158",
+        "id": "e70a638f-a94b-5b17-89d2-89fb45143f2e"
+      },
+      {
+        "balance_minor": 100316,
+        "external_ref": "seed:pulsepay-v1:101",
+        "id": "e742bfcf-58d6-59e1-aac6-e6353ce9a48b"
+      },
+      {
+        "balance_minor": 100633,
+        "external_ref": "seed:pulsepay-v1:130",
+        "id": "eab85882-b00a-5642-8117-e526b910b107"
+      },
+      {
+        "balance_minor": 99957,
+        "external_ref": "seed:pulsepay-v1:87",
+        "id": "ec329eb7-2d8e-5a7d-9cf9-b9de6ea78f38"
+      },
+      {
+        "balance_minor": 99772,
+        "external_ref": "seed:pulsepay-v1:122",
+        "id": "f047d462-549a-5755-a14e-60886e7facb4"
+      },
+      {
+        "balance_minor": 100220,
+        "external_ref": "seed:pulsepay-v1:5",
+        "id": "f1f0173c-8a11-57c0-8b1a-6e5f3aeadd8e"
+      },
+      {
+        "balance_minor": 99606,
+        "external_ref": "seed:pulsepay-v1:55",
+        "id": "f21b54ac-b7ad-52d0-a0e7-af5586ef9655"
+      },
+      {
+        "balance_minor": 99691,
+        "external_ref": "seed:pulsepay-v1:35",
+        "id": "f25c2d3f-5dfb-558c-be0f-b6509fa57f0e"
+      },
+      {
+        "balance_minor": 99769,
+        "external_ref": "seed:pulsepay-v1:103",
+        "id": "f354a98c-3ecf-5c0d-b923-b0667cac60fe"
+      },
+      {
+        "balance_minor": 100315,
+        "external_ref": "seed:pulsepay-v1:198",
+        "id": "f39775d5-384f-568f-a34d-04a787fc8819"
+      },
+      {
+        "balance_minor": 99942,
+        "external_ref": "seed:pulsepay-v1:48",
+        "id": "f73528bf-009f-5bbb-9f0d-2b5f2a4c440b"
+      },
+      {
+        "balance_minor": 99594,
+        "external_ref": "seed:pulsepay-v1:115",
+        "id": "f768cfec-32ae-5c52-9165-d1cf7cdebdaf"
+      },
+      {
+        "balance_minor": 99561,
+        "external_ref": "seed:pulsepay-v1:199",
+        "id": "f853035a-0f19-51b2-9fbb-30d3a81dd5f1"
+      },
+      {
+        "balance_minor": 100269,
+        "external_ref": "seed:pulsepay-v1:44",
+        "id": "f86740ab-320e-562e-9e90-4547100daa99"
+      },
+      {
+        "balance_minor": 100049,
+        "external_ref": "seed:pulsepay-v1:100",
+        "id": "f9f64dd7-e2d9-5630-80e8-c1bd45131f6f"
+      },
+      {
+        "balance_minor": 99754,
+        "external_ref": "seed:pulsepay-v1:43",
+        "id": "fa0c257c-b78d-5c70-96b3-c927de0207df"
+      },
+      {
+        "balance_minor": 100154,
+        "external_ref": "seed:pulsepay-v1:189",
+        "id": "fc23713a-de3c-57bf-b8a6-db276aa464b4"
+      },
+      {
+        "balance_minor": 100072,
+        "external_ref": "seed:pulsepay-v1:19",
+        "id": "fd861929-cbb8-59d1-9057-785bba62c394"
+      },
+      {
+        "balance_minor": 100695,
+        "external_ref": "seed:pulsepay-v1:71",
+        "id": "fed4dd36-06ef-5f01-8d47-5ce3d079710d"
+      },
+      {
+        "balance_minor": 100307,
+        "external_ref": "seed:pulsepay-v1:98",
+        "id": "fff2f83a-8908-596b-9d89-6123309e1f53"
+      }
+    ],
+    "total_funds_minor": "20000000"
+  },
+  "dataset_sha256": "6b857182e17bd5d9aae8184de7cde49bb49e4750fafbd5d3af65178d2e77221b",
+  "environment": {
+    "machine": {
+      "architecture": "aarch64",
+      "docker_cpus": 18,
+      "docker_memory_bytes": 8317267968,
+      "docker_version": "29.8.2",
+      "kernel": "7.0.14-linuxkit",
+      "os": "linux"
+    },
+    "services": {
+      "api": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "event-worker": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "grafana": {
+        "config": {},
+        "cpu_limit": 0.5,
+        "health": null,
+        "image_id": "sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb",
+        "image_tag": "grafana/grafana:11.6.0@sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "load-controller": {
+        "config": {},
+        "cpu_limit": null,
+        "health": null,
+        "image_id": "sha256:fcb6d437d077187cb34a497373627425fd393fa8598a6b46ef4fc371c79fe95a",
+        "image_tag": "sha256:fcb6d437d077187cb34a497373627425fd393fa8598a6b46ef4fc371c79fe95a",
+        "memory_limit_bytes": null,
+        "running": null
+      },
+      "outbox-relay": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "postgres": {
+        "config": {},
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:a11194343f86f178aa96b5901791a536595946b8ef1c9cc1213c6d08a699ea3e",
+        "image_tag": "pulsepay-postgres:v1",
+        "memory_limit_bytes": 805306368,
+        "running": true
+      },
+      "prometheus": {
+        "config": {},
+        "cpu_limit": 0.5,
+        "health": null,
+        "image_id": "sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62",
+        "image_tag": "prom/prometheus:v3.2.1@sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      },
+      "redis": {
+        "config": {},
+        "cpu_limit": 0.5,
+        "health": "healthy",
+        "image_id": "sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+        "image_tag": "redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+        "memory_limit_bytes": 268435456,
+        "running": true
+      },
+      "verifier": {
+        "config": {
+          "CACHE_TTL_SECONDS": "5",
+          "DB_POOL_SIZE": "8",
+          "DB_TIMEOUT_SECONDS": "5",
+          "PULSEPAY_CURRENCY": "INR",
+          "RECLAIM_IDLE_MS": "10000",
+          "REQUEST_TIMEOUT_SECONDS": "12",
+          "SEED_VERSION": "pulsepay-v1",
+          "VERIFIER_INTERVAL_SECONDS": "15",
+          "WORKER_POLL_SECONDS": "1"
+        },
+        "cpu_limit": 1.0,
+        "health": "healthy",
+        "image_id": "sha256:b2f26cded0eab6dfb5f908dc5f13adcc5d01ae50b09b1fe1d93babf2227fef4b",
+        "image_tag": "pulsepay-api:v1",
+        "memory_limit_bytes": 402653184,
+        "running": true
+      }
+    }
+  },
+  "environment_gaps": [
+    "DB_LOCK_WAITS_SLOW_QUERIES_DEADLOCKS_NOT_EXPORTED"
+  ],
+  "execution_mode": "headless",
+  "finished_at": "2026-10-10T15:14:16.170956+00:00",
+  "generator_limits": {
+    "cpu_limit": 1.0,
+    "cpu_usage_usec": 297604,
+    "memory_bytes": 29851648,
+    "memory_limit_bytes": 805306368
+  },
+  "generator_saturation_observed": false,
+  "git_sha": "bdffebd6e5c13c74f2109f3dfebba244e0d6e075",
+  "measurement_end_utc": "2026-10-10T15:14:13.492754+00:00",
+  "measurement_mode": "closed_loop",
+  "measurement_start_utc": "2026-10-10T15:13:43.492754+00:00",
+  "preflight_health": "HEALTHY",
+  "profile": {
+    "accounts": {
+      "avoid_self_transfer": true,
+      "enforce_safe_funding": true,
+      "hot_account_count": 5,
+      "minimum_funded_accounts": 200,
+      "selection": "uniform",
+      "transfer_amount_minor_max": 100,
+      "transfer_amount_minor_min": 1
+    },
+    "cooldown_seconds": 180,
+    "duration_seconds": 30,
+    "mix": {
+      "account_read": 0.12,
+      "balance_read": 0.15,
+      "history_read": 0.12,
+      "summary_read": 0.15,
+      "transfer_status": 0.06,
+      "transfer_write": 0.4
+    },
+    "mode": "closed_loop",
+    "name": "step_ramp",
+    "reporting": {
+      "capture_percentiles": [
+        50,
+        95,
+        99
+      ],
+      "capture_prometheus": true,
+      "capture_verifier": true,
+      "save_request_samples": false
+    },
+    "request_timeout_seconds": 5.0,
+    "require_redis": true,
+    "retry": {
+      "backoff_ms": 250,
+      "deliberate_replay_percent": 2.0,
+      "max_attempts": 2,
+      "same_idempotency_key": true
+    },
+    "safety": {
+      "max_concurrent_users": 150,
+      "max_duration_seconds": 7200,
+      "stop_on_error_window_seconds": 30,
+      "stop_on_integrity_failure": true,
+      "stop_on_sustained_error_rate_pct": 30.0
+    },
+    "schema_version": 1,
+    "seed": 4217,
+    "spawn_rate_users_per_second": 10.0,
+    "stages": [
+      {
+        "seconds": 6,
+        "users": 10
+      },
+      {
+        "seconds": 6,
+        "users": 25
+      },
+      {
+        "seconds": 6,
+        "users": 40
+      },
+      {
+        "seconds": 6,
+        "users": 40
+      },
+      {
+        "seconds": 6,
+        "users": 40
+      }
+    ],
+    "target_operations_per_second": 20.0,
+    "think_time_ms": {
+      "max": 250,
+      "min": 100
+    },
+    "users": 10,
+    "warmup_seconds": 5,
+    "workers": 1
+  },
+  "profile_sha256": "74c6620c0e63c3ecbf241b54172d1168a3a7a1aea5ff17e6721def4049d7044a",
+  "prometheus_post": {
+    "gaps": [
+      "api_5xx_counter",
+      "worker_retries_counter",
+      "redis_failures_counter"
+    ],
+    "scrapes": {
+      "activity": {
+        "health": "down",
+        "last_scrape": "2026-10-10T15:14:11.755828425Z"
+      },
+      "api": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:14:15.195708218Z"
+      },
+      "event-worker": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:14:12.770585634Z"
+      },
+      "load": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:14:12.705196467Z"
+      },
+      "otel-collector": {
+        "health": "down",
+        "last_scrape": "2026-10-10T15:14:12.818937342Z"
+      },
+      "outbox-relay": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:14:11.553778883Z"
+      },
+      "prometheus": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:14:13.803360718Z"
+      },
+      "verifier": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:14:15.145752885Z"
+      }
+    },
+    "values": {
+      "api_5xx_counter": null,
+      "api_http_counter": 8794.0,
+      "api_p95_seconds": 0.04919554455445545,
+      "api_rps": 19.11923523059078,
+      "cache_hits_counter": 164.0,
+      "cache_misses_counter": 1176.0,
+      "db_checked_out": 0.0,
+      "db_pool_wait_p95_seconds": 0.023526595744680853,
+      "outbox_oldest_seconds": 0.0,
+      "outbox_pending": 0.0,
+      "redis_failures_counter": null,
+      "verifier_status": 0.0,
+      "worker_effects_counter": 3434.0,
+      "worker_lag": 0.0,
+      "worker_pending": 0.0,
+      "worker_retries_counter": null
+    }
+  },
+  "prometheus_pre": {
+    "gaps": [
+      "api_5xx_counter",
+      "worker_retries_counter",
+      "redis_failures_counter"
+    ],
+    "scrapes": {
+      "activity": {
+        "health": "down",
+        "last_scrape": "2026-10-10T15:13:36.751961506Z"
+      },
+      "api": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:13:35.19441863Z"
+      },
+      "event-worker": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:13:32.770493879Z"
+      },
+      "load": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:13:37.705461298Z"
+      },
+      "otel-collector": {
+        "health": "down",
+        "last_scrape": "2026-10-10T15:13:32.818755254Z"
+      },
+      "outbox-relay": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:13:36.552762506Z"
+      },
+      "prometheus": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:13:33.803917338Z"
+      },
+      "verifier": {
+        "health": "up",
+        "last_scrape": "2026-10-10T15:13:35.14537013Z"
+      }
+    },
+    "values": {
+      "api_5xx_counter": null,
+      "api_http_counter": 8074.0,
+      "api_p95_seconds": 0.02275,
+      "api_rps": 0.0,
+      "cache_hits_counter": 157.0,
+      "cache_misses_counter": 1063.0,
+      "db_checked_out": 0.0,
+      "db_pool_wait_p95_seconds": 0.00475,
+      "outbox_oldest_seconds": 0.0,
+      "outbox_pending": 0.0,
+      "redis_failures_counter": null,
+      "verifier_status": 3.0,
+      "worker_effects_counter": 3169.0,
+      "worker_lag": 3.0,
+      "worker_pending": 0.0,
+      "worker_retries_counter": null
+    }
+  },
+  "run_id": "load-20261010T151337Z-1de1e018",
+  "schema_version": 1,
+  "snapshot_post": {
+    "activity": [
+      {
+        "at": "2026-10-10T14:45:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:46:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:47:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:48:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:49:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:50:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:51:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:52:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:53:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:54:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:55:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:56:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:57:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:58:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:59:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:00:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:01:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:02:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:03:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:04:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:05:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:06:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:07:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:08:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:09:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:10:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:11:00Z",
+        "count": 1795
+      },
+      {
+        "at": "2026-10-10T15:12:00Z",
+        "count": 1377
+      },
+      {
+        "at": "2026-10-10T15:13:00Z",
+        "count": 183
+      },
+      {
+        "at": "2026-10-10T15:14:00Z",
+        "count": 98
+      }
+    ],
+    "currency": "INR",
+    "observed_at": "2026-10-10T15:14:15.739700Z",
+    "recent_transfers": [
+      {
+        "amount_minor": "39",
+        "committed_at": "2026-10-10T15:14:13.586834Z",
+        "currency": "INR",
+        "destination_account_id": "b5d15704-1f7b-5ff5-b0fb-5813f9a51b63",
+        "destination_ref": "seed:pulsepay-v1:144",
+        "event_id": "3fa3fc9f-8fe6-40d8-b152-5adeeebb1bdf",
+        "event_status": "PROCESSED",
+        "id": "59760e7e-13f3-4ab7-9738-a18fb708a78a",
+        "request_id": "load-520d04b041564a5eb660eb758819363c",
+        "source_account_id": "d991908f-d00d-5576-99d3-254a0df0bf7e",
+        "source_ref": "seed:pulsepay-v1:190",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "79",
+        "committed_at": "2026-10-10T15:14:13.576655Z",
+        "currency": "INR",
+        "destination_account_id": "3d55e63c-59b3-58d7-a796-24c0505bb37c",
+        "destination_ref": "seed:pulsepay-v1:117",
+        "event_id": "16f82dd2-82c8-4a62-90c3-c323887dc7f7",
+        "event_status": "PROCESSED",
+        "id": "3a00a907-0b71-469b-a6d1-882fb03446be",
+        "request_id": "load-a735736ecb564d0997271836ccd9fba8",
+        "source_account_id": "d6f575c3-ec04-5f85-8778-97da44ff9f64",
+        "source_ref": "seed:pulsepay-v1:8",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "6",
+        "committed_at": "2026-10-10T15:14:13.571076Z",
+        "currency": "INR",
+        "destination_account_id": "86e0a846-7f80-50ae-8547-a0f001a89323",
+        "destination_ref": "seed:pulsepay-v1:118",
+        "event_id": "45b82959-0bd0-4863-992e-196a48d6c9aa",
+        "event_status": "PROCESSED",
+        "id": "2049797b-ce21-4132-b125-bf3674c92c7b",
+        "request_id": "load-bcc5b6cab20a4edabf7e31aa25d124f5",
+        "source_account_id": "c34c2146-693a-55ac-98b3-9550946b2ba0",
+        "source_ref": "seed:pulsepay-v1:179",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "33",
+        "committed_at": "2026-10-10T15:14:13.570649Z",
+        "currency": "INR",
+        "destination_account_id": "d5930f60-786f-5eaa-905a-f97b0dd5a207",
+        "destination_ref": "seed:pulsepay-v1:64",
+        "event_id": "11378155-6927-4e20-93ec-20d92078928b",
+        "event_status": "PROCESSED",
+        "id": "3fb2d2c9-800b-4ad2-b23b-7f70b6062b88",
+        "request_id": "load-443ed90d5cf34ba4b33605f7b5177990",
+        "source_account_id": "0cb1256f-deb9-5598-968b-776fb817b807",
+        "source_ref": "seed:pulsepay-v1:91",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "64",
+        "committed_at": "2026-10-10T15:14:13.569441Z",
+        "currency": "INR",
+        "destination_account_id": "0178091e-b559-5978-bd8e-666f50401e42",
+        "destination_ref": "seed:pulsepay-v1:50",
+        "event_id": "e41d9017-e904-44ba-816b-2afd695f42f8",
+        "event_status": "PROCESSED",
+        "id": "77ba85fc-8814-427a-8d3d-9ffda0440869",
+        "request_id": "load-39b4d396ce8a450fbcd48bce39be9752",
+        "source_account_id": "0c8aca2d-fe48-5cd7-aeee-944c879fd773",
+        "source_ref": "seed:pulsepay-v1:128",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "20",
+        "committed_at": "2026-10-10T15:14:12.555342Z",
+        "currency": "INR",
+        "destination_account_id": "6c803ee1-b321-514d-a87b-df3b162a3c7f",
+        "destination_ref": "seed:pulsepay-v1:178",
+        "event_id": "30ac936e-a1fc-4586-afbd-e5e3b13867e4",
+        "event_status": "PROCESSED",
+        "id": "ffd5bcf2-a834-4156-ad46-281700055f75",
+        "request_id": "load-15634e6b709648d9984cf9084643d1b3",
+        "source_account_id": "d4a29c2e-44e9-5869-b893-a9175aa31740",
+        "source_ref": "seed:pulsepay-v1:30",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "3",
+        "committed_at": "2026-10-10T15:14:12.552184Z",
+        "currency": "INR",
+        "destination_account_id": "9da62027-2e65-5eb9-b63e-e9e88ae0e16f",
+        "destination_ref": "seed:pulsepay-v1:61",
+        "event_id": "737c8363-0850-4591-b175-ff0d94639a93",
+        "event_status": "PROCESSED",
+        "id": "8040cc06-78be-4825-8612-2128009374e7",
+        "request_id": "load-203160ae00f848c9a53223a522d98ab1",
+        "source_account_id": "cd2c31bd-bd43-5b52-87e7-f3024cb69ad0",
+        "source_ref": "seed:pulsepay-v1:51",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "38",
+        "committed_at": "2026-10-10T15:14:11.833427Z",
+        "currency": "INR",
+        "destination_account_id": "cf3891a9-d911-5f63-8571-dd3977f55d38",
+        "destination_ref": "seed:pulsepay-v1:73",
+        "event_id": "22020b68-708a-4e59-b90f-2f54a7bc033f",
+        "event_status": "PROCESSED",
+        "id": "9c6725d7-1a1e-4a47-ba24-c2176a0f1ced",
+        "request_id": "load-0ddf58fb0781421fb8ca3ebf6c159b5a",
+        "source_account_id": "c625d466-727d-5a96-90ec-bf764c01593d",
+        "source_ref": "seed:pulsepay-v1:56",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "60",
+        "committed_at": "2026-10-10T15:14:11.833076Z",
+        "currency": "INR",
+        "destination_account_id": "e549367a-fa63-583e-b745-0791e326025c",
+        "destination_ref": "seed:pulsepay-v1:24",
+        "event_id": "105d263e-592a-4e5e-901f-58475eeb665c",
+        "event_status": "PROCESSED",
+        "id": "683c4c11-58ab-4db1-8d55-367dfb3b5396",
+        "request_id": "load-29c15888695c4449998bb7f34f2f2c11",
+        "source_account_id": "61759bb8-1048-5897-a5ed-2fa97fe679ce",
+        "source_ref": "seed:pulsepay-v1:38",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "15",
+        "committed_at": "2026-10-10T15:14:11.824021Z",
+        "currency": "INR",
+        "destination_account_id": "17fb10e1-d6f3-5def-8b58-512f5bc7149b",
+        "destination_ref": "seed:pulsepay-v1:180",
+        "event_id": "cf6ca9db-f44e-4c29-94a7-263760161737",
+        "event_status": "PROCESSED",
+        "id": "cf143854-95c7-48f7-9c95-7288eaf7d9bc",
+        "request_id": "load-876ad208be8e474db092c10c7d59f902",
+        "source_account_id": "4b98c8c5-7556-5e90-a5cd-88f401923cd0",
+        "source_ref": "seed:pulsepay-v1:181",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "37",
+        "committed_at": "2026-10-10T15:14:11.817172Z",
+        "currency": "INR",
+        "destination_account_id": "aec0c29a-6300-5e1d-a868-e1e46f6933e2",
+        "destination_ref": "seed:pulsepay-v1:154",
+        "event_id": "ff08c7a4-50c2-4b2a-b8f4-13dd1f5afce4",
+        "event_status": "PROCESSED",
+        "id": "ef778de7-5dd5-4566-b493-12c1efc6c42a",
+        "request_id": "load-57a9ebf76e9a407fad6dcb3ff9faa280",
+        "source_account_id": "f21b54ac-b7ad-52d0-a0e7-af5586ef9655",
+        "source_ref": "seed:pulsepay-v1:55",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "43",
+        "committed_at": "2026-10-10T15:14:11.816155Z",
+        "currency": "INR",
+        "destination_account_id": "b496723a-2567-59e6-b489-d13a92540965",
+        "destination_ref": "seed:pulsepay-v1:28",
+        "event_id": "99e9b82b-6017-4699-81c7-02b5d680cde0",
+        "event_status": "PROCESSED",
+        "id": "4072ece1-5454-4bfa-8b3a-49fad90b99a5",
+        "request_id": "load-0a71da8d11884aba91524015927eb895",
+        "source_account_id": "3c8848f7-5a76-5455-b6e6-93830ade4289",
+        "source_ref": "seed:pulsepay-v1:41",
+        "status": "committed"
+      }
+    ],
+    "totals": {
+      "accounts": 200,
+      "active_accounts": 200,
+      "balance_minor": "20000000",
+      "ledger_entries": 7106,
+      "oldest_pending_seconds": 0.0,
+      "outbox_pending": 0,
+      "projections": 3453,
+      "provisioned_minor": "20000000",
+      "transfers": 3453
+    }
+  },
+  "snapshot_pre": {
+    "activity": [
+      {
+        "at": "2026-10-10T14:44:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:45:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:46:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:47:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:48:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:49:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:50:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:51:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:52:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:53:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:54:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:55:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:56:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:57:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:58:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T14:59:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:00:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:01:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:02:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:03:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:04:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:05:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:06:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:07:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:08:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:09:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:10:00Z",
+        "count": 0
+      },
+      {
+        "at": "2026-10-10T15:11:00Z",
+        "count": 1795
+      },
+      {
+        "at": "2026-10-10T15:12:00Z",
+        "count": 1377
+      },
+      {
+        "at": "2026-10-10T15:13:00Z",
+        "count": 0
+      }
+    ],
+    "currency": "INR",
+    "observed_at": "2026-10-10T15:13:37.754972Z",
+    "recent_transfers": [
+      {
+        "amount_minor": "4",
+        "committed_at": "2026-10-10T15:12:30.779965Z",
+        "currency": "INR",
+        "destination_account_id": "ab3137a4-36ab-512c-ad99-8ed7fe682f03",
+        "destination_ref": "seed:pulsepay-v1:62",
+        "event_id": "810cd7bc-851d-41be-b614-4bc1704cf6fe",
+        "event_status": "PROCESSED",
+        "id": "2ca923c3-1b21-47f5-b618-8c00b037129a",
+        "request_id": "load-015daca71a5d4f6b9ba404eff3af6a7a",
+        "source_account_id": "6c7a84d6-bbf9-595f-ba6a-e9be1de7a2de",
+        "source_ref": "seed:pulsepay-v1:177",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "1",
+        "committed_at": "2026-10-10T15:12:30.760345Z",
+        "currency": "INR",
+        "destination_account_id": "18d7645d-02be-5a65-a4d8-afae891ec844",
+        "destination_ref": "seed:pulsepay-v1:20",
+        "event_id": "f5a20d60-4c1d-4d1c-91f3-53d170299dd0",
+        "event_status": "PROCESSED",
+        "id": "5823a4b0-bba2-4056-87d5-493b1138a3a6",
+        "request_id": "load-72d0293d75ca4133a22f59a93d14d326",
+        "source_account_id": "0535fc5d-625a-5b71-b928-217d9e914e69",
+        "source_ref": "seed:pulsepay-v1:121",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "84",
+        "committed_at": "2026-10-10T15:12:30.714200Z",
+        "currency": "INR",
+        "destination_account_id": "86e0a846-7f80-50ae-8547-a0f001a89323",
+        "destination_ref": "seed:pulsepay-v1:118",
+        "event_id": "2b95267a-5645-4b48-8c13-7130e2397cad",
+        "event_status": "PROCESSED",
+        "id": "32389def-fdf9-4a8c-869c-8b94b8d835fb",
+        "request_id": "load-b499a430555a43e5b959f3d7d3eedcf3",
+        "source_account_id": "9733681f-19a7-503d-b1a9-da3777f4d835",
+        "source_ref": "seed:pulsepay-v1:163",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "9",
+        "committed_at": "2026-10-10T15:12:30.704840Z",
+        "currency": "INR",
+        "destination_account_id": "039f9d11-b750-5636-a25d-8edff135c9c4",
+        "destination_ref": "seed:pulsepay-v1:126",
+        "event_id": "44d42c2a-242b-422f-b583-d4103ca4026e",
+        "event_status": "PROCESSED",
+        "id": "166b89d0-ede0-468d-a473-346a0bb7f71c",
+        "request_id": "load-eac50fbb17bb49d5945f878ff89fd9cc",
+        "source_account_id": "0e20ba08-1276-5142-b062-bdcd6ac5bea2",
+        "source_ref": "seed:pulsepay-v1:3",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "7",
+        "committed_at": "2026-10-10T15:12:30.701528Z",
+        "currency": "INR",
+        "destination_account_id": "07d0aaaf-68cc-5069-85b6-effc0c1cb127",
+        "destination_ref": "seed:pulsepay-v1:143",
+        "event_id": "911c4af5-8343-439b-9130-2ee7ea252fe6",
+        "event_status": "PROCESSED",
+        "id": "99ec7acb-cdbb-4a15-9ed0-dd3983788c98",
+        "request_id": "load-7123b3b167104533b81dde4d6890fce7",
+        "source_account_id": "0c7dd8f6-eec1-5a2f-b309-05d6719c8372",
+        "source_ref": "seed:pulsepay-v1:84",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "13",
+        "committed_at": "2026-10-10T15:12:30.684288Z",
+        "currency": "INR",
+        "destination_account_id": "161e242d-adba-5eba-befc-7fe786b3502c",
+        "destination_ref": "seed:pulsepay-v1:160",
+        "event_id": "dbeb363f-cb08-4f71-bb28-ff19f2b1dfdf",
+        "event_status": "PROCESSED",
+        "id": "1a83bea8-9973-431a-9f22-24f506dc65b8",
+        "request_id": "load-3f42b4b7ae1f4f31ac9beb9d63247ae6",
+        "source_account_id": "58588920-f98c-537f-9ce6-f9b50ec7d91b",
+        "source_ref": "seed:pulsepay-v1:92",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "98",
+        "committed_at": "2026-10-10T15:12:30.677735Z",
+        "currency": "INR",
+        "destination_account_id": "7e493114-5b1e-551b-b5d6-b9c33773db8d",
+        "destination_ref": "seed:pulsepay-v1:74",
+        "event_id": "04427560-fa29-4bdb-af41-e4f5383282b2",
+        "event_status": "PROCESSED",
+        "id": "f0089f98-770b-4f1a-a1d6-218c4a587a9f",
+        "request_id": "load-02b992dbbc7748d88dd2e85ae2f060b7",
+        "source_account_id": "0a6fc453-9263-5227-acbe-82d2d5f70897",
+        "source_ref": "seed:pulsepay-v1:182",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "61",
+        "committed_at": "2026-10-10T15:12:30.604524Z",
+        "currency": "INR",
+        "destination_account_id": "eab85882-b00a-5642-8117-e526b910b107",
+        "destination_ref": "seed:pulsepay-v1:130",
+        "event_id": "85b86553-d1c7-4549-a11e-644e53a1cee3",
+        "event_status": "PROCESSED",
+        "id": "f50f433d-2ebf-4921-88a3-4f83de3199ec",
+        "request_id": "load-d987ad63adef417db4d4eebbbe63239e",
+        "source_account_id": "8a254e0f-189e-5b68-8d6f-9a8234f01fca",
+        "source_ref": "seed:pulsepay-v1:138",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "14",
+        "committed_at": "2026-10-10T15:12:30.597181Z",
+        "currency": "INR",
+        "destination_account_id": "eab85882-b00a-5642-8117-e526b910b107",
+        "destination_ref": "seed:pulsepay-v1:130",
+        "event_id": "d0db6799-5eb4-4d09-acc0-087967d75deb",
+        "event_status": "PROCESSED",
+        "id": "9cd703ad-6882-4071-b787-ddcc249220e4",
+        "request_id": "load-401be791e459430ba6396123a91f8359",
+        "source_account_id": "751a5523-f312-5736-bc2f-b2c77faec3e4",
+        "source_ref": "seed:pulsepay-v1:42",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "64",
+        "committed_at": "2026-10-10T15:12:30.592254Z",
+        "currency": "INR",
+        "destination_account_id": "7acaff88-624f-5155-85ad-a4fd9f64a91a",
+        "destination_ref": "seed:pulsepay-v1:89",
+        "event_id": "5c3dbb5e-eb25-4eaf-84d5-7bb46273a154",
+        "event_status": "PROCESSED",
+        "id": "dd888de2-2309-4968-9832-2ab48cf98d22",
+        "request_id": "load-2016a88bc95e4c5ab3ef5d5c06d479cb",
+        "source_account_id": "9249ac2f-8387-5363-89f9-a89c23b2dfd6",
+        "source_ref": "seed:pulsepay-v1:156",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "43",
+        "committed_at": "2026-10-10T15:12:30.578816Z",
+        "currency": "INR",
+        "destination_account_id": "7bc71e93-3db7-5c19-a948-98601c549bb3",
+        "destination_ref": "seed:pulsepay-v1:173",
+        "event_id": "01124b4b-37b9-427b-8285-4337daebd5d3",
+        "event_status": "PROCESSED",
+        "id": "20f10fa7-eea3-40bd-bf28-e27bb101b639",
+        "request_id": "load-2c4ad494202e4ee280fd2b02ebbe5af4",
+        "source_account_id": "c8e11997-3884-5414-9d68-01fa91045716",
+        "source_ref": "seed:pulsepay-v1:27",
+        "status": "committed"
+      },
+      {
+        "amount_minor": "83",
+        "committed_at": "2026-10-10T15:12:30.555642Z",
+        "currency": "INR",
+        "destination_account_id": "1b9f56e6-1828-5b3a-8302-cb28035d18c7",
+        "destination_ref": "seed:pulsepay-v1:116",
+        "event_id": "5d8c37f3-7dcc-46c3-bdcd-27c480eaa29b",
+        "event_status": "PROCESSED",
+        "id": "e914c349-09f8-4854-a9ea-45bd380b944a",
+        "request_id": "load-1610eb078fa847a39dc80d4b905239d2",
+        "source_account_id": "ac0133ca-a13e-5d6a-8a51-c5c1397171ba",
+        "source_ref": "seed:pulsepay-v1:78",
+        "status": "committed"
+      }
+    ],
+    "totals": {
+      "accounts": 200,
+      "active_accounts": 200,
+      "balance_minor": "20000000",
+      "ledger_entries": 6544,
+      "oldest_pending_seconds": 0.0,
+      "outbox_pending": 0,
+      "projections": 3172,
+      "provisioned_minor": "20000000",
+      "transfers": 3172
+    }
+  },
+  "source_tree_sha256": "064abe8086b5c21fb3eb9b573bb80fb6b5997afcad88270112ca2887db0fd0a7",
+  "target": "http://api:8080",
+  "traffic_mode": "on_demand"
+}

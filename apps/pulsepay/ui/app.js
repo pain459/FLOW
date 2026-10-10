@@ -15,7 +15,7 @@ const state = { view: 'overview', data: null, fresh: false, dataError: '', healt
   transferError: null, modalMode: '', dialogGeneration: 0, lastFocus: null, selectedNode: null };
 
 const components = {
-  activity: { title: 'Activity client', icon: 'pulse', subtitle: 'Real HTTP requests', description: 'The external client sends modest reads and bidirectional transfers through the same public HTTP API as this dashboard. Its process state is observed independently.' },
+  locust: { title: 'Locust load', icon: 'pulse', subtitle: 'On-demand HTTP requests', description: 'Locust generates real reads and transfers when an operator starts a workload. Use its separate UI for manual load or named profiles for repeatable measurements. No background traffic runs automatically.' },
   api: { title: 'FastAPI', icon: 'system', subtitle: 'Atomic transfers', description: 'FastAPI validates requests. A transfer commits balances, its immutable ledger pair and outbox event together in PostgreSQL. Optional cache or event delays do not invalidate that commit.' },
   postgres: { title: 'PostgreSQL', icon: 'db', subtitle: 'Source of truth', description: 'PostgreSQL owns account balances, transfers, the ledger and transactional outbox. Redis balances never approve transfers. All displayed overview totals come from one read-only database snapshot.' },
   'outbox-relay': { title: 'Outbox relay', icon: 'transfer', subtitle: 'Publish after commit', description: 'The relay leases committed outbox rows, publishes to Redis Streams, then records publication. A crash may publish an event twice; durable event IDs make duplicate processing safe.' },
@@ -32,10 +32,7 @@ function verification() {
 }
 function componentState(name) {
   if (name === 'verifier') { const v = verification(); return { status: v.status, observed_at: v.source_finished_at, reason: v.reason }; }
-  if (name === 'activity') {
-    const value = state.signals?.activity;
-    return !value || age(value.observed_at) > 30 ? { status: 'UNKNOWN', reason: 'No fresh activity observation' } : value;
-  }
+  if (name === 'locust') return { status: 'ON DEMAND', reason: 'Started manually; no automatic background traffic' };
   if (name === 'api') return !state.health || age(state.health.observed_at) > 30 ? { status: 'UNKNOWN', reason: 'No fresh API observation' } :
     { status: state.health.core_transactions_ready ? 'HEALTHY' : 'UNHEALTHY', reason: state.health.core_transactions_ready ? 'Core transactions ready' : 'Core dependency unavailable', observed_at: state.health.observed_at };
   const value = state.health?.dependencies?.[name];
@@ -98,7 +95,7 @@ function checkName(name) {
 }
 
 function renderFlow() {
-  const chain = ['activity', 'api', 'postgres', 'outbox-relay', 'redis', 'event-worker'];
+  const chain = ['locust', 'api', 'postgres', 'outbox-relay', 'redis', 'event-worker'];
   $('system-flow').innerHTML = `<div class="flow-scroll"><div class="flow-chain">${chain.map((name, i) => {
     const c = components[name], s = componentState(name);
     return `${i ? '<svg class="icon flow-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>' : ''}<button class="flow-node ${state.selectedNode === name ? 'selected' : ''}" data-component="${name}" aria-label="Inspect ${c.title}">${icon(c.icon)}<strong>${c.title}</strong><small>${c.subtitle}</small>${badge(s.status)}</button>`;
@@ -316,7 +313,8 @@ let searchTimer;
 $('account-search').addEventListener('input', () => { state.accountVersion++; clearTimeout(searchTimer); searchTimer = setTimeout(() => loadAccounts(), 250); });
 $('modal').addEventListener('cancel', event => { if (state.transferBusy) event.preventDefault(); });
 $('modal').addEventListener('close', () => { state.dialogGeneration++; state.modalMode = ''; state.lastFocus?.focus(); });
-for (const [id, port] of [['grafana-link', '3000'], ['prometheus-link', '9090']]) { const url = new URL(location.href); url.port = port; url.pathname = '/'; url.search = ''; url.hash = ''; $(id).href = url.href; }
+for (const [id, port] of [['locust-link', '8089'], ['grafana-link', '3000'], ['prometheus-link', '9090']]) { const url = new URL(location.href); url.port = port; url.pathname = '/'; url.search = ''; url.hash = ''; $(id).href = url.href; }
+const capacityURL = new URL($('grafana-link').href); capacityURL.pathname = '/d/pulsepay-load-capacity'; $('capacity-link').href = capacityURL.href;
 updateAction(); renderServices(); renderFlow(); refresh();
 setInterval(() => { if (!state.paused && !document.hidden) refresh(); }, 10000);
 setInterval(() => { renderFreshness(); renderVerification(); renderServices(); renderFlow(); }, 5000);

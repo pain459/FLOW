@@ -3,7 +3,7 @@ set -eu
 cd "$(dirname "$0")/.."
 if [ ! -f .env ]; then
   umask 077
-  docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/workspace" python:3.12.10-slim-bookworm python -c '
+  docker run --rm --memory 128m --cpus 0.5 --pids-limit 32 --network none --user "$(id -u):$(id -g)" -v "$PWD:/workspace" python:3.12.10-slim-bookworm python -c '
 from pathlib import Path
 import secrets
 p=Path("/workspace/.env")

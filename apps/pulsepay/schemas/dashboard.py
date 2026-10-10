@@ -111,16 +111,6 @@ class VerificationSignal(BaseModel):
     report: VerificationReport | None = None
 
 
-class ActivitySignal(BaseModel):
-    status: Literal["HEALTHY", "DEGRADED", "UNHEALTHY", "UNKNOWN"] = "UNKNOWN"
-    reason: str
-    observed_at: datetime | None = None
-    age_seconds: float | None = None
-    last_success_at: datetime | None = None
-    last_failure_at: datetime | None = None
-
-
 class DashboardSignals(BaseModel):
     observed_at: datetime
     verification: VerificationSignal
-    activity: ActivitySignal

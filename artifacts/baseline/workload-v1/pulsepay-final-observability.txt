@@ -1,0 +1,14 @@
+docker compose run --rm -e OBSERVABILITY_TEST=true tests pytest -q tests/e2e/test_observability.py
+ Container chaosloop-postgres-1 Running 
+ Container chaosloop-migrate-1 Recreate 
+ Container chaosloop-migrate-1 Recreated 
+ Container chaosloop-postgres-1 Waiting 
+ Container chaosloop-postgres-1 Healthy 
+ Container chaosloop-migrate-1 Starting 
+ Container chaosloop-migrate-1 Started 
+ Container chaosloop-migrate-1 Waiting 
+ Container chaosloop-migrate-1 Exited 
+ Container chaosloop-tests-run-d08499aa9bbe Creating 
+ Container chaosloop-tests-run-d08499aa9bbe Created 
+.                                                                        [100%]
+1 passed in 3.33s

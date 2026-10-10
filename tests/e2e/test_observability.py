@@ -119,10 +119,16 @@ async def test_real_metrics_logs_traces_and_dashboard_queries():
         for file in Path("observability/grafana/dashboards").glob("*.json"):
             dashboard = json.loads(file.read_text())
             provisioned = await client.get(
-                "http://grafana:3000/api/dashboards/uid/" + dashboard["uid"], auth=grafana_auth
+                "http://grafana:3000/api/dashboards/uid/" + dashboard["uid"],
+                auth=grafana_auth,
             )
             assert provisioned.status_code == 200
             assert provisioned.json()["meta"]["provisioned"] is True
+            if (
+                "load" in dashboard.get("tags", [])
+                and os.getenv("LOAD_OBSERVABILITY_TEST") != "true"
+            ):
+                continue  # Opt-in generator metrics are absent during ordinary idle operation.
             for panel in dashboard["panels"]:
                 if panel.get("datasource", {}).get("uid") == "prometheus":
                     for target in panel.get("targets", []):

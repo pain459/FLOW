@@ -12,7 +12,8 @@ from sqlalchemy import text
 from tests.integration.test_financial import pool
 
 pytestmark = pytest.mark.skipif(
-    os.getenv("BROWSER_TESTS") != "true", reason="Run make ui-test for containerized Chromium"
+    os.getenv("BROWSER_TESTS") != "true",
+    reason="Run make ui-test for containerized Chromium",
 )
 
 
@@ -220,7 +221,6 @@ async def test_outage_keeps_stale_values_and_unknown_verification(ui):
                     "reason": "SOURCE_UNAVAILABLE",
                     "report": None,
                 },
-                "activity": {"status": "UNKNOWN", "reason": "SOURCE_UNAVAILABLE"},
             }
         ),
     )

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "comparison_key": "5e6ac30a819875ac0a16e599af7a231489954413ac84263b6e32605b6e1fba4e",
+  "run_ids": [
+    "load-20261010T134512Z-9f044a0c",
+    "load-20261010T134757Z-9b10a699",
+    "load-20261010T135043Z-bc1ade62"
+  ],
+  "metrics": {
+    "achieved_rps": {
+      "median": 20.216666666666665,
+      "min": 20.175,
+      "max": 20.216666666666665
+    },
+    "p50_ms": {
+      "median": 28.0,
+      "min": 27.0,
+      "max": 30.0
+    },
+    "p95_ms": {
+      "median": 50.0,
+      "min": 48.0,
+      "max": 52.0
+    },
+    "p99_ms": {
+      "median": 65.0,
+      "min": 63.0,
+      "max": 67.0
+    }
+  },
+  "reasons": [],
+  "method": "median and range; identical initial dataset/image/profile/limits; no universal RPS gate"
+}

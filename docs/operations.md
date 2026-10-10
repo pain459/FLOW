@@ -2,9 +2,7 @@
 
 Docker/Compose are required. `make` is a convenience; every script invokes Docker/Compose and ordinary shell utilities, never host Python/PostgreSQL/Redis. Generate local credentials with `sh scripts/bootstrap.sh`. Bootstrap never overwrites an existing `.env`; it is mode 0600 and ignored by Git/Docker build context. Generated secrets are URL-safe hex and role-specific. Changing passwords in `.env` alone does not change an existing PostgreSQL role: update the role intentionally or reset a disposable lab.
 
-Core idle: `docker compose up --build -d`. Seed: `make seed`. Breathe: `make breathe` seeds, overrides ACTIVITY_ENABLED=true, enables activity+observability and starts the read-only verifier. `make stop-breathe` stops only HTTP activity. `make verify` runs the read-only CLI once (exits 0/1/2/3). `make down` retains all volumes. `make status`, `make logs`, `make smoke`, `make test`, `make lint`, `make observe-test`, `make baseline` provide operator checks. Verify mode should follow stop-breathe for a quiescent snapshot; the verifier is also safe while writes run.
-
-Activity modes: off disables requests; steady uses uniform low-rate pacing; mixed adds mild deterministic-seed jitter. Total HTTP rate is capped at the configured 1–5 RPS range, concurrency 1–4; default 2 RPS, 60% reads/40% writes, 200 seeded accounts, uniform 1–100 minor-unit amounts. Reads are split among balances/history/summary; random bidirectional transfers avoid one-way draining. Client balance hints use seed manifest and authoritative HTTP reads; PostgreSQL always independently checks actual funds. Deliberate retries keep identical payload/key, at most three attempts with bounded backoff. Errors remain in metrics/logs; an exhausted request does not terminate the process.
+`make up` starts core services and observability without generating transactions. Seed with `make seed`. Start traffic explicitly through `make load-ui` or `make load-run`. `make verify` runs the read-only CLI once (exits 0/1/2/3). `make down` retains volumes. The verifier is safe during concurrent writes.
 
 | Service | Health semantics | Persistence / restart / shutdown | Budget |
 |---|---|---|---|
@@ -14,7 +12,6 @@ Activity modes: off disables requests; steady uses uniform low-rate pacing; mixe
 | outbox-relay | live independent; productive status + durable heartbeat; pending age/count | leased PostgreSQL outbox; retry forever with bounded per-attempt backoff; unless-stopped; 20s grace | 384 MiB / 1 CPU; batch 25 |
 | event-worker | live independent; productive status, PEL idle/lag + heartbeat | receipts/projections/quarantine in PG; Redis PEL reclaimed; unless-stopped; 20s grace | 384 MiB / 1 CPU; batches ≤50 |
 | verifier | live process; latest report/metrics PASS/FAIL/UNKNOWN/DEGRADED, timestamp | SELECT-only full snapshot every 15s; no writes; unless-stopped; 20s grace | 384 MiB / 1 CPU; one DB connection/check |
-| activity | live process independent of API; own outcome/freshness signals | no authoritative state/DB credentials; unless-stopped; 20s grace | 384 MiB / 1 CPU; four HTTP connections |
 | prometheus | `/-/ready`, scrape up and collector metrics | prom-data; unless-stopped; 20s grace; 24h/256 MiB retention | 384 MiB / 0.5 CPU |
 | grafana | `/api/health`, provisioned datasource checks | grafana-data; unless-stopped; 20s grace | 384 MiB / 0.5 CPU |
 | otel-collector | health extension 13133 and export-failure metrics 8888 | bounded memory queue; unless-stopped; 15s grace | 256 MiB / 0.5 CPU |
@@ -39,9 +36,11 @@ make up
 make seed
 ```
 
-The reset script checks acknowledgement AND effective Compose project name `chaosloop`, then removes only project containers/volumes. It never prunes the Docker daemon. Retain baseline artifacts first; those files are outside Docker data volumes. The accepted recovery tests retain Redis persistence. Deleting only the Redis volume can lose already-published messages; PostgreSQL evidence survives, but no automatic replay or replay command is supplied in Phase 1. Treat that deliberate data deletion as a separate operator investigation, not ordinary restart recovery.
+The reset script checks acknowledgement AND effective Compose project name `chaosloop`, then removes only project containers/volumes. It never prunes the Docker daemon. Retain baseline artifacts first; those files are outside Docker data volumes. The accepted recovery tests retain Redis persistence. Deleting only the Redis volume can lose already-published messages; PostgreSQL evidence survives, but no automatic replay or replay command is supplied in this lab. Treat that deliberate data deletion as a separate operator investigation, not ordinary restart recovery.
 
 If a gate fails, retain test output, safe JSON logs, verifier report and Compose state in artifacts. Do not print `docker compose config` or raw environment/DSNs to logs: they contain local passwords. Runtime roles must never be replaced by the owner/migrator credentials.
 # Dashboard operation
 
-The API also serves http://127.0.0.1:8080/. `make up` starts the dashboard with core services; `make breathe` enables activity and full independent signals. `make ui-test` runs isolated browser workflows and saves screenshots. An unavailable optional verifier/activity displays UNKNOWN rather than blocking core transactions. See [dashboard operation and pending-transfer recovery](dashboard.md).
+The API also serves http://127.0.0.1:8080/. `make up` starts the dashboard with core services. `make ui-test` runs isolated browser workflows and saves screenshots. An unavailable optional verifier displays UNKNOWN rather than blocking core transactions. See [dashboard operation and pending-transfer recovery](dashboard.md).
+
+Locust is a normal service at http://127.0.0.1:8089, idle until Start. Stop leaves its UI available. Configure finite profile/duration through `.env`; explicit headless profiles use `make load-run`. There is no automatic activity client. See [resource ceilings and storage budget](resources.md) and [workload operations](phase2-load-generator.md).

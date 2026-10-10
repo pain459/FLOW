@@ -4,7 +4,7 @@ PulsePay is a synthetic transaction laboratory. Every unit is fake; no banking/p
 
 ```mermaid
 flowchart TD
-  Activity[HTTP activity client] --> API[FastAPI]
+  Locust[On-demand HTTP load client] --> API[FastAPI]
   API --> PG[(PostgreSQL)]
   API --> Cache[(Redis cache)]
   PG --> Relay[Leased outbox relay]
@@ -34,7 +34,7 @@ The relay leases up to 25 pending rows using `FOR UPDATE SKIP LOCKED`, commits t
 
 PostgreSQL, Redis, workers and telemetry backends use the internal network. API, Grafana, Prometheus and the log collector also use an edge network for loopback-only published ports. Docker 29 does not publish ports for an internal-only network in the tested Desktop environment. No application container mounts the Docker socket, runs privileged, or joins host namespaces.
 
-Runtime app/worker/verifier credentials differ from migration and owner credentials. The activity container has no working DB credentials and only calls HTTP. The verifier has independent SQL and no imports of application models/services. Shared configuration, metrics and process hosting do not supply business logic.
+Runtime app/worker/verifier credentials differ from migration and owner credentials. The load container uses HTTP for all financial operations and SELECT-only credentials for independent verification. The verifier has independent SQL and no imports of application models/services. Shared configuration, metrics and process hosting do not supply business logic.
 
 Redis uses AOF with `appendfsync always` and `noeviction`: confirmed writes must be durable for the local transport guarantee; memory pressure rejects writes instead of silently evicting stream state. Stream transport remains at-least-once, with exactly-once logical projection effects. PostgreSQL evidence remains available after transport interruption.
 
@@ -49,4 +49,4 @@ Future load clients use public APIs. A future chaos operator remains outside the
 Future action envelope v1 is a documentation contract: `schema_version`, `action_id`, `experiment_id`, `idempotency_key`, enumerated `action_type`, allowlisted `target_service`, bounded `parameters`, `preconditions`, `expires_at` and `authorization_scope`. An executor must reject unknown actions, stale authorization, out-of-scope targets and missing preconditions. Results carry `action_id`, start/end times, outcome and safe evidence references. Permitted choices are supplied per experiment; Phase 1 neither enumerates executable chaos actions nor supplies an executor. Experiment/fault truth stays private to the external operator and does not enter observation inputs.
 # Operator dashboard
 
-The existing FastAPI service serves `/` and same-origin `/ui/*` assets. The browser consumes bounded read-only dashboard APIs and uses the original transactional write APIs for account creation and transfers. Independent verifier/activity reports remain separate processes, fetched through fixed server-side URLs with deadlines and freshness validation. See [dashboard boundaries](dashboard.md).
+The existing FastAPI service serves `/` and same-origin `/ui/*` assets. The browser consumes bounded read-only dashboard APIs and uses the original transactional write APIs for account creation and transfers. Independent verifier reports remain a separate process, fetched through fixed server-side URLs with deadlines and freshness validation. See [dashboard boundaries](dashboard.md).

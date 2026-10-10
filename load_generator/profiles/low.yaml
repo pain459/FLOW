@@ -1,0 +1,16 @@
+schema_version: 1
+name: low
+seed: 4217
+mode: closed_loop
+users: 5
+spawn_rate_users_per_second: 10
+duration_seconds: 300
+warmup_seconds: 30
+target_operations_per_second: 5
+mix:
+  account_read: 0.1600
+  balance_read: 0.2000
+  summary_read: 0.2000
+  history_read: 0.1600
+  transfer_status: 0.0800
+  transfer_write: 0.2000

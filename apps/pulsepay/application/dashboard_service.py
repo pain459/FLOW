@@ -12,7 +12,7 @@ from apps.pulsepay.infrastructure.db import Database
 from apps.pulsepay.persistence.models import Account, Transfer, OutboxEvent
 from apps.pulsepay.application import queries
 from apps.pulsepay.domain.errors import BusinessError
-from apps.pulsepay.schemas.dashboard import VerificationReport, ActivitySignal
+from apps.pulsepay.schemas.dashboard import VerificationReport
 from shared.config import Settings
 
 
@@ -299,27 +299,6 @@ async def verification(config: Settings) -> dict:
         return {"status": "UNKNOWN", "reason": "SOURCE_UNAVAILABLE_OR_INVALID", "report": None}
 
 
-async def activity_signal(config: Settings) -> dict:
-    try:
-        data = await fetch_json(config.activity_status_url)
-        stamp, age = signal_age(data["observed_at"], datetime.now(timezone.utc))
-        status = data["status"]
-        if status not in {"HEALTHY", "DEGRADED", "UNHEALTHY", "UNKNOWN"}:
-            raise ValueError("Invalid activity state")
-        return ActivitySignal.model_validate(
-            {
-                "status": status if age <= 30 else "UNKNOWN",
-                "reason": data.get("reason", "PROGRESS_CHECK") if age <= 30 else "STALE_SIGNAL",
-                "observed_at": stamp,
-                "age_seconds": age,
-                "last_success_at": data.get("last_success_at"),
-                "last_failure_at": data.get("last_failure_at"),
-            }
-        ).model_dump(mode="json")
-    except (httpx.HTTPError, ValueError, TypeError, KeyError, TimeoutError):
-        return {"status": "UNKNOWN", "reason": "SOURCE_UNAVAILABLE_OR_INVALID"}
-
-
 async def signals(config: Settings) -> dict:
-    report, activity = await asyncio.gather(verification(config), activity_signal(config))
-    return {"observed_at": datetime.now(timezone.utc), "verification": report, "activity": activity}
+    report = await verification(config)
+    return {"observed_at": datetime.now(timezone.utc), "verification": report}

@@ -22,7 +22,9 @@ def body(ids, amount=100, direction=False):
 
 async def send(lab, payload, key=None):
     return await lab.client.post(
-        "/api/v1/transfers", json=payload, headers={"Idempotency-Key": key or str(uuid4())}
+        "/api/v1/transfers",
+        json=payload,
+        headers={"Idempotency-Key": key or str(uuid4())},
     )
 
 
@@ -48,7 +50,8 @@ async def test_account_and_transfer_atomicity(lab):
         assert sorted(x[1] for x in rows) == [-100, 100]
         assert (
             await c.scalar(
-                text("SELECT count(*) FROM outbox_events WHERE aggregate_id=:id"), {"id": tid}
+                text("SELECT count(*) FROM outbox_events WHERE aggregate_id=:id"),
+                {"id": tid},
             )
             == 1
         )

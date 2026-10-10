@@ -9,7 +9,6 @@ probe() {
 }
 # Restore only the named services on any failed gate.
 trap 'docker compose start postgres redis event-worker api outbox-relay >/dev/null' EXIT
-docker compose --profile activity stop activity
 docker compose stop redis
 probe redis-outage
 docker compose start redis
@@ -31,4 +30,4 @@ probe snapshot
 docker compose restart api outbox-relay event-worker redis prometheus grafana loki tempo
 probe persistence
 docker compose run --rm --no-deps verifier python -m verifier.main --once > artifacts/baseline/recovery-verification.json
-echo 'Recovery gates PASS; activity remains stopped for deterministic checks'
+echo 'Recovery gates PASS; no automatic client traffic is configured'

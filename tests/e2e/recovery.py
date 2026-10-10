@@ -72,7 +72,9 @@ async def main(stage, key):
                 lambda r: r["status"] == "PASS" and r["events"]["outbox_pending"] == 0,
             )
             r = await c.post(
-                "http://api:8080/api/v1/transfers", json=body, headers={"Idempotency-Key": key}
+                "http://api:8080/api/v1/transfers",
+                json=body,
+                headers={"Idempotency-Key": key},
             )
             assert r.status_code == 200, r.text
             result["report"] = report
@@ -120,20 +122,26 @@ async def main(stage, key):
             balance = await c.get("http://api:8080/api/v1/accounts/" + ids[0] + "/balance")
             assert balance.status_code == 503, balance.text
             result["report"] = await wait(
-                lambda: get("http://verifier:9100/report"), lambda r: r["status"] == "UNKNOWN"
+                lambda: get("http://verifier:9100/report"),
+                lambda r: r["status"] == "UNKNOWN",
             )
         elif stage == "db-recovery":
             await wait(
-                lambda: c.get("http://api:8080/health/ready"), lambda r: r.status_code == 200
+                lambda: c.get("http://api:8080/health/ready"),
+                lambda r: r.status_code == 200,
             )
             result["report"] = await wait(
-                lambda: get("http://verifier:9100/report"), lambda r: r["status"] == "PASS"
+                lambda: get("http://verifier:9100/report"),
+                lambda r: r["status"] == "PASS",
             )
         elif stage == "snapshot":
             r = await c.post(
                 "http://api:8080/api/v1/transfers",
                 json=body,
-                headers={"Idempotency-Key": key + "-persist", "X-Request-ID": key + "-persist"},
+                headers={
+                    "Idempotency-Key": key + "-persist",
+                    "X-Request-ID": key + "-persist",
+                },
             )
             assert r.status_code == 201, r.text
 
@@ -163,7 +171,10 @@ async def main(stage, key):
             prom = (
                 await c.get(
                     "http://prometheus:9090/api/v1/query",
-                    params={"query": "sum(http_requests_total)", "time": result["query_time"]},
+                    params={
+                        "query": "sum(http_requests_total)",
+                        "time": result["query_time"],
+                    },
                 )
             ).json()
             result["prom_value"] = prom["data"]["result"][0]["value"][1]
@@ -173,7 +184,8 @@ async def main(stage, key):
 
             old = json.loads(Path("/evidence/recovery-snapshot.json").read_text())
             await wait(
-                lambda: c.get("http://api:8080/health/ready"), lambda r: r.status_code == 200
+                lambda: c.get("http://api:8080/health/ready"),
+                lambda r: r.status_code == 200,
             )
             assert (
                 await c.get("http://api:8080/api/v1/transfers/" + old["transfer_id"])
@@ -187,14 +199,18 @@ async def main(stage, key):
                 return (
                     await c.get(
                         "http://prometheus:9090/api/v1/query",
-                        params={"query": "sum(http_requests_total)", "time": old["query_time"]},
+                        params={
+                            "query": "sum(http_requests_total)",
+                            "time": old["query_time"],
+                        },
                     )
                 ).json()
 
             p = await wait(prom, lambda d: bool(d.get("data", {}).get("result")))
             assert p["data"]["result"][0]["value"][1] == old["prom_value"]
             await wait(
-                lambda: c.get("http://grafana:3000/api/health"), lambda r: r.status_code == 200
+                lambda: c.get("http://grafana:3000/api/health"),
+                lambda r: r.status_code == 200,
             )
 
             async def logs():

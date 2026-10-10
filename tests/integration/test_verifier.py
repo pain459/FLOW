@@ -55,7 +55,8 @@ async def test_verifier_detects_throwaway_corruption(lab, corruption):
         else:
             await c.execute(text("ALTER TABLE accounts DROP CONSTRAINT accounts_status_check"))
             await c.execute(
-                text("UPDATE accounts SET status='invalid' WHERE id=:id"), {"id": ids[0]}
+                text("UPDATE accounts SET status='invalid' WHERE id=:id"),
+                {"id": ids[0]},
             )
     report = await reconcile(lab.verifier_url)
     assert report["status"] == "FAIL", report

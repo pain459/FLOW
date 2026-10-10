@@ -1,0 +1,16 @@
+schema_version: 1
+name: write_heavy
+seed: 4217
+mode: closed_loop
+users: 50
+spawn_rate_users_per_second: 10
+duration_seconds: 600
+warmup_seconds: 30
+target_operations_per_second: 30
+mix:
+  account_read: 0.0400
+  balance_read: 0.0500
+  summary_read: 0.0500
+  history_read: 0.0400
+  transfer_status: 0.0200
+  transfer_write: 0.8000

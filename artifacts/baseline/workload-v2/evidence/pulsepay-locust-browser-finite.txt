@@ -1,0 +1,3 @@
+ Container chaosloop-ui-tests-run-fe72579e8017 Creating 
+ Container chaosloop-ui-tests-run-fe72579e8017 Created 
+{"real_browser_start": "PASS", "finite_session_auto_stop": "PASS", "persistent_ui": "PASS"}

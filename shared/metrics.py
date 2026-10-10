@@ -22,11 +22,4 @@ consumer_lag = Gauge("pulsepay_consumer_lag", "Undelivered consumer group entrie
 verification = Gauge(
     "pulsepay_verification_status", "PASS=0 FAIL=1 UNKNOWN=2 DEGRADED=3", ["check"]
 )
-activity_requests = Counter(
-    "pulsepay_activity_requests_total", "Synthetic HTTP requests", ["operation", "outcome"]
-)
-activity_duration = Histogram(
-    "pulsepay_activity_request_duration_seconds", "Synthetic HTTP latency", ["operation"]
-)
-activity_pending = Gauge("pulsepay_activity_pending", "HTTP operations in flight")
 service_up = Gauge("pulsepay_service_up", "Observed component reachable", ["service"])

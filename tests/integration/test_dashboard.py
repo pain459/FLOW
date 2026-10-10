@@ -67,7 +67,8 @@ async def test_dashboard_empty_pagination_search_and_history(lab):
     first = (await lab.client.get("/api/v1/dashboard/accounts?limit=2")).json()
     second = (
         await lab.client.get(
-            "/api/v1/dashboard/accounts", params={"limit": 2, "cursor": first["next_cursor"]}
+            "/api/v1/dashboard/accounts",
+            params={"limit": 2, "cursor": first["next_cursor"]},
         )
     ).json()
     assert len({a["id"] for a in first["items"] + second["items"]}) == 4
@@ -161,7 +162,7 @@ async def test_dashboard_optional_signals_never_invent_healthy_evidence(lab, mon
     monkeypatch.setattr(service, "fetch_json", malformed)
     response = await lab.client.get("/api/v1/dashboard/signals")
     assert response.status_code == 200
-    assert response.json()["activity"]["status"] == "UNKNOWN"
+    assert response.json()["verification"]["status"] == "UNKNOWN"
 
 
 async def test_dashboard_rejects_contradictory_independent_reports(lab, monkeypatch):
@@ -188,6 +189,15 @@ async def test_dashboard_rejects_contradictory_independent_reports(lab, monkeypa
         data = (await lab.client.get("/api/v1/dashboard/signals")).json()
         assert data["verification"]["status"] == "UNKNOWN"
         assert data["verification"]["report"] is None
+
+
+async def test_dashboard_signals_do_not_require_a_background_traffic_client(lab, monkeypatch):
+    from apps.pulsepay.application import dashboard_service as service
+
+    response = await lab.client.get("/api/v1/dashboard/signals")
+    assert response.status_code == 200
+    assert "activity" not in response.json()
+    assert "verification" in response.json()
 
     async def unknown(url):
         return {

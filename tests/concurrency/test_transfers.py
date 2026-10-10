@@ -21,7 +21,8 @@ async def test_same_key_race(lab):
 async def test_opposing_transfers_conserve_and_reconcile(lab):
     ids = await pool(lab)
     results = await asyncio.wait_for(
-        asyncio.gather(*(send(lab, body(ids, 100, bool(i % 2))) for i in range(100))), timeout=30
+        asyncio.gather(*(send(lab, body(ids, 100, bool(i % 2))) for i in range(100))),
+        timeout=30,
     )
     assert all(r.status_code == 201 for r in results)
     async with lab.admin.connect() as c:
