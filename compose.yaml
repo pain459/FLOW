@@ -28,6 +28,8 @@ x-app: &app
     SEED_VERSION: ${SEED_VERSION:-phase1-v1}
     WORKER_POLL_SECONDS: ${WORKER_POLL_SECONDS:-1}
     RECLAIM_IDLE_MS: ${RECLAIM_IDLE_MS:-10000}
+    VERIFIER_REPORT_URL: ${VERIFIER_REPORT_URL:-http://verifier:9100/report}
+    ACTIVITY_STATUS_URL: ${ACTIVITY_STATUS_URL:-http://activity:9100/health/dependencies}
   logging:
     driver: fluentd
     options:
@@ -106,7 +108,7 @@ services:
     restart: "no"
     read_only: false
     command: [pytest, -q]
-    environment:
+    environment: &test-env
       <<: *env
       TEST_ADMIN_URL: postgresql+asyncpg://${POSTGRES_USER:-pulsepay_owner}:${POSTGRES_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
       MIGRATOR_DATABASE_URL: postgresql+asyncpg://pulsepay_migrator:${MIGRATOR_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
@@ -116,6 +118,23 @@ services:
       RUFF_CACHE_DIR: /tmp/pulsepay-ruff-cache
       MYPY_CACHE_DIR: /tmp/pulsepay-mypy-cache
       GRAFANA_PASSWORD: ${GRAFANA_PASSWORD:?run bootstrap}
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+  ui-tests:
+    <<: *app
+    build: {context: ., dockerfile: Dockerfile.browser-tests}
+    image: chaosloop-ui-tests:phase1
+    profiles: [ui-test]
+    restart: 'no'
+    read_only: false
+    mem_limit: 1g
+    shm_size: 256m
+    volumes: [/evidence]
+    environment:
+      <<: *test-env
+      BROWSER_TESTS: 'true'
+      UI_EVIDENCE_DIRECTORY: /evidence
+    command: [pytest, -q, tests/ui]
     depends_on:
       migrate: {condition: service_completed_successfully}
   seed:

@@ -29,6 +29,10 @@ from apps.pulsepay.infrastructure.limits import RequestSizeLimit
 from asyncpg import PostgresConnectionError, InvalidPasswordError
 from opentelemetry.trace import Span
 from starlette.types import Scope
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from apps.pulsepay.api.v1.dashboard import router as dashboard_router
 
 config = settings()
 db = Database(config)
@@ -51,6 +55,14 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="PulsePay synthetic transaction laboratory", version="1.0.0", lifespan=lifespan)
 app.include_router(accounts_router)
 app.include_router(transfers_router)
+app.include_router(dashboard_router)
+UI_DIRECTORY = Path(__file__).resolve().parent / "ui"
+app.mount("/ui", StaticFiles(directory=UI_DIRECTORY, check_dir=False), name="ui")
+
+
+@app.get("/", include_in_schema=False)
+async def dashboard():
+    return FileResponse(UI_DIRECTORY / "index.html", headers={"Cache-Control": "no-cache"})
 
 
 def capture_request_trace(span: Span, scope: Scope) -> None:

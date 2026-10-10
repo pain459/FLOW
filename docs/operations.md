@@ -42,3 +42,6 @@ make seed
 The reset script checks acknowledgement AND effective Compose project name `chaosloop`, then removes only project containers/volumes. It never prunes the Docker daemon. Retain baseline artifacts first; those files are outside Docker data volumes. The accepted recovery tests retain Redis persistence. Deleting only the Redis volume can lose already-published messages; PostgreSQL evidence survives, but no automatic replay or replay command is supplied in Phase 1. Treat that deliberate data deletion as a separate operator investigation, not ordinary restart recovery.
 
 If a gate fails, retain test output, safe JSON logs, verifier report and Compose state in artifacts. Do not print `docker compose config` or raw environment/DSNs to logs: they contain local passwords. Runtime roles must never be replaced by the owner/migrator credentials.
+# Dashboard operation
+
+The API also serves http://127.0.0.1:8080/. `make up` starts the dashboard with core services; `make breathe` enables activity and full independent signals. `make ui-test` runs isolated browser workflows and saves screenshots. An unavailable optional verifier/activity displays UNKNOWN rather than blocking core transactions. See [dashboard operation and pending-transfer recovery](dashboard.md).

@@ -1,4 +1,6 @@
-.PHONY: bootstrap up down test smoke verify breathe stop-breathe status logs reset-lab seed lint observe-test baseline recovery-test
+.PHONY: bootstrap up down test smoke verify breathe stop-breathe status logs reset-lab seed lint observe-test baseline recovery-test ui-test
+ui-test:
+	sh scripts/ui-test.sh
 recovery-test:
 	sh scripts/recovery-test.sh
 observe-test:

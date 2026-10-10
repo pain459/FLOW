@@ -13,7 +13,9 @@ make verify     # Read-only snapshot; PASS=0, FAIL=1, UNKNOWN=2, DEGRADED=3
 make breathe    # Enable 2 RPS HTTP activity, verifier and observability
 ```
 
-API/OpenAPI: http://127.0.0.1:8080/docs. Grafana: http://127.0.0.1:3000 (`admin`, generated `GRAFANA_PASSWORD` in local `.env`). Prometheus: http://127.0.0.1:9090. Published ports bind to loopback; PostgreSQL, Redis and telemetry backends stay internal.
+Dashboard: http://127.0.0.1:8080/. API/OpenAPI: http://127.0.0.1:8080/docs. Grafana: http://127.0.0.1:3000 (`admin`, generated `GRAFANA_PASSWORD` in local `.env`). Prometheus: http://127.0.0.1:9090. Published ports bind to loopback; PostgreSQL, Redis and telemetry backends stay internal.
+
+The [operator dashboard](docs/dashboard.md) connects directly to FastAPI. Overview shows real funds, transfers, an activity chart, asynchronous delivery and independent integrity checks. Accounts and Transfers expose ledger details and create/transfer dialogs. System explains each component and links to Grafana, Prometheus and OpenAPI. Missing or stale evidence is explicit; pending transfers retain their original idempotency key across tab reloads.
 
 The API atomically commits balances, two ledger entries, a transfer and its outbox event. UUID-ordered row locks and unique idempotency keys handle concurrent retries. Redis summaries are non-authoritative. A leased relay publishes Redis Streams events; the consumer commits deduplicated receipts/projections before acknowledging. A separate SELECT-only verifier reconciles a consistent snapshot. The activity container only uses HTTP.
 
@@ -33,6 +35,7 @@ Operational routes: `/health/live`, `/health/ready`, `/health/dependencies`, `/m
 make stop-breathe   # Idle/verify mode; no background client writes
 make test           # Disposable databases; never changes baseline financial data
 make lint           # Ruff, formatting, mypy
+make ui-test        # Real Chromium/HTTP workflows in Docker; isolated databases
 make observe-test   # Real metrics/logs/traces and provisioned dashboard queries
 make baseline       # 30-minute observer; requires make breathe first
 make recovery-test  # Stops activity; tests outages/restarts in this disposable lab

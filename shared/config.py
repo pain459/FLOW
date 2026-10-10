@@ -30,6 +30,8 @@ class Settings(BaseSettings):
     activity_max_amount_minor: int = Field(default=100, ge=1, le=1000)
     api_url: str = "http://api:8080"
     verifier_interval_seconds: float = Field(default=15, ge=1, le=300)
+    verifier_report_url: str = "http://verifier:9100/report"
+    activity_status_url: str = "http://activity:9100/health/dependencies"
 
 
 @lru_cache

@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0
+WORKDIR /app
+COPY requirements.lock ./
+RUN pip install --no-cache-dir -r requirements.lock && pip install --no-cache-dir playwright==1.63.0
+RUN useradd --uid 10001 --create-home pulsepay && mkdir /evidence && chown pulsepay:pulsepay /evidence
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PYTHONPATH=/app
+COPY --chown=pulsepay:pulsepay . .
+USER pulsepay
+CMD ["pytest", "-q", "tests/ui"]

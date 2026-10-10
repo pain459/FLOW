@@ -32,3 +32,6 @@ Error envelope: `code`, safe `message`, `request_id` (optional safe details rese
 `X-Request-ID` is accepted if safe and at most 64 characters, otherwise regenerated. W3C `traceparent` propagation is independent. Summary exposes `authoritative:false`, `source_updated_at`, `cached_at`, `max_staleness_seconds`, `cache_hit`, `cache_status`. Redis failure bypasses cache and returns a PostgreSQL-backed summary marked DEGRADED; transfers do not depend on cached balances.
 
 Provisioning is available only through the container seed job. Authentication and real financial integrations are outside this synthetic lab's scope; bind the operator ports only to loopback.
+# Operator dashboard extension
+
+`GET /` serves the same-origin dashboard. Bounded, typed read APIs under `/api/v1/dashboard` use decimal strings for money to preserve browser precision; existing write APIs remain authoritative. See [dashboard routes and retry semantics](dashboard.md).

@@ -22,6 +22,27 @@ class Component(Protocol):
     async def tick(self) -> int: ...
 
 
+async def write_heartbeat(db: "Database", service: str, state: dict) -> None:
+    async with db.session() as session, session.begin():
+        await session.execute(
+            text("""INSERT INTO service_heartbeats(service,status,observed_at,last_success_at,last_failure_at,reason)
+            VALUES(:service,:status,now(),CAST(:success AS timestamptz),CAST(:failure AS timestamptz),:reason)
+            ON CONFLICT(service) DO UPDATE SET status=excluded.status,observed_at=excluded.observed_at,
+            last_success_at=excluded.last_success_at,last_failure_at=excluded.last_failure_at,reason=excluded.reason"""),
+            {
+                "service": service,
+                "status": state["status"],
+                "success": datetime.fromisoformat(state["last_success_at"])
+                if state["last_success_at"]
+                else None,
+                "failure": datetime.fromisoformat(state["last_failure_at"])
+                if state["last_failure_at"]
+                else None,
+                "reason": state["reason"],
+            },
+        )
+
+
 async def run_component(
     component: Component,
     config: Settings,
@@ -68,20 +89,7 @@ async def run_component(
             metrics.service_up.labels(config.service_name).set(int(state["status"] == "HEALTHY"))
             if db is not None:
                 try:
-                    async with db.session() as session, session.begin():
-                        await session.execute(
-                            text("""INSERT INTO service_heartbeats(service,status,observed_at,last_success_at,last_failure_at,reason)
-                            VALUES(:service,:status,now(),CAST(:success AS timestamptz),CAST(:failure AS timestamptz),:reason)
-                            ON CONFLICT(service) DO UPDATE SET status=excluded.status,observed_at=excluded.observed_at,
-                            last_success_at=excluded.last_success_at,last_failure_at=excluded.last_failure_at,reason=excluded.reason"""),
-                            {
-                                "service": config.service_name,
-                                "status": state["status"],
-                                "success": state["last_success_at"],
-                                "failure": state["last_failure_at"],
-                                "reason": state["reason"],
-                            },
-                        )
+                    await write_heartbeat(db, config.service_name, state)
                 except Exception:
                     logging.getLogger(__name__).warning("heartbeat_unavailable")
             await asyncio.sleep(
