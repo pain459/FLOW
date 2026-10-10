@@ -1,0 +1,36 @@
+version: '1.0.0'
+title: PulsePay 007-redis-network-partition
+description: >
+  Disable only the explicit API/relay/consumer Redis proxy; direct verifier/database links remain unchanged. Healthy precondition: exact proxy route and snapshot. Expected exposure: Redis-client connection errors with continued authoritative transfers. Strict recovery: original proxy enabled state and foreign toxics preserved, delivery catches up and independent PASS.
+tags: [pulsepay, 007-redis-network-partition, redis, partition]
+configuration:
+  duration_seconds: 15
+  ttl_seconds: 120
+  delay_ms: 150
+  interface: eth0
+steady-state-hypothesis:
+  title: Healthy authority, event delivery and independently reconciled ledger
+  probes:
+    - type: probe
+      name: healthy-financial-and-operational-state
+      tolerance: true
+      provider: {type: python, module: chaos.adapters.health_probes, func: steady}
+method:
+  - type: action
+    name: apply-bounded-framework-fault
+    provider: {type: python, module: chaos.adapters.injection, func: apply}
+  - type: probe
+    name: observe-intentional-fault-exposure
+    tolerance: true
+    provider: {type: python, module: chaos.adapters.injection, func: observe}
+  - type: action
+    name: restore-original-environment
+    provider: {type: python, module: chaos.adapters.injection, func: restore}
+  - type: probe
+    name: independently-verify-post-restoration-recovery
+    tolerance: true
+    provider: {type: python, module: chaos.adapters.health_probes, func: recovery}
+rollbacks:
+  - type: action
+    name: repeat-safe-scoped-restoration
+    provider: {type: python, module: chaos.adapters.injection, func: restore}

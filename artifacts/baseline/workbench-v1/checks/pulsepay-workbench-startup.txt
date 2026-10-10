@@ -1,0 +1,425 @@
+docker compose --profile observability --profile chaos up --build -d
+ Image pulsepay-chaos:v1 Building 
+ Image pulsepay-api:v1 Building 
+ Image pulsepay-load:v1 Building 
+ Image pulsepay-postgres:v1 Building 
+ Image pulsepay-api:v1 Building 
+ Image pulsepay-chaos:v1 Building 
+ Image pulsepay-chaos:v1 Building 
+ Image pulsepay-api:v1 Building 
+ Image pulsepay-api:v1 Building 
+ Image pulsepay-api:v1 Building 
+ Image pulsepay-api:v1 Building 
+ Image pulsepay-api:v1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 5.31kB done
+#1 DONE 0.0s
+
+#2 [locust internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.00kB done
+#2 DONE 0.0s
+
+#3 [migrate internal] load build definition from Dockerfile
+#3 transferring dockerfile: 1.30kB done
+#3 DONE 0.0s
+
+#4 [chaos-watchdog internal] load build definition from Dockerfile
+#4 transferring dockerfile: 679B done
+#4 DONE 0.0s
+
+#5 [postgres internal] load build definition from Dockerfile.postgres
+#5 transferring dockerfile: 225B done
+#5 DONE 0.0s
+
+#6 [chaos-watchdog internal] load metadata for docker.io/chaostoolkit/chaostoolkit:1.21.4@sha256:ff1427c09b029e82796e430d9bf6e127f992da247a27175d64eb1193149e86fe
+#6 DONE 0.0s
+
+#7 [postgres internal] load metadata for docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad
+#7 DONE 0.0s
+
+#8 [db-observer-setup internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#8 DONE 0.0s
+
+#9 [db-observer-setup internal] load .dockerignore
+#9 transferring context: 116B done
+#9 DONE 0.0s
+
+#10 [chaos-workbench internal] load build context
+#10 transferring context: 7.32kB done
+#10 DONE 0.0s
+
+#11 [locust internal] load build context
+#11 transferring context: 25.90kB done
+#11 DONE 0.0s
+
+#12 [migrate internal] load build context
+#12 transferring context: 17.18kB done
+#12 DONE 0.0s
+
+#13 [chaos-workbench 1/8] FROM docker.io/chaostoolkit/chaostoolkit:1.21.4@sha256:ff1427c09b029e82796e430d9bf6e127f992da247a27175d64eb1193149e86fe
+#13 resolve docker.io/chaostoolkit/chaostoolkit:1.21.4@sha256:ff1427c09b029e82796e430d9bf6e127f992da247a27175d64eb1193149e86fe 0.0s done
+#13 DONE 0.0s
+
+#14 [postgres internal] load build context
+#14 transferring context: 774B done
+#14 DONE 0.0s
+
+#15 [verifier build 1/4] FROM docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#15 resolve docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db 0.0s done
+#15 DONE 0.0s
+
+#16 [postgres 1/2] FROM docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad
+#16 resolve docker.io/library/postgres:17.4-bookworm@sha256:304ab813518754228f9f792f79d6da36359b82d8ecf418096c636725f8c930ad 0.0s done
+#16 DONE 0.0s
+
+#17 [docker-gate 3/8] RUN pip install --no-cache-dir -r /tmp/requirements.lock && mkdir /evidence /control && chown -R 1001:1001 /evidence /control
+#17 CACHED
+
+#18 [docker-gate 2/8] COPY chaos/requirements.lock /tmp/requirements.lock
+#18 CACHED
+
+#19 [docker-gate 4/8] WORKDIR /workspace
+#19 CACHED
+
+#20 [postgres 2/2] COPY --chmod=0644 scripts/init-db.sh /docker-entrypoint-initdb.d/10-roles.sh
+#20 CACHED
+
+#21 [locust stage-1 3/9] COPY --from=build /install /usr/local
+#21 CACHED
+
+#22 [locust stage-1 7/9] COPY --chown=pulsepay:pulsepay verifier verifier
+#22 CACHED
+
+#23 [locust stage-1 4/9] WORKDIR /app
+#23 CACHED
+
+#24 [locust stage-1 5/9] COPY --chown=pulsepay:pulsepay load_generator load_generator
+#24 CACHED
+
+#25 [locust stage-1 2/9] RUN groupadd -g 10001 pulsepay && useradd -u 10001 -g pulsepay -m pulsepay && mkdir /reports && chown pulsepay:pulsepay /reports
+#25 CACHED
+
+#26 [locust build 4/4] RUN pip install --no-cache-dir --prefix=/install -r requirements.lock
+#26 CACHED
+
+#27 [locust build 3/4] COPY load_generator/requirements.lock ./
+#27 CACHED
+
+#28 [locust stage-1 6/9] COPY --chown=pulsepay:pulsepay shared shared
+#28 CACHED
+
+#29 [locust stage-1 8/9] COPY --chown=pulsepay:pulsepay apps/pulsepay/schemas apps/pulsepay/schemas
+#29 CACHED
+
+#30 [migrate runtime  8/14] COPY --chown=pulsepay:pulsepay verifier verifier
+#30 CACHED
+
+#31 [migrate build 4/4] RUN pip install --no-cache-dir --prefix=/install -r requirements.lock
+#31 CACHED
+
+#32 [migrate build 2/4] WORKDIR /build
+#32 CACHED
+
+#33 [migrate runtime  7/14] COPY --chown=pulsepay:pulsepay workers workers
+#33 CACHED
+
+#34 [migrate runtime  6/14] COPY --chown=pulsepay:pulsepay shared shared
+#34 CACHED
+
+#35 [migrate runtime  3/14] COPY --from=build /install /usr/local
+#35 CACHED
+
+#36 [migrate build 3/4] COPY requirements.lock ./
+#36 CACHED
+
+#37 [migrate runtime  5/14] COPY --chown=pulsepay:pulsepay apps apps
+#37 CACHED
+
+#38 [migrate runtime  9/14] COPY --chown=pulsepay:pulsepay telemetry telemetry
+#38 CACHED
+
+#39 [migrate runtime  4/14] WORKDIR /app
+#39 CACHED
+
+#40 [migrate runtime  2/14] RUN groupadd -g 10001 pulsepay && useradd -u 10001 -g pulsepay -m pulsepay
+#40 CACHED
+
+#41 [migrate runtime 10/14] COPY --chown=pulsepay:pulsepay migrations migrations
+#41 CACHED
+
+#42 [postgres] exporting to image
+#42 exporting layers done
+#42 exporting manifest sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b done
+#42 exporting config sha256:c4719ce11ec21147091e5259b1f02be8b835b04f83dd5faa938564db18adb2e9 done
+#42 exporting attestation manifest sha256:7312b9d0d7fbad354ffe7429fcfe5271f4df5096ebf3e9977ccd1a349d2cfc93
+#42 exporting attestation manifest sha256:7312b9d0d7fbad354ffe7429fcfe5271f4df5096ebf3e9977ccd1a349d2cfc93 0.0s done
+#42 exporting manifest list sha256:86ac05ac57278012b006d5166fda1156e3b6ff442a885c023c3f1adfec8a39c2 done
+#42 naming to docker.io/library/pulsepay-postgres:v1 done
+#42 unpacking to docker.io/library/pulsepay-postgres:v1 done
+#42 DONE 0.1s
+
+#43 [docker-gate 5/8] COPY --chown=1001:1001 chaos chaos
+#43 DONE 0.0s
+
+#44 [locust stage-1 9/9] COPY --chown=pulsepay:pulsepay tests tests
+#44 DONE 0.0s
+
+#45 [verifier runtime 11/14] COPY --chown=pulsepay:pulsepay tests tests
+#45 DONE 0.0s
+
+#46 [chaos-watchdog 6/8] COPY --chown=1001:1001 shared shared
+#46 DONE 0.0s
+
+#47 [verifier runtime 12/14] COPY --chown=pulsepay:pulsepay scripts scripts
+#47 DONE 0.0s
+
+#48 [chaos-watchdog 7/8] COPY --chown=1001:1001 verifier verifier
+#48 DONE 0.0s
+
+#49 [chaos-workbench 8/8] COPY --chown=1001:1001 load_generator/controller load_generator/controller
+#49 DONE 0.0s
+
+#50 [db-observer-setup runtime 13/14] COPY --chown=pulsepay:pulsepay observability observability
+#50 DONE 0.1s
+
+#51 [migrate runtime 14/14] COPY --chown=pulsepay:pulsepay pyproject.toml alembic.ini ./
+#51 DONE 0.0s
+
+#52 [postgres] resolving provenance for metadata file
+#52 DONE 0.0s
+
+#53 [locust] exporting to image
+#53 exporting layers 0.1s done
+#53 exporting manifest sha256:3b642e7d68e6d0f82e49c31f51a5eeb47dd0d295bac3e36334e945cb9dc33cb3 done
+#53 exporting config sha256:fae20c0a9917587b94ee0c829f9763fccad6fd3c705249d724289b3b37360e2f done
+#53 exporting attestation manifest sha256:31924327b843805f08b7cfb0e88a0df5fea2b6d6a88207b7cdfe91118aae1052 done
+#53 exporting manifest list sha256:4e82b659d10d2e7593a885738a47d2cc004b4e6a395034536ca8ccf22f62c9d5 done
+#53 naming to docker.io/library/pulsepay-load:v1 done
+#53 unpacking to docker.io/library/pulsepay-load:v1 0.0s done
+#53 DONE 0.1s
+
+#54 [chaos-workbench] exporting to image
+#54 exporting layers 0.1s done
+#54 exporting manifest sha256:da77fbc9e11d5d5c893be11f9b7cc4d24fd51fc379ca5a828055eab4e2014d15 0.0s done
+#54 exporting config sha256:2920ae9dbccb9d6413bc13d55a1cc47a456bdfb5847e77fe7e23ed4cfaeb6901 done
+#54 exporting attestation manifest sha256:1af239c9eb05bfa854eea54e4076b62f5a637a39ad3529602d4ad590ff6856c1 0.0s done
+#54 exporting manifest list sha256:65a3f99540cfa36109f04d554c992de88ad3c0e6ac14924ab9f20880b3c11da5
+#54 ...
+
+#55 [locust] resolving provenance for metadata file
+#55 DONE 0.0s
+
+#54 [chaos-workbench] exporting to image
+#54 exporting manifest list sha256:65a3f99540cfa36109f04d554c992de88ad3c0e6ac14924ab9f20880b3c11da5 done
+#54 naming to docker.io/library/pulsepay-chaos:v1 done
+#54 unpacking to docker.io/library/pulsepay-chaos:v1
+#54 unpacking to docker.io/library/pulsepay-chaos:v1 0.2s done
+#54 DONE 0.3s
+
+#56 [docker-gate] exporting to image
+#56 exporting layers 0.1s done
+#56 exporting manifest sha256:f45c6f0932c14baa301ffa9957413bab34cad2647a0a35128fa3237ccc2922ea 0.0s done
+#56 exporting config sha256:954ebe3422ec8761e1dc9221c885edb5b7451b2c0cc34fbccea44598587a40b5 0.0s done
+#56 exporting attestation manifest sha256:7bb38251688590b99de32818aad1f543165081a2141311a98efd4a90b90216b9 0.0s done
+#56 exporting manifest list sha256:44479d62acbc8f778556f09b32441ca66d50852ad52b31ae85b84501089ac49e 0.0s done
+#56 naming to docker.io/library/pulsepay-chaos:v1 done
+#56 unpacking to docker.io/library/pulsepay-chaos:v1 0.1s done
+#56 DONE 0.3s
+
+#57 [chaos-watchdog] exporting to image
+#57 exporting layers 0.1s done
+#57 exporting manifest sha256:027751fff5c9260208bc20f2f18335adb5105d857a529c4002fabc7f65a25191 0.0s done
+#57 exporting config sha256:4a198dc71945cda2abe55e9cd4a41a2f5b79015af871b1cfe29aecc5a02fe189 0.0s done
+#57 exporting attestation manifest sha256:7a5414f97f5bb6feae88d73ee373e82830cea131bc8056e3fc845f541a79390e 0.0s done
+#57 exporting manifest list sha256:6944df47b74294622e9e3912b7aa9d8ef9ee0b67ced24bd59bb45ca1830b725b 0.0s done
+#57 naming to docker.io/library/pulsepay-chaos:v1 done
+#57 unpacking to docker.io/library/pulsepay-chaos:v1 0.2s done
+#57 DONE 0.3s
+
+#58 [event-worker] exporting to image
+#58 exporting layers 0.1s done
+#58 exporting manifest sha256:0f497ee7a741e434797819702e0fa48cfb3f2cf7be5733dcf6a04328cade2c3d 0.0s done
+#58 exporting config sha256:0302e6d5293457bfa9824bd97a057024fb1e51d05662c8e8974e98e5d89fad34 0.0s done
+#58 exporting attestation manifest sha256:935c437ff3efbfa3b32805bf41c113b2f15ca086b9b690cd11880ce11e8cade6 0.0s done
+#58 exporting manifest list sha256:32c8e3cb958c4869571fd873f680ca6deeed5814cd458761aa218a346dd3da30 0.0s done
+#58 naming to docker.io/library/pulsepay-api:v1 done
+#58 unpacking to docker.io/library/pulsepay-api:v1
+#58 unpacking to docker.io/library/pulsepay-api:v1 0.1s done
+#58 DONE 0.3s
+
+#59 [migrate] exporting to image
+#59 exporting layers 0.1s done
+#59 exporting manifest sha256:b8a08075a09844a9f37d7b5484ed530bf478f62c9dd15991fa1e27333d845e2d 0.0s done
+#59 exporting config sha256:eccc6779c6a3f71a4626d39cbe7760c1f21a858db4577db2ce7887dd9f6cab89 0.0s done
+#59 exporting attestation manifest sha256:fea291aa405384a04632d0dcf13517315bda5f20ecc13732a635d8ee37069283 0.0s done
+#59 exporting manifest list sha256:d6222f90b70d358522b5e516382d8bb22f0ea42d7a5b02561abd739113a8231a 0.0s done
+#59 naming to docker.io/library/pulsepay-api:v1 done
+#59 unpacking to docker.io/library/pulsepay-api:v1 0.1s done
+#59 DONE 0.3s
+
+#60 [db-observer-setup] exporting to image
+#60 exporting layers 0.1s done
+#60 exporting manifest sha256:e28ad2f9a01163906bc373d582c701f429c4d6130492a33470b8ff49f505b18b 0.0s done
+#60 exporting config sha256:acf265ed721ce6fb71c93cb10adfe61c2596db84fcd25fa6ab50f56cdcdf7296 0.0s done
+#60 exporting attestation manifest sha256:229dafeb16178e31a8e791ff9580e5dabc7dd8b1f17b8a6ffa256b551c59f58b 0.0s done
+#60 exporting manifest list sha256:5c6e00a147afddd49e635c3e25d88c272a19484ce80241f370120f1a1358be1c 0.0s done
+#60 naming to docker.io/library/pulsepay-api:v1 done
+#60 unpacking to docker.io/library/pulsepay-api:v1 0.1s done
+#60 DONE 0.3s
+
+#61 [outbox-relay] exporting to image
+#61 exporting layers 0.1s done
+#61 exporting manifest sha256:6461d628bd5dcab0011fc37ee6741f83e94268a68dcb598629bcac9522783597 0.0s done
+#61 exporting config sha256:df4662696d89603d910b5e4feff60af40f40c5538b3d2bc0175e3e97983f3d93 0.0s done
+#61 exporting attestation manifest sha256:a20a7190f0d8dbe3d2ecdb0d8381caaa903c25bdecc8b88f97db68e5031ce66c 0.0s done
+#61 exporting manifest list sha256:85d0d68426b96f2d74546d8465e6fa50dd71f7151305c7b8fc95d446ff7ca696 0.0s done
+#61 naming to docker.io/library/pulsepay-api:v1 done
+#61 unpacking to docker.io/library/pulsepay-api:v1 0.1s done
+#61 DONE 0.3s
+
+#62 [verifier] exporting to image
+#62 exporting layers 0.1s done
+#62 exporting manifest sha256:0eee273b67dd0bfd4b0b65046fbc4fe081b4673bbb01bc7cf294028ee57e1aee 0.0s done
+#62 exporting config sha256:a4cee33294ecef0b934db53ef9382c0fb569007766bc2d94bcd9a13e82d44ec0 0.0s done
+#62 exporting attestation manifest sha256:ce932faee3e150e45dfb97b074f718b340a39cd1593205962a3590fd502dab6a 0.0s done
+#62 exporting manifest list sha256:f0527751124d064cc1ff0be2a4a5721c4a656a0f894ed454401981b8e959833a 0.0s done
+#62 naming to docker.io/library/pulsepay-api:v1 done
+#62 unpacking to docker.io/library/pulsepay-api:v1 0.1s done
+#62 DONE 0.3s
+
+#63 [db-observer] exporting to image
+#63 exporting layers 0.1s done
+#63 exporting manifest sha256:d949ce0f106dc4be725e8665adde61c78ba1f694cb170462652a4274c6d43d07 0.0s done
+#63 exporting config sha256:181607b79f997f46ed47f7f96700c815274e923c8d8b0645caa4be2c76047907 0.0s done
+#63 exporting attestation manifest sha256:2fd4ba905a784b91b214cd2b01d2c21ce226afcaba6bfaf373296103aabac313 0.0s done
+#63 exporting manifest list sha256:c341b4922a6c35d75690859a4055248c5fda056744132aa4569fb8ad4018e8a1 0.0s done
+#63 naming to docker.io/library/pulsepay-api:v1 done
+#63 unpacking to docker.io/library/pulsepay-api:v1 0.2s done
+#63 DONE 0.3s
+
+#64 [api] exporting to image
+#64 exporting layers 0.1s done
+#64 exporting manifest sha256:0fd807a1250b166a205438920c4eab734eb7a96d0b692b240a5f5c840bdb130b 0.0s done
+#64 exporting config sha256:c17190b90ba086b5b93b48ba5d148e7344a6bced2b917be575103d43e9144218 0.0s done
+#64 exporting attestation manifest sha256:5b112738da5d76e2ab30fcda00df04a225f6d1ed232076a001d9059c1d60b0fa 0.0s done
+#64 exporting manifest list sha256:ba9b32da564e26784b0ad0edbe447a89097dce8eacba482ff3697a5b2abcd1fe 0.0s done
+#64 naming to docker.io/library/pulsepay-api:v1 done
+#64 unpacking to docker.io/library/pulsepay-api:v1 0.2s done
+#64 DONE 0.3s
+
+#65 [chaos-workbench] resolving provenance for metadata file
+#65 DONE 0.1s
+
+#66 [chaos-watchdog] resolving provenance for metadata file
+#66 DONE 0.1s
+
+#67 [docker-gate] resolving provenance for metadata file
+#67 DONE 0.1s
+
+#68 [db-observer] resolving provenance for metadata file
+#68 DONE 0.0s
+
+#69 [db-observer-setup] resolving provenance for metadata file
+#69 DONE 0.0s
+
+#70 [migrate] resolving provenance for metadata file
+#70 DONE 0.0s
+
+#71 [event-worker] resolving provenance for metadata file
+#71 DONE 0.1s
+
+#72 [outbox-relay] resolving provenance for metadata file
+#72 DONE 0.1s
+
+#73 [verifier] resolving provenance for metadata file
+#73 DONE 0.0s
+
+#74 [api] resolving provenance for metadata file
+#74 DONE 0.0s
+ Image pulsepay-api:v1 Built 
+ Image pulsepay-chaos:v1 Built 
+ Image pulsepay-chaos:v1 Built 
+ Image pulsepay-postgres:v1 Built 
+ Image pulsepay-chaos:v1 Built 
+ Image pulsepay-api:v1 Built 
+ Image pulsepay-api:v1 Built 
+ Image pulsepay-api:v1 Built 
+ Image pulsepay-api:v1 Built 
+ Image pulsepay-api:v1 Built 
+ Image pulsepay-load:v1 Built 
+ Image pulsepay-api:v1 Built 
+time="2026-10-11T00:52:41+05:30" level=warning msg="Found orphan containers (pulsepay-workbench-browser-abort, pulsepay-workbench-browser-final, pulsepay-workbench-browser-check, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-log-collector-1 Running 
+ Container chaosloop-tempo-1 Running 
+ Container chaosloop-loki-1 Running 
+ Container chaosloop-redis-1 Running 
+ Container chaosloop-otel-collector-1 Running 
+ Container chaosloop-postgres-1 Running 
+ Container chaosloop-grafana-1 Running 
+ Container chaosloop-prometheus-1 Running 
+ Container chaosloop-chaos-workbench-1 Recreate 
+ Container chaosloop-migrate-1 Recreate 
+ Container chaosloop-docker-gate-1 Recreate 
+ Container chaosloop-db-observer-setup-1 Recreate 
+ Container chaosloop-locust-1 Recreate 
+ Container chaosloop-migrate-1 Recreated 
+ Container chaosloop-api-1 Recreate 
+ Container chaosloop-outbox-relay-1 Recreate 
+ Container chaosloop-verifier-1 Recreate 
+ Container chaosloop-event-worker-1 Recreate 
+ Container chaosloop-db-observer-setup-1 Recreated 
+ Container chaosloop-db-observer-1 Recreate 
+ Container chaosloop-locust-1 Recreated 
+ Container chaosloop-docker-gate-1 Recreated 
+ Container chaosloop-chaos-watchdog-1 Recreate 
+ Container chaosloop-event-worker-1 Recreated 
+ Container chaosloop-outbox-relay-1 Recreated 
+ Container chaosloop-db-observer-1 Recreated 
+ Container chaosloop-verifier-1 Recreated 
+ Container chaosloop-api-1 Recreated 
+ Container chaosloop-chaos-watchdog-1 Recreated 
+ Container chaosloop-chaos-workbench-1 Recreated 
+ Container chaosloop-chaos-workbench-1 Starting 
+ Container chaosloop-locust-1 Starting 
+ Container chaosloop-telemetry-init-1 Starting 
+ Container chaosloop-postgres-1 Waiting 
+ Container chaosloop-docker-gate-1 Starting 
+ Container chaosloop-postgres-1 Waiting 
+ Container chaosloop-chaos-workbench-1 Started 
+ Container chaosloop-locust-1 Started 
+ Container chaosloop-telemetry-init-1 Started 
+ Container chaosloop-telemetry-init-1 Waiting 
+ Container chaosloop-telemetry-init-1 Waiting 
+ Container chaosloop-docker-gate-1 Started 
+ Container chaosloop-docker-gate-1 Waiting 
+ Container chaosloop-postgres-1 Healthy 
+ Container chaosloop-postgres-1 Healthy 
+ Container chaosloop-db-observer-setup-1 Starting 
+ Container chaosloop-migrate-1 Starting 
+ Container chaosloop-db-observer-setup-1 Started 
+ Container chaosloop-db-observer-setup-1 Waiting 
+ Container chaosloop-migrate-1 Started 
+ Container chaosloop-migrate-1 Waiting 
+ Container chaosloop-migrate-1 Waiting 
+ Container chaosloop-migrate-1 Waiting 
+ Container chaosloop-migrate-1 Waiting 
+ Container chaosloop-telemetry-init-1 Exited 
+ Container chaosloop-telemetry-init-1 Exited 
+ Container chaosloop-db-observer-setup-1 Exited 
+ Container chaosloop-db-observer-1 Starting 
+ Container chaosloop-migrate-1 Exited 
+ Container chaosloop-migrate-1 Exited 
+ Container chaosloop-verifier-1 Starting 
+ Container chaosloop-event-worker-1 Starting 
+ Container chaosloop-migrate-1 Exited 
+ Container chaosloop-api-1 Starting 
+ Container chaosloop-migrate-1 Exited 
+ Container chaosloop-outbox-relay-1 Starting 
+ Container chaosloop-db-observer-1 Started 
+ Container chaosloop-verifier-1 Started 
+ Container chaosloop-event-worker-1 Started 
+ Container chaosloop-api-1 Started 
+ Container chaosloop-outbox-relay-1 Started 
+ Container chaosloop-docker-gate-1 Healthy 
+ Container chaosloop-chaos-watchdog-1 Starting 
+ Container chaosloop-chaos-watchdog-1 Started 

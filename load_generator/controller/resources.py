@@ -7,6 +7,30 @@ from pathlib import Path
 from load_generator.controller.lifecycle import read_json
 
 
+def network_counters(value: str) -> dict:
+    received, sent, count = 0, 0, 0
+    try:
+        for line in value.splitlines():
+            if ":" not in line:
+                continue
+            interface, values = line.split(":", 1)
+            if interface.strip() == "lo":
+                continue
+            fields = values.split()
+            rx, tx = int(fields[0]), int(fields[8])
+            if rx < 0 or tx < 0:
+                raise ValueError("Negative interface counter")
+            received += rx
+            sent += tx
+            count += 1
+    except (ValueError, IndexError):
+        count = 0
+    return {
+        "network_received_bytes": received if count else None,
+        "network_sent_bytes": sent if count else None,
+    }
+
+
 def cgroup():
     root = Path("/sys/fs/cgroup")
     result = {
@@ -16,9 +40,7 @@ def cgroup():
         "memory_limit_bytes": None,
     }
     try:
-        data = dict(
-            line.split() for line in (root / "cpu.stat").read_text().splitlines()
-        )
+        data = dict(line.split() for line in (root / "cpu.stat").read_text().splitlines())
         result["cpu_usage_usec"] = int(data["usage_usec"])
         quota, period = (root / "cpu.max").read_text().split()
         result["cpu_limit"] = int(quota) / int(period) if quota != "max" else None
@@ -27,6 +49,10 @@ def cgroup():
         result["memory_limit_bytes"] = int(value) if value != "max" else None
     except (OSError, ValueError, KeyError):
         pass
+    try:
+        result.update(network_counters(Path("/proc/net/dev").read_text()))
+    except OSError:
+        result.update(network_counters(""))
     return result
 
 

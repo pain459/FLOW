@@ -1,4 +1,4 @@
-# Phase 1 architecture
+# PulsePay architecture
 
 PulsePay is a synthetic transaction laboratory. Every unit is fake; no banking/payment/authentication integration exists.
 
@@ -21,7 +21,8 @@ flowchart TD
   Prometheus --> API
   Prometheus --> Relay
   Prometheus --> Worker
-  Prometheus --> Activity
+  Prometheus --> Locust
+  Prometheus --> DBObserver[Read-only DB statistics observer]
   Prometheus --> Verify
   Grafana --> Prometheus
   Grafana --> Loki
@@ -44,9 +45,9 @@ Design references: [PostgreSQL row lock ordering](https://www.postgresql.org/doc
 
 Observation snapshot v1 is represented by `shared.contracts.ObservationSnapshot`: version, UTC observation time, window seconds, system, health, signals, freshness, and missing signal names. The illustration in the supplied spec is not a measurement. Missing/stale signals must remain UNKNOWN; do not infer health from an empty vector. Independent experiment IDs will live outside financial IDs. No hidden fault truth belongs in decision inputs.
 
-Future load clients use public APIs. A future chaos operator remains outside the app stack and owns restoration safety privately. Laya receives observations and enumerated permitted choices, without Docker credentials or arbitrary shell powers. An approximator's estimates must be compared to observed outcomes. The verifier remains independent. No later-phase directories, decision/action loop, fault injection or autonomous remediation is implemented.
+Locust uses public APIs and remains independent of financial services. Chaos Workbench is a separate local UI in the same Compose project, delegating only reviewed native CLI actions. Framework experiments use Chaos Toolkit YAML, pinned Pumba helpers and an optional dependency-routing Toxiproxy overlay. A separate default-deny Docker gate authorizes frozen lab targets; an independent watchdog restores them. Only this private gate mounts the host socket. No custom chaos engine, decision/action loop, Laya or autonomous remediation is implemented. See [framework boundaries](phase3-operations.md).
 
-Future action envelope v1 is a documentation contract: `schema_version`, `action_id`, `experiment_id`, `idempotency_key`, enumerated `action_type`, allowlisted `target_service`, bounded `parameters`, `preconditions`, `expires_at` and `authorization_scope`. An executor must reject unknown actions, stale authorization, out-of-scope targets and missing preconditions. Results carry `action_id`, start/end times, outcome and safe evidence references. Permitted choices are supplied per experiment; Phase 1 neither enumerates executable chaos actions nor supplies an executor. Experiment/fault truth stays private to the external operator and does not enter observation inputs.
+Future model-facing action envelopes remain documentation only: bounded permitted choices, preconditions, expiry and authorization scope. Existing framework actions are reviewed native experiment definitions with independently enforced safety bounds. Privileged experiment truth stays separate from the [sanitized observation contract](observation-contract.md); consumer permissions and decision-making are future work.
 # Operator dashboard
 
 The existing FastAPI service serves `/` and same-origin `/ui/*` assets. The browser consumes bounded read-only dashboard APIs and uses the original transactional write APIs for account creation and transfers. Independent verifier reports remain a separate process, fetched through fixed server-side URLs with deadlines and freshness validation. See [dashboard boundaries](dashboard.md).

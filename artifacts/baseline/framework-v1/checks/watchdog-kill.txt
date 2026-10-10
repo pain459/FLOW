@@ -1,0 +1,22 @@
+ Container chaosloop-docker-gate-1 Running 
+ Container chaosloop-chaos-watchdog-1 Running 
+ Container chaosloop-docker-gate-1 Waiting 
+ Container chaosloop-docker-gate-1 Healthy 
+ Container chaosloop-chaos-watchdog-1 Waiting 
+ Container chaosloop-docker-gate-1 Waiting 
+ Container chaosloop-chaos-watchdog-1 Healthy 
+ Container chaosloop-docker-gate-1 Healthy 
+ Container chaosloop-chaos-recovery-test Creating 
+ Container chaosloop-chaos-recovery-test Created 
+{"stage":"runner_killed_and_target_restored","seconds_after_kill":15}
+time="2026-10-10T23:11:20+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-recovery-test) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-chaos-runner-run-2bd0cc313395 Creating 
+ Container chaosloop-chaos-runner-run-2bd0cc313395 Created 
+{"schema_version": 1, "run_id": "chaos-20261010T174041Z-eb8faa38", "scenario": "002-worker-pause", "result": "ABORTED", "started_at": "2026-10-10T17:40:41.955709+00:00", "finished_at": "2026-10-10T17:41:34.513535+00:00", "framework_exit_code": null, "integrity": {"before": "PASS", "after": "PASS"}, "restoration": "RESTORED", "impact": {}, "recovery": "PASS", "load": {"run_id": "load-20261010T172934Z-e322b9bd", "profile": "nominal", "after_state": "RUNNING", "recovery_condition": "UNDER_SUSTAINED_LOAD", "external_control_intervention": false}, "missing_observations": [], "journal_available": false, "manual_ack_required": false, "artifact_paths": ["baseline.json", "capabilities.json", "experiment.yaml", "framework-output.jsonl", "framework.log", "injector-state.json", "integrity-after.json", "integrity-before.json", "metadata.json", "metrics-after.json", "metrics-before.json", "observation.json", "preflight.json", "pumba-dry-run.jsonl", "recovery-verification.json", "restoration.json", "service-state-after.json", "service-state-before.json", "telemetry-after.json", "telemetry-before.json", "timeline.jsonl"]}
+time="2026-10-10T23:11:34+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-recovery-test) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-chaos-runner-run-ba710755f085 Creating 
+ Container chaosloop-chaos-runner-run-ba710755f085 Created 
+{"run_id": "chaos-20261010T174041Z-eb8faa38", "recovery_test": "PASS", "watchdog_trigger": {"at": "2026-10-10T17:41:18.068780+00:00", "reason": "RUNNER_HEARTBEAT_LOST"}}
+time="2026-10-10T23:11:35+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-recovery-test) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-chaos-runner-run-285b4586d855 Creating 
+ Container chaosloop-chaos-runner-run-285b4586d855 Created 

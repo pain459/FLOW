@@ -225,3 +225,6 @@ __marimo__/
 /artifacts/baseline/*
 !/artifacts/baseline/workload-v1/
 !/artifacts/baseline/workload-v2/
+!/artifacts/baseline/workload-v3/
+!/artifacts/baseline/framework-v1/
+!/artifacts/baseline/workbench-v1/

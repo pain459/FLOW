@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "collected_at": "2026-10-10T19:28:28.315176+00:00",
+  "workbench": "PASS",
+  "experiment": {
+    "artifact_paths": [
+      "baseline.json",
+      "capabilities.json",
+      "chaostoolkit-journal.json",
+      "experiment.yaml",
+      "framework-output.jsonl",
+      "framework.log",
+      "impact.json",
+      "injector-output.jsonl",
+      "injector-result.json",
+      "injector-state.json",
+      "integrity-after.json",
+      "integrity-before.json",
+      "metadata.json",
+      "metrics-after.json",
+      "metrics-before.json",
+      "metrics-during.json",
+      "observation.json",
+      "observations.jsonl",
+      "preflight.json",
+      "pumba-dry-run.jsonl",
+      "recovery-verification.json",
+      "restoration.json",
+      "service-state-after.json",
+      "service-state-before.json",
+      "telemetry-after.json",
+      "telemetry-before.json",
+      "timeline.jsonl"
+    ],
+    "finished_at": "2026-10-10T19:16:45.798857+00:00",
+    "framework_exit_code": 0,
+    "impact": {
+      "finished_at": "2026-10-10T19:16:21.630576+00:00",
+      "first_observed_at": "2026-10-10T19:15:57.983160+00:00",
+      "observed": true
+    },
+    "injection_confirmed": true,
+    "integrity": {
+      "after": "PASS",
+      "before": "PASS"
+    },
+    "journal_available": true,
+    "load": {
+      "after_state": "RUNNING",
+      "external_control_intervention": false,
+      "profile": "nominal",
+      "recovery_condition": "UNDER_SUSTAINED_LOAD",
+      "run_id": "load-ui-ccb982d3ee8a4145a98ef751b57062a6"
+    },
+    "manual_ack_required": false,
+    "missing_observations": [],
+    "recovery": "PASS",
+    "restoration": "RESTORED",
+    "result": "PASS",
+    "run_id": "chaos-20261010T191532Z-36abf3a2",
+    "scenario": "002-worker-pause",
+    "schema_version": 1,
+    "started_at": "2026-10-10T19:15:32.794802+00:00"
+  },
+  "abort": {
+    "artifact_paths": [
+      "baseline.json",
+      "capabilities.json",
+      "chaostoolkit-journal.json",
+      "experiment.yaml",
+      "framework-output.jsonl",
+      "framework.log",
+      "impact.json",
+      "injector-state.json",
+      "integrity-after.json",
+      "integrity-before.json",
+      "metadata.json",
+      "metrics-after.json",
+      "metrics-before.json",
+      "metrics-during.json",
+      "observation.json",
+      "observations.jsonl",
+      "preflight.json",
+      "pumba-dry-run.jsonl",
+      "recovery-verification.json",
+      "restoration.json",
+      "service-state-after.json",
+      "service-state-before.json",
+      "telemetry-after.json",
+      "telemetry-before.json",
+      "timeline.jsonl"
+    ],
+    "finished_at": "2026-10-10T19:20:32.704179+00:00",
+    "framework_exit_code": null,
+    "impact": {
+      "first_observed_at": "2026-10-10T19:20:06.348150+00:00",
+      "observed": true,
+      "sampled_at": "2026-10-10T19:20:07.381267+00:00"
+    },
+    "injection_confirmed": false,
+    "integrity": {
+      "after": "PASS",
+      "before": "PASS"
+    },
+    "journal_available": true,
+    "load": {
+      "after_state": "RUNNING",
+      "external_control_intervention": false,
+      "profile": "nominal",
+      "recovery_condition": "UNDER_SUSTAINED_LOAD",
+      "run_id": "load-ui-76f2e9e1b9ee425d9c14a83fad729085"
+    },
+    "manual_ack_required": false,
+    "missing_observations": [],
+    "recovery": "PASS",
+    "restoration": "RESTORED",
+    "result": "ABORTED",
+    "run_id": "chaos-20261010T191940Z-f409ec98",
+    "scenario": "002-worker-pause",
+    "schema_version": 1,
+    "started_at": "2026-10-10T19:19:41.406804+00:00"
+  },
+  "tests": {
+    "framework": 66,
+    "workload": 37,
+    "application": 52,
+    "resilience": 3,
+    "main_browser": 7,
+    "workbench_browser": 3
+  },
+  "startup": "make up: exit 0",
+  "limitations": [
+    "Manual UI performance is not a qualified benchmark",
+    "CPU pressure disabled; original PostgreSQL resilience finding retained",
+    "Native Linux/WSL2 unavailable"
+  ]
+}

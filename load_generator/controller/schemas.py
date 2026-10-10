@@ -48,10 +48,7 @@ class Accounts(StrictModel):
     def ordered(self):
         if self.transfer_amount_minor_max < self.transfer_amount_minor_min:
             raise ValueError("Amount maximum is below minimum")
-        if (
-            self.selection == "hot"
-            and self.hot_account_count > self.minimum_funded_accounts
-        ):
+        if self.selection == "hot" and self.hot_account_count > self.minimum_funded_accounts:
             raise ValueError("Hot subset exceeds funded account requirement")
         return self
 
@@ -109,9 +106,9 @@ class Profile(StrictModel):
     def valid(self):
         if not self.mix or set(self.mix) - OPERATIONS:
             raise ValueError("Unsupported or empty operation mix")
-        if any(
-            not math.isfinite(w) or w < 0 for w in self.mix.values()
-        ) or not math.isclose(sum(self.mix.values()), 1, abs_tol=1e-8):
+        if any(not math.isfinite(w) or w < 0 for w in self.mix.values()) or not math.isclose(
+            sum(self.mix.values()), 1, abs_tol=1e-8
+        ):
             raise ValueError("Mix weights must be nonnegative and sum to one")
         peak = max([self.users] + [s.users for s in self.stages])
         if (
@@ -125,9 +122,7 @@ class Profile(StrictModel):
 
     def digest(self) -> str:
         return hashlib.sha256(
-            json.dumps(
-                self.model_dump(), sort_keys=True, separators=(",", ":")
-            ).encode()
+            json.dumps(self.model_dump(), sort_keys=True, separators=(",", ":")).encode()
         ).hexdigest()
 
 
@@ -151,10 +146,7 @@ def load_profile(name: str, overrides: dict | None = None) -> Profile:
             if duration < len(values["stages"]):
                 raise ValueError("Duration too short for all stages")
             total = sum(s["seconds"] for s in values["stages"])
-            sizes = [
-                max(1, round(s["seconds"] * duration / total))
-                for s in values["stages"][:-1]
-            ]
+            sizes = [max(1, round(s["seconds"] * duration / total)) for s in values["stages"][:-1]]
             sizes.append(duration - sum(sizes))
             for stage, seconds in zip(values["stages"], sizes):
                 stage["seconds"] = seconds

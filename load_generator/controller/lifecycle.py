@@ -43,9 +43,7 @@ class RunLock:
             fcntl.flock(self.file, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             self.file.close()
-            raise RuntimeError(
-                "Another PulsePay load run owns the execution lock"
-            ) from None
+            raise RuntimeError("Another PulsePay load run owns the execution lock") from None
         return self
 
     def __exit__(self, *args):

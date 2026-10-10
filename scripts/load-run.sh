@@ -25,7 +25,7 @@ cleanup() {
 }
 trap cleanup EXIT HUP INT TERM
 load_metadata
-ids=$(docker compose ps -q api postgres redis outbox-relay event-worker verifier)
+ids=$(docker compose ps -q api postgres redis outbox-relay event-worker verifier db-observer)
 mkdir -p artifacts/load-runs
 docker stats --format '{{json .}}' $ids | load_compose run --rm --name "$resource_name" --no-deps -T load-resources > "artifacts/load-runs/resource-stream-$(date -u +%Y%m%dT%H%M%SZ).log" 2>&1 &
 set +e

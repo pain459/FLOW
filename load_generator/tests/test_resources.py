@@ -17,7 +17,4 @@ def test_docker_stats_terminal_sequences_do_not_drop_resource_evidence(tmp_path)
         }
     )
     ingest_resources(tmp_path, ["\x1b[H" + row + "\n", "\x1b[K\n"])
-    assert (
-        json.loads((path / "container-resources.jsonl").read_text())["name"]
-        == "lab-api-1"
-    )
+    assert json.loads((path / "container-resources.jsonl").read_text())["name"] == "lab-api-1"

@@ -6,15 +6,14 @@ def http_agreement(samples: list[dict]) -> dict:
         sample
         for sample in samples
         if sample.get("phase") == "running"
-        and sample.get("prometheus", {}).get("values", {}).get("api_http_counter")
-        is not None
+        and sample.get("prometheus", {}).get("values", {}).get("api_http_counter") is not None
     ]
     if len(measured) < 2:
         return {"status": "UNKNOWN", "reason": "INSUFFICIENT_ALIGNED_SAMPLES"}
     first, last = measured[0], measured[-1]
-    client = last.get("load", {}).get("measured", {}).get("http", 0) - first.get(
-        "load", {}
-    ).get("measured", {}).get("http", 0)
+    client = last.get("load", {}).get("measured", {}).get("http", 0) - first.get("load", {}).get(
+        "measured", {}
+    ).get("http", 0)
     server = (
         last["prometheus"]["values"]["api_http_counter"]
         - first["prometheus"]["values"]["api_http_counter"]
@@ -22,9 +21,7 @@ def http_agreement(samples: list[dict]) -> dict:
     seconds = last["epoch"] - first["epoch"]
     tolerance = max(10, client / max(seconds, 1) * 10)
     return {
-        "status": "PASS"
-        if server >= 0 and abs(server - client) <= tolerance
-        else "UNKNOWN",
+        "status": "PASS" if server >= 0 and abs(server - client) <= tolerance else "UNKNOWN",
         "generator_http_delta": client,
         "api_http_delta": server,
         "window_seconds": seconds,

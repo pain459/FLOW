@@ -39,6 +39,4 @@ def test_operational_lag_is_distinct_from_corruption_and_unknown_evidence():
     )
     assert integrity_requires_stop({"status": "FAIL"})
     assert integrity_requires_stop({"status": "UNKNOWN"})
-    assert integrity_requires_stop(
-        {"status": "DEGRADED", "checks": [{"status": "FAIL"}]}
-    )
+    assert integrity_requires_stop({"status": "DEGRADED", "checks": [{"status": "FAIL"}]})

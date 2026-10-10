@@ -1,0 +1,55 @@
+# Explicitly enabled framework tools. Only the authorization gateway holds the
+# socket; no application, load, runner or watchdog container receives it.
+x-chaos: &chaos
+  build: {context: ., dockerfile: chaos/Dockerfile}
+  image: pulsepay-chaos:v1
+  profiles: [chaos-jobs]
+  init: true
+  read_only: true
+  tmpfs: ['/tmp:size=64m,mode=1777']
+  user: '1001:1001'
+  mem_limit: 384m
+  cpus: 0.5
+  pids_limit: 64
+  security_opt: [no-new-privileges:true]
+  cap_drop: [ALL]
+  stop_grace_period: 45s
+  restart: 'no'
+  labels: {io.pulsepay.chaos.protected: 'true'}
+  logging: {driver: json-file, options: {max-size: '5m', max-file: '2'}}
+x-chaos-env: &chaos-env
+  COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME:-chaosloop}
+  CHAOS_CONTROL: /control
+  CHAOS_EVIDENCE: /evidence
+  DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+  SERVICE_NAME: chaos-runner
+  PULSEPAY_CURRENCY: ${PULSEPAY_CURRENCY:-INR}
+  CHAOS_BASELINE_PATH: /baselines/workload-v3/baseline.json
+services:
+  chaos-runner:
+    <<: *chaos
+    volumes:
+      - ./chaos/experiments:/experiments:ro
+      - ./artifacts/baseline:/baselines:ro
+      - ./.git:/revision:ro
+      - chaos-control:/control
+      - chaos-evidence:/evidence
+      - load-reports:/load-reports:ro
+    networks: [internal, chaos-control]
+    environment: *chaos-env
+    depends_on:
+      chaos-watchdog: {condition: service_healthy}
+  pumba:
+    image: ghcr.io/alexei-led/pumba:1.2.1@sha256:780505fe261932765921c94a23e24bda107c72927654c26a5893a238d7708bf0
+    profiles: [chaos-tools]
+    command: [--help]
+    read_only: true
+    mem_limit: 64m
+    cpus: 0.25
+    pids_limit: 32
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [chaos-control]
+    restart: 'no'
+    labels: {io.pulsepay.chaos.protected: 'true'}
+    logging: {driver: json-file, options: {max-size: '1m', max-file: '2'}}

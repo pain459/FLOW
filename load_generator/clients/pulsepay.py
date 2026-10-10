@@ -18,9 +18,7 @@ class PulsePayClient:
         self.transfers = []
         self.cursors = {}
 
-    def request(
-        self, operation: str, method: str, path: str, context: dict, body=None, key=None
-    ):
+    def request(self, operation: str, method: str, path: str, context: dict, body=None, key=None):
         context = {
             **context,
             "phase": self.stats.phase(),
@@ -50,9 +48,7 @@ class PulsePayClient:
             context["outcome"] = outcome
             context["status"] = response.status_code
             # HttpSession merges user context into a copy before the response is classified.
-            response.request_meta["context"].update(
-                outcome=outcome, status=response.status_code
-            )
+            response.request_meta["context"].update(outcome=outcome, status=response.status_code)
             if outcome in {"success", "replay", "expected_rejection"}:
                 response.success()
             else:
@@ -78,11 +74,7 @@ class PulsePayClient:
         outcome, data = self.request(
             operation, "GET", f"/api/v1/accounts/{account}{suffix}", context
         )
-        if (
-            operation == "history_read"
-            and outcome == "success"
-            and data.get("next_cursor")
-        ):
+        if operation == "history_read" and outcome == "success" and data.get("next_cursor"):
             if len(self.cursors) < 50:
                 self.cursors[account] = data["next_cursor"]
         return outcome, data
@@ -113,10 +105,7 @@ class PulsePayClient:
                 self.transfers = self.transfers[-100:]
                 if outcome == "replay":
                     self.stats.logical("duplicate_replays", phase=phase)
-                if (
-                    self.pool.random.random() * 100
-                    < self.profile.retry.deliberate_replay_percent
-                ):
+                if self.pool.random.random() * 100 < self.profile.retry.deliberate_replay_percent:
                     repeated, replay = self.request(
                         "transfer_write",
                         "POST",

@@ -1,0 +1,170 @@
+{
+  "run_id": "chaos-20261010T191940Z-f409ec98",
+  "summary": {
+    "artifact_paths": [
+      "baseline.json",
+      "capabilities.json",
+      "chaostoolkit-journal.json",
+      "experiment.yaml",
+      "framework-output.jsonl",
+      "framework.log",
+      "impact.json",
+      "injector-state.json",
+      "integrity-after.json",
+      "integrity-before.json",
+      "metadata.json",
+      "metrics-after.json",
+      "metrics-before.json",
+      "metrics-during.json",
+      "observation.json",
+      "observations.jsonl",
+      "preflight.json",
+      "pumba-dry-run.jsonl",
+      "recovery-verification.json",
+      "restoration.json",
+      "service-state-after.json",
+      "service-state-before.json",
+      "telemetry-after.json",
+      "telemetry-before.json",
+      "timeline.jsonl"
+    ],
+    "finished_at": "2026-10-10T19:20:32.704179+00:00",
+    "framework_exit_code": null,
+    "impact": {
+      "first_observed_at": "2026-10-10T19:20:06.348150+00:00",
+      "observed": true,
+      "sampled_at": "2026-10-10T19:20:07.381267+00:00"
+    },
+    "injection_confirmed": false,
+    "integrity": {
+      "after": "PASS",
+      "before": "PASS"
+    },
+    "journal_available": true,
+    "load": {
+      "after_state": "RUNNING",
+      "external_control_intervention": false,
+      "profile": "nominal",
+      "recovery_condition": "UNDER_SUSTAINED_LOAD",
+      "run_id": "load-ui-76f2e9e1b9ee425d9c14a83fad729085"
+    },
+    "manual_ack_required": false,
+    "missing_observations": [],
+    "recovery": "PASS",
+    "restoration": "RESTORED",
+    "result": "ABORTED",
+    "run_id": "chaos-20261010T191940Z-f409ec98",
+    "scenario": "002-worker-pause",
+    "schema_version": 1,
+    "started_at": "2026-10-10T19:19:41.406804+00:00"
+  },
+  "metadata": {
+    "configuration": {
+      "delay_ms": 150,
+      "duration_seconds": 20,
+      "interface": "eth0",
+      "ttl_seconds": 120
+    },
+    "effective_experiment_sha256": "04a5786c903188b2f12843bb1cda8efc813c6d3ca8e542f5cfaba355b7db10f4",
+    "framework": "chaostoolkit==1.21.4",
+    "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+    "project": "chaosloop",
+    "run_id": "chaos-20261010T191940Z-f409ec98",
+    "runner_image_id": null,
+    "scenario": "002-worker-pause",
+    "scenario_sha256": "7e1b51e255f05afd91b086f98ff6ec35e8d93c31612e4a11718d34cc31cfab97",
+    "started_at": "2026-10-10T19:19:41.406804+00:00"
+  },
+  "failure": null,
+  "timeline": [
+    {
+      "timestamp": "2026-10-10T19:20:02.912003+00:00",
+      "event": "BASELINE_CAPTURED"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:02.921031+00:00",
+      "event": "ARMED"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:04.063329+00:00",
+      "event": "framework_steady_state_probe",
+      "healthy": true,
+      "integrity": "PASS"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:04.063726+00:00",
+      "event": "INJECTING"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:04.185465+00:00",
+      "event": "pumba_started",
+      "container_id": "d6b7795861f9dba36433935930098c4acd10a245013b3c8d26f3d18a5c2bdd59"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:04.189366+00:00",
+      "event": "OBSERVING"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:07.379817+00:00",
+      "event": "observable_impact_start"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:07.586664+00:00",
+      "event": "RESTORING"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:09.722443+00:00",
+      "event": "watchdog_intervention",
+      "reason": "OPERATOR_ABORT"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:09.734977+00:00",
+      "event": "RESTORING"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:09.759120+00:00",
+      "event": "restoration_result",
+      "status": "RESTORED"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:09.817956+00:00",
+      "event": "restoration_result",
+      "status": "RESTORED"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:10.818834+00:00",
+      "event": "RESTORING"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:10.868356+00:00",
+      "event": "restoration_result",
+      "status": "RESTORED"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:32.069103+00:00",
+      "event": "verified_recovery"
+    },
+    {
+      "timestamp": "2026-10-10T19:20:32.704911+00:00",
+      "event": "FINAL_REPORT",
+      "result": "ABORTED"
+    }
+  ],
+  "artifacts": [
+    "chaostoolkit-journal.json",
+    "checksums.json",
+    "ground-truth.json",
+    "impact.json",
+    "integrity-after.json",
+    "integrity-before.json",
+    "metadata.json",
+    "metrics-after.json",
+    "metrics-before.json",
+    "metrics-during.json",
+    "observation.json",
+    "preflight.json",
+    "recovery-verification.json",
+    "restoration.json",
+    "summary.json"
+  ]
+}

@@ -25,8 +25,18 @@ QUERIES = {
     "cache_misses_counter": 'pulsepay_cache_misses_total{job="api"}',
     "redis_failures_counter": 'sum(pulsepay_redis_operations_total{job="api",outcome="failure"})',
     "verifier_status": 'pulsepay_verification_status{job="verifier",check="overall"}',
+    "db_connections": 'pulsepay_database_connections{job="db-observer"}',
+    "db_connection_usage_percent": 'pulsepay_database_connection_usage_percent{job="db-observer"}',
+    "db_lock_waits": 'pulsepay_database_lock_waits{job="db-observer"}',
+    "db_oldest_lock_wait_seconds": 'pulsepay_database_oldest_lock_wait_seconds{job="db-observer"}',
+    "db_deadlocks": 'pulsepay_database_deadlocks{job="db-observer"}',
+    "db_long_running_queries": 'pulsepay_database_long_running_queries{job="db-observer"}',
+    "db_statement_calls": 'pulsepay_database_statement_calls{job="db-observer"}',
+    "db_statement_execution_seconds": 'pulsepay_database_statement_execution_seconds{job="db-observer"}',
+    "db_statement_max_seconds": 'pulsepay_database_statement_max_duration_seconds{job="db-observer"}',
+    "db_slow_statement_fingerprints": 'pulsepay_database_slow_statement_fingerprints{job="db-observer"}',
 }
-CORE_JOBS = {"api", "outbox-relay", "event-worker", "verifier"}
+CORE_JOBS = {"api", "outbox-relay", "event-worker", "verifier", "db-observer"}
 
 
 def prometheus_sample(client: httpx.Client) -> dict:
@@ -55,16 +65,12 @@ def prometheus_sample(client: httpx.Client) -> dict:
             if observed.get("health") != "up" or not fresh:
                 result["gaps"].append("scrape:" + job)
         for name, query in QUERIES.items():
-            response = client.get(
-                "http://prometheus:9090/api/v1/query", params={"query": query}
-            )
+            response = client.get("http://prometheus:9090/api/v1/query", params={"query": query})
             response.raise_for_status()
             data = response.json()
             values = data["data"]["result"] if data["status"] == "success" else []
             value = float(values[0]["value"][1]) if len(values) == 1 else None
-            result["values"][name] = (
-                value if value is not None and math.isfinite(value) else None
-            )
+            result["values"][name] = value if value is not None and math.isfinite(value) else None
             if value is None:
                 result["gaps"].append(name)
     except (httpx.HTTPError, ValueError, KeyError, TypeError):
@@ -127,9 +133,7 @@ class LoadCollector:
                 "timeout",
                 "contract_error",
             ):
-                outcomes.add_metric(
-                    [outcome, phase], stats.get("outcomes", {}).get(outcome, 0)
-                )
+                outcomes.add_metric([outcome, phase], stats.get("outcomes", {}).get(outcome, 0))
             for label, count in stats.get("labels", {}).items():
                 requests.add_metric([*label.split("|"), phase], count)
             for operation in stats.get("operations", {}):
@@ -155,11 +159,7 @@ class LoadCollector:
                 buckets = [
                     (
                         str(boundary),
-                        sum(
-                            count
-                            for latency, count in durations.items()
-                            if latency <= boundary
-                        ),
+                        sum(count for latency, count in durations.items() if latency <= boundary),
                     )
                     for boundary in boundaries
                 ]
@@ -200,6 +200,8 @@ class LoadCollector:
             ("load_generator_memory_bytes", self.resources.get("memory_bytes")),
             ("load_generator_cpu_limit", self.resources.get("cpu_limit")),
             ("load_generator_cpu_utilization", self.resources.get("cpu_utilization")),
+            ("load_generator_network_received_bytes", self.resources.get("network_received_bytes")),
+            ("load_generator_network_sent_bytes", self.resources.get("network_sent_bytes")),
         ):
             metric = GaugeMetricFamily(name, name)
             if value is not None:
@@ -217,9 +219,7 @@ class LoadCollector:
             ("pulsepay_container_memory_bytes", "memory_bytes"),
             ("pulsepay_container_memory_percent", "memory_percent"),
         ):
-            metric = GaugeMetricFamily(
-                name, "Docker resource observations", labels=["service"]
-            )
+            metric = GaugeMetricFamily(name, "Docker resource observations", labels=["service"])
             for service, values in self.container_resources.items():
                 if (
                     values.get(key) is not None
@@ -243,7 +243,5 @@ class LoadCollector:
                 "load_verification_last_timestamp_seconds",
                 "Last independent check timestamp",
             )
-            age.add_metric(
-                [], datetime.fromisoformat(stamp.replace("Z", "+00:00")).timestamp()
-            )
+            age.add_metric([], datetime.fromisoformat(stamp.replace("Z", "+00:00")).timestamp())
             yield age

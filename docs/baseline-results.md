@@ -1,5 +1,7 @@
 # PulsePay healthy workload references
 
+Current monitoring reference **v3: PASS**. Three identical nominal repetitions measured median 20.175 HTTP requests/s, p50/p95/p99 26/48/63 ms, with independent pre/post PASS. The full-hour main-lab soak also passed: 3,600 measured seconds, 43,218 valid reads, 28,687 confirmed transfers, unknown outcomes 0, p95 84 ms. Database lock/deadlock/query timings and generator network counters are now observed. See [workload-v3 evidence and comparison limits](../artifacts/baseline/workload-v3/README.md). The prior references and failures below remain historical; their absent instrumentation and short-soak limitations are not claims about the current image.
+
 Current on-demand reference **v2: PASS**. Three 120-second nominal measurements after 30-second warmups, 20 users, 20 logical ops/sec ceiling: median achieved HTTP **20.2167 RPS** (20.1750–20.2167), p50 **28 ms** (28–28), p95 **50 ms** (45–52), p99 **63 ms** (58–69). Financial integrity passed before and after every run. Normal Locust UI was idle; automatic breathing was removed. Exact matching manifests, summaries, verification and full compressed evidence are in [workload-v2](../artifacts/baseline/workload-v2/README.md).
 
 ## Current capacity observations

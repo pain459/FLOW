@@ -61,7 +61,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "sum(load_requests_total{outcome=~\"infrastructure_failure|timeout|contract_error\"})"
+          "expr": "sum(load_outcome_requests_total{outcome=~\"infrastructure_failure|timeout|contract_error\"})"
         }
       ],
       "fieldConfig": {

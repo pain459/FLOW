@@ -43,7 +43,90 @@ x-app: &app
       cache-max-size: 10m
       cache-max-file: '3'
 
+x-framework: &framework
+  build: {context: ., dockerfile: chaos/Dockerfile}
+  image: pulsepay-chaos:v1
+  init: true
+  read_only: true
+  tmpfs: ['/tmp:size=64m,mode=1777']
+  user: '1001:1001'
+  mem_limit: 384m
+  cpus: 0.5
+  pids_limit: 64
+  security_opt: [no-new-privileges:true]
+  cap_drop: [ALL]
+  stop_grace_period: 45s
+  restart: unless-stopped
+  labels: {io.pulsepay.chaos.protected: 'true'}
+  logging: *infra-logging
+x-framework-env: &framework-env
+  COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME:-chaosloop}
+  CHAOS_CONTROL: /control
+  CHAOS_EVIDENCE: /evidence
+  DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+  PULSEPAY_CURRENCY: ${PULSEPAY_CURRENCY:-INR}
+  CHAOS_BASELINE_PATH: /baselines/workload-v3/baseline.json
+
 services:
+  chaos-workbench:
+    <<: *framework
+    entrypoint: [python, -m, chaos.workbench]
+    ports: ['127.0.0.1:${CHAOS_WORKBENCH_PORT:-8090}:8090']
+    networks: [internal, edge, chaos-control]
+    volumes:
+      - ./artifacts/baseline:/baselines:ro
+      - ./.git:/revision:ro
+      - chaos-control:/control
+      - chaos-evidence:/evidence
+      - load-reports:/load-reports:ro
+    environment:
+      <<: *framework-env
+      SERVICE_NAME: chaos-workbench
+      ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-false}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8090/health/live',timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  docker-gate:
+    <<: *framework
+    profiles: [chaos]
+    # Only this private authorization gate receives the host Docker socket.
+    user: '0:1001'
+    cap_add: [CHOWN]
+    entrypoint: [python, -m, chaos.gateway]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 32
+    volumes: [/var/run/docker.sock:/var/run/docker.sock, chaos-control:/control, chaos-evidence:/evidence, chaos-authority:/authority]
+    networks: [chaos-control]
+    environment:
+      COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME:-chaosloop}
+      ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-false}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:2375/health',timeout=2)"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+  chaos-watchdog:
+    <<: *framework
+    profiles: [chaos]
+    entrypoint: [python, -m, chaos.watchdog]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 32
+    volumes: [chaos-control:/control, chaos-evidence:/evidence, chaos-authority:/authority:ro]
+    networks: [internal, chaos-control]
+    environment:
+      <<: *framework-env
+      SERVICE_NAME: chaos-watchdog
+    depends_on:
+      docker-gate: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:9111/health',timeout=2)"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
   locust:
     build: {context: ., dockerfile: load_generator/Dockerfile}
     image: ${LOAD_IMAGE:-pulsepay-load:v1}
@@ -77,8 +160,10 @@ services:
       retries: 20
     logging: *infra-logging
   postgres:
+    labels: {io.pulsepay.lab: disposable, io.pulsepay.chaos.target: 'true', io.pulsepay.chaos.role: postgres}
     build: {context: ., dockerfile: Dockerfile.postgres}
     image: pulsepay-postgres:v1
+    command: [postgres, -c, shared_preload_libraries=pg_stat_statements, -c, track_io_timing=on]
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-pulsepay}
       POSTGRES_USER: ${POSTGRES_USER:-pulsepay_owner}
@@ -100,6 +185,7 @@ services:
       retries: 20
     logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
   redis:
+    labels: {io.pulsepay.lab: disposable, io.pulsepay.chaos.target: 'true', io.pulsepay.chaos.role: redis}
     image: redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9
     command: [redis-server, --appendonly, "yes", --appendfsync, always, --maxmemory, 128mb, --maxmemory-policy, noeviction]
     volumes: [redis-data:/data]
@@ -124,6 +210,7 @@ services:
     depends_on:
       postgres: {condition: service_healthy}
   api:
+    labels: {io.pulsepay.lab: disposable, io.pulsepay.chaos.target: 'true', io.pulsepay.chaos.role: api}
     <<: *app
     networks: [internal, edge]
     ports: ["127.0.0.1:${API_PORT:-8080}:8080"]
@@ -195,6 +282,7 @@ services:
       timeout: 3s
       retries: 12
   event-worker:
+    labels: {io.pulsepay.lab: disposable, io.pulsepay.chaos.target: 'true', io.pulsepay.chaos.role: event-worker}
     <<: *app
     command: [python, -m, workers.event_consumer.main]
     environment:
@@ -226,6 +314,31 @@ services:
       VERIFIER_INTERVAL_SECONDS: ${VERIFIER_INTERVAL_SECONDS:-15}
     depends_on:
       migrate: {condition: service_completed_successfully}
+    healthcheck: *worker-health
+  db-observer-setup:
+    <<: *app
+    profiles: [observability]
+    restart: 'no'
+    command: [python, -m, telemetry.setup]
+    environment:
+      <<: *env
+      POSTGRES_DB: ${POSTGRES_DB:-pulsepay}
+      POSTGRES_USER: ${POSTGRES_USER:-pulsepay_owner}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run bootstrap}
+    depends_on:
+      postgres: {condition: service_healthy}
+  db-observer:
+    <<: *app
+    profiles: [observability]
+    command: [python, -m, telemetry.database]
+    mem_limit: 128m
+    cpus: 0.25
+    environment:
+      <<: *env
+      DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      SERVICE_NAME: db-observer
+    depends_on:
+      db-observer-setup: {condition: service_completed_successfully}
     healthcheck: *worker-health
   prometheus:
     logging: *infra-logging
@@ -308,6 +421,9 @@ services:
 networks:
   internal: {internal: true}
   edge:
+  chaos-control:
+    name: ${COMPOSE_PROJECT_NAME:-chaosloop}_chaos-control
+    internal: true
 volumes:
   pg-data:
   redis-data:
@@ -317,3 +433,6 @@ volumes:
   loki-data:
   log-buffer:
   load-reports:
+  chaos-control:
+  chaos-evidence:
+  chaos-authority:

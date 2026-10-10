@@ -1,0 +1,594 @@
+{
+  "schema_version": 1,
+  "curated_at": "2026-10-10T18:39:58.582744+00:00",
+  "system": "pulsepay",
+  "qualification": "INCOMPLETE",
+  "qualified_scenarios": {
+    "001-api-pause": "chaos-20261010T173513Z-4f19fcaf",
+    "002-worker-pause": "chaos-20261010T173155Z-f54acfc6",
+    "003-redis-outage": "chaos-20261010T174221Z-0caa7065",
+    "004-api-network-delay": "chaos-20261010T180303Z-0dc9e29e",
+    "005-db-network-delay": "chaos-20261010T181949Z-bdbd407d",
+    "007-redis-network-partition": "chaos-20261010T182127Z-a368dc4b"
+  },
+  "platform": "Docker Desktop Linux arm64 VM on macOS; native Linux and Windows/WSL2 untested",
+  "healthy_reference": "../workload-v3/baseline.json",
+  "runs": [
+    {
+      "run_id": "chaos-20261010T173155Z-f54acfc6",
+      "scenario": "002-worker-pause",
+      "result": "PASS",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:32:45.114413+00:00",
+        "first_observed_at": "2026-10-10T17:32:20.866528+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:31:56.184203+00:00",
+      "finished_at": "2026-10-10T17:32:54.887172+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:ce5de7f11927793c0e57078441a1cc365ca0e2cc7aa93a8b5d850428e557861b",
+      "scenario_sha256": "7e1b51e255f05afd91b086f98ff6ec35e8d93c31612e4a11718d34cc31cfab97",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T173513Z-4f19fcaf",
+      "scenario": "001-api-pause",
+      "result": "PASS",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:35:41.988617+00:00",
+        "first_observed_at": "2026-10-10T17:35:31.864628+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:35:14.183074+00:00",
+      "finished_at": "2026-10-10T17:35:47.829945+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:ce5de7f11927793c0e57078441a1cc365ca0e2cc7aa93a8b5d850428e557861b",
+      "scenario_sha256": "560522772e98f6869c73ae108dd524f5dae8a25e150ddd7ce92fe74e4161ddb8",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T173609Z-16a4cfad",
+      "scenario": "002-worker-pause",
+      "result": "PASS",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:36:56.833967+00:00",
+        "first_observed_at": "2026-10-10T17:36:35.643539+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:36:10.103698+00:00",
+      "finished_at": "2026-10-10T17:37:08.926310+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:ce5de7f11927793c0e57078441a1cc365ca0e2cc7aa93a8b5d850428e557861b",
+      "scenario_sha256": "7e1b51e255f05afd91b086f98ff6ec35e8d93c31612e4a11718d34cc31cfab97",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T174041Z-eb8faa38",
+      "scenario": "002-worker-pause",
+      "result": "ABORTED",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {},
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:40:41.955709+00:00",
+      "finished_at": "2026-10-10T17:41:34.513535+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:da5f2eab273a97cc532995eb0060584e03c3596369b86514ce8137a923755f68",
+      "scenario_sha256": "7e1b51e255f05afd91b086f98ff6ec35e8d93c31612e4a11718d34cc31cfab97",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T174221Z-0caa7065",
+      "scenario": "003-redis-outage",
+      "result": "PASS",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:43:00.645727+00:00",
+        "first_observed_at": "2026-10-10T17:42:42.540481+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:42:22.048673+00:00",
+      "finished_at": "2026-10-10T17:43:10.497922+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:da5f2eab273a97cc532995eb0060584e03c3596369b86514ce8137a923755f68",
+      "scenario_sha256": "7da4f08641d0a56c8c34f0da11231da32fa61bec16e6065278db63b8686e864e",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T174334Z-7da32b97",
+      "scenario": "004-api-network-delay",
+      "result": "RESILIENCE_FAILURE",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:44:14.417287+00:00",
+        "first_observed_at": null,
+        "observed": false
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:43:34.976842+00:00",
+      "finished_at": "2026-10-10T17:44:20.729099+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:da5f2eab273a97cc532995eb0060584e03c3596369b86514ce8137a923755f68",
+      "scenario_sha256": "a26e417443ee0366de4e1c2c532fb8cc0727e3c518b992bff5a585849182d506",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T174720Z-b0fed595",
+      "scenario": "004-api-network-delay",
+      "result": "RESILIENCE_FAILURE",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:47:59.821098+00:00",
+        "first_observed_at": null,
+        "observed": false
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:47:21.016731+00:00",
+      "finished_at": "2026-10-10T17:48:05.739312+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:367d80098e902cd26c78237506796f4fe5de8db9672da170c81891f7094a6625",
+      "scenario_sha256": "a26e417443ee0366de4e1c2c532fb8cc0727e3c518b992bff5a585849182d506",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T175407Z-d436f6f5",
+      "scenario": "004-api-network-delay",
+      "result": "INCONCLUSIVE",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:54:46.804804+00:00",
+        "first_observed_at": null,
+        "observed": false
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:54:07.997635+00:00",
+      "finished_at": "2026-10-10T17:54:53.092257+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:4fd5dc32d2ddc43a543bfecfe1f0b26de382a7f89914ffac0c6a5fd9b084caf2",
+      "scenario_sha256": "a26e417443ee0366de4e1c2c532fb8cc0727e3c518b992bff5a585849182d506",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T175523Z-fda99b71",
+      "scenario": "006-cpu-pressure",
+      "result": "INVALID",
+      "integrity": null,
+      "restoration": null,
+      "recovery": null,
+      "impact": null,
+      "load": null,
+      "started_at": "2026-10-10T17:55:23.951681+00:00",
+      "finished_at": null,
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:4fd5dc32d2ddc43a543bfecfe1f0b26de382a7f89914ffac0c6a5fd9b084caf2",
+      "scenario_sha256": "c3590a01a8647cb320513aa2b25548710d25f3111cd32ff3d700082c406d84e0",
+      "has_checksums": false,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T175651Z-e94b3d5e",
+      "scenario": "004-api-network-delay",
+      "result": "RESILIENCE_FAILURE",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:57:31.555197+00:00",
+        "first_observed_at": null,
+        "observed": false
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:56:52.596859+00:00",
+      "finished_at": "2026-10-10T17:57:38.714953+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:a6f40e7b389677599d6db492134fa22c954ced66144971946e2effd73556c945",
+      "scenario_sha256": "a26e417443ee0366de4e1c2c532fb8cc0727e3c518b992bff5a585849182d506",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T175819Z-77032687",
+      "scenario": "004-api-network-delay",
+      "result": "RESILIENCE_FAILURE",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T17:58:59.499869+00:00",
+        "first_observed_at": null,
+        "observed": false
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T172934Z-e322b9bd"
+      },
+      "started_at": "2026-10-10T17:58:20.667741+00:00",
+      "finished_at": "2026-10-10T17:59:06.837284+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:a6f40e7b389677599d6db492134fa22c954ced66144971946e2effd73556c945",
+      "scenario_sha256": "a26e417443ee0366de4e1c2c532fb8cc0727e3c518b992bff5a585849182d506",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T180303Z-0dc9e29e",
+      "scenario": "004-api-network-delay",
+      "result": "PASS",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T18:03:42.875680+00:00",
+        "first_observed_at": "2026-10-10T18:03:36.939277+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T180052Z-769c1656"
+      },
+      "started_at": "2026-10-10T18:03:03.962984+00:00",
+      "finished_at": "2026-10-10T18:03:50.599498+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:3c88191d8dd580dac75d05c9265cc5cc6c4bf6b5dec7a577b5d2039a4c73e683",
+      "scenario_sha256": "a26e417443ee0366de4e1c2c532fb8cc0727e3c518b992bff5a585849182d506",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T181133Z-c02ee870",
+      "scenario": "005-db-network-delay",
+      "result": "INVALID",
+      "integrity": null,
+      "restoration": null,
+      "recovery": null,
+      "impact": null,
+      "load": null,
+      "started_at": "2026-10-10T18:11:33.790398+00:00",
+      "finished_at": null,
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:4a2becad175b0cd788381e8bc49c45050df58a58b378972715e4b3a16465cd72",
+      "scenario_sha256": "b2694833fd72ba7fc531ef2de0b708e7acd3158825805813100bba5e91897d54",
+      "has_checksums": false,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T181456Z-b398f749",
+      "scenario": "005-db-network-delay",
+      "result": "INVALID",
+      "integrity": null,
+      "restoration": null,
+      "recovery": null,
+      "impact": null,
+      "load": null,
+      "started_at": "2026-10-10T18:14:57.535666+00:00",
+      "finished_at": null,
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:4180f4144ff72d8bdffb21f89593e8c2bd6b8b759591813c4855bd8721b33c77",
+      "scenario_sha256": "b2694833fd72ba7fc531ef2de0b708e7acd3158825805813100bba5e91897d54",
+      "has_checksums": false,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T181949Z-bdbd407d",
+      "scenario": "005-db-network-delay",
+      "result": "PASS",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T18:20:12.704278+00:00",
+        "first_observed_at": "2026-10-10T18:20:04.623753+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T181731Z-659bf7a2"
+      },
+      "started_at": "2026-10-10T18:19:50.380886+00:00",
+      "finished_at": "2026-10-10T18:20:38.352588+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:b162462690a803aac4555563f92eb4195b6a272c18c464cf5e34bd11103f9ec8",
+      "scenario_sha256": "b2694833fd72ba7fc531ef2de0b708e7acd3158825805813100bba5e91897d54",
+      "has_checksums": true,
+      "has_separate_ground_truth": false
+    },
+    {
+      "run_id": "chaos-20261010T182127Z-a368dc4b",
+      "scenario": "007-redis-network-partition",
+      "result": "PASS",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "PASS",
+      "impact": {
+        "finished_at": "2026-10-10T18:21:51.737139+00:00",
+        "first_observed_at": "2026-10-10T18:21:30.581411+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": false,
+        "profile": "nominal",
+        "recovery_condition": "UNDER_SUSTAINED_LOAD",
+        "run_id": "load-20261010T181731Z-659bf7a2"
+      },
+      "started_at": "2026-10-10T18:21:28.201976+00:00",
+      "finished_at": "2026-10-10T18:22:27.441777+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:3c3dfcbbf4a83bca185c3a7514a38b4a386ce98abeb65937f32d00b427915541",
+      "scenario_sha256": "2aa5f1fd3b7dfcfd021e45f5edfa8e17ac10f9c4f21f0b367050b3004a25e952",
+      "has_checksums": true,
+      "has_separate_ground_truth": true
+    },
+    {
+      "run_id": "chaos-20261010T182309Z-08c818c4",
+      "scenario": "002-worker-pause",
+      "result": "ABORTED",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "UNKNOWN",
+      "impact": {},
+      "load": {
+        "after_state": "RUNNING",
+        "external_control_intervention": true,
+        "profile": "nominal",
+        "recovery_condition": "AFTER_LOAD_REMOVAL_OR_UNKNOWN",
+        "run_id": "load-20261010T181731Z-659bf7a2"
+      },
+      "started_at": "2026-10-10T18:23:09.931228+00:00",
+      "finished_at": "2026-10-10T18:23:37.855446+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:3c3dfcbbf4a83bca185c3a7514a38b4a386ce98abeb65937f32d00b427915541",
+      "scenario_sha256": "7e1b51e255f05afd91b086f98ff6ec35e8d93c31612e4a11718d34cc31cfab97",
+      "has_checksums": true,
+      "has_separate_ground_truth": true
+    },
+    {
+      "run_id": "chaos-20261010T182510Z-32f8f95b",
+      "scenario": "008-postgres-outage",
+      "result": "RESILIENCE_FAILURE",
+      "integrity": {
+        "after": "PASS",
+        "before": "PASS"
+      },
+      "restoration": "RESTORED",
+      "recovery": "FAIL",
+      "impact": {
+        "finished_at": "2026-10-10T18:25:36.039729+00:00",
+        "first_observed_at": "2026-10-10T18:25:27.989894+00:00",
+        "observed": true
+      },
+      "load": {
+        "after_state": "FAILED",
+        "external_control_intervention": true,
+        "profile": "nominal",
+        "recovery_condition": "AFTER_LOAD_REMOVAL_OR_UNKNOWN",
+        "run_id": "load-20261010T181731Z-659bf7a2"
+      },
+      "started_at": "2026-10-10T18:25:11.242532+00:00",
+      "finished_at": "2026-10-10T18:26:38.204374+00:00",
+      "git_sha": "ebb71ac5fb13038bc61447293651782176231f94",
+      "runner_image_id": "sha256:23ec76d53d9fa762157b8edd00ca209242ef007b57feb4e87ee05b446a21eebd",
+      "scenario_sha256": "64df5af6dff13f8211f414631dd119f27eef824d1940189e76496708c6874e9f",
+      "has_checksums": true,
+      "has_separate_ground_truth": true
+    }
+  ],
+  "source_seal_audit": {
+    "verified": true,
+    "mismatches": [],
+    "unsealed_early_diagnostics": [
+      "chaos-20261010T175523Z-fda99b71",
+      "chaos-20261010T181133Z-c02ee870",
+      "chaos-20261010T181456Z-b398f749"
+    ]
+  },
+  "older_runs_without_standalone_ground_truth": [
+    "chaos-20261010T173155Z-f54acfc6",
+    "chaos-20261010T173513Z-4f19fcaf",
+    "chaos-20261010T173609Z-16a4cfad",
+    "chaos-20261010T174041Z-eb8faa38",
+    "chaos-20261010T174221Z-0caa7065",
+    "chaos-20261010T174334Z-7da32b97",
+    "chaos-20261010T174720Z-b0fed595",
+    "chaos-20261010T175407Z-d436f6f5",
+    "chaos-20261010T175523Z-fda99b71",
+    "chaos-20261010T175651Z-e94b3d5e",
+    "chaos-20261010T175819Z-77032687",
+    "chaos-20261010T180303Z-0dc9e29e",
+    "chaos-20261010T181133Z-c02ee870",
+    "chaos-20261010T181456Z-b398f749",
+    "chaos-20261010T181949Z-bdbd407d"
+  ],
+  "limitations": [
+    "CPU pressure refused on every backend until actual kernel cgroup membership/containment is proven.",
+    "PostgreSQL outage restored the database and ledger; workload safety stop prevents a sustained-load recovery PASS.",
+    "51 client transfer outcomes remain unknown after bounded retries exhausted during the PostgreSQL outage; invariant PASS does not resolve individual client operations.",
+    "Early journals predate standalone ground-truth.json; target/fault evidence remains in metadata, injector, timeline and audit files.",
+    "Interrupted runner cannot flush a complete Toolkit journal; partial execution is retained as ABORTED.",
+    "Historical explicit-abort summary labels external intervention despite active RUNNING workload; interpretation fix tested without rewriting sealed evidence.",
+    "Final pool-metric and dashboard fixes change the final image from the qualified workload-v3 reference; no performance-equivalence claim."
+  ],
+  "regression": {
+    "framework-tests.txt": {
+      "status": "PASS",
+      "passed": 56
+    },
+    "application-tests.txt": {
+      "status": "PASS",
+      "passed": 55
+    },
+    "workload-tests.txt": {
+      "status": "PASS",
+      "passed": 36
+    },
+    "browser-tests.txt": {
+      "status": "PASS",
+      "passed": 7
+    },
+    "locust-ui-test.txt": {
+      "status": "PASS",
+      "passed": 1
+    },
+    "observability-test.txt": {
+      "status": "PASS",
+      "passed": 1
+    }
+  },
+  "final_validation_run": {
+    "run_id": "load-20261010T184109Z-67498a30",
+    "result": "PASS",
+    "valid_reads": 1102,
+    "confirmed_commits": 681,
+    "unknown_outcomes": 0,
+    "integrity": {
+      "postflight": "PASS",
+      "preflight": "PASS"
+    }
+  },
+  "handoff": {
+    "observed_at": "2026-10-10T18:46:29.649331+00:00",
+    "compose_project": "chaosloop",
+    "running_containers": 14,
+    "locust": "stopped",
+    "chaos_services": "stopped",
+    "headless_generator": "absent",
+    "integrity": "PASS",
+    "outbox_pending": 0,
+    "resources_bounded": true
+  }
+}

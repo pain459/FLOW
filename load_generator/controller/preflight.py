@@ -59,9 +59,7 @@ class Observer:
             params = {"limit": 100}
             if cursor:
                 params["cursor"] = cursor
-            response = self.client.get(
-                self.target + "/api/v1/dashboard/accounts", params=params
-            )
+            response = self.client.get(self.target + "/api/v1/dashboard/accounts", params=params)
             response.raise_for_status()
             page = response.json()
             rows.extend(page["items"])
@@ -85,9 +83,7 @@ class Observer:
             "account_ids": pool.ids,
             "currency": pool.currency,
             "funded_count": len(pool.ids),
-            "total_funds_minor": self.get("/api/v1/dashboard")["totals"][
-                "balance_minor"
-            ],
+            "total_funds_minor": self.get("/api/v1/dashboard")["totals"]["balance_minor"],
             "initial_funding": [
                 {
                     "id": account["id"],
@@ -110,10 +106,7 @@ class Observer:
         for name in ("postgres", "outbox-relay", "event-worker"):
             if health["dependencies"].get(name, {}).get("status") != "HEALTHY":
                 raise ValueError("Required component is not healthy: " + name)
-        if (
-            profile.require_redis
-            and health["dependencies"]["redis"]["status"] != "HEALTHY"
-        ):
+        if profile.require_redis and health["dependencies"]["redis"]["status"] != "HEALTHY":
             raise ValueError("Profile requires healthy Redis")
         accounts, dataset, digest = self.discover(profile)
         report = verification or independent_verification()
@@ -135,10 +128,7 @@ class Observer:
             try:
                 last = self.get("/api/v1/dashboard")
                 totals = last["totals"]
-                if (
-                    totals["outbox_pending"] == 0
-                    and totals["projections"] == totals["transfers"]
-                ):
+                if totals["outbox_pending"] == 0 and totals["projections"] == totals["transfers"]:
                     return last
             except (httpx.HTTPError, ValueError, KeyError):
                 pass

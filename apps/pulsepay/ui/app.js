@@ -313,7 +313,7 @@ let searchTimer;
 $('account-search').addEventListener('input', () => { state.accountVersion++; clearTimeout(searchTimer); searchTimer = setTimeout(() => loadAccounts(), 250); });
 $('modal').addEventListener('cancel', event => { if (state.transferBusy) event.preventDefault(); });
 $('modal').addEventListener('close', () => { state.dialogGeneration++; state.modalMode = ''; state.lastFocus?.focus(); });
-for (const [id, port] of [['locust-link', '8089'], ['grafana-link', '3000'], ['prometheus-link', '9090']]) { const url = new URL(location.href); url.port = port; url.pathname = '/'; url.search = ''; url.hash = ''; $(id).href = url.href; }
+for (const [id, port] of [['locust-link', '8089'], ['chaos-nav-link', '8090'], ['grafana-link', '3000'], ['prometheus-link', '9090']]) { const url = new URL(location.href); url.port = port; url.pathname = '/'; url.search = ''; url.hash = ''; $(id).href = url.href; }
 const capacityURL = new URL($('grafana-link').href); capacityURL.pathname = '/d/pulsepay-load-capacity'; $('capacity-link').href = capacityURL.href;
 updateAction(); renderServices(); renderFlow(); refresh();
 setInterval(() => { if (!state.paused && !document.hidden) refresh(); }, 10000);

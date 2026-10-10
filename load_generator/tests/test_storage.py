@@ -3,9 +3,7 @@ import pytest
 from load_generator.controller.storage import check_report_budget
 
 
-def test_report_budget_refuses_new_traffic_without_removing_evidence(
-    tmp_path, monkeypatch
-):
+def test_report_budget_refuses_new_traffic_without_removing_evidence(tmp_path, monkeypatch):
     monkeypatch.setenv("LOAD_REPORT_BUDGET_MIB", "1")
     evidence = tmp_path / "historical.json"
     evidence.write_bytes(b"x" * (1024**2))

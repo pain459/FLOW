@@ -1,0 +1,15 @@
+time="2026-10-10T23:59:57+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-tests-run-29857489a4a5 Creating 
+ Container chaosloop-tests-run-29857489a4a5 Created 
+21 files reformatted, 10 files left unchanged
+All checks passed!
+127 files already formatted
+Success: no issues found in 47 source files
+.......................................................                  [100%]
+=============================== warnings summary ===============================
+../usr/local/lib/python3.12/site-packages/starlette/testclient.py:37
+  /usr/local/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+55 passed, 1 warning in 26.25s

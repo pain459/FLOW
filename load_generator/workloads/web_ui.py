@@ -57,9 +57,7 @@ def install_guard(environment, profile):
                 "",
                 "Default",
             }:
-                raise ValueError(
-                    "Session duration and workload mix come from the selected profile"
-                )
+                raise ValueError("Session duration and workload mix come from the selected profile")
             if any(name != "PulsePayUser" for name in values.getlist("user_classes")):
                 raise ValueError("Only the PulsePay user class is permitted")
         except (TypeError, ValueError) as exc:

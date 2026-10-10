@@ -10,11 +10,7 @@ class TransferIntent:
 
     @classmethod
     def new(cls, source: str, destination: str, amount: int, currency: str):
-        if (
-            not isinstance(amount, int)
-            or isinstance(amount, bool)
-            or not 1 <= amount <= 2**63 - 1
-        ):
+        if not isinstance(amount, int) or isinstance(amount, bool) or not 1 <= amount <= 2**63 - 1:
             raise ValueError("Amount is outside BIGINT bounds")
         return cls(
             "load-" + uuid4().hex,

@@ -12,6 +12,7 @@ COPY --chown=pulsepay:pulsepay apps apps
 COPY --chown=pulsepay:pulsepay shared shared
 COPY --chown=pulsepay:pulsepay workers workers
 COPY --chown=pulsepay:pulsepay verifier verifier
+COPY --chown=pulsepay:pulsepay telemetry telemetry
 COPY --chown=pulsepay:pulsepay migrations migrations
 COPY --chown=pulsepay:pulsepay tests tests
 COPY --chown=pulsepay:pulsepay scripts scripts

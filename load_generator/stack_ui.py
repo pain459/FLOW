@@ -16,6 +16,35 @@ STARTED = None
 FAILURES = []
 
 
+def observe_session(path, stats, users, epoch=None):
+    """Publish actual manual-session traffic for existing experiment gates."""
+    epoch = time.time() if epoch is None else epoch
+    clock = read_json(path / "clock.json")
+    phase = "warmup" if epoch < clock["started_epoch"] + clock["warmup_seconds"] else "running"
+    counters = stats.phases.get("measured", {})
+    sample = {
+        "epoch": epoch,
+        "phase": phase,
+        "active_users": users,
+        "load": {
+            "measured": {
+                "http": counters.get("http", 0),
+                "confirmed_commits": counters.get("confirmed_commits", 0),
+                "outcomes": dict(counters.get("outcomes", {})),
+            }
+        },
+    }
+    recent = read_json(path / "recent-observations.json", {}).get("samples", [])
+    recent = [value for value in recent if epoch - value.get("epoch", 0) <= 45]
+    atomic_json(path / "recent-observations.json", {"samples": [*recent[-44:], sample]})
+    atomic_json(path / "latest-observation.json", sample)
+    atomic_json(
+        path / "state.json",
+        {"status": "WARMUP" if phase == "warmup" else "RUNNING", "timestamp": now()},
+    )
+    return sample
+
+
 def prepare(profile):
     global LOCK, STARTED, FAILURES
     root = Path(os.environ["LOAD_REPORTS"])
@@ -70,6 +99,7 @@ def finish(path, stats, profile):
         return
     observer = Observer(os.environ["LOAD_TARGET"])
     try:
+        atomic_json(path / "state.json", {"status": "STOPPING", "timestamp": now()})
         try:
             observer.cooldown(profile.cooldown_seconds)
         except Exception:
@@ -105,9 +135,7 @@ def finish(path, stats, profile):
         try:
             observer.close()
             if (path / "summary.json").is_file():
-                (Path(os.environ["LOAD_REPORTS"]) / "active.json").unlink(
-                    missing_ok=True
-                )
+                (Path(os.environ["LOAD_REPORTS"]) / "active.json").unlink(missing_ok=True)
         finally:
             LOCK.__exit__()
             LOCK = None
@@ -125,12 +153,8 @@ def main():
     )
     idle = Path("/tmp/pulsepay-locust-idle")
     idle.mkdir(exist_ok=True)
-    atomic_json(
-        idle / "manifest.json", {"profile": profile.model_dump(), "accounts": []}
-    )
-    os.environ.update(
-        LOAD_RUN_DIRECTORY=str(idle), LOAD_MANUAL_UI="true", LOAD_STACK_UI="true"
-    )
+    atomic_json(idle / "manifest.json", {"profile": profile.model_dump(), "accounts": []})
+    os.environ.update(LOAD_RUN_DIRECTORY=str(idle), LOAD_MANUAL_UI="true", LOAD_STACK_UI="true")
     os.execvp(
         "locust",
         [

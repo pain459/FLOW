@@ -52,8 +52,7 @@ def build_summary(
     total = measured.get("http", 0)
     outcomes = measured.get("outcomes", {})
     infrastructure = sum(
-        outcomes.get(name, 0)
-        for name in ("infrastructure_failure", "timeout", "contract_error")
+        outcomes.get(name, 0) for name in ("infrastructure_failure", "timeout", "contract_error")
     )
     attempted = measured.get("logical_attempts", 0)
     confirmed = measured.get("confirmed_commits", 0)
@@ -95,9 +94,7 @@ def build_summary(
             if seconds > 0 and measured
             else None,
             "target_rps": None,
-            "target_operations_per_second": manifest["profile"].get(
-                "target_operations_per_second"
-            ),
+            "target_operations_per_second": manifest["profile"].get("target_operations_per_second"),
             "configured_users": manifest["profile"].get("users"),
             "mode": "closed_loop",
         },
@@ -113,9 +110,7 @@ def build_summary(
                     f"p{p}_ms": percentile(
                         {
                             key.split(":", 1)[1]: value
-                            for key, value in measured.get(
-                                "operation_latencies", {}
-                            ).items()
+                            for key, value in measured.get("operation_latencies", {}).items()
                             if key.startswith(operation + ":")
                         },
                         p,
@@ -183,9 +178,7 @@ def complete_measurements(measured: dict) -> bool:
     ) == measured["outcomes"].get("success", 0) + measured["outcomes"].get("replay", 0)
 
 
-def write_report(
-    path: Path, summary: dict, stats: dict, samples: list, workers: list[dict]
-):
+def write_report(path: Path, summary: dict, stats: dict, samples: list, workers: list[dict]):
     atomic_json(path / "summary.json", summary)
     atomic_json(path / "time-series.json", {"schema_version": 1, "samples": samples})
     lines = [
@@ -204,9 +197,7 @@ def write_report(
     (path / "summary.md").write_text("\n".join(lines) + "\n")
     with (path / "locust-stats.csv").open("w") as file:
         writer = csv.writer(file)
-        writer.writerow(
-            ["operation", "measured_http_requests", "p50_ms", "p95_ms", "p99_ms"]
-        )
+        writer.writerow(["operation", "measured_http_requests", "p50_ms", "p95_ms", "p99_ms"])
         measured = stats.get("measured", {})
         for operation, count in measured.get("operations", {}).items():
             histogram = {
@@ -214,9 +205,7 @@ def write_report(
                 for key, value in measured.get("operation_latencies", {}).items()
                 if key.startswith(operation + ":")
             }
-            writer.writerow(
-                [operation, count, *[percentile(histogram, p) for p in (50, 95, 99)]]
-            )
+            writer.writerow([operation, count, *[percentile(histogram, p) for p in (50, 95, 99)]])
     with (path / "errors.jsonl").open("w") as file:
         for worker in workers:
             for error in worker.get("errors", [])[:50]:

@@ -91,10 +91,7 @@ def test_response_validation_never_counts_any_http_200_as_success():
     from load_generator.clients.contracts import classify
 
     context = {"account_id": str(UUID(int=1)), "currency": "INR"}
-    assert (
-        classify("balance_read", 200, {"balance_minor": -1}, context)
-        == "contract_error"
-    )
+    assert classify("balance_read", 200, {"balance_minor": -1}, context) == "contract_error"
     assert (
         classify("transfer_write", 503, {"code": "DATABASE_UNAVAILABLE"}, {})
         == "infrastructure_failure"
@@ -141,6 +138,5 @@ def test_valid_read_contract_and_unexpected_read_rejection():
         == "expected_rejection"
     )
     assert (
-        classify("rejection", 201, {}, {"expected_code": "INSUFFICIENT_FUNDS"})
-        == "contract_error"
+        classify("rejection", 201, {}, {"expected_code": "INSUFFICIENT_FUNDS"}) == "contract_error"
     )

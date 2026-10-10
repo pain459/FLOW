@@ -70,15 +70,10 @@ class Statistics:
             stats[key][value] = stats[key].get(value, 0) + 1
         if outcome in {"success", "replay"}:
             self.logical(
-                "valid_transfer_submissions"
-                if operation == "transfer_write"
-                else "valid_reads",
+                "valid_transfer_submissions" if operation == "transfer_write" else "valid_reads",
                 phase=phase,
             )
-        if (
-            outcome not in {"success", "replay", "expected_rejection"}
-            and len(self.errors) < 50
-        ):
+        if outcome not in {"success", "replay", "expected_rejection"} and len(self.errors) < 50:
             self.errors.append(
                 {
                     "timestamp_epoch": time.time(),

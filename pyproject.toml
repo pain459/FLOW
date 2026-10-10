@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["apps*", "shared*", "workers*", "verifier*"]
+include = ["apps*", "shared*", "workers*", "verifier*", "telemetry*"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

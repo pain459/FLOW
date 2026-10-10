@@ -1,0 +1,36 @@
+version: '1.0.0'
+title: PulsePay 004-api-network-delay
+description: >
+  Apply a Pumba-owned 150ms egress delay to the discovered application interface. Healthy precondition: default qdisc and proven namespace NET_ADMIN support. Expected exposure: increased observed HTTP/dependency latency. Strict recovery: only owned qdisc removed, pre-state preserved, healthy probes and independent PASS.
+tags: [pulsepay, 004-api-network-delay, api, netem]
+configuration:
+  duration_seconds: 15
+  ttl_seconds: 120
+  delay_ms: 150
+  interface: eth0
+steady-state-hypothesis:
+  title: Healthy authority, event delivery and independently reconciled ledger
+  probes:
+    - type: probe
+      name: healthy-financial-and-operational-state
+      tolerance: true
+      provider: {type: python, module: chaos.adapters.health_probes, func: steady}
+method:
+  - type: action
+    name: apply-bounded-framework-fault
+    provider: {type: python, module: chaos.adapters.injection, func: apply}
+  - type: probe
+    name: observe-intentional-fault-exposure
+    tolerance: true
+    provider: {type: python, module: chaos.adapters.injection, func: observe}
+  - type: action
+    name: restore-original-environment
+    provider: {type: python, module: chaos.adapters.injection, func: restore}
+  - type: probe
+    name: independently-verify-post-restoration-recovery
+    tolerance: true
+    provider: {type: python, module: chaos.adapters.health_probes, func: recovery}
+rollbacks:
+  - type: action
+    name: repeat-safe-scoped-restoration
+    provider: {type: python, module: chaos.adapters.injection, func: restore}

@@ -1,6 +1,6 @@
 # PulsePay workload acceptance evidence
 
-Current verdict: **PASS for the implemented, bounded on-demand workload system and qualified nominal reference**. The larger burst is a **FAILED capacity trial**, retained unchanged. Hour-scale soak stability, unavailable host platforms, and absent database lock/slow-query metrics remain unverified; this is not a claim that every starter workload fits this machine. Entries below preserve actual execution history; the final current-configuration results supersede earlier activity/UI configurations.
+Current verdict: **PASS for the implemented, bounded on-demand workload system and qualified nominal reference**. The larger burst is a **FAILED capacity trial**, retained unchanged. Follow-up framework integration closed the full-hour soak, database lock/deadlock/query timing and generator network observation gaps; [current v3 evidence](../artifacts/baseline/workload-v3/README.md) contains the executed results. Unavailable host platforms remain unverified. Entries below preserve actual execution history and the limitations that applied to those historical images; this is not a claim that every starter workload fits this machine.
 
 ## Audit
 

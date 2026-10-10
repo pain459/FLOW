@@ -23,3 +23,13 @@ verification = Gauge(
     "pulsepay_verification_status", "PASS=0 FAIL=1 UNKNOWN=2 DEGRADED=3", ["check"]
 )
 service_up = Gauge("pulsepay_service_up", "Observed component reachable", ["service"])
+
+# These finite dimensions have a known zero at process startup. Missing/stale
+# scrapes still mean UNKNOWN; initialization does not substitute for availability.
+for _operation in ("get", "set", "delete", "xadd"):
+    for _outcome in ("success", "failure"):
+        redis_operations.labels(_operation, _outcome)
+for _outcome in ("processed", "duplicate", "quarantined", "retry"):
+    events.labels(_outcome)
+for _error in ("constraint", "unavailable", "deadlock", "serialization"):
+    db_errors.labels(_error)

@@ -34,3 +34,13 @@ Trace/log export is best effort. Docker buffers 4096 events plus 4 MiB nonblocki
 The provisioned **Load & Capacity** Grafana dashboard shows measured HTTP mix/RPS, configured users/weights, pooled latency buckets, logical transfer outcomes, core/container/generator resources, queue lag, and verifier age. It is provisioned as part of the same PulsePay lab. Locust controls are part of normal startup on localhost:8089 and remain idle until Start. `make load-ui` ensures the service is running. During idle operation, missing load-controller scrape data means no run is active. See [workload operations](phase2-load-generator.md) for metric/report semantics and qualified baseline requirements.
 
 The FastAPI dashboard adds a live transaction chart, component diagram, request/event correlation details and fresh independent verification at http://127.0.0.1:8080/. Grafana remains available for detailed metrics, logs and traces. The UI explicitly distinguishes queued publication, pending processing and durable commit; stale/missing evidence is UNKNOWN. See [dashboard documentation](dashboard.md).
+
+## Database, generator and explicit experiments
+
+The `db-observer` uses SELECT-only access plus lab-scoped PostgreSQL monitoring privileges. It exposes `pulsepay_database_connections{state}`, `pulsepay_database_lock_waits`, `pulsepay_database_deadlocks_total`, active queries over 250 ms, and aggregate `pg_stat_statements` timing without SQL text. `pulsepay_database_observed_timestamp_seconds` measures freshness; unavailable samples are NaN/UNKNOWN and never zero-filled. This process has 128 MiB / 0.25 CPU.
+
+Generator network counters come from its Linux `/proc/net/dev` namespace and include source/availability metadata. Load & Capacity panels show these counters, DB waits/query timing, monitoring age and the existing latency/queue/verifier signals. Real query validation is part of the live observability regression; provisioned JSON alone does not count as evidence.
+
+The optional watchdog exports `pulsepay_experiment_status{scenario}` (idle 0, armed 1, exposure 2, restoring 3, restored 4) for privileged Grafana annotations. Scenario labels are from the finite catalog, never run IDs. Monitoring remains outside all fault target labels. Missing watchdog scrape while chaos tools are stopped is expected.
+
+Per-run sampled Prometheus, HTTP, Loki and Tempo evidence has source timestamps and explicit missing-data indicators. Thirty-second histogram windows overlap short faults; recorded percentiles describe those windows. The output-only [observation contract](observation-contract.md) excludes privileged scenario/target/injector fields. Operators retain full framework journals and ground truth separately.

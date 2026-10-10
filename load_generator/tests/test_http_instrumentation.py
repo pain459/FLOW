@@ -6,9 +6,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from uuid import UUID
 
 
-def test_locust_context_reports_valid_response_and_identical_retry(
-    tmp_path, monkeypatch
-):
+def test_locust_context_reports_valid_response_and_identical_retry(tmp_path, monkeypatch):
     monkeypatch.setenv("LOCUST_SKIP_MONKEY_PATCH", "1")
     from locust.env import Environment
     from locust.clients import HttpSession

@@ -79,8 +79,6 @@ def classify(operation: str, status: int, data: dict, context: dict) -> str:
                 or result.balance_minor < 0
             ):
                 return "contract_error"
-        return (
-            "replay" if operation == "transfer_write" and status == 200 else "success"
-        )
+        return "replay" if operation == "transfer_write" and status == 200 else "success"
     except (ValidationError, ValueError, TypeError, KeyError):
         return "contract_error"

@@ -1,0 +1,11 @@
+time="2026-10-11T00:06:18+05:30" level=warning msg="Found orphan containers (chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-chaos-runner-run-92b7afde7700 Creating 
+ Container chaosloop-chaos-runner-run-92b7afde7700 Created 
+{"scenario": "001-api-pause", "native_validation": "PASS", "configuration": {"duration_seconds": 10, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}
+{"scenario": "002-worker-pause", "native_validation": "PASS", "configuration": {"duration_seconds": 20, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}
+{"scenario": "003-redis-outage", "native_validation": "PASS", "configuration": {"duration_seconds": 15, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}
+{"scenario": "004-api-network-delay", "native_validation": "PASS", "configuration": {"duration_seconds": 15, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}
+{"scenario": "005-db-network-delay", "native_validation": "PASS", "configuration": {"duration_seconds": 15, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}
+{"scenario": "006-cpu-pressure", "native_validation": "PASS", "configuration": {"duration_seconds": 15, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}
+{"scenario": "007-redis-network-partition", "native_validation": "PASS", "configuration": {"duration_seconds": 15, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}
+{"scenario": "008-postgres-outage", "native_validation": "PASS", "configuration": {"duration_seconds": 8, "ttl_seconds": 120, "delay_ms": 150, "interface": "eth0"}}

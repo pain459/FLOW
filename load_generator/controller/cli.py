@@ -87,14 +87,10 @@ def recover_abandoned(root):
         pre = read_json(path / "verifier-pre.json", {"status": "UNKNOWN"})
         post = {"status": "UNKNOWN", "reason": "CONTROLLER_INTERRUPTED", "checks": []}
         atomic_json(path / "verifier-post.json", post)
-        summary = build_summary(
-            manifest, stats, pre, post, 0, ["CONTROLLER_INTERRUPTED"], True
-        )
+        summary = build_summary(manifest, stats, pre, post, 0, ["CONTROLLER_INTERRUPTED"], True)
         samples = read_json(path / "time-series.json", {}).get("samples", [])
         write_report(path, summary, stats, samples, workers)
-        Lifecycle(path, active["run_id"]).transition(
-            "INTERRUPTED", "CONTROLLER_INTERRUPTED"
-        )
+        Lifecycle(path, active["run_id"]).transition("INTERRUPTED", "CONTROLLER_INTERRUPTED")
     (root / "active.json").unlink(missing_ok=True)
 
 
@@ -102,18 +98,13 @@ def run(args):
     profile = configured(args)
     manual_ui = getattr(args, "web", False)
     if manual_ui and profile.workers != 1:
-        raise ValueError(
-            "Manual Locust UI uses one worker; use headless for multiple workers"
-        )
+        raise ValueError("Manual Locust UI uses one worker; use headless for multiple workers")
     root = root_path()
     with RunLock(root):
         recover_abandoned(root)
         check_report_budget(root, reserve_bytes=32 * 1024**2)
         run_id = (
-            "load-"
-            + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-            + "-"
-            + uuid4().hex[:8]
+            "load-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid4().hex[:8]
         )
         path = run_path(root, run_id)
         path.mkdir()
@@ -155,8 +146,7 @@ def run(args):
             (path / "cancel").touch()
 
         original_handlers = {
-            sig: signal.signal(sig, cancelled)
-            for sig in (signal.SIGTERM, signal.SIGINT)
+            sig: signal.signal(sig, cancelled) for sig in (signal.SIGTERM, signal.SIGINT)
         }
         telemetry_samples = 0
         resource_offset = 0
@@ -211,8 +201,7 @@ def run(args):
                     [
                         "--headless",
                         "--run-time",
-                        str(profile.warmup_seconds + profile.duration_seconds + 15)
-                        + "s",
+                        str(profile.warmup_seconds + profile.duration_seconds + 15) + "s",
                     ]
                 )
             if profile.workers > 1:
@@ -236,21 +225,12 @@ def run(args):
                 previous_phase = "warmup"
                 while process.poll() is None:
                     current = time.monotonic()
-                    control = read_json(
-                        path / "control.json", {"phase": "warmup", "users": 0}
-                    )
+                    control = read_json(path / "control.json", {"phase": "warmup", "users": 0})
                     clock = read_json(path / "clock.json")
                     if clock and measured_started is None:
-                        measured_started = (
-                            clock["started_epoch"] + profile.warmup_seconds
-                        )
+                        measured_started = clock["started_epoch"] + profile.warmup_seconds
                     if manual_ui and clock and not ui_started:
-                        deadline = (
-                            current
-                            + profile.warmup_seconds
-                            + profile.duration_seconds
-                            + 45
-                        )
+                        deadline = current + profile.warmup_seconds + profile.duration_seconds + 45
                         ui_started = True
                     if control["phase"] == "running" and previous_phase != "running":
                         state.transition("RUNNING")
@@ -282,10 +262,7 @@ def run(args):
                             and resources["cpu_limit"]
                         ):
                             resources["cpu_utilization"] = (
-                                (
-                                    resources["cpu_usage_usec"]
-                                    - previous_resources["cpu_usage_usec"]
-                                )
+                                (resources["cpu_usage_usec"] - previous_resources["cpu_usage_usec"])
                                 / 1e6
                                 / (current - previous_resources["observed_monotonic"])
                                 / resources["cpu_limit"]
@@ -328,29 +305,21 @@ def run(args):
                                 resource_stream.seek(resource_offset)
                                 for line in resource_stream:
                                     try:
-                                        values = resource_metric_values(
-                                            json.loads(line)
-                                        )
+                                        values = resource_metric_values(json.loads(line))
                                         if values:
-                                            collector.container_resources[
-                                                values["service"]
-                                            ] = values
+                                            collector.container_resources[values["service"]] = (
+                                                values
+                                            )
                                     except ValueError:
                                         continue
                                 resource_offset = resource_stream.tell()
                         previous_measured = (
-                            samples[-1]
-                            .get("load", {})
-                            .get("measured", {})
-                            .get("http", 0)
+                            samples[-1].get("load", {}).get("measured", {}).get("http", 0)
                             if samples
                             else 0
                         )
                         collector.measured_rps = (
-                            (
-                                totals.get("measured", {}).get("http", 0)
-                                - previous_measured
-                            )
+                            (totals.get("measured", {}).get("http", 0) - previous_measured)
                             / (time.time() - samples[-1]["epoch"])
                             if samples
                             else None
@@ -363,14 +332,25 @@ def run(args):
                                 "target_users": control["users"],
                                 "active_users": collector.users,
                                 "generator": resources,
-                                "container_resources": dict(
-                                    collector.container_resources
-                                ),
+                                "container_resources": dict(collector.container_resources),
                                 "load": totals,
                                 "prometheus": prom,
                             }
                         )
                         atomic_json(path / "latest-observation.json", samples[-1])
+                        atomic_json(
+                            path / "recent-observations.json",
+                            {
+                                "schema_version": 1,
+                                "samples": [
+                                    {
+                                        key: row[key]
+                                        for key in ("epoch", "phase", "active_users", "load")
+                                    }
+                                    for row in samples[-10:]
+                                ],
+                            },
+                        )
                         atomic_json(
                             path / "time-series.json",
                             {"schema_version": 1, "samples": samples},
@@ -385,14 +365,11 @@ def run(args):
                                 "contract_error",
                             )
                         )
-                        error_windows.append(
-                            (current, measured.get("http", 0), error_count)
-                        )
+                        error_windows.append((current, measured.get("http", 0), error_count))
                         eligible = [
                             entry
                             for entry in error_windows
-                            if current - entry[0]
-                            >= profile.safety.stop_on_error_window_seconds
+                            if current - entry[0] >= profile.safety.stop_on_error_window_seconds
                         ]
                         if eligible:
                             old = eligible[-1]
@@ -410,9 +387,7 @@ def run(args):
                             failures.append("DATASET_FUNDING_OR_ACCOUNT_STATE_LIMIT")
                         if clock and time.time() - clock["started_epoch"] > 15:
                             fresh_workers = [
-                                w
-                                for w in workers
-                                if time.time() - w["observed_epoch"] < 10
+                                w for w in workers if time.time() - w["observed_epoch"] < 10
                             ]
                             if len(fresh_workers) < profile.workers:
                                 failures.append("LOCUST_WORKER_MISSING")
@@ -470,9 +445,7 @@ def run(args):
             stats, workers = merge_workers(path)
             interrupted = interrupted or (path / "cancel").exists()
             manifest["finished_at"] = now()
-            manifest["environment_gaps"] = [
-                "DB_LOCK_WAITS_SLOW_QUERIES_DEADLOCKS_NOT_EXPORTED"
-            ]
+            manifest["environment_gaps"] = []
             manifest["prometheus_post"] = prometheus_sample(observer.client)
             measured_samples = [s for s in samples if s["phase"] == "running"]
             manifest["generator_saturation_observed"] = any(
@@ -498,12 +471,8 @@ def run(args):
                 summary["health"]["postflight"] = observer.health()["status"]
             except Exception:
                 summary["health"]["postflight"] = "UNKNOWN"
-            summary["load"]["peak_users"] = max(
-                [s["active_users"] for s in samples], default=None
-            )
-            summary["generator_saturation_observed"] = manifest[
-                "generator_saturation_observed"
-            ]
+            summary["load"]["peak_users"] = max([s["active_users"] for s in samples], default=None)
+            summary["generator_saturation_observed"] = manifest["generator_saturation_observed"]
             summary["volume"] = {
                 "pre": manifest.get("snapshot_pre", {}).get("totals"),
                 "post": snapshot_post.get("totals") if snapshot_post else None,
@@ -517,22 +486,29 @@ def run(args):
             summary["observation_gaps"] = sorted(
                 set(
                     manifest["environment_gaps"]
-                    + [
-                        gap
-                        for sample in samples
-                        for gap in sample["prometheus"]["gaps"]
-                    ]
+                    + [gap for sample in samples for gap in sample["prometheus"]["gaps"]]
                 )
             )
             summary["generator_limits"] = manifest["generator_limits"]
+            summary["generator_network"] = {
+                key: {
+                    "first_counter": measured_samples[0]["generator"].get(key)
+                    if measured_samples
+                    else None,
+                    "last_counter": measured_samples[-1]["generator"].get(key)
+                    if measured_samples
+                    else None,
+                    "source": "Linux /proc/net/dev; non-loopback interfaces; all generator namespace traffic",
+                }
+                for key in ("network_received_bytes", "network_sent_bytes")
+            }
             summary["resource_peaks"] = {
                 service: {
                     key: max(
                         (
                             sample["container_resources"][service][key]
                             for sample in samples
-                            if sample["container_resources"].get(service, {}).get(key)
-                            is not None
+                            if sample["container_resources"].get(service, {}).get(key) is not None
                         ),
                         default=None,
                     )
@@ -540,10 +516,7 @@ def run(args):
                 }
                 for service in collector.container_resources
             }
-            if (
-                summary["result"] == "PASS"
-                and summary["http_agreement"]["status"] == "UNKNOWN"
-            ):
+            if summary["result"] == "PASS" and summary["http_agreement"]["status"] == "UNKNOWN":
                 summary["result"] = "INCOMPLETE"
                 summary["failures"].append("SERVER_GENERATOR_TELEMETRY_NOT_RECONCILED")
             required_resources = {
@@ -572,32 +545,22 @@ def run(args):
                 summary["failures"].append("CONTAINER_RESOURCE_OBSERVATIONS_MISSING")
             if summary["result"] == "PASS" and (
                 telemetry_samples < 2
-                or not required_evidence_healthy(
-                    samples, summary["health"]["postflight"]
-                )
+                or not required_evidence_healthy(samples, summary["health"]["postflight"])
                 or not manifest["generator_limits"].get("cpu_limit")
             ):
                 summary["result"] = "INCOMPLETE"
                 summary["failures"].append("MEASUREMENT_TELEMETRY_UNAVAILABLE")
-            if (
-                summary["result"] == "PASS"
-                and manifest["generator_saturation_observed"]
-            ):
+            if summary["result"] == "PASS" and manifest["generator_saturation_observed"]:
                 summary["result"] = "INCOMPLETE"
                 summary["failures"].append("GENERATOR_CPU_SATURATED")
-            if (
-                summary["result"] == "PASS"
-                and measured_seconds < profile.duration_seconds - 1
-            ):
+            if summary["result"] == "PASS" and measured_seconds < profile.duration_seconds - 1:
                 summary["result"] = "INCOMPLETE"
                 summary["failures"].append("MEASUREMENT_TERMINATED_EARLY")
             if manual_ui:
                 summary["execution_mode"] = "manual_ui"
                 if summary["result"] == "PASS":
                     summary["result"] = "INCOMPLETE"
-                    summary["failures"].append(
-                        "MANUAL_UI_SESSION_NOT_A_QUALIFIED_BENCHMARK"
-                    )
+                    summary["failures"].append("MANUAL_UI_SESSION_NOT_A_QUALIFIED_BENCHMARK")
             state.transition("REPORTING")
             write_report(path, summary, stats, samples, workers)
             baseline = read_json(root / "baseline.json")
@@ -621,9 +584,7 @@ def run(args):
                         "Profile, initial funding/data volume, runtime settings, images, resource ceilings, traffic mode or machine differ. No regression verdict is inferred."
                     )
                 (path / "baseline-comparison.md").write_text("\n".join(lines) + "\n")
-            state.transition(
-                "COMPLETED" if summary["result"] == "PASS" else summary["result"]
-            )
+            state.transition("COMPLETED" if summary["result"] == "PASS" else summary["result"])
             collector.status = 3 if summary["result"] == "PASS" else 4
             observer.close()
             server.shutdown()
@@ -644,9 +605,7 @@ def run(args):
                     }
                 )
             )
-        return {"PASS": 0, "FAILED": 1, "INCOMPLETE": 2, "INTERRUPTED": 130}[
-            summary["result"]
-        ]
+        return {"PASS": 0, "FAILED": 1, "INCOMPLETE": 2, "INTERRUPTED": 130}[summary["result"]]
 
 
 def main():
@@ -672,9 +631,7 @@ def main():
     parser.add_argument("--workers", type=int)
     parser.add_argument("--rate", type=float)
     parser.add_argument("--allow-long-run", action="store_true")
-    parser.add_argument(
-        "--web", action="store_true", help="Bounded manual Locust UI on port 8089"
-    )
+    parser.add_argument("--web", action="store_true", help="Bounded manual Locust UI on port 8089")
     parser.add_argument("--run-id", action="append", default=[])
     args = parser.parse_args()
     root = root_path()
@@ -707,10 +664,7 @@ def main():
                     read_json(root / "environment.json", {}),
                 )
                 prom = prometheus_sample(observer.client)
-                if any(
-                    gap.startswith("scrape:") or "PROMETHEUS_" in gap
-                    for gap in prom["gaps"]
-                ):
+                if any(gap.startswith("scrape:") or "PROMETHEUS_" in gap for gap in prom["gaps"]):
                     raise ValueError("Required Prometheus scrapes are unavailable")
                 print(
                     json.dumps(
@@ -740,9 +694,7 @@ def main():
                 time.sleep(0.5)
             summary = read_json(path / "summary.json")
             if not summary:
-                raise TimeoutError(
-                    "Stop requested; controller has not finished within 60 seconds"
-                )
+                raise TimeoutError("Stop requested; controller has not finished within 60 seconds")
             print(json.dumps({"run_id": active["run_id"], "status": summary["result"]}))
         elif args.command == "export":
             with tarfile.open(fileobj=sys.stdout.buffer, mode="w|") as archive:

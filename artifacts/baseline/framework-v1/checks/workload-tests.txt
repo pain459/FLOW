@@ -1,0 +1,5 @@
+time="2026-10-11T00:00:00+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-1675c48b954f Creating 
+ Container chaosloop-load-controller-run-1675c48b954f Created 
+....................................                                     [100%]
+36 passed in 0.33s

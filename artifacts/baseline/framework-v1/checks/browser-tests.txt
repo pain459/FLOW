@@ -1,0 +1,66 @@
+time="2026-10-10T23:47:32+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-redis-1 Running 
+ Container chaosloop-postgres-1 Running 
+time="2026-10-10T23:47:32+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-postgres-1 Running 
+ Container chaosloop-postgres-1 Waiting 
+ Container chaosloop-postgres-1 Healthy 
+ Container chaosloop-migrate-run-60d212d44b86 Creating 
+ Container chaosloop-migrate-run-60d212d44b86 Created 
+ Image pulsepay-browser-tests:v1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile.browser-tests
+#2 transferring dockerfile: 570B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 116B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0
+#5 resolve mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 558.54kB 0.0s done
+#6 DONE 0.0s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.lock && pip install --no-cache-dir playwright==1.63.0
+#8 CACHED
+
+#9 [3/6] COPY requirements.lock ./
+#9 CACHED
+
+#10 [5/6] RUN useradd --uid 10001 --create-home pulsepay && mkdir /evidence && chown pulsepay:pulsepay /evidence
+#10 CACHED
+
+#11 [6/6] COPY --chown=pulsepay:pulsepay . .
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers 0.0s done
+#12 exporting manifest sha256:f83447179a470520a7832658f17633df99373562fa9cf70e21031a57bba42b2c done
+#12 exporting config sha256:f20471d920fa5e9a462d5d75dfec7b13125cd4ee43e2c6886d6a3c6819cfabc2 done
+#12 exporting attestation manifest sha256:39f6ddb4eca1c1997fd8eaba630ec8ff55a7dc406b726e6ac8175b70724e1f5b done
+#12 exporting manifest list sha256:4b37c7198f318a4d95a4bc69785e94d3dba8a65826182abed9ea84a4fe04f64c done
+#12 naming to docker.io/library/pulsepay-browser-tests:v1 done
+#12 unpacking to docker.io/library/pulsepay-browser-tests:v1 0.0s done
+#12 DONE 0.1s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image pulsepay-browser-tests:v1 Built 
+time="2026-10-10T23:47:34+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-ui-tests-32247 Creating 
+ Container chaosloop-ui-tests-32247 Created 
+.......                                                                  [100%]
+7 passed in 9.33s

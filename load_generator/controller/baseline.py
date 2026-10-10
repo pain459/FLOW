@@ -18,8 +18,7 @@ def comparable_key(manifest: dict) -> str:
     environment = manifest.get("environment", {})
     services = {
         name: {
-            key: value.get(key)
-            for key in ("image_id", "cpu_limit", "memory_limit_bytes", "config")
+            key: value.get(key) for key in ("image_id", "cpu_limit", "memory_limit_bytes", "config")
         }
         for name, value in environment.get("services", {}).items()
     }
@@ -47,17 +46,14 @@ def qualify(manifests: list[dict], summaries: list[dict]) -> dict:
     if len({summary.get("run_id") for summary in summaries}) != len(summaries):
         reasons.append("DISTINCT_RUN_IDS_REQUIRED")
     provenance_ok = all(
-        complete_manifest(manifest, summary)
-        for manifest, summary in zip(manifests, summaries)
+        complete_manifest(manifest, summary) for manifest, summary in zip(manifests, summaries)
     ) and bool(manifests)
     if not provenance_ok:
         reasons.append("MISSING_OR_MISMATCHED_RUN_PROVENANCE")
     if len({comparable_key(manifest) for manifest in manifests}) != 1:
         reasons.append("PROFILE_ENVIRONMENT_OR_INITIAL_DATA_VOLUME_DIFFER")
     for summary in summaries:
-        if summary.get("result") != "PASS" or summary.get(
-            "generator_saturation_observed"
-        ):
+        if summary.get("result") != "PASS" or summary.get("generator_saturation_observed"):
             reasons.append("RUN_FAILED_INCOMPLETE_OR_GENERATOR_SATURATED")
         if any(
             summary.get("integrity", {}).get(phase) != "PASS"
@@ -125,9 +121,7 @@ def complete_manifest(manifest: dict, summary: dict) -> bool:
     services = environment.get("services", {})
     for service in ("api", "postgres", "redis", "outbox-relay", "event-worker"):
         value = services.get(service, {})
-        if not all(
-            value.get(key) for key in ("image_id", "cpu_limit", "memory_limit_bytes")
-        ):
+        if not all(value.get(key) for key in ("image_id", "cpu_limit", "memory_limit_bytes")):
             return False
     if not services.get("load-controller", {}).get("image_id"):
         return False

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10161d"><title>PulsePay · Chaos Workbench</title>
+  <link rel="stylesheet" href="/assets/styles.css"><script type="module" src="/assets/app.js"></script>
+</head>
+<body>
+<aside>
+  <a class="brand" id="pulsepay-link" href="http://localhost:8080"><span class="brand-mark">↯</span><span>PulsePay<small>SYNTHETIC LAB</small></span></a>
+  <div class="nav-label">WORKSPACE</div>
+  <a id="overview-link" href="http://localhost:8080">System overview <span>↗</span></a>
+  <a class="selected" href="/">Chaos Workbench</a>
+  <a id="locust-link" href="http://localhost:8089" target="_blank" rel="noopener">Locust <span>↗</span></a>
+  <a id="grafana-link" href="http://localhost:3000" target="_blank" rel="noopener">Grafana <span>↗</span></a>
+  <div class="sidebar-note"><span class="dot"></span> LOCAL COMPOSE STACK<p>Synthetic accounts and funds.<br>Experiments run only on request.</p></div>
+</aside>
+<main>
+  <header><span>Workspace <span class="muted">/</span> <strong>Chaos Workbench</strong></span><span class="small-tag">CHAOS TOOLKIT · PUMBA</span></header>
+  <section class="heading"><div><div class="eyebrow">PULSEPAY CONTROL ROOM</div><h1>Chaos Workbench</h1><p>Introduce a bounded fault. Observe the impact. Verify the recovery.</p></div><button id="refresh" class="button quiet">Refresh</button></section>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <section class="status-grid" aria-label="Experiment controls">
+    <article class="status-card"><span class="muted">Authorization gateway</span><strong id="gateway-status">Checking…</strong><small>Only reviewed lab targets</small></article>
+    <article class="status-card"><span class="muted">Restoration watchdog</span><strong id="watchdog-status">Checking…</strong><small>Independent timeout and rollback</small></article>
+    <article class="status-card"><span class="muted">Active experiment</span><strong id="active-status">Checking…</strong><small id="active-id">Waiting for current state</small></article>
+  </section>
+  <div class="workspace-grid">
+    <section class="panel"><div class="panel-head"><div><h2>Reviewed scenarios</h2><p>Select a scenario to see its scope and controls.</p></div><span class="small-tag">BOUNDED EXPOSURE</span></div><div id="scenario-list" class="scenario-list"></div></section>
+    <section class="panel execution-panel"><div class="panel-head"><div><h2 id="scenario-title">Select a scenario</h2><p id="scenario-description">Definitions use native Chaos Toolkit YAML.</p></div></div>
+      <dl id="scenario-facts"></dl><p id="scenario-note" class="muted"></p>
+      <div class="action-row"><button id="preflight" class="button secondary" disabled>Check preflight</button><button id="run" class="button primary" disabled>Run experiment</button></div>
+      <div class="action-row recovery-actions"><button id="abort" class="button danger" disabled>Abort &amp; restore</button><button id="restore" class="button quiet" disabled>Verify restoration</button></div>
+      <div class="job-head"><h3>Action output</h3><span id="job-status" class="badge neutral">IDLE</span></div><pre id="job-output" aria-live="polite">Start Locust traffic, allow warmup to finish, then check preflight. The verifier must PASS before injection.</pre>
+    </section>
+  </div>
+  <section class="panel history-panel"><div class="panel-head"><div><h2>Experiment history</h2><p>Execution, restoration and financial integrity are reported separately.</p></div><span id="history-count" class="muted"></span></div><div class="table-scroll"><table><thead><tr><th>Experiment</th><th>Scenario</th><th>Result</th><th>Integrity after</th><th></th></tr></thead><tbody id="history-body"></tbody></table></div></section>
+  <section id="report-panel" class="panel" hidden><div class="panel-head"><div><h2 id="report-title">Experiment report</h2><p>Retained evidence from the actual run.</p></div><button id="close-report" class="button quiet">Close</button></div><div id="report-verdicts" class="verdicts"></div><div id="report-artifacts" class="artifact-links"></div><div class="report-grid"><div><h3>Timeline</h3><ol id="report-timeline"></ol></div><div><h3>Summary</h3><pre id="report-summary"></pre></div></div></section>
+  <footer><span><span class="dot"></span> Native framework execution · independent financial verification</span><span id="freshness">Loading control state…</span></footer>
+</main>
+<dialog id="confirmation" aria-labelledby="confirmation-title"><form id="confirm-form"><h2 id="confirmation-title">Run selected experiment?</h2><p id="confirmation-text"></p><p>The independent watchdog is armed before the fault. Current Locust traffic stays active.</p><div class="action-row"><button id="cancel-confirm" class="button quiet" type="button">Cancel</button><button class="button danger" type="submit">Confirm experiment</button></div></form></dialog>
+<noscript><p>JavaScript is required for local experiment controls.</p></noscript>
+</body></html>

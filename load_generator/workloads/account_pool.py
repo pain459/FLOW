@@ -5,17 +5,11 @@ from uuid import UUID
 class AccountPool:
     def __init__(self, accounts: list[dict], seed: int, hot_count: int | None = None):
         rows = sorted(
-            (
-                a
-                for a in accounts
-                if a["status"] == "active" and int(a["balance_minor"]) > 0
-            ),
+            (a for a in accounts if a["status"] == "active" and int(a["balance_minor"]) > 0),
             key=lambda a: a["id"],
         )
         if len(rows) < 2 or len({a["currency"] for a in rows}) != 1:
-            raise ValueError(
-                "At least two funded active accounts in one currency are required"
-            )
+            raise ValueError("At least two funded active accounts in one currency are required")
         for row in rows:
             UUID(row["id"])
         self.accounts = rows[:hot_count] if hot_count else rows

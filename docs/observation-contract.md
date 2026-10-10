@@ -1,0 +1,11 @@
+# PulsePay observation and experiment boundaries
+
+`chaos.adapters.observations.snapshot` emits observation schema `1.0` into `observation.json` and a timestamped `observations.jsonl` stream. It contains the run reference, UTC observation time, 30-second window, system name, API RPS/error percentage/latency percentiles, database reachability/connections/locks, Redis reachability, outbox/consumer lag, independent integrity status/time, actual and configured load users, missing signals and enumerated read-only investigations.
+
+Unavailable values are null. Integrity without a fresh independent check is UNKNOWN. An API probe failure and missing telemetry are observations, never proof of a particular fault. Percentiles come from correctly aggregated Prometheus histogram buckets. Configured users and measured requests/s are separate; no offered arrival rate is invented for closed-loop Locust users.
+
+The snapshot excludes scenario names, injector commands, target container IDs, injected intensity, expected root cause, private fault timing and privileged annotations. `ground-truth.json`, `metadata.json`, Docker audit and native journals remain operator evidence for evaluation after runs. The entire evidence directory must not be handed to a future model merely because one file is sanitized.
+
+Future consumers may receive snapshots, immutable workload profile/hash references, independent verifier references and named read-only investigations. No consumer account, permission service, decision maker, approximator or autonomous action execution exists yet. Model-facing permissions must be enforced before adding such a consumer. Existing `make chaos-abort` and the independent watchdog work without any model; `make load-stop` remains a separate explicit operator control.
+
+Each native experiment reserves a unique run ID, captures workload run/profile and exact UTC boundaries, and records preflight, injection, observations, restore, recovery and final-report events in `timeline.jsonl`. Sanitized observation streams and privileged timelines serve different consumers. The framework journal is an execution record; financial recovery requires the independent verifier and productive post-restore traffic.

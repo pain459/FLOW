@@ -73,6 +73,9 @@ def init(environment, **kwargs):
 def start(environment, **kwargs):
     global FLUSH, WATCHDOG, SUPERVISOR
     STATS.worker = "worker-" + str(os.getpid())
+    if STACK_UI:
+        environment.pulsepay_collector.measured_rps = None
+        environment.pulsepay_collector.stats = STATS.phases
     if not environment.runner.__class__.__name__.startswith("Worker"):
         atomic_json(
             PATH / "clock.json",
@@ -90,7 +93,19 @@ def start(environment, **kwargs):
                 gevent.sleep(1)
 
                 if STACK_UI:
+                    from load_generator.stack_ui import observe_session
+                    from load_generator.controller.resources import cgroup
+
                     collector = environment.pulsepay_collector
+                    sample = observe_session(PATH, STATS, environment.runner.user_count)
+                    prior = read_json(PATH / "ui-metric-prior.json")
+                    if prior and sample["phase"] == prior.get("phase") == "running":
+                        collector.measured_rps = max(
+                            0,
+                            sample["load"]["measured"]["http"] - prior["load"]["measured"]["http"],
+                        ) / max(0.001, sample["epoch"] - prior["epoch"])
+                    atomic_json(PATH / "ui-metric-prior.json", sample)
+                    collector.resources = cgroup()
                     collector.stats = STATS.phases
                     collector.users = environment.runner.user_count
                     collector.target = environment.runner.target_user_count
@@ -187,6 +202,7 @@ def stop(environment, **kwargs):
             finally:
                 environment.pulsepay_collector.users = 0
                 environment.pulsepay_collector.status = 0
+                environment.pulsepay_collector.measured_rps = 0
     elif not isinstance(environment.runner, MasterRunner):
         STATS.flush(0)
 
@@ -204,18 +220,14 @@ class PulsePayUser(HttpUser):
         pool = AccountPool(
             MANIFEST["accounts"],
             PROFILE.seed + worker_index * 100000 + USER_SEQUENCE,
-            PROFILE.accounts.hot_account_count
-            if PROFILE.accounts.selection == "hot"
-            else None,
+            PROFILE.accounts.hot_account_count if PROFILE.accounts.selection == "hot" else None,
         )
         self.api = PulsePayClient(self.client, PROFILE, STATS, pool)
         self.started = time.monotonic()
 
     def wait_time(self):
         think = (
-            self.api.pool.random.uniform(
-                PROFILE.think_time_ms.min, PROFILE.think_time_ms.max
-            )
+            self.api.pool.random.uniform(PROFILE.think_time_ms.min, PROFILE.think_time_ms.max)
             / 1000
         )
         control = read_json(PATH / "control.json", {"users": PROFILE.users})

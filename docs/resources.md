@@ -17,8 +17,16 @@ Every Compose service has an explicit CPU quota and memory ceiling, including on
 | Migration, seed, ordinary tests (each, transient) | 384 MiB | 1 |
 | Browser tests (transient) | 1,024 MiB | 1 |
 | Telemetry ownership job (transient) | 32 MiB | 0.25 |
+| Read-only database observer | 128 MiB | 0.25 |
+| Database monitoring setup (transient) | 384 MiB | 1 |
+| Persistent Chaos Workbench | 384 MiB | 0.5 |
+| Authorization gateway / watchdog (each) | 128 MiB | 0.25 |
+| Framework runner (on demand) | 384 MiB | 0.5 |
+| Pumba / namespace helper (each, at most four) | 64 MiB | 0.25 |
+| Reserved stress helper (currently disabled) | 64 MiB | 1 |
+| Optional Toxiproxy | 64 MiB | 0.25 |
 
-The normal persistent stack, including idle Locust, totals **5,248 MiB / 9.25 CPU ceilings**. A headless run plus its helpers adds **928 MiB / 1.35 CPUs**, for **6,176 MiB / 10.6 CPUs** while running. CPU quotas limit individual processes; fewer physical CPUs simply mean shared contention. Configure the Docker VM with sufficient memory for the chosen services and transient jobs. The temporary qualification project is a second copy only while validation runs; stop it afterward without deleting evidence.
+The normal persistent `make up` stack, including idle Locust, Workbench, its gateway/watchdog and the read-only database observer, totals **6,016 MiB / 10.5 CPU ceilings**. A headless run plus its helpers adds **928 MiB / 1.35 CPUs**, for **6,944 MiB / 11.85 CPUs** while running. Browser-triggered native Toolkit processes share the Workbench's 384 MiB / 0.5 CPU ceiling; a separate CLI runner adds 384 MiB / 0.5 CPU only while invoked. Each Pumba/namespace helper is capped and at most four can exist. CPU stress is disabled on every backend until actual kernel parent-cgroup containment is proven. CPU quotas limit individual processes; fewer physical CPUs simply mean shared contention. Configure the Docker VM with sufficient memory for the chosen services and transient jobs. The temporary qualification project is a second copy only while validation runs; its exit cleanup stops all profiles without deleting evidence. Plain `docker compose up` without the `chaos` profile starts Workbench in history/read-only mode; `make up` enables the reviewed controls, without automatic injection.
 
 `LOAD_CPU_LIMIT` and `LOAD_MEMORY_LIMIT` explicitly configure both UI and headless generator ceilings. Worker processes share their generator container's ceiling. App/Locust containers also have a 128-process ceiling and 64 MiB temporary filesystem; helper ceilings are smaller. PostgreSQL connection pools default to eight with no overflow and bounded waits. Redis limits data to 128 MiB with no eviction of transport evidence.
 
@@ -26,6 +34,6 @@ Logging rotates at 10 MiB × three files per service (helpers 1 MiB × two). Pro
 
 `LOAD_REPORT_BUDGET_MIB=512` is a report admission budget: refuse a new run unless 32 MiB remains, and stop running traffic if the remaining budget falls below 1 MiB. Historical evidence is never silently deleted. This is an application admission safeguard with a small polling/write overhead, not a filesystem quota. PostgreSQL and named-volume disk space must be monitored by the operator; Compose cannot impose a portable hard volume quota. Runs have finite duration/users and never silently mint additional funding. Archive retained reports explicitly before starting further runs once the budget is reached. Financial records remain immutable.
 
-Actual sanitized Docker resource evidence is retained with acceptance artifacts. No Docker socket, privileged mode or host networking is used.
+Actual sanitized Docker resource evidence is retained with acceptance artifacts. Application, Workbench, workload, runner and watchdog containers receive no Docker socket or host networking. Only the private authorization gateway mounts the socket; it uses an isolated network and exact target/helper policies. `make chaos-stop` removes runtime authority while leaving history accessible. No container uses privileged mode. Network helpers receive NET_ADMIN only inside their selected target network namespace.
 
 The raw bootstrap-secret and reset-scope parser containers are also capped at 128 MiB / 0.5 CPU / 32 processes with networking disabled; they only manipulate local configuration or parse scoped project metadata. These host-invoked utilities do not run in normal operation.

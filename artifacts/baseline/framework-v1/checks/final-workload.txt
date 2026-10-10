@@ -1,0 +1,18 @@
+time="2026-10-11T00:11:07+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-4339c9135c7d Creating 
+ Container chaosloop-load-controller-run-4339c9135c7d Created 
+{"status": "VALID", "profile": "nominal", "sha256": "764241f6103275b222612d91a2b4c8639756bb03a266920932a5ee9bcefdd63e"}
+time="2026-10-11T00:11:07+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-guard Creating 
+ Container chaosloop-load-guard Created 
+time="2026-10-11T00:11:07+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-215432e07558 Creating 
+ Container chaosloop-load-controller-run-215432e07558 Created 
+Captured sanitized Docker environment
+time="2026-10-11T00:11:08+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-47c60369ba7c Creating 
+ Container chaosloop-load-controller-run-47c60369ba7c Created 
+{"run_id": "load-20261010T184109Z-67498a30", "result": "PASS", "achieved_rps": 20.033333333333335, "valid_reads": 1102, "confirmed_commits": 681, "integrity": {"preflight": "PASS", "postflight": "PASS"}, "failures": []}
+time="2026-10-11T00:12:54+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-d975d3baa65e Creating 
+ Container chaosloop-load-controller-run-d975d3baa65e Created 

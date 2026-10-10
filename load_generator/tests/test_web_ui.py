@@ -34,9 +34,7 @@ def test_ui_supervisor_failure_stops_traffic(monkeypatch):
 
     monkeypatch.setenv("LOAD_STACK_UI", "true")
     calls = []
-    environment = SimpleNamespace(
-        runner=SimpleNamespace(stop=lambda: calls.append("stopped"))
-    )
+    environment = SimpleNamespace(runner=SimpleNamespace(stop=lambda: calls.append("stopped")))
 
     def disk_failure():
         raise OSError("disk full")
@@ -113,21 +111,9 @@ def test_manual_ui_rejects_scheduling_restart_and_unknown_user_classes():
 
     with app.test_client() as client:
         values = {"user_count": "2", "spawn_rate": "1", "host": "http://api:8080"}
+        assert client.post("/user", json={"host": "https://example.com"}).status_code == 403
+        assert client.post("/swarm", data={**values, "run_time": "100h"}).status_code == 400
         assert (
-            client.post("/user", json={"host": "https://example.com"}).status_code
-            == 403
+            client.post("/swarm", data={**values, "user_classes": "OtherUser"}).status_code == 400
         )
-        assert (
-            client.post("/swarm", data={**values, "run_time": "100h"}).status_code
-            == 400
-        )
-        assert (
-            client.post(
-                "/swarm", data={**values, "user_classes": "OtherUser"}
-            ).status_code
-            == 400
-        )
-        assert (
-            client.post("/swarm", data={**values, "stop_timeout": "bad"}).status_code
-            == 400
-        )
+        assert client.post("/swarm", data={**values, "stop_timeout": "bad"}).status_code == 400

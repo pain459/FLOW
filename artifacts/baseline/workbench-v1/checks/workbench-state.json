@@ -1,0 +1,10 @@
+{
+  "controls": {
+    "gateway": "HEALTHY",
+    "watchdog": "HEALTHY"
+  },
+  "controls_ready": true,
+  "active_experiment": null,
+  "browser_job": null,
+  "observed_at": "2026-10-10T19:28:28.308999+00:00"
+}

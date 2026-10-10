@@ -1,0 +1,60 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+________ test_browser_preflight_run_worker_pause_and_verified_recovery _________
+
+    @pytest.mark.skipif(
+        os.getenv("WORKBENCH_FAULT_TEST") != "true",
+        reason="Explicit worker-pause demonstration only",
+    )
+    async def test_browser_preflight_run_worker_pause_and_verified_recovery():
+        from playwright.async_api import async_playwright, expect
+    
+        evidence = Path(os.getenv("UI_EVIDENCE_DIRECTORY", "/evidence"))
+        evidence.mkdir(exist_ok=True)
+        async with httpx.AsyncClient(timeout=60, trust_env=False) as client:
+            stats = (await client.get("http://locust:8089/stats/requests")).json()
+            assert stats["state"] in {"ready", "stopped"}, "Acceptance must start with idle Locust"
+            started = False
+            async with async_playwright() as playwright:
+                browser = await playwright.chromium.launch()
+                page = await browser.new_page(viewport={"width": 1440, "height": 1100})
+                errors = []
+                page.on("pageerror", lambda error: errors.append(str(error)))
+                try:
+                    response = await client.post(
+                        "http://locust:8089/swarm",
+                        data={"user_count": "5", "spawn_rate": "5", "host": "http://api:8080"},
+                    )
+                    assert response.status_code == 200, response.text
+                    started = True
+                    await page.goto("http://chaos-workbench:8090/")
+                    await expect(page.locator("#scenario-title")).to_have_text("worker pause")
+    
+                    async def productive():
+                        metrics = (await client.get("http://locust:8089/metrics")).text
+                        # Independent warmup plus a productive stable measured window.
+                        return time.monotonic() - initial >= 48 and "load_measured_rps " in metrics
+    
+                    initial = time.monotonic()
+>                   await wait_for(productive, 90)
+
+tests/ui/test_workbench_browser.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+predicate = <function test_browser_preflight_run_worker_pause_and_verified_recovery.<locals>.productive at 0xffffa3c723e0>
+timeout = 90
+
+    async def wait_for(predicate, timeout=180):
+        deadline = time.monotonic() + timeout
+        while time.monotonic() < deadline:
+            result = await predicate()
+            if result:
+                return result
+            await asyncio.sleep(1)
+>       raise AssertionError("Bounded browser acceptance deadline exceeded")
+E       AssertionError: Bounded browser acceptance deadline exceeded
+
+tests/ui/test_workbench_browser.py:25: AssertionError
+=========================== short test summary info ============================
+FAILED tests/ui/test_workbench_browser.py::test_browser_preflight_run_worker_pause_and_verified_recovery
+1 failed, 1 passed in 95.58s (0:01:35)

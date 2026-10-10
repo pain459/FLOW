@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "path": "/containers/c353e2bfd262b3ff38c54575ee16319b1e7d67c72b099b37f2c4fb96fc7b7d2c/pause",
+      "status": 403
+    },
+    {
+      "path": "/containers/0000000000000000000000000000000000000000000000000000000000000000/stop",
+      "status": 403
+    },
+    {
+      "path": "/volumes/prune",
+      "status": 403
+    },
+    {
+      "path": "/images/create",
+      "status": 403
+    }
+  ],
+  "observed_at": "2026-10-10T17:36:56.753301+00:00",
+  "result": "PASS"
+}

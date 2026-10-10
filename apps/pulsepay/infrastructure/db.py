@@ -4,7 +4,8 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from shared.config import Settings
 from shared import metrics
-from sqlalchemy import event
+from sqlalchemy.pool import QueuePool
+from typing import cast
 import time
 
 SCHEMA_REVISION = "0002"
@@ -26,11 +27,11 @@ class Database:
             },
         )
         self.sessions = async_sessionmaker(self.engine, expire_on_commit=False)
-        event.listen(
-            self.engine.sync_engine, "checkout", lambda *args: metrics.pool_checked_out.inc()
-        )
-        event.listen(
-            self.engine.sync_engine, "checkin", lambda *args: metrics.pool_checked_out.dec()
+        # Failed acquisition/invalidation can emit checkin without checkout.
+        # Read the bounded pool's actual occupancy at scrape time instead of
+        # counting lifecycle events that may be unmatched during an outage.
+        metrics.pool_checked_out.set_function(
+            cast(QueuePool, self.engine.sync_engine.pool).checkedout
         )
 
     @asynccontextmanager

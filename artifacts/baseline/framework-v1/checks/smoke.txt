@@ -1,0 +1,4 @@
+time="2026-10-11T00:05:31+05:30" level=warning msg="Found orphan containers (chaosloop-chaos-watchdog-1, chaosloop-docker-gate-1, chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-tests-run-d7dbe10a4c04 Creating 
+ Container chaosloop-tests-run-d7dbe10a4c04 Created 
+{"status": "PASS", "transfer_id": "fcd5e242-15c5-4e19-8e3c-a00cc73c56ef", "request_id": "18f956f5-6f17-40d8-b97f-348859e1062a"}

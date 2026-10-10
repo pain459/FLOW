@@ -46,6 +46,12 @@ HTTP_METHOD_LABELS = frozenset(
 async def lifespan(app: FastAPI):
     configure_logging(config.service_name, config.log_level)
     setup_telemetry(config.service_name, db.engine)
+    for route in app.routes:
+        for method in getattr(route, "methods", ()):
+            for status_class in ("2xx", "3xx", "4xx", "5xx"):
+                metrics.http_requests.labels(
+                    method, getattr(route, "path", "unmatched"), status_class
+                )
     yield
     await db.close()
     await cache.close()
@@ -122,6 +128,7 @@ async def request_boundary(request: Request, call_next):
     supplied = request.headers.get("X-Request-ID", "")
     rid = supplied if re.fullmatch(r"[A-Za-z0-9_.:-]{1,64}", supplied) else str(uuid4())
     token = request_id_var.set(rid)
+    status_code = 500
     try:
         if int(request.headers.get("content-length", "0")) > 16384:
             response = error("INVALID_TRANSFER", "Request exceeds 16 KiB", 413)
@@ -132,14 +139,14 @@ async def request_boundary(request: Request, call_next):
         route = request.scope.get("route")
         path = getattr(route, "path", "unmatched")
         method = request.method if request.method in HTTP_METHOD_LABELS else "OTHER"
-        metrics.http_requests.labels(method, path, f"{response.status_code // 100}xx").inc()
-        metrics.http_duration.labels(method, path).observe(time.monotonic() - started)
+        status_code = response.status_code
         logging.getLogger(__name__).info(
             "http_request",
             extra={"event": "http_request", "trace_id": request.scope.get("pulsepay_trace_id", "")},
         )
         return response
     except TimeoutError:
+        status_code = 503
         return error(
             "DATABASE_UNAVAILABLE", "Request timed out; retry writes with the same key", 503
         )
@@ -149,6 +156,11 @@ async def request_boundary(request: Request, call_next):
         )
         return error("INTERNAL_ERROR", "Unexpected request failure", 500)
     finally:
+        route = request.scope.get("route")
+        path = getattr(route, "path", "unmatched")
+        method = request.method if request.method in HTTP_METHOD_LABELS else "OTHER"
+        metrics.http_requests.labels(method, path, f"{status_code // 100}xx").inc()
+        metrics.http_duration.labels(method, path).observe(time.monotonic() - started)
         request_id_var.reset(token)
 
 

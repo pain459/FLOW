@@ -1,0 +1,36 @@
+version: '1.0.0'
+title: PulsePay 005-db-network-delay
+description: >
+  Add an experiment-owned 150ms downstream toxic on the explicitly routed API PostgreSQL link. Healthy precondition: routing declared and proxy configuration snapshotted. Expected exposure: increased database/API latency and pool pressure. Strict recovery: only owned toxic removed, original proxy state preserved and independent PASS.
+tags: [pulsepay, 005-db-network-delay, postgres, toxic]
+configuration:
+  duration_seconds: 15
+  ttl_seconds: 120
+  delay_ms: 150
+  interface: eth0
+steady-state-hypothesis:
+  title: Healthy authority, event delivery and independently reconciled ledger
+  probes:
+    - type: probe
+      name: healthy-financial-and-operational-state
+      tolerance: true
+      provider: {type: python, module: chaos.adapters.health_probes, func: steady}
+method:
+  - type: action
+    name: apply-bounded-framework-fault
+    provider: {type: python, module: chaos.adapters.injection, func: apply}
+  - type: probe
+    name: observe-intentional-fault-exposure
+    tolerance: true
+    provider: {type: python, module: chaos.adapters.injection, func: observe}
+  - type: action
+    name: restore-original-environment
+    provider: {type: python, module: chaos.adapters.injection, func: restore}
+  - type: probe
+    name: independently-verify-post-restoration-recovery
+    tolerance: true
+    provider: {type: python, module: chaos.adapters.health_probes, func: recovery}
+rollbacks:
+  - type: action
+    name: repeat-safe-scoped-restoration
+    provider: {type: python, module: chaos.adapters.injection, func: restore}

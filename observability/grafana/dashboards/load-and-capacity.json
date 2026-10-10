@@ -14,6 +14,7 @@
   },
   "annotations": {
     "list": [
+      {"name":"Framework exposure and restore", "datasource":{"type":"prometheus","uid":"prometheus"}, "enable":true, "expr":"changes(pulsepay_experiment_status[15s]) > 0", "iconColor":"#E02F44", "step":"5s", "tagKeys":"scenario", "titleFormat":"Framework experiment transition"},
       {
         "name": "Run state",
         "datasource": {
@@ -1017,8 +1018,12 @@
       },
       "options": {
         "mode": "markdown",
-        "content": "Profiles use **closed-loop user simulation**. Configured users, selected logical operations/sec and completed HTTP requests/sec are separate quantities. Journey reads and retries increase HTTP requests without increasing unique transfers. Warmup is excluded by `phase=\"measured\"`.\n\nGenerator resource observations exist only during a run. No samples means **unknown**, not zero. A down `load` scrape while idle is expected. Check run manifests and verification age before interpreting an old plot. DB lock waits, slow queries and deadlocks are not exported by the current lab; pool wait is shown separately.\n\nBurst/step target changes and phase transitions are also preserved exactly in `workload-events.jsonl` and `events.jsonl`. Reports contain resource ceilings and configured weights."
+        "content": "Profiles use **closed-loop user simulation**. Configured users, selected logical operations/sec and completed HTTP requests/sec are separate quantities. Journey reads and retries increase HTTP requests without increasing unique transfers. Warmup is excluded by `phase=\"measured\"`.\n\nGenerator observations exist only during a run. No samples means **unknown**, not zero. A down load scrape while idle is expected. Database statistics come from the independent SELECT-only observer; pool waits and PostgreSQL lock waits are separate signals. Slow fingerprints count statements whose recorded maximum exceeds 250 ms, without exposing SQL text.\n\nFramework annotations and run evidence distinguish fault exposure, restoration and independently verified recovery. A completed toolkit journal is insufficient to establish correctness. Reports preserve exact workload and framework timelines, resource ceilings and underlying observations."
       }
-    }
+    },
+    {"id": 22, "title": "PostgreSQL lock waits and deadlocks", "type": "timeseries", "gridPos": {"x":0,"y":85,"w":12,"h":8}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"refId":"A","expr":"pulsepay_database_lock_waits{job=\"db-observer\"}","legendFormat":"Waiting connections"},{"refId":"B","expr":"rate(pulsepay_database_deadlocks{job=\"db-observer\"}[1m])","legendFormat":"Deadlocks/sec"}]},
+    {"id": 23, "title": "PostgreSQL slow statements and connections", "type": "timeseries", "gridPos": {"x":12,"y":85,"w":12,"h":8}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"refId":"A","expr":"pulsepay_database_long_running_queries{job=\"db-observer\"}","legendFormat":"Active queries over 250ms"},{"refId":"B","expr":"pulsepay_database_slow_statement_fingerprints{job=\"db-observer\"}","legendFormat":"Recorded slow fingerprints"},{"refId":"C","expr":"pulsepay_database_connection_usage_percent{job=\"db-observer\"}","legendFormat":"Connection usage percent"}]},
+    {"id": 24, "title": "Generator observed network bytes/sec", "type": "timeseries", "gridPos": {"x":0,"y":93,"w":12,"h":8}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"refId":"A","expr":"rate(load_generator_network_received_bytes[30s])","legendFormat":"Received bytes/sec"},{"refId":"B","expr":"rate(load_generator_network_sent_bytes[30s])","legendFormat":"Sent bytes/sec"}]},
+    {"id": 25, "title": "Database observation freshness", "type": "timeseries", "gridPos": {"x":12,"y":93,"w":12,"h":8}, "datasource": {"type":"prometheus","uid":"prometheus"}, "targets": [{"refId":"A","expr":"time()-pulsepay_database_observed_timestamp_seconds{job=\"db-observer\"}","legendFormat":"Seconds since successful observation"},{"refId":"B","expr":"pulsepay_service_up{job=\"db-observer\",service=\"db-observer\"}","legendFormat":"Observer healthy"}]}
   ]
 }
