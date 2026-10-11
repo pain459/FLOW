@@ -220,15 +220,3 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 /artifacts/*
-# Curated, sanitized qualification references; raw runs remain ignored.
-!/artifacts/baseline/
-/artifacts/baseline/*
-!/artifacts/baseline/workload-v1/
-!/artifacts/baseline/workload-v2/
-!/artifacts/baseline/workload-v3/
-!/artifacts/baseline/framework-v1/
-!/artifacts/baseline/workbench-v1/
-!/artifacts/baseline/gap-closure-v1/
-!/artifacts/baseline/gap-closure-v1/**/*.log
-!/artifacts/baseline/keepalive-v1/
-!/artifacts/baseline/keepalive-v1/**/*.log

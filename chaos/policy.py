@@ -10,6 +10,11 @@ STRESS_IMAGE = "ghcr.io/alexei-led/stress-ng:0.20.01@sha256:6f5de54261666970ce98
 TOXIPROXY_IMAGE = "ghcr.io/shopify/toxiproxy:2.12.0@sha256:9378ed52a28bc50edc1350f936f518f31fa95f0d15917d6eb40b8e376d1a214e"
 ROLES = {"api", "event-worker", "redis", "postgres"}
 PROJECTS = {"chaosloop", "chaosloop-chaos-test"}
+MIN_EXPOSURE_SECONDS = 3
+MAX_EXPOSURE_SECONDS = 300
+RESTORATION_ALLOWANCE_SECONDS = 120
+MAX_EXPERIMENT_TTL_SECONDS = MAX_EXPOSURE_SECONDS + RESTORATION_ALLOWANCE_SECONDS
+DRY_RUN_DURATION_SECONDS = 3
 # An authorization allowlist, not a second experiment format. Native YAML holds
 # the actual hypothesis, method, rollback and parameters.
 SCENARIOS = {
@@ -77,7 +82,12 @@ def allowed_target(info: dict, project: str) -> bool:
     )
 
 
-def bound_configuration(scenario: str, values: dict, allow_database=False) -> dict:
+def bound_configuration(
+    scenario: str,
+    values: dict,
+    allow_database=False,
+    duration_seconds: int | None = None,
+) -> dict:
     if scenario not in SCENARIOS:
         raise ValueError("Select an allowlisted committed scenario")
     if scenario == "008-postgres-outage" and not allow_database:
@@ -91,10 +101,25 @@ def bound_configuration(scenario: str, values: dict, allow_database=False) -> di
     if set(values) - set(result):
         raise ValueError("Unsupported fault parameter")
     result.update(values)
-    if type(result["duration_seconds"]) is not int or not 3 <= result["duration_seconds"] <= 40:
-        raise ValueError("Fault duration outside 3..40 seconds")
-    if type(result["ttl_seconds"]) is not int or not 60 <= result["ttl_seconds"] <= 180:
-        raise ValueError("Experiment TTL outside 60..180 seconds")
+    if duration_seconds is not None:
+        if type(duration_seconds) is not int:
+            raise ValueError("Fault duration must be an integer number of seconds")
+        if type(result["ttl_seconds"]) is not int:
+            raise ValueError("Experiment TTL must be an integer number of seconds")
+        result["duration_seconds"] = duration_seconds
+        result["ttl_seconds"] = max(
+            result["ttl_seconds"], duration_seconds + RESTORATION_ALLOWANCE_SECONDS
+        )
+    if type(result["duration_seconds"]) is not int or not (
+        MIN_EXPOSURE_SECONDS <= result["duration_seconds"] <= MAX_EXPOSURE_SECONDS
+    ):
+        raise ValueError(
+            f"Fault duration outside {MIN_EXPOSURE_SECONDS}..{MAX_EXPOSURE_SECONDS} seconds"
+        )
+    if type(result["ttl_seconds"]) is not int or not (
+        60 <= result["ttl_seconds"] <= MAX_EXPERIMENT_TTL_SECONDS
+    ):
+        raise ValueError(f"Experiment TTL outside 60..{MAX_EXPERIMENT_TTL_SECONDS} seconds")
     if result["duration_seconds"] + 30 >= result["ttl_seconds"]:
         raise ValueError("Fault duration must leave restoration time")
     if result["delay_ms"] != 150:
@@ -107,7 +132,9 @@ def bound_configuration(scenario: str, values: dict, allow_database=False) -> di
 def pumba_command(lease: dict, project: str, dry=False) -> list[str]:
     role, kind, _ = SCENARIOS[lease["scenario"]]
     name = lease["target"]["Name"].lstrip("/")
-    seconds = lease["configuration"]["duration_seconds"]
+    # Pumba waits for --duration even in dry-run mode. Target verification must
+    # not consume a long exposure before the independent watchdog is armed.
+    seconds = DRY_RUN_DURATION_SECONDS if dry else lease["configuration"]["duration_seconds"]
     command = [
         "--host",
         "tcp://docker-gate:2375",

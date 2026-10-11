@@ -185,3 +185,32 @@ User run `chaos-20261011T065742Z-7a297eb3` correctly refused injection with LOAD
 Clients now retire sockets after four seconds idle, preserve shorter-period reuse, and retain real reset/timeout categories and controlled error classes. Existing transfer identities, retries, resource limits and financial write behavior are unchanged. Real-socket and classification regressions failed before the fix; full workload **66 PASS**, application **56 PASS / two default live checks skipped**, framework **71 PASS**, Ruff/format and mypy **PASS**. Only idle Locust was recreated; no new deployment or fault was started.
 
 The fresh 100-user session `load-ui-4745f8d2f7cf430c8c973397e04518a2` passed its bounded functional check without HTTP errors, maintained LOAD_READY for another 30 seconds and remained available to the operator under its 630-second lifetime cap. Independent financial verification PASS. CLI Redis-outage preflight `chaos-20261011T075814Z-f3e81c58` and the actual Workbench preflight `chaos-20261011T080037Z-43143f50` both **PASS**, explicitly `injected=false`. Original failed reports retain their verdicts, and the mandatory healthy-window gate is intact. See [keepalive-v1 evidence](../artifacts/baseline/keepalive-v1/README.md). This new-image functional check does not relabel earlier frozen capacity measurements or establish a new nominal/soak qualification.
+
+## Manual exposure selection — 2026-10-11
+
+Workbench now accepts **3–300 whole seconds** per scenario. Its confirmation and job retain the chosen value, as do native YAML, metadata/hash and reports. Make `DURATION` and native CLI `--duration-seconds` use the same policy. Presets remain 8/10/15/20 seconds. Explicit overrides derive a TTL of at least exposure plus **120 seconds**, up to **420 seconds**; browser execution budgets cover that TTL and reporting. Frozen fault deadlines cannot renew, missing heartbeat still restores after the existing 12-second threshold, and all target/proxy/database/resource restrictions remain in effect. Pumba's no-mutation targeting check now lasts three seconds so preflight does not consume a long selected fault's lease.
+
+Executed Docker checks:
+
+| Check | Actual result |
+|---|---|
+| Initial duration regressions before implementation | 20 failed / 8 passed |
+| Dry-run timer regression before correction | 3 failed / 2 passed |
+| Framework/native/authorization/watchdog/Workbench suite | **105 passed**, 19.39 s |
+| Workload regression suite | **66 passed**, 5.75 s |
+| Application regression suite | **56 passed / 2 default live checks skipped**, 26.14 s |
+| Chromium duration payload/confirmation, desktop/mobile controls, idle rejection | **3 passed**, 4.41 s |
+| Actual browser preflight → 60-second worker pause → recovery | **1 passed**, 166.29 s |
+| Native Docker validation at 300 seconds | **PASS**, selected 300 / TTL 420 |
+| Native Docker validation at 301 seconds | Rejected, exit **2**, no injection |
+| `make chaos-validate SCENARIO=002-worker-pause DURATION=60` | **PASS**, selected 60 / TTL 180 |
+| Ruff check/format, mypy | **PASS**, 136 formatted files / 88 typed runtime files |
+| Main/chaos Compose config | **PASS** |
+
+Live run `chaos-20261011T083533Z-f33045fd` **PASS**: Pumba recorded actual pause at **08:35:40Z** and unpause at **08:36:40Z**, with selected exposure **60 seconds** and TTL **180 seconds**. Observed projection backlog peaked at **447**; recovery and independent pre/post integrity PASS, original worker restored, no missing required observations, and the same workload `load-ui-9aaf5ca5fe264f54b5aa9afe87fda442` remained RUNNING/productive after restoration. The test then explicitly stopped only its own load: **3,219 completed HTTP requests, zero failed**. These are functional observations, not capacity measurements.
+
+The browser screenshot diagnostic initially failed: full-page capture/resize reproduced a Chromium renderer crash without cgroup OOM events. Bounded panel screenshots and separate desktop/mobile pages preserve all control/history/cancellation/recovery assertions and actual images within the unchanged 1 GiB browser-test limit. Docker archive copying cannot see Workbench's tmpfs export, although the file exists; exporting through the existing evidence volume succeeded without permission changes. Initial failures remain in the new [exposure evidence bundle](../artifacts/baseline/exposure-v1/README.md).
+
+Independent final snapshot at **08:42:10Z**, check `58505ff4-8ca0-4b0f-9797-bd7f63e04f4d`: **PASS**, 200 accounts, 94,771 transfers, zero violations, balances/provisioning **20,000,000 minor units**, pending outbox and overdue projections **0**. Gateway/watchdog healthy, no active lease, Locust stopped/zero users. All four earlier framework/workbench/gap-closure/keepalive checksum seals match. No new branch or deployment project was created.
+
+The five-minute ceiling is configuration/authorization-tested; the new live fault was sixty seconds. Longer availability/database interruptions can still stop load through its independent safeguards. Existing CPU containment, database opt-in, proxy routing and untested-platform limitations retain their earlier verdicts.

@@ -1,5 +1,5 @@
 const $ = (selector) => document.querySelector(selector);
-const model = { scenarios: [], selected: null, token: null, status: null, job: null, busy: false };
+const model = { scenarios: [], selected: null, token: null, status: null, job: null, busy: false, confirmation: null };
 function element(tag, text, className) { const node = document.createElement(tag); node.textContent = text ?? ''; if (className) node.className = className; return node; }
 function tone(value) { return ['PASS','HEALTHY','COMPLETED','RESTORED'].includes(value) ? 'good' : ['FAILED','RESILIENCE_FAILURE','INVALID','FAIL','UNHEALTHY'].includes(value) ? 'bad' : 'warn'; }
 function badge(value, label) { return element('span', label ?? value ?? 'UNKNOWN', `badge ${tone(value)}`); }
@@ -17,16 +17,26 @@ function select(scenario) {
   $('#scenario-title').textContent = scenario.id.replace(/^[0-9]+-/, '').replaceAll('-', ' ');
   $('#scenario-description').textContent = scenario.description;
   $('#scenario-facts').replaceChildren();
-  for (const [name, value] of [['Target service', scenario.target], ['Injector', scenario.injector], ['Exposure', `${scenario.duration_seconds} seconds`], ['Definition', 'Native Chaos Toolkit YAML']]) { const item = element('div'); item.append(element('dt', name), element('dd', value)); $('#scenario-facts').append(item); }
+  for (const [name, value] of [['Target service', scenario.target], ['Injector', scenario.injector], ['Default exposure', `${scenario.duration_seconds} seconds`], ['Definition', 'Native Chaos Toolkit YAML']]) { const item = element('div'); item.append(element('dt', name), element('dd', value)); $('#scenario-facts').append(item); }
+  $('#duration-seconds').min = scenario.min_duration_seconds;
+  $('#duration-seconds').max = scenario.max_duration_seconds;
+  $('#duration-seconds').value = scenario.duration_seconds;
+  $('#exposure-hint').textContent = `Choose ${scenario.min_duration_seconds}–${scenario.max_duration_seconds} seconds. The independent watchdog deadline adjusts automatically. Longer outages can trigger the workload safety stop.`;
   $('#scenario-note').textContent = !scenario.enabled ? 'Unavailable: kernel CPU containment has not been independently verified.' : scenario.database_opt_in ? 'Database interruption needs explicit deployment opt-in. A previous run reached the load safety ceiling.' : scenario.requires_proxy ? 'Requires explicit Toxiproxy routing. Preflight checks the actual dependency configuration.' : 'Preflight requires fresh telemetry, stable write traffic and an independent PASS. The exact container target appears in the action output.';
   controls();
+}
+function exposure() {
+  const input = $('#duration-seconds');
+  return input.checkValidity() && Number.isInteger(input.valueAsNumber) ? input.valueAsNumber : null;
 }
 function controls() {
   const ready = model.status?.controls_ready && !model.busy;
   const active = model.status?.active_experiment;
   const working = model.job?.status === 'RUNNING' || model.status?.browser_job?.status === 'RUNNING';
-  $('#preflight').disabled = !ready || working || active || !model.selected?.enabled;
-  $('#run').disabled = !ready || working || active || !model.selected?.enabled || !model.status?.workload?.ready;
+  $('#duration-seconds').disabled = model.busy || working || Boolean(active) || !model.selected?.enabled;
+  const validExposure = exposure() !== null;
+  $('#preflight').disabled = !ready || working || active || !model.selected?.enabled || !validExposure;
+  $('#run').disabled = !ready || working || active || !model.selected?.enabled || !model.status?.workload?.ready || !validExposure;
   $('#abort').disabled = !model.status?.controls_ready || (!active && !working);
   $('#restore').disabled = !ready || working;
 }
@@ -70,10 +80,11 @@ async function refresh() {
     controls();
   } catch (error) { notice(`Control state unavailable: ${error.message}`); model.status = null; controls(); }
 }
-$('#preflight').addEventListener('click', () => action('preflight', { scenario: model.selected.id }));
-$('#run').addEventListener('click', () => { $('#confirmation-text').textContent = `${model.selected.id}: ${model.selected.description} Exposure: ${model.selected.duration_seconds} seconds.`; $('#confirmation').showModal(); });
-$('#confirm-form').addEventListener('submit', event => { event.preventDefault(); $('#confirmation').close(); action('run', { scenario: model.selected.id, confirm: model.selected.id }); });
-$('#cancel-confirm').addEventListener('click', () => $('#confirmation').close());
+$('#duration-seconds').addEventListener('input', controls);
+$('#preflight').addEventListener('click', () => action('preflight', { scenario: model.selected.id, duration_seconds: exposure() }));
+$('#run').addEventListener('click', () => { model.confirmation = { scenario: model.selected.id, duration_seconds: exposure() }; $('#confirmation-text').textContent = `${model.selected.id}: ${model.selected.description} Exposure: ${model.confirmation.duration_seconds} seconds.`; $('#confirmation').showModal(); });
+$('#confirm-form').addEventListener('submit', event => { event.preventDefault(); const selected = model.confirmation; if (!selected) return; model.confirmation = null; $('#confirmation').close(); action('run', { ...selected, confirm: selected.scenario }); });
+$('#cancel-confirm').addEventListener('click', () => { model.confirmation = null; $('#confirmation').close(); });
 $('#abort').addEventListener('click', () => action('abort'));
 $('#restore').addEventListener('click', () => action('restore'));
 $('#refresh').addEventListener('click', async () => { await refresh(); await history().catch(error => notice(error.message)); });

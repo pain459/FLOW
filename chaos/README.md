@@ -2,6 +2,8 @@
 
 Chaos Toolkit sequences the native YAML in `experiments/`; pinned Pumba jobs inject container, network and resource faults. Optional Toxiproxy changes only explicitly routed clients. There is no custom experiment engine or autonomous decision system.
 
+Set **Exposure time (seconds)** in Workbench to an integer from **3 to 300**, or use `make chaos-run SCENARIO=002-worker-pause DURATION=60`. Use the same `DURATION` for `chaos-validate` and `chaos-preflight`. Scenario presets remain the defaults. The selected value is frozen in native YAML/evidence and watchdog deadlines extend automatically within a fixed ceiling. [Operations](../docs/phase3-operations.md) explains recovery allowance and workload safety behavior.
+
 `make up` starts PulsePay, idle Locust at localhost:8089 and **Chaos Workbench at localhost:8090**, with the reviewed gateway and independent watchdog in the same stack. No traffic or fault starts automatically. Workbench links from PulsePay and offers scenario selection, native preflight, confirmed Run, Abort/restore, history and evidence. Use the existing Load & Capacity Grafana dashboard at localhost:3000. Keep measured HTTP load running before, during and after experiments.
 
 ```sh
@@ -18,7 +20,7 @@ make chaos-abort
 make chaos-restore
 ```
 
-`chaos-validate` validates without starting the authorization/watchdog services. First build with `docker compose -f compose.yaml -f compose.chaos.yaml build chaos-runner`. Subsequent commands can use `CHAOS_IMAGE_PREBUILT=true`. `chaos-preflight` creates only bounded read-only/dry-run helpers, including a `tc` capability probe in its own isolated loopback namespace. It never pauses an application target. Pumba's dry-run still waits its configured duration.
+`chaos-validate` validates without starting the authorization/watchdog services. First build with `docker compose -f compose.yaml -f compose.chaos.yaml build chaos-runner`. Subsequent commands can use `CHAOS_IMAGE_PREBUILT=true`. `chaos-preflight` creates only bounded read-only/dry-run helpers, including a `tc` capability probe in its own isolated loopback namespace. It never pauses an application target. Pumba's dry-run uses a fixed three-second targeting check.
 
 Database interruption requires explicit `ALLOW_DATABASE_CHAOS=true` for both the operator invocation and gateway configuration. The gateway independently enforces this; a runner cannot grant itself permission. Proxy scenarios require a deliberate opt-in routing overlay, documented in [operations](../docs/phase3-operations.md).
 

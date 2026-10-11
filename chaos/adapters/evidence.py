@@ -211,6 +211,7 @@ def finish(lease, restore, framework_exit_code=None):
         "schema_version": 1,
         "run_id": lease["run_id"],
         "scenario": lease["scenario"],
+        "exposure_seconds": lease.get("configuration", {}).get("duration_seconds"),
         "result": result,
         "started_at": preclock.get("started_at"),
         "finished_at": state.now(),

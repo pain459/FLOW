@@ -20,7 +20,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
 from chaos import state
-from chaos.policy import SCENARIOS
+from chaos.policy import SCENARIOS, MIN_EXPOSURE_SECONDS, MAX_EXPOSURE_SECONDS, bound_configuration
 from chaos.preflight import workload_status
 
 UI = Path(__file__).parent / "ui"
@@ -60,6 +60,7 @@ class Action(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
     scenario: str | None = Field(None, max_length=80)
     confirm: str | None = Field(None, max_length=80)
+    duration_seconds: int | None = Field(None, ge=MIN_EXPOSURE_SECONDS, le=MAX_EXPOSURE_SECONDS)
 
 
 class Jobs:
@@ -71,7 +72,7 @@ class Jobs:
         self.pending = {}
         self.stopping = threading.Event()
 
-    def start(self, operation, scenario):
+    def start(self, operation, scenario, duration_seconds=None):
         with self.lock:
             if self.stopping.is_set() or (
                 operation == "abort" and "abort" in self.pending.values()
@@ -97,6 +98,15 @@ class Jobs:
                 "status": "RUNNING",
                 "started_at": state.now(),
             }
+            if scenario:
+                config = bound_configuration(
+                    scenario, {}, allow_database=True, duration_seconds=duration_seconds
+                )
+                record.update(
+                    duration_seconds=config["duration_seconds"],
+                    ttl_seconds=config["ttl_seconds"],
+                    duration_override=duration_seconds is not None,
+                )
             state.write(state.EVIDENCE / "workbench" / (identifier + ".json"), record)
             if operation != "abort":
                 self.current = record
@@ -111,12 +121,18 @@ class Jobs:
             # Terminated native jobs need existing verified restore/report/release.
             operations.append("restore")
         child = None
-        deadline, tail = time.monotonic() + 240, b""
+        deadline = time.monotonic() + max(240, record.get("ttl_seconds", 120) + 90)
+        tail = b""
         try:
             for operation in operations:
                 command = [sys.executable, "-m", "chaos.cli", operation]
                 if record["scenario"]:
                     command.append(record["scenario"])
+                    if (
+                        record.get("duration_override", True)
+                        and record.get("duration_seconds") is not None
+                    ):
+                        command.extend(["--duration-seconds", str(record["duration_seconds"])])
                 with self.lock:
                     if record.get("cancel_requested") or self.stopping.is_set():
                         raise RuntimeError("Browser action cancelled before native execution")
@@ -284,6 +300,8 @@ def create_app():
                     "target": role,
                     "injector": kind,
                     "duration_seconds": seconds,
+                    "min_duration_seconds": MIN_EXPOSURE_SECONDS,
+                    "max_duration_seconds": MAX_EXPOSURE_SECONDS,
                     "description": DESCRIPTIONS[name],
                     "enabled": kind != "stress",
                     "requires_proxy": kind in {"toxic", "partition"},
@@ -336,9 +354,9 @@ def create_app():
                 raise HTTPException(
                     409, "Database interruption requires explicit deployment opt-in"
                 )
-        elif value.scenario or value.confirm:
+        elif value.scenario or value.confirm or value.duration_seconds is not None:
             raise HTTPException(422, "Abort/restore accept no scenario or arbitrary arguments")
-        return jobs.start(operation, value.scenario)
+        return jobs.start(operation, value.scenario, value.duration_seconds)
 
     @app.get("/api/jobs/{identifier}")
     def job(identifier: str):

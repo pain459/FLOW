@@ -6,6 +6,22 @@ Use the synthetic `chaosloop` Docker project only. `make up` runs PulsePay, idle
 
 Start Locust from its UI, leave its PulsePay API target unchanged, and let the configured warmup finish. Preflight then requires at least 100 actual requests, 20 confirmed writes and a productive, error-free measured window of at least 15 seconds. Select **worker pause** in Workbench, click **Check preflight** and inspect the exact resolved target in the output. Click **Run experiment** and confirm the selected scenario. Run repeats native preflight before arming the independent watchdog. **Abort & restore** remains available during an active run; **Verify restoration** invokes the existing restoration/independent verification command. History shows actual failure/unknown verdicts, journals, timeline and JSON evidence.
 
+Set **Exposure time (seconds)** before preflight and Run. The field accepts whole seconds from **3 through 300**; choosing another scenario restores its preset. Confirmation shows the selected exposure, and the job, effective native YAML, metadata and final report retain it. Omit the CLI override to use the committed scenario default.
+
+```sh
+# Same selection for native validation, preflight and execution:
+CHAOS_IMAGE_PREBUILT=true make chaos-validate SCENARIO=002-worker-pause DURATION=60
+CHAOS_IMAGE_PREBUILT=true make chaos-preflight SCENARIO=002-worker-pause DURATION=60
+CHAOS_IMAGE_PREBUILT=true make chaos-run SCENARIO=002-worker-pause DURATION=60
+# Direct Docker entrypoint:
+docker compose -f compose.yaml -f compose.chaos.yaml --profile chaos \
+  run --rm --no-deps -T chaos-runner run 002-worker-pause --duration-seconds 60
+```
+
+For an explicit exposure, watchdog TTL is at least exposure plus **120 seconds** (maximum **420 seconds**). A frozen fault deadline allows at most exposure plus 15 seconds for injector startup/cleanup and cannot be extended by another injection. Heartbeat loss, Abort and expiry still revoke authority and restore independently. The browser subprocess budget grows with the bounded TTL so longer runs can finish recovery and reporting. Pumba targeting dry runs use three seconds with `--dry-run`, irrespective of selected fault duration, to avoid consuming the lease before injection. CPU/memory limits do not change.
+
+Plan the Locust session to cover warmup, preflight, exposure and recovery. Longer API/database outages can reach the existing workload error/UNKNOWN safety ceilings; extending exposure does not disable those safeguards or promise recovery under sustained load. Database interruption still needs explicit deployment opt-in, proxy faults still need deliberate routing, and unsupported CPU pressure stays disabled. The full three-hundred-second range is configuration-tested; actual fault demonstrations and their durations are recorded in acceptance.
+
 The workload prerequisite is visible before injection. Run stays disabled while Locust is idle, warming up, stale, or lacking productive measured reads/writes. Preflight remains available for diagnostics. `LOAD_NOT_ACTIVE` includes the Locust link and a next step; native INVALID summaries include safe reason/remediation rather than just an exception class. Old history reads the preserved failure artifact without rewriting it.
 
 Manual Locust evidence is measured and suitable for the existing experiment gates, but its performance report remains `INCOMPLETE` with `MANUAL_UI_SESSION_NOT_A_QUALIFIED_BENCHMARK`. Use versioned headless commands for capacity qualification. Controls accept only the eight reviewed scenario IDs, never uploaded YAML, arbitrary flags, targets or commands. CPU is shown as unavailable; database interruption needs `ALLOW_DATABASE_CHAOS=true` for both Workbench and gateway. Proxy scenarios refuse direct dependency routing.
@@ -37,9 +53,9 @@ CHAOS_IMAGE_PREBUILT=true make chaos-run SCENARIO=002-worker-pause
 make chaos-report
 ```
 
-The named scenario must be a reviewed native Chaos Toolkit YAML. The operator cannot supply arbitrary container IDs, regexes, URLs, images, shell code or Pumba flags. Parameters are bounded by the authorization policy: 3–40 seconds nominal exposure, 60–180 seconds total lease, fixed validated 150 ms network latency, one target. The independent cleanup deadline is nominal duration plus 15 seconds from first injection (at most 55 seconds), capped by TTL; repeated calls cannot extend it. The extra time permits framework observation and cleanup, and exceeding it is an ABORTED safety intervention. TTL includes preflight. Actual interfaces and full container IDs are discovered rather than guessed. Pumba dry-run waits the configured duration but does not mutate application containers.
+The named scenario must be a reviewed native Chaos Toolkit YAML. The operator cannot supply arbitrary container IDs, regexes, URLs, images, shell code or Pumba flags. Parameters are bounded by the authorization policy: 3–300 seconds exposure, 60–420 seconds total lease, fixed validated 150 ms network latency, one target. Explicit exposure overrides reserve at least 120 additional lease seconds. The independent cleanup deadline is selected duration plus 15 seconds from first injection (at most 315 seconds), capped by TTL; repeated calls cannot extend it. The extra time permits framework observation and cleanup, and exceeding it is an ABORTED safety intervention. TTL includes preflight. Actual interfaces and full container IDs are discovered rather than guessed. Pumba dry-run checks the same target for three seconds without mutating application containers.
 
-| Scenario | Nominal exposure | Injector | Restore requirement |
+| Scenario | Default exposure | Injector | Restore requirement |
 |---|---:|---|---|
 | `001-api-pause` | 10 s | Pumba pause | Original API unpaused, readiness and same active workload |
 | `002-worker-pause` | 20 s | Pumba pause | Original worker unpaused, projection backlog catches up |

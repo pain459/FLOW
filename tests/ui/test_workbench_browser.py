@@ -45,10 +45,93 @@ async def test_workbench_catalog_history_and_disabled_scenario():
         await page.locator("#history-body button").first.click()
         await expect(page.locator("#report-panel")).to_be_visible()
         await expect(page.locator("#report-artifacts a").first).to_be_visible()
-        await page.screenshot(path=str(evidence / "workbench-overview.png"), full_page=True)
-        await page.set_viewport_size({"width": 390, "height": 844})
-        await page.screenshot(path=str(evidence / "workbench-mobile.png"), full_page=True)
+        # Capture the bounded controls region. Full-page history capture can
+        # crash this Docker Desktop Chromium renderer without an OOM event.
+        await page.locator(".workspace-grid").screenshot(
+            path=str(evidence / "workbench-overview.png")
+        )
+        await page.close()
+        page = await browser.new_page(viewport={"width": 390, "height": 844})
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        await page.goto("http://chaos-workbench:8090/")
+        await expect(page.locator(".scenario")).to_have_count(8)
+        await page.get_by_label("Exposure time (seconds)").fill("60")
+        await expect(page.get_by_label("Exposure time (seconds)")).to_have_value("60")
+        await page.locator('[data-scenario="006-cpu-pressure"]').click()
+        await expect(page.locator("#run")).to_be_disabled()
+        await page.locator("#history-body button").first.click()
+        await expect(page.locator("#report-panel")).to_be_visible()
+        await page.locator(".workspace-grid").screenshot(
+            path=str(evidence / "workbench-mobile.png")
+        )
         assert not errors, errors
+        await browser.close()
+
+
+async def test_manual_exposure_validation_confirmation_and_native_action_payload():
+    """Browser-only control contract: intercept actions so this check injects no fault."""
+    from playwright.async_api import async_playwright, expect
+
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch()
+        page = await browser.new_page()
+        requests = []
+
+        async def status(route):
+            await route.fulfill(
+                json={
+                    "controls": {"gateway": "HEALTHY", "watchdog": "HEALTHY"},
+                    "controls_ready": True,
+                    "active_experiment": None,
+                    "browser_job": None,
+                    "workload": {"ready": True, "message": "Browser contract fixture"},
+                    "observed_at": "2026-10-11T08:00:00Z",
+                }
+            )
+
+        async def action(route):
+            requests.append((route.request.url.rsplit("/", 1)[1], route.request.post_data_json))
+            await route.fulfill(
+                status=202,
+                json={
+                    "job_id": "job-browser-contract",
+                    "operation": requests[-1][0],
+                    "status": "COMPLETED",
+                    "output": "No injection: intercepted browser test",
+                },
+            )
+
+        await page.route("**/api/status", status)
+        await page.route("**/api/actions/*", action)
+        await page.goto("http://chaos-workbench:8090/")
+        exposure = page.get_by_label("Exposure time (seconds)")
+        await expect(exposure).to_have_value("20")
+        await expect(exposure).to_have_attribute("min", "3")
+        await expect(exposure).to_have_attribute("max", "300")
+        for invalid in ["", "2", "301", "3.5"]:
+            await exposure.fill(invalid)
+            await expect(page.locator("#preflight")).to_be_disabled()
+            await expect(page.locator("#run")).to_be_disabled()
+        await exposure.fill("60")
+        await page.locator("#preflight").click()
+        await expect(page.locator("#job-status")).to_have_text("COMPLETED")
+        await page.locator("#run").click()
+        await expect(page.locator("#confirmation-text")).to_contain_text("60 seconds")
+        await page.locator("#confirm-form button[type=submit]").click()
+        await expect(page.locator("#job-status")).to_have_text("COMPLETED")
+        assert requests == [
+            ("preflight", {"scenario": "002-worker-pause", "duration_seconds": 60}),
+            (
+                "run",
+                {
+                    "scenario": "002-worker-pause",
+                    "confirm": "002-worker-pause",
+                    "duration_seconds": 60,
+                },
+            ),
+        ]
+        await page.locator('[data-scenario="001-api-pause"]').click()
+        await expect(exposure).to_have_value("10")
         await browser.close()
 
 
@@ -109,7 +192,9 @@ async def test_browser_preserves_existing_load_during_worker_fault():
             path = Path(os.getenv("UI_EVIDENCE_DIRECTORY", "/evidence"))
             path.mkdir(exist_ok=True)
             (path / "gap-worker-run.json").write_text(json.dumps(report, indent=2))
-            await page.screenshot(path=str(path / "gap-worker-recovery.png"), full_page=True)
+            await page.locator(".execution-panel").screenshot(
+                path=str(path / "gap-worker-recovery.png")
+            )
             await browser.close()
 
 
@@ -140,6 +225,8 @@ async def test_browser_preflight_run_worker_pause_and_verified_recovery():
                 started = True
                 await page.goto("http://chaos-workbench:8090/")
                 await expect(page.locator("#scenario-title")).to_have_text("worker pause")
+                exposure_seconds = int(os.getenv("WORKBENCH_EXPOSURE_SECONDS", "20"))
+                await page.get_by_label("Exposure time (seconds)").fill(str(exposure_seconds))
 
                 async def productive():
                     response = await client.get("http://locust:9101/metrics")
@@ -163,9 +250,14 @@ async def test_browser_preflight_run_worker_pause_and_verified_recovery():
                 await expect(page.locator("#job-output")).to_contain_text("PREFLIGHT_PASS")
                 await page.locator("#run").click()
                 await expect(page.locator("#confirmation")).to_be_visible()
+                await expect(page.locator("#confirmation-text")).to_contain_text(
+                    f"{exposure_seconds} seconds"
+                )
                 await page.locator("#confirm-form button[type=submit]").click()
                 await expect(page.locator("#job-status")).to_have_text("RUNNING")
-                await page.screenshot(path=str(evidence / "workbench-running.png"), full_page=True)
+                await page.locator(".execution-panel").screenshot(
+                    path=str(evidence / "workbench-running.png")
+                )
                 await expect(page.locator("#job-status")).to_have_text("COMPLETED", timeout=210000)
                 await expect(page.locator("#job-output")).to_contain_text('"result": "PASS"')
                 await page.locator("#refresh").click()
@@ -174,11 +266,16 @@ async def test_browser_preflight_run_worker_pause_and_verified_recovery():
                 await expect(page.locator("#report-verdicts")).to_contain_text(
                     "Restoration: RESTORED"
                 )
-                await page.screenshot(path=str(evidence / "workbench-recovery.png"), full_page=True)
+                await page.locator("#report-panel").screenshot(
+                    path=str(evidence / "workbench-recovery.png")
+                )
                 run_id = await page.locator("#report-title").inner_text()
                 report = (await client.get("http://chaos-workbench:8090/api/runs/" + run_id)).json()
                 assert report["summary"]["integrity"]["after"] == "PASS"
                 assert report["summary"]["load"]["after_state"] == "RUNNING"
+                assert report["metadata"]["configuration"]["duration_seconds"] == exposure_seconds
+                assert report["metadata"]["configuration"]["ttl_seconds"] >= exposure_seconds + 120
+                assert report["summary"]["exposure_seconds"] == exposure_seconds
                 (evidence / "workbench-run.json").write_text(json.dumps(report, indent=2))
                 assert not errors, errors
             finally:
@@ -244,7 +341,9 @@ async def test_browser_abort_active_fault_finalizes_and_releases():
                 assert report["summary"]["restoration"] == "RESTORED"
                 assert report["summary"]["integrity"]["after"] == "PASS"
                 (evidence / "workbench-abort.json").write_text(json.dumps(report, indent=2))
-                await page.screenshot(path=str(evidence / "workbench-abort.png"), full_page=True)
+                await page.locator("#report-panel").screenshot(
+                    path=str(evidence / "workbench-abort.png")
+                )
                 await expect(page.locator("#run")).to_be_enabled()
             finally:
                 (await client.get("http://locust:8089/stop")).raise_for_status()

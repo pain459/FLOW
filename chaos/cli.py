@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from uuid import uuid4
 from pathlib import Path
 from chaos import state
-from chaos.policy import SCENARIOS
+from chaos.policy import SCENARIOS, MIN_EXPOSURE_SECONDS, MAX_EXPOSURE_SECONDS
 from chaos.preflight import validate, preflight
 from chaos.adapters.evidence import finish, recovery_acknowledgement
 from chaos.restoration import restore
@@ -23,7 +23,7 @@ from chaos.docker_client import Docker
 from chaos.diagnostics import failure_details
 
 
-def execution(scenario, inject=False):
+def execution(scenario, inject=False, duration_seconds=None):
     with state.ExperimentLock():
         run_id = (
             "chaos-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid4().hex[:8]
@@ -34,9 +34,11 @@ def execution(scenario, inject=False):
         lease = {"run_id": run_id, "scenario": scenario, "armed": False}
         done, child, framework_code = threading.Event(), None, None
         try:
-            source, experiment, config = validate(scenario, require_opt_in=inject)
+            source, experiment, config = validate(
+                scenario, require_opt_in=inject, duration_seconds=duration_seconds
+            )
             lease.update(configuration=config, expires_epoch=time.time() + config["ttl_seconds"])
-            (path / "experiment.yaml").write_text(source.read_text())
+            (path / "experiment.yaml").write_text(yaml.safe_dump(experiment, sort_keys=False))
             git_sha = None
             head = Path("/revision/HEAD")
             if head.exists():
@@ -75,6 +77,7 @@ def execution(scenario, inject=False):
                         "target_id": lease["target"]["Id"],
                         "target_name": lease["target"]["Name"],
                         "exposure_seconds": config["duration_seconds"],
+                        "ttl_seconds": config["ttl_seconds"],
                     }
                 ),
                 flush=True,
@@ -87,6 +90,8 @@ def execution(scenario, inject=False):
                         "result": "VALIDATED_NO_INJECTION",
                         "target_id": lease["target"]["Id"],
                         "preflight": "PASS",
+                        "exposure_seconds": config["duration_seconds"],
+                        "ttl_seconds": config["ttl_seconds"],
                     },
                 )
                 Docker().release()
@@ -99,6 +104,8 @@ def execution(scenario, inject=False):
                             "target_id": lease["target"]["Id"],
                             "target_name": lease["target"]["Name"],
                             "injected": False,
+                            "exposure_seconds": config["duration_seconds"],
+                            "ttl_seconds": config["ttl_seconds"],
                         }
                     )
                 )
@@ -186,6 +193,7 @@ def execution(scenario, inject=False):
                     for key in (
                         "run_id",
                         "scenario",
+                        "exposure_seconds",
                         "result",
                         "integrity",
                         "restoration",
@@ -213,7 +221,17 @@ def main():
         ),
     )
     parser.add_argument("scenario", nargs="?")
+    parser.add_argument(
+        "--duration-seconds",
+        type=int,
+        help=f"Fault exposure override ({MIN_EXPOSURE_SECONDS}..{MAX_EXPOSURE_SECONDS} seconds); watchdog TTL is derived automatically",
+    )
     args = parser.parse_args()
+    if args.duration_seconds is not None and (
+        args.command not in {"validate", "preflight", "run"}
+        or not MIN_EXPOSURE_SECONDS <= args.duration_seconds <= MAX_EXPOSURE_SECONDS
+    ):
+        parser.error("--duration-seconds requires validate/preflight/run and a value in 3..300")
     if args.command == "list":
         try:
             capabilities = Docker().call("GET", "/lab/capabilities")
@@ -227,6 +245,8 @@ def main():
                         "role": role,
                         "injector": injector,
                         "duration_seconds": seconds,
+                        "min_duration_seconds": MIN_EXPOSURE_SECONDS,
+                        "max_duration_seconds": MAX_EXPOSURE_SECONDS,
                         "capability": capabilities.get(injector, "UNKNOWN_GATE_NOT_RUNNING"),
                         "database_opt_in": name.startswith("008-"),
                     }
@@ -234,11 +254,17 @@ def main():
             )
         return 0
     if args.command == "validate":
-        validate(args.scenario)
-        print(json.dumps({"scenario": args.scenario, "native_validation": "PASS"}))
+        _, _, config = validate(args.scenario, duration_seconds=args.duration_seconds)
+        print(
+            json.dumps(
+                {"scenario": args.scenario, "native_validation": "PASS", "configuration": config}
+            )
+        )
         return 0
     if args.command in ("preflight", "run"):
-        return execution(args.scenario, inject=args.command == "run")
+        return execution(
+            args.scenario, inject=args.command == "run", duration_seconds=args.duration_seconds
+        )
     if args.command == "abort":
         lease = state.active()
         if lease:

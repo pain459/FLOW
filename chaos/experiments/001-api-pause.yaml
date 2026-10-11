@@ -1,7 +1,7 @@
 version: '1.0.0'
 title: PulsePay 001-api-pause
 description: >
-  Pause the single API replica for ten seconds. Healthy precondition: steady HTTP reads and writes, fresh metrics and independent PASS. Expected exposure: real request timeouts or availability loss. Strict recovery: original unpaused running target, healthy dependency probes, backlog within the observed band and full independent PASS.
+  Pause the single API replica for the configured exposure. Healthy precondition: steady HTTP reads and writes, fresh metrics and independent PASS. Expected exposure: real request timeouts or availability loss. Strict recovery: original unpaused running target, healthy dependency probes, backlog within the observed band and full independent PASS.
 tags: [pulsepay, 001-api-pause, api, pause]
 configuration:
   duration_seconds: 10

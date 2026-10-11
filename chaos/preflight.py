@@ -18,6 +18,7 @@ from chaos.policy import (
     bound_configuration,
     PUMBA_IMAGE,
     pumba_command,
+    DRY_RUN_DURATION_SECONDS,
 )
 from chaos.docker_client import Docker, PROJECT
 from chaos.adapters import (
@@ -38,7 +39,7 @@ PROVIDERS = {
 LOAD_REPORTS = Path("/load-reports")
 
 
-def validate(scenario, require_opt_in=False):
+def validate(scenario, require_opt_in=False, duration_seconds=None):
     if scenario not in SCENARIOS:
         raise ValueError("Select a named committed native experiment")
     path = Path("/experiments") / (scenario + ".yaml")
@@ -84,7 +85,9 @@ def validate(scenario, require_opt_in=False):
         scenario,
         data["configuration"],
         not require_opt_in or os.getenv("ALLOW_DATABASE_CHAOS") == "true",
+        duration_seconds=duration_seconds,
     )
+    data["configuration"] = configuration
     return path, data, configuration
 
 
@@ -302,7 +305,7 @@ def preflight(lease, path):
     else:
         identifier = docker.helper(PUMBA_IMAGE, pumba_command(lease, PROJECT, dry=True))
         try:
-            code = docker.wait(identifier, lease["configuration"]["duration_seconds"] + 10)
+            code = docker.wait(identifier, DRY_RUN_DURATION_SECONDS + 10)
             (path / "pumba-dry-run.jsonl").write_text(docker.logs(identifier))
             if code:
                 raise ValueError("Pumba dry targeting failed")
