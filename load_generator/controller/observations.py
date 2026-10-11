@@ -1,5 +1,54 @@
 """Compare aligned observed windows; missing samples never imply zero traffic."""
 
+import time
+
+
+class IntegrityGuard:
+    """Default UNKNOWN stop, or an explicit short uncertainty deadline.
+
+    UNKNOWN remains UNKNOWN throughout the grace period. A proven invariant
+    violation always stops immediately; no injector/fault truth is consulted.
+    """
+
+    def __init__(self, unknown_grace_seconds=0):
+        if not 0 <= unknown_grace_seconds <= 30:
+            raise ValueError("Integrity uncertainty grace outside 0..30 seconds")
+        self.grace = unknown_grace_seconds
+        self.unknown_since = None
+        self.stop_required = False
+
+    def expired(self, epoch=None):
+        epoch = time.monotonic() if epoch is None else epoch
+        if self.unknown_since is not None and epoch - self.unknown_since >= self.grace:
+            self.stop_required = True
+        return self.stop_required
+
+    def update(self, report, epoch=None):
+        epoch = time.monotonic() if epoch is None else epoch
+        # Once the deadline has passed, even a late PASS cannot authorize more traffic.
+        if self.expired(epoch):
+            return True
+        checks = report.get("checks", [])
+        if report.get("status") == "FAIL" or any(check.get("status") == "FAIL" for check in checks):
+            self.stop_required = True
+            return True
+        if report.get("status") not in {"PASS", "DEGRADED"} or any(
+            check.get("status") == "UNKNOWN" for check in checks
+        ):
+            if self.unknown_since is None:
+                self.unknown_since = epoch
+            return self.expired(epoch)
+        self.unknown_since = None
+        return False
+
+
+def watch_integrity_deadline(guard, done, stop_traffic, *, interval=0.25):
+    """Runs independently of blocking verifier communication (thread or greenlet)."""
+    while not done.wait(interval):
+        if guard.expired():
+            stop_traffic()
+            return
+
 
 def http_agreement(samples: list[dict]) -> dict:
     measured = [

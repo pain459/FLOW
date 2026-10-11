@@ -1,0 +1,52 @@
+{
+  "errors": [],
+  "finished_at": "2026-10-11T06:01:31.935462+00:00",
+  "method": "lookup_then_same_key_replay",
+  "observations": [
+    {
+      "key": "load-5b05e44356d9404d97bb1976061aa0f2",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "8223f344-6e17-416b-89af-d91bd3642d44"
+    },
+    {
+      "key": "load-9dd52a0c6f794ec88e9e3979c8cb4944",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "6632c2a1-b609-476f-9cb8-88728afe38b7"
+    },
+    {
+      "key": "load-6c26a7dc58bd4a9a8e7ed1eec7c5c073",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "01e8fa55-f4ad-48e1-b96d-ab1f2c1084b1"
+    }
+  ],
+  "phases": {
+    "cooldown": {
+      "confirmed_during_run": 1,
+      "intents": 4,
+      "reconciled_commits": 3,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "measured": {
+      "confirmed_during_run": 936,
+      "intents": 936,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "warmup": {
+      "confirmed_during_run": 227,
+      "intents": 227,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    }
+  },
+  "retry_http_requests": 3,
+  "schema_version": 1,
+  "started_at": "2026-10-11T06:01:31.886650+00:00",
+  "status": "COMPLETE"
+}

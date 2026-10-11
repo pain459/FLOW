@@ -1,0 +1,27 @@
+{
+  "controls": {
+    "gateway": "HEALTHY",
+    "watchdog": "HEALTHY"
+  },
+  "controls_ready": true,
+  "active_experiment": null,
+  "browser_job": {
+    "job_id": "job-f8ba81376dea4b5bbab73c6f2612b6e3",
+    "operation": "preflight",
+    "scenario": "002-worker-pause",
+    "status": "FAILED",
+    "started_at": "2026-10-11T05:46:46.214619+00:00",
+    "exit_code": 1,
+    "output": "{\"code\": \"LOAD_NOT_ACTIVE\", \"message\": \"Scenario requires existing active steady HTTP load\", \"reason\": \"PreflightError\", \"remediation\": \"Start a bounded read/write workload in Locust at port 8089, and wait for warmup and a stable measured window before checking preflight again.\", \"result\": \"INVALID\", \"run_id\": \"chaos-20261011T054646Z-cd835500\", \"safe_message\": \"Scenario requires existing active steady HTTP load\"}\n",
+    "finished_at": "2026-10-11T05:46:47.625123+00:00"
+  },
+  "workload": {
+    "ready": false,
+    "reason": "PreflightError",
+    "code": "LOAD_NOT_ACTIVE",
+    "message": "Scenario requires existing active steady HTTP load",
+    "safe_message": "Scenario requires existing active steady HTTP load",
+    "remediation": "Start a bounded read/write workload in Locust at port 8089, and wait for warmup and a stable measured window before checking preflight again."
+  },
+  "observed_at": "2026-10-11T06:06:16.032607+00:00"
+}

@@ -1,0 +1,513 @@
+{
+  "chaoslib-version": "1.45.1",
+  "platform": "Linux-7.0.14-linuxkit-aarch64-with-musl1",
+  "node": "093af8493d1e",
+  "experiment": {
+    "version": "1.0.0",
+    "title": "PulsePay 008-postgres-outage",
+    "description": "Interrupt only the synthetic disposable PostgreSQL container after explicit operator opt-in. Healthy precondition: independent PASS and watchdog armed. Expected exposure: real readiness/write failures and UNKNOWN verification. Strict recovery: original container/restart policy, no volume mutation, schema ready and independent PASS. A workload safety stop is reported as an external intervention.\n",
+    "tags": [
+      "pulsepay",
+      "008-postgres-outage",
+      "postgres",
+      "stop"
+    ],
+    "configuration": {
+      "duration_seconds": 8,
+      "ttl_seconds": 120,
+      "delay_ms": 150,
+      "interface": "eth0"
+    },
+    "steady-state-hypothesis": {
+      "title": "Healthy authority, event delivery and independently reconciled ledger",
+      "probes": [
+        {
+          "type": "probe",
+          "name": "healthy-financial-and-operational-state",
+          "tolerance": true,
+          "provider": {
+            "type": "python",
+            "module": "chaos.adapters.health_probes",
+            "func": "steady"
+          }
+        }
+      ]
+    },
+    "method": [
+      {
+        "type": "action",
+        "name": "apply-bounded-framework-fault",
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "apply"
+        }
+      },
+      {
+        "type": "probe",
+        "name": "observe-intentional-fault-exposure",
+        "tolerance": true,
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "observe"
+        }
+      },
+      {
+        "type": "action",
+        "name": "restore-original-environment",
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "restore"
+        }
+      },
+      {
+        "type": "probe",
+        "name": "independently-verify-post-restoration-recovery",
+        "tolerance": true,
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.health_probes",
+          "func": "recovery"
+        }
+      }
+    ],
+    "rollbacks": [
+      {
+        "type": "action",
+        "name": "repeat-safe-scoped-restoration",
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "restore"
+        }
+      }
+    ],
+    "dry": null
+  },
+  "start": "2026-10-11T05:43:38.157170+00:00",
+  "status": "completed",
+  "deviated": false,
+  "steady_states": {
+    "before": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "healthy-financial-and-operational-state",
+            "tolerance": true,
+            "provider": {
+              "type": "python",
+              "module": "chaos.adapters.health_probes",
+              "func": "steady"
+            }
+          },
+          "output": true,
+          "start": "2026-10-11T05:43:38.157394+00:00",
+          "status": "succeeded",
+          "end": "2026-10-11T05:43:38.915272+00:00",
+          "duration": 0.757878,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "after": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "healthy-financial-and-operational-state",
+            "tolerance": true,
+            "provider": {
+              "type": "python",
+              "module": "chaos.adapters.health_probes",
+              "func": "steady"
+            }
+          },
+          "output": true,
+          "start": "2026-10-11T05:44:15.925380+00:00",
+          "status": "succeeded",
+          "end": "2026-10-11T05:44:16.452614+00:00",
+          "duration": 0.527234,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "during": []
+  },
+  "run": [
+    {
+      "activity": {
+        "type": "action",
+        "name": "apply-bounded-framework-fault",
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "apply"
+        }
+      },
+      "output": {
+        "injector_started": true
+      },
+      "start": "2026-10-11T05:43:38.915431+00:00",
+      "status": "succeeded",
+      "end": "2026-10-11T05:43:39.079323+00:00",
+      "duration": 0.163892
+    },
+    {
+      "activity": {
+        "type": "probe",
+        "name": "observe-intentional-fault-exposure",
+        "tolerance": true,
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "observe"
+        }
+      },
+      "output": true,
+      "start": "2026-10-11T05:43:39.079499+00:00",
+      "status": "succeeded",
+      "end": "2026-10-11T05:43:52.437970+00:00",
+      "duration": 13.358471
+    },
+    {
+      "activity": {
+        "type": "action",
+        "name": "restore-original-environment",
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "restore"
+        }
+      },
+      "output": {
+        "run_id": "chaos-20261011T054327Z-0759842d",
+        "started_at": "2026-10-11T05:43:52.443043+00:00",
+        "status": "RESTORED",
+        "errors": [],
+        "proxy_restore": {
+          "not_applicable": true
+        },
+        "target_after": {
+          "Id": "3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77",
+          "Name": "/chaosloop-postgres-1",
+          "Image": "sha256:6386b91ffd121cd95b81309c88313ced18a72c7df9d7f961d3088a0fa44ba6a4",
+          "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 13807,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-11T05:43:49.581865589Z",
+            "FinishedAt": "2026-10-11T05:43:41.49281121Z",
+            "Health": {
+              "Status": "starting",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-11T05:43:28.624673427Z",
+                  "End": "2026-10-11T05:43:28.687643135Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:43:31.692493345Z",
+                  "End": "2026-10-11T05:43:31.71434797Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:43:34.71872993Z",
+                  "End": "2026-10-11T05:43:34.744441055Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:43:37.745208167Z",
+                  "End": "2026-10-11T05:43:37.788204292Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:43:40.789873835Z",
+                  "End": "2026-10-11T05:43:40.815464043Z",
+                  "ExitCode": 1,
+                  "Output": "/var/run/postgresql:5432 - rejecting connections\n"
+                }
+              ]
+            }
+          },
+          "RestartCount": 0,
+          "Created": "2026-10-11T03:49:10.094999168Z",
+          "NetworkSettings": {
+            "SandboxID": "c4066ca0f5fe009c64f3daf0bf716b924e03abda13b06afa06725f83fe43aba8",
+            "SandboxKey": "/var/run/docker/netns/c4066ca0f5fe",
+            "Ports": {
+              "5432/tcp": null
+            },
+            "Networks": {
+              "chaosloop_internal": {
+                "IPAMConfig": null,
+                "Links": null,
+                "Aliases": [
+                  "chaosloop-postgres-1",
+                  "postgres"
+                ],
+                "DriverOpts": null,
+                "GwPriority": 0,
+                "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe",
+                "EndpointID": "e53cb6e1b98755a7e0f60e52196fdb31aad2bcbac6d070d907faec96dc71d43d",
+                "Gateway": "",
+                "IPAddress": "172.19.0.6",
+                "MacAddress": "6a:ec:58:56:0d:61",
+                "IPPrefixLen": 16,
+                "IPv6Gateway": "",
+                "GlobalIPv6Address": "",
+                "GlobalIPv6PrefixLen": 0,
+                "DNSNames": [
+                  "chaosloop-postgres-1",
+                  "postgres",
+                  "3fa335bf14fd"
+                ]
+              }
+            }
+          },
+          "Config": {
+            "Labels": {
+              "com.docker.compose.config-hash": "30e1acbc2bffb07313497d93c4e5632862a5193c4c8390cb7345d94f7f181b4a",
+              "com.docker.compose.container-number": "1",
+              "com.docker.compose.depends_on": "",
+              "com.docker.compose.image": "sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b",
+              "com.docker.compose.oneoff": "False",
+              "com.docker.compose.project": "chaosloop",
+              "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+              "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+              "com.docker.compose.service": "postgres",
+              "com.docker.compose.version": "5.5.1",
+              "io.pulsepay.chaos.role": "postgres",
+              "io.pulsepay.chaos.target": "true",
+              "io.pulsepay.lab": "disposable"
+            },
+            "Image": "pulsepay-postgres:v1",
+            "StopSignal": "SIGINT",
+            "Cmd": [
+              "postgres",
+              "-c",
+              "shared_preload_libraries=pg_stat_statements",
+              "-c",
+              "track_io_timing=on"
+            ],
+            "Entrypoint": [
+              "docker-entrypoint.sh"
+            ]
+          },
+          "HostConfig": {
+            "RestartPolicy": {
+              "Name": "unless-stopped",
+              "MaximumRetryCount": 0
+            },
+            "Memory": 805306368,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "NetworkMode": "chaosloop_internal",
+            "CapAdd": null,
+            "ReadonlyRootfs": false,
+            "PidsLimit": null
+          },
+          "PulsePayDependencyRoutes": {}
+        },
+        "finished_at": "2026-10-11T05:43:52.523174+00:00"
+      },
+      "start": "2026-10-11T05:43:52.438061+00:00",
+      "status": "succeeded",
+      "end": "2026-10-11T05:43:52.526003+00:00",
+      "duration": 0.087942
+    },
+    {
+      "activity": {
+        "type": "probe",
+        "name": "independently-verify-post-restoration-recovery",
+        "tolerance": true,
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.health_probes",
+          "func": "recovery"
+        }
+      },
+      "output": true,
+      "start": "2026-10-11T05:43:52.526098+00:00",
+      "status": "succeeded",
+      "end": "2026-10-11T05:44:15.925249+00:00",
+      "duration": 23.399151
+    }
+  ],
+  "rollbacks": [
+    {
+      "activity": {
+        "type": "action",
+        "name": "repeat-safe-scoped-restoration",
+        "provider": {
+          "type": "python",
+          "module": "chaos.adapters.injection",
+          "func": "restore"
+        }
+      },
+      "output": {
+        "run_id": "chaos-20261011T054327Z-0759842d",
+        "started_at": "2026-10-11T05:44:16.457026+00:00",
+        "status": "RESTORED",
+        "errors": [],
+        "proxy_restore": {
+          "not_applicable": true
+        },
+        "target_after": {
+          "Id": "3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77",
+          "Name": "/chaosloop-postgres-1",
+          "Image": "sha256:6386b91ffd121cd95b81309c88313ced18a72c7df9d7f961d3088a0fa44ba6a4",
+          "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 13807,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-11T05:43:49.581865589Z",
+            "FinishedAt": "2026-10-11T05:43:41.49281121Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-11T05:44:01.703178303Z",
+                  "End": "2026-10-11T05:44:01.728249095Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:44:04.729054263Z",
+                  "End": "2026-10-11T05:44:04.754488596Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:44:07.754886458Z",
+                  "End": "2026-10-11T05:44:07.7800285Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:44:10.78083046Z",
+                  "End": "2026-10-11T05:44:10.807633543Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                },
+                {
+                  "Start": "2026-10-11T05:44:13.809171086Z",
+                  "End": "2026-10-11T05:44:13.830251003Z",
+                  "ExitCode": 0,
+                  "Output": "/var/run/postgresql:5432 - accepting connections\n"
+                }
+              ]
+            }
+          },
+          "RestartCount": 0,
+          "Created": "2026-10-11T03:49:10.094999168Z",
+          "NetworkSettings": {
+            "SandboxID": "c4066ca0f5fe009c64f3daf0bf716b924e03abda13b06afa06725f83fe43aba8",
+            "SandboxKey": "/var/run/docker/netns/c4066ca0f5fe",
+            "Ports": {
+              "5432/tcp": null
+            },
+            "Networks": {
+              "chaosloop_internal": {
+                "IPAMConfig": null,
+                "Links": null,
+                "Aliases": [
+                  "chaosloop-postgres-1",
+                  "postgres"
+                ],
+                "DriverOpts": null,
+                "GwPriority": 0,
+                "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe",
+                "EndpointID": "e53cb6e1b98755a7e0f60e52196fdb31aad2bcbac6d070d907faec96dc71d43d",
+                "Gateway": "",
+                "IPAddress": "172.19.0.6",
+                "MacAddress": "6a:ec:58:56:0d:61",
+                "IPPrefixLen": 16,
+                "IPv6Gateway": "",
+                "GlobalIPv6Address": "",
+                "GlobalIPv6PrefixLen": 0,
+                "DNSNames": [
+                  "chaosloop-postgres-1",
+                  "postgres",
+                  "3fa335bf14fd"
+                ]
+              }
+            }
+          },
+          "Config": {
+            "Labels": {
+              "com.docker.compose.config-hash": "30e1acbc2bffb07313497d93c4e5632862a5193c4c8390cb7345d94f7f181b4a",
+              "com.docker.compose.container-number": "1",
+              "com.docker.compose.depends_on": "",
+              "com.docker.compose.image": "sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b",
+              "com.docker.compose.oneoff": "False",
+              "com.docker.compose.project": "chaosloop",
+              "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+              "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+              "com.docker.compose.service": "postgres",
+              "com.docker.compose.version": "5.5.1",
+              "io.pulsepay.chaos.role": "postgres",
+              "io.pulsepay.chaos.target": "true",
+              "io.pulsepay.lab": "disposable"
+            },
+            "Image": "pulsepay-postgres:v1",
+            "StopSignal": "SIGINT",
+            "Cmd": [
+              "postgres",
+              "-c",
+              "shared_preload_libraries=pg_stat_statements",
+              "-c",
+              "track_io_timing=on"
+            ],
+            "Entrypoint": [
+              "docker-entrypoint.sh"
+            ]
+          },
+          "HostConfig": {
+            "RestartPolicy": {
+              "Name": "unless-stopped",
+              "MaximumRetryCount": 0
+            },
+            "Memory": 805306368,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "NetworkMode": "chaosloop_internal",
+            "CapAdd": null,
+            "ReadonlyRootfs": false,
+            "PidsLimit": null
+          },
+          "PulsePayDependencyRoutes": {}
+        },
+        "finished_at": "2026-10-11T05:44:16.505764+00:00"
+      },
+      "start": "2026-10-11T05:44:16.452813+00:00",
+      "status": "succeeded",
+      "end": "2026-10-11T05:44:16.507172+00:00",
+      "duration": 0.054359
+    }
+  ],
+  "end": "2026-10-11T05:44:16.507209+00:00",
+  "duration": 38.35131597518921
+}

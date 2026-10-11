@@ -1,0 +1,3085 @@
+{
+  "accounts": [
+    {
+      "balance_minor": "101752",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:117",
+      "id": "ffce3956-572e-58da-a947-78b0086787f7",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:20.529051Z"
+    },
+    {
+      "balance_minor": "104801",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:180",
+      "id": "ff882fe7-8ed4-598e-9c4e-781c89e152cd",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.329141Z"
+    },
+    {
+      "balance_minor": "100126",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:177",
+      "id": "fe54ece9-faac-58b1-ae89-d10d11791b4c",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:16.564205Z"
+    },
+    {
+      "balance_minor": "94135",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:163",
+      "id": "fddfe0fc-372f-5bf4-ba92-dda3dff3675f",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:08.313260Z"
+    },
+    {
+      "balance_minor": "94592",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:11",
+      "id": "fc8bd99a-7353-596b-a93e-824359396eaa",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.809683Z"
+    },
+    {
+      "balance_minor": "99286",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:148",
+      "id": "fa9080ee-e769-5d3c-a00a-796d392ab8ab",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.144870Z"
+    },
+    {
+      "balance_minor": "99906",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:140",
+      "id": "f9f3b662-726d-5110-981c-0a065cf3680d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.326071Z"
+    },
+    {
+      "balance_minor": "96533",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:168",
+      "id": "f8a07c3b-2935-5d0c-856d-a919500f99c3",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.338623Z"
+    },
+    {
+      "balance_minor": "100414",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:116",
+      "id": "f6f6a614-a088-52fd-a97f-4baa87bf74ff",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.836873Z"
+    },
+    {
+      "balance_minor": "101618",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:32",
+      "id": "f3f31fd1-5af7-54ac-bea0-a46f3e2ca055",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:07.807058Z"
+    },
+    {
+      "balance_minor": "101855",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:62",
+      "id": "f1a62dad-fef9-5c39-b87b-bdcc8e541864",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.773941Z"
+    },
+    {
+      "balance_minor": "101281",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:68",
+      "id": "f1a45852-6f39-5ee3-8607-99d4e7fe8a3a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.338132Z"
+    },
+    {
+      "balance_minor": "99840",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:48",
+      "id": "eecb3f77-bb2c-5b97-8f18-a112cee7622d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:59.773287Z"
+    },
+    {
+      "balance_minor": "92500",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:106",
+      "id": "edef3d70-811b-5375-89d1-c872d7b2dc2e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.322590Z"
+    },
+    {
+      "balance_minor": "104260",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:118",
+      "id": "eb40f84e-c339-5c94-824e-3356b6ded337",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:20.519190Z"
+    },
+    {
+      "balance_minor": "92671",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:98",
+      "id": "e894dce9-0012-5f8c-b85f-853fad30edfc",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:57.253580Z"
+    },
+    {
+      "balance_minor": "94298",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:33",
+      "id": "e6ac935d-fe1b-522c-af64-0f441cf16c53",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.855364Z"
+    },
+    {
+      "balance_minor": "98705",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:134",
+      "id": "e698cead-14fa-5cc1-b7f7-c924da0e2f0b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.809856Z"
+    },
+    {
+      "balance_minor": "101790",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:15",
+      "id": "e67ea6ec-d1b7-5438-a3ef-b87c299547e7",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.330508Z"
+    },
+    {
+      "balance_minor": "102338",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:61",
+      "id": "e525b43f-85eb-5a18-9e8c-ac70e95034db",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.995006Z"
+    },
+    {
+      "balance_minor": "98657",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:187",
+      "id": "e3a99f3f-62df-5fff-af85-22e20aca7227",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:20.529284Z"
+    },
+    {
+      "balance_minor": "97895",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:174",
+      "id": "e2b6fd4e-50cd-5e33-83dd-5d96d3d33a5e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.829631Z"
+    },
+    {
+      "balance_minor": "105786",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:83",
+      "id": "e2aafe7b-7dd8-5f5f-997c-b6f1256fad7c",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:56.745140Z"
+    },
+    {
+      "balance_minor": "101603",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:156",
+      "id": "e27211d5-1d39-5f6a-922c-ce9674322213",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:19.481755Z"
+    },
+    {
+      "balance_minor": "97069",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:141",
+      "id": "e1d25498-655e-56a9-bf66-72898c7549ab",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.318304Z"
+    },
+    {
+      "balance_minor": "102227",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:112",
+      "id": "e0648866-d588-5f87-90fa-0b9f63bb69c1",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:56.746050Z"
+    },
+    {
+      "balance_minor": "107609",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:176",
+      "id": "dff9f36b-ef9f-5436-9c6a-fe525911cc82",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.325414Z"
+    },
+    {
+      "balance_minor": "100641",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:143",
+      "id": "ddd15571-e1a3-55c3-9975-595d80c8a934",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.165744Z"
+    },
+    {
+      "balance_minor": "97432",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:184",
+      "id": "dc676b48-16b2-5bef-b173-5f381c600a6a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:14.499864Z"
+    },
+    {
+      "balance_minor": "97204",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:196",
+      "id": "d8d3a15d-d198-5586-9645-734397c545c1",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:07.494487Z"
+    },
+    {
+      "balance_minor": "98792",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:7",
+      "id": "d69a0105-e5a4-5219-9105-62ff87d77c7c",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.907317Z"
+    },
+    {
+      "balance_minor": "99263",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:160",
+      "id": "d6179b24-abb6-51ad-9689-9894ed315ab0",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:57.496593Z"
+    },
+    {
+      "balance_minor": "100431",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:9",
+      "id": "d509628f-d072-5e17-b7ab-8067e8c8623d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:06.799632Z"
+    },
+    {
+      "balance_minor": "98632",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:87",
+      "id": "d2c0f63c-1050-5a30-af9f-10a9eb237a08",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.331922Z"
+    },
+    {
+      "balance_minor": "98885",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:129",
+      "id": "d25fc3fa-3288-5a6e-99be-e71b7b7fb19b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:58.476976Z"
+    },
+    {
+      "balance_minor": "103164",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:198",
+      "id": "d23bf0f9-4184-51fd-90a4-35e4d8926ba8",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.171099Z"
+    },
+    {
+      "balance_minor": "102121",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:24",
+      "id": "d1bad7dc-266a-56bd-8ab8-95e275c71a53",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:33.376819Z"
+    },
+    {
+      "balance_minor": "94973",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:23",
+      "id": "d1b938ed-efcf-51b4-9963-81530cafefa7",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.338815Z"
+    },
+    {
+      "balance_minor": "101859",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:73",
+      "id": "cefcca67-b4b3-5964-8e6e-777b7508eede",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:07.506950Z"
+    },
+    {
+      "balance_minor": "95422",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:80",
+      "id": "cd76a069-4065-5050-8232-33d34a9a1c5d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:16.564823Z"
+    },
+    {
+      "balance_minor": "100989",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:145",
+      "id": "cd56f022-474f-53cb-8d53-413035deb7ea",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.339000Z"
+    },
+    {
+      "balance_minor": "101119",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:58",
+      "id": "caf9f86a-7900-5f85-990d-a60331bf5e05",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:07.301678Z"
+    },
+    {
+      "balance_minor": "100301",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:79",
+      "id": "c93ba6ed-1c58-55df-bfd2-941e046debd0",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:12.520871Z"
+    },
+    {
+      "balance_minor": "100633",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:16",
+      "id": "c85000ff-d65e-5372-a90b-4ebbc3415b23",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.316556Z"
+    },
+    {
+      "balance_minor": "105631",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:104",
+      "id": "c6ad052a-389a-5f78-83a0-0ccda367ff64",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.331922Z"
+    },
+    {
+      "balance_minor": "99880",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:188",
+      "id": "c5dac027-305a-5e31-b713-261bfbb45eef",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.923723Z"
+    },
+    {
+      "balance_minor": "99613",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:110",
+      "id": "c5c6e0dc-e834-5606-8517-a9277b678132",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:57.759896Z"
+    },
+    {
+      "balance_minor": "101355",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:75",
+      "id": "c2373adb-4918-5de3-8a94-18a91ad88225",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.825807Z"
+    },
+    {
+      "balance_minor": "99157",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:52",
+      "id": "c0dbfdc3-1c59-5bcf-9449-5545a8254341",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.807823Z"
+    },
+    {
+      "balance_minor": "104666",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:182",
+      "id": "bfdfb07a-b538-5e44-8b7a-e7594aead35b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:08.815503Z"
+    },
+    {
+      "balance_minor": "98736",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:44",
+      "id": "be42a418-2211-52fb-8655-61b47734a4c9",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.059908Z"
+    },
+    {
+      "balance_minor": "95047",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:162",
+      "id": "bc9c1f4a-0659-5724-8cf8-aad2e129385b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:09.512522Z"
+    },
+    {
+      "balance_minor": "99454",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:151",
+      "id": "bc16a261-9057-5871-9e54-f3177abe87d6",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:00.500772Z"
+    },
+    {
+      "balance_minor": "98778",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:19",
+      "id": "bac9b5d1-374e-5793-9588-99e615b6da63",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:59.774327Z"
+    },
+    {
+      "balance_minor": "97986",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:178",
+      "id": "ba189133-edc7-5562-afb1-752174fb8658",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:07.303509Z"
+    },
+    {
+      "balance_minor": "100046",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:4",
+      "id": "b9dedb55-d72f-5a49-a463-016431c2b91d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.772670Z"
+    },
+    {
+      "balance_minor": "100422",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:150",
+      "id": "b9048c43-5840-5af2-963c-619bba4d4222",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.344085Z"
+    },
+    {
+      "balance_minor": "96167",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:123",
+      "id": "b86d5307-c23a-58c1-af75-413e1b050233",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:56.746638Z"
+    },
+    {
+      "balance_minor": "94701",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:194",
+      "id": "b751d214-5185-5eee-b0c3-3583eb6a5f53",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:45.457833Z"
+    },
+    {
+      "balance_minor": "102555",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:157",
+      "id": "b666b7c5-389f-52f2-bc0d-668dd06ca48d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.318304Z"
+    },
+    {
+      "balance_minor": "101939",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:121",
+      "id": "b564257a-3af6-5948-b108-c77a944f642a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:11.529496Z"
+    },
+    {
+      "balance_minor": "102561",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:46",
+      "id": "b519b23f-f813-59fa-bb98-f410a8a6ecb8",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.321783Z"
+    },
+    {
+      "balance_minor": "104980",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:43",
+      "id": "b2a2cab6-6099-514d-943b-0405bc39b0cf",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.065788Z"
+    },
+    {
+      "balance_minor": "97556",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:195",
+      "id": "b029f9b5-8136-5597-98bb-383385e0e03b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.194357Z"
+    },
+    {
+      "balance_minor": "94679",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:51",
+      "id": "af6bf639-7132-53cd-b81a-a8a49e64f5b1",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.322310Z"
+    },
+    {
+      "balance_minor": "103258",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:164",
+      "id": "ae4963ba-199b-5eb5-b10a-baea7c647201",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.261629Z"
+    },
+    {
+      "balance_minor": "100043",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:97",
+      "id": "ad061db0-b567-5f9f-ac40-ace95b7cb231",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.262312Z"
+    },
+    {
+      "balance_minor": "98668",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:101",
+      "id": "aca74a5c-6bfd-52c2-ba00-f7bc4f9fe07d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.096182Z"
+    },
+    {
+      "balance_minor": "100146",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:107",
+      "id": "aabb3865-2796-5d39-945a-f5bdde95ebe8",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.824877Z"
+    },
+    {
+      "balance_minor": "101354",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:14",
+      "id": "a919f963-9c8f-505b-8790-03f5e8ccd6a4",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:07.812686Z"
+    },
+    {
+      "balance_minor": "101485",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:67",
+      "id": "a64d8aae-1286-5f9b-811c-5581f5f9658f",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:59.775314Z"
+    },
+    {
+      "balance_minor": "95851",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:115",
+      "id": "a565505e-ed80-545b-ba75-0485b00ae870",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.820166Z"
+    },
+    {
+      "balance_minor": "99134",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:53",
+      "id": "a525fda6-9abc-57b9-8f82-3f4f8e98b285",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.337767Z"
+    },
+    {
+      "balance_minor": "100877",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:175",
+      "id": "a40267ee-4447-5e8e-b5d2-59ad1b3ed315",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:20.519190Z"
+    },
+    {
+      "balance_minor": "97398",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:122",
+      "id": "a3a9f506-0167-5395-8e00-8b17570d3ff0",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:14.527817Z"
+    },
+    {
+      "balance_minor": "102034",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:102",
+      "id": "a21ba28e-d711-56a0-80f1-48e19735595a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.902141Z"
+    },
+    {
+      "balance_minor": "104295",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:159",
+      "id": "a1b83444-f071-5ca6-8d92-532979091179",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.820785Z"
+    },
+    {
+      "balance_minor": "100991",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:137",
+      "id": "a18f551d-f200-5a31-85c0-9225e00a71f8",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.822260Z"
+    },
+    {
+      "balance_minor": "97030",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:138",
+      "id": "a17b45e3-cb5a-5364-8c19-9b80d0943160",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.325414Z"
+    },
+    {
+      "balance_minor": "106357",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:170",
+      "id": "9f92b06c-55d8-5269-9260-bb7dc63e0a04",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.822114Z"
+    },
+    {
+      "balance_minor": "99485",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:29",
+      "id": "9f5900be-d3be-501c-8785-bdfdf36c9bb7",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.820166Z"
+    },
+    {
+      "balance_minor": "96703",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:81",
+      "id": "9e3bd4a2-b9ad-59d9-aab4-e40692625460",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.773084Z"
+    },
+    {
+      "balance_minor": "95817",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:17",
+      "id": "9bea2928-488c-574e-9341-25315efd7dce",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.824877Z"
+    },
+    {
+      "balance_minor": "98268",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:42",
+      "id": "9bbae3ad-dd5f-501c-ad3e-07163823512f",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.836873Z"
+    },
+    {
+      "balance_minor": "99386",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:85",
+      "id": "9a757dcf-c947-54bb-917a-93f9c7bb4229",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.200326Z"
+    },
+    {
+      "balance_minor": "96142",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:2",
+      "id": "983b5b46-ba2d-50f5-8b65-06639b74fa8d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.071269Z"
+    },
+    {
+      "balance_minor": "103136",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:60",
+      "id": "97ec9d00-9484-5d0f-84b1-8e5496111be5",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.088811Z"
+    },
+    {
+      "balance_minor": "97578",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:1",
+      "id": "97e8ea8f-531a-5f9b-b64a-1ccd3d9c90bb",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.325153Z"
+    },
+    {
+      "balance_minor": "98033",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:37",
+      "id": "96400fba-44cf-5a0c-bc3d-c68877a98603",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:07.807655Z"
+    },
+    {
+      "balance_minor": "100013",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:128",
+      "id": "9457d29d-27ae-53c9-acd2-c346708457a3",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.330508Z"
+    },
+    {
+      "balance_minor": "99616",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:55",
+      "id": "93274c61-4687-57ae-857a-619408b3829a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.835973Z"
+    },
+    {
+      "balance_minor": "99037",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:91",
+      "id": "8f845c73-fa5a-5414-a7e8-ffa607bbba14",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.821461Z"
+    },
+    {
+      "balance_minor": "102432",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:190",
+      "id": "8e306f5c-f990-504d-ad3a-86acb4853c1b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:19.524034Z"
+    },
+    {
+      "balance_minor": "101176",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:57",
+      "id": "8bf0a017-8199-5f59-afeb-526f6604c273",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.823490Z"
+    },
+    {
+      "balance_minor": "103688",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:197",
+      "id": "897f5218-92d5-51a7-89a8-a82aec2af2a6",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:54.484731Z"
+    },
+    {
+      "balance_minor": "103039",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:111",
+      "id": "888a6c83-b230-5b72-8543-a1f04da15e67",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.773344Z"
+    },
+    {
+      "balance_minor": "98340",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:86",
+      "id": "887a30e1-4ac5-5f30-8d23-e6587f54f2f6",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.011285Z"
+    },
+    {
+      "balance_minor": "96985",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:166",
+      "id": "870bec5b-3439-54ad-b70b-2abe30277487",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.338132Z"
+    },
+    {
+      "balance_minor": "97621",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:30",
+      "id": "86ea7492-2a0d-51fb-8f55-63d02f4bd20c",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.316266Z"
+    },
+    {
+      "balance_minor": "103553",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:105",
+      "id": "864adb3c-41e2-5f84-a3ec-8c4825873e2a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.118210Z"
+    },
+    {
+      "balance_minor": "101969",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:191",
+      "id": "80fb1bac-eac9-5ec3-a7b4-74d8629e0bea",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:08.314198Z"
+    },
+    {
+      "balance_minor": "102318",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:6",
+      "id": "7d20bb78-7fcf-5126-b5fb-05e730721bff",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.040519Z"
+    },
+    {
+      "balance_minor": "98197",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:56",
+      "id": "7cb0f821-f8d3-5d84-a010-a39694d94b49",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.814936Z"
+    },
+    {
+      "balance_minor": "99199",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:64",
+      "id": "7c9ff1c3-23c7-5c13-a24c-40f68607127f",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.078007Z"
+    },
+    {
+      "balance_minor": "102405",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:153",
+      "id": "7c8c0ab3-9c79-57a9-a5ec-13519196f9cb",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:20.525706Z"
+    },
+    {
+      "balance_minor": "98731",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:38",
+      "id": "79cbe5f9-b290-5b78-91b0-aa94a8a67047",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.823026Z"
+    },
+    {
+      "balance_minor": "102978",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:28",
+      "id": "798156e8-193a-5098-b9a5-1feddd859289",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:07.303509Z"
+    },
+    {
+      "balance_minor": "104142",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:199",
+      "id": "784c7321-b9a4-513e-a4ad-f538a4ef5992",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.318854Z"
+    },
+    {
+      "balance_minor": "100327",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:147",
+      "id": "77d61f5f-bb77-5bb8-b420-2fd61f00e412",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.821461Z"
+    },
+    {
+      "balance_minor": "104344",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:172",
+      "id": "76c84494-3f4c-5e8d-82f8-45e2adac1899",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.834589Z"
+    },
+    {
+      "balance_minor": "93459",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:103",
+      "id": "75dc660e-0daf-5708-b315-77d74200eac7",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.268470Z"
+    },
+    {
+      "balance_minor": "104376",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:125",
+      "id": "74ff81dd-1027-52f0-a28f-d840cfaee2de",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:44.445532Z"
+    },
+    {
+      "balance_minor": "98829",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:3",
+      "id": "71d21195-8f7e-5141-b6ef-93057d338343",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.834589Z"
+    },
+    {
+      "balance_minor": "99233",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:179",
+      "id": "718d8717-29d9-5409-b8fd-a2ec2af6fe76",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.835544Z"
+    },
+    {
+      "balance_minor": "102675",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:36",
+      "id": "7123c7d6-bb56-5615-bbca-72c6b7ef5f88",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.823490Z"
+    },
+    {
+      "balance_minor": "102441",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:88",
+      "id": "6f9b75b9-2ded-5507-a58e-ba46ff0e426d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:18.529551Z"
+    },
+    {
+      "balance_minor": "92540",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:132",
+      "id": "6dd85f35-1bd9-599f-8d49-e3f64acfc54d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.325813Z"
+    },
+    {
+      "balance_minor": "96298",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:20",
+      "id": "6af21e3d-c73f-5de3-9e5a-0719fea7777d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:59.274289Z"
+    },
+    {
+      "balance_minor": "102209",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:142",
+      "id": "6a42960b-8688-56e8-a8b0-419c312414e0",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.344085Z"
+    },
+    {
+      "balance_minor": "97375",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:135",
+      "id": "69f67740-4f3d-57b4-9ffe-be01dd6c9f15",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.337767Z"
+    },
+    {
+      "balance_minor": "101141",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:161",
+      "id": "69f3b08f-6677-5d35-964f-f0ed181cbc34",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.339000Z"
+    },
+    {
+      "balance_minor": "103219",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:124",
+      "id": "68d1e1c6-6c14-5ad3-8aab-5f6190919f18",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.194357Z"
+    },
+    {
+      "balance_minor": "102143",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:26",
+      "id": "68bf6c29-1900-53a9-920f-2002c5045496",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:40.377270Z"
+    },
+    {
+      "balance_minor": "100755",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:131",
+      "id": "62e478c9-ce91-5ea5-860a-cb0e588ab66e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.083525Z"
+    },
+    {
+      "balance_minor": "101700",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:8",
+      "id": "61e36022-fff8-5022-9b82-0001a749435a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.963673Z"
+    },
+    {
+      "balance_minor": "100814",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:45",
+      "id": "61df124b-c9f3-53b1-af91-a58c70b32512",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:00.303204Z"
+    },
+    {
+      "balance_minor": "104512",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:34",
+      "id": "60612bbb-2477-5c35-8577-8b771c336c8b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.835544Z"
+    },
+    {
+      "balance_minor": "97465",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:158",
+      "id": "600b43cf-245b-5b0a-bc81-db1f4e417a3a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:56.745787Z"
+    },
+    {
+      "balance_minor": "96710",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:25",
+      "id": "5fe9da07-a340-54fb-ada5-8d66a0706a21",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.841511Z"
+    },
+    {
+      "balance_minor": "103128",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:169",
+      "id": "574e8b4c-b1b5-530a-b2ee-5654ccb3b13d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:17.526754Z"
+    },
+    {
+      "balance_minor": "100085",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:120",
+      "id": "5595b79d-02ab-556f-a1ab-f530cfcae429",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.325296Z"
+    },
+    {
+      "balance_minor": "99816",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:69",
+      "id": "558431cd-e469-5af7-b992-35a9dae7b64f",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.836623Z"
+    },
+    {
+      "balance_minor": "104211",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:49",
+      "id": "555b3b01-03ce-5532-977f-05b766daaa51",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.118210Z"
+    },
+    {
+      "balance_minor": "102685",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:47",
+      "id": "5421f552-dcbd-5f7c-9849-503a982b03e9",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.835973Z"
+    },
+    {
+      "balance_minor": "97528",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:92",
+      "id": "531d108a-9da4-54bc-b141-ef430a2bbe45",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.912828Z"
+    },
+    {
+      "balance_minor": "98813",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:149",
+      "id": "513cbf15-24e9-50a0-bd12-17b36fdea430",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:57.252862Z"
+    },
+    {
+      "balance_minor": "95339",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:54",
+      "id": "50f08e35-4ed6-54a1-98a1-a4515a7cd012",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.318854Z"
+    },
+    {
+      "balance_minor": "100419",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:66",
+      "id": "4f80084c-1880-51b6-9edb-dab0f9478cee",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:16.556597Z"
+    },
+    {
+      "balance_minor": "107194",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:193",
+      "id": "4aab0e45-703c-55f0-aa1c-d53fc5395a67",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:06.794774Z"
+    },
+    {
+      "balance_minor": "96096",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:119",
+      "id": "49b00637-c63d-5020-affe-df39e73ed4a4",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.836623Z"
+    },
+    {
+      "balance_minor": "102804",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:65",
+      "id": "494e2345-15d3-56f7-9a01-42f0ced0c101",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.125276Z"
+    },
+    {
+      "balance_minor": "105720",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:72",
+      "id": "494b3f49-5ec1-5b90-ac8b-233eaf20d676",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.989675Z"
+    },
+    {
+      "balance_minor": "98623",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:94",
+      "id": "46e5ab63-7fd8-5c94-aa37-e00ec73e8da7",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.860908Z"
+    },
+    {
+      "balance_minor": "102808",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:152",
+      "id": "46971d0d-9849-52e9-8b0c-c117b678b182",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.316266Z"
+    },
+    {
+      "balance_minor": "98861",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:146",
+      "id": "4643d173-bd50-5e8f-9dda-a82aac23a84e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.773344Z"
+    },
+    {
+      "balance_minor": "100660",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:70",
+      "id": "44e5f437-d90f-5947-9aa5-cf82fca36c92",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.331474Z"
+    },
+    {
+      "balance_minor": "102680",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:21",
+      "id": "449a3a79-6dff-5612-8335-ce037af20732",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.189398Z"
+    },
+    {
+      "balance_minor": "95646",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:165",
+      "id": "431e30d1-c014-50e0-80a7-0bb6c921b021",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:57.252862Z"
+    },
+    {
+      "balance_minor": "97590",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:93",
+      "id": "4314a222-8c63-52a8-ad42-76a5c0667bba",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:06.794586Z"
+    },
+    {
+      "balance_minor": "98373",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:133",
+      "id": "423b47ff-d065-5ac2-93c8-dbe73a803d52",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:57.487446Z"
+    },
+    {
+      "balance_minor": "98494",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:192",
+      "id": "4137e541-95c3-54f0-87d2-fbc19b5da73d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.139483Z"
+    },
+    {
+      "balance_minor": "97247",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:139",
+      "id": "4057104c-7ed7-59e1-ae47-ad471fa6262e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:13.329141Z"
+    },
+    {
+      "balance_minor": "101348",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:95",
+      "id": "3f3e7409-9713-556c-8262-a093a3086049",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.831093Z"
+    },
+    {
+      "balance_minor": "88007",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:96",
+      "id": "3cb7bb98-3fd0-5377-93e8-eee32bc1bb80",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:11.511529Z"
+    },
+    {
+      "balance_minor": "99908",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:10",
+      "id": "3b17a0a8-f073-54cd-ae7f-dcd20fb6adcb",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:06.795058Z"
+    },
+    {
+      "balance_minor": "97228",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:181",
+      "id": "3a5a34e4-c161-5d49-8ae9-912c7849d78e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.822114Z"
+    },
+    {
+      "balance_minor": "107558",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:189",
+      "id": "3a3fd689-ef3b-566f-8995-1f3d2937480e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:08.815503Z"
+    },
+    {
+      "balance_minor": "92631",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:114",
+      "id": "380cea15-a1a1-5a03-ace1-6f6ed5d59a95",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.322590Z"
+    },
+    {
+      "balance_minor": "95332",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:40",
+      "id": "37c3b199-2294-51b5-8aeb-de47d9e5910f",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:59.499243Z"
+    },
+    {
+      "balance_minor": "101755",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:12",
+      "id": "35696c9a-3133-5b97-a6eb-a3bbf2cce7ca",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:06.799632Z"
+    },
+    {
+      "balance_minor": "101255",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:130",
+      "id": "34c46eab-a9bc-5210-985c-6a0bf846576d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.327365Z"
+    },
+    {
+      "balance_minor": "98008",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:154",
+      "id": "30198ef4-8a5b-59fa-9254-08dd3a952c56",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.330015Z"
+    },
+    {
+      "balance_minor": "101107",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:126",
+      "id": "300725c8-1540-551b-8339-982a8573d2db",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.106673Z"
+    },
+    {
+      "balance_minor": "101417",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:173",
+      "id": "2ee10b30-1475-5c1d-8cc8-f90ac48a8b44",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:07.301324Z"
+    },
+    {
+      "balance_minor": "107302",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:100",
+      "id": "2ed57183-0d86-526d-b5df-c3e736f6e02e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.338402Z"
+    },
+    {
+      "balance_minor": "101975",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:77",
+      "id": "2ecbfeb8-0ba0-54c7-b26c-3e8feceadacc",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.025327Z"
+    },
+    {
+      "balance_minor": "99601",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:41",
+      "id": "2eb47d42-0f86-5b3f-ae78-2a0fe586d8b2",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:57.759280Z"
+    },
+    {
+      "balance_minor": "102893",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:13",
+      "id": "2d6b8640-cbdd-50e7-bb5a-0effd57a81ba",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.780719Z"
+    },
+    {
+      "balance_minor": "102759",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:0",
+      "id": "2c958f12-addb-5521-ae8d-2d60a0706360",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.338623Z"
+    },
+    {
+      "balance_minor": "104667",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:27",
+      "id": "2c1d66a8-c803-5d6c-af84-871668f4aba1",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:00.303204Z"
+    },
+    {
+      "balance_minor": "96373",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:63",
+      "id": "2b3fc9ed-680d-54a9-b2ee-a6a4ee60f45a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:19.524257Z"
+    },
+    {
+      "balance_minor": "99399",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:185",
+      "id": "29ef3d3c-cb4a-5413-b6ac-be2ee2958474",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:08.814739Z"
+    },
+    {
+      "balance_minor": "98482",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:186",
+      "id": "28c433cf-325a-5c43-9dc3-3c2b04f651ab",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.814936Z"
+    },
+    {
+      "balance_minor": "103042",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:18",
+      "id": "2754cd2d-8a8e-5a18-bb66-3b33db77afbf",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:24.819512Z"
+    },
+    {
+      "balance_minor": "101422",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:90",
+      "id": "23dc8d72-1831-5989-b585-06ecac8b2935",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.823026Z"
+    },
+    {
+      "balance_minor": "106652",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:127",
+      "id": "20e87902-553c-59c6-b4de-967841fb548b",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:58.780719Z"
+    },
+    {
+      "balance_minor": "103834",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:183",
+      "id": "1ef65e6d-6e78-570e-9e6a-381f6b20c1b5",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.822260Z"
+    },
+    {
+      "balance_minor": "103602",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:108",
+      "id": "1eedb8c4-971b-51c8-8f97-318f2787c386",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.325790Z"
+    },
+    {
+      "balance_minor": "99059",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:59",
+      "id": "1e9bc8d9-171e-596d-873c-8cdb162ca05d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.825403Z"
+    },
+    {
+      "balance_minor": "97103",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:22",
+      "id": "1e9a5f4b-3c3d-5475-a533-deb2e9f53ce3",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:06.794774Z"
+    },
+    {
+      "balance_minor": "100760",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:84",
+      "id": "1e0882af-bf59-5da6-854a-6a47a81e8f04",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:12.316556Z"
+    },
+    {
+      "balance_minor": "104293",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:144",
+      "id": "1d862f52-db40-584d-af27-aeb2a9725fe4",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.322310Z"
+    },
+    {
+      "balance_minor": "98910",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:109",
+      "id": "1c9c3e67-e38c-50e2-a73b-62d23d814f19",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.171099Z"
+    },
+    {
+      "balance_minor": "102298",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:171",
+      "id": "1c986228-bbab-509d-a9d8-4f381d2bf6ed",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:04.508692Z"
+    },
+    {
+      "balance_minor": "99818",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:78",
+      "id": "1b0a4d59-a871-5181-add8-7a0d35b5dd05",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:00.493247Z"
+    },
+    {
+      "balance_minor": "103113",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:35",
+      "id": "1aea3168-69f3-5450-bb9b-217439be6499",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:50.471005Z"
+    },
+    {
+      "balance_minor": "96996",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:113",
+      "id": "16d2b049-fd15-5db5-a5fd-36f7e7388d56",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:09.331196Z"
+    },
+    {
+      "balance_minor": "100970",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:31",
+      "id": "16c6a8e1-f723-5093-8a65-cfa02c186d26",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:59.271047Z"
+    },
+    {
+      "balance_minor": "94558",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:136",
+      "id": "1637d5b3-5b32-54df-b67d-2a925fc75260",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:10.820785Z"
+    },
+    {
+      "balance_minor": "94119",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:50",
+      "id": "16059e1f-533d-57ba-b6cc-9a0c1015108a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:54:59.773287Z"
+    },
+    {
+      "balance_minor": "98894",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:167",
+      "id": "1397483a-6c7c-57bb-bec0-33c982c572cd",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:20.484988Z"
+    },
+    {
+      "balance_minor": "99178",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:89",
+      "id": "12532866-1747-5758-9b3b-169d2d775021",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:19.523414Z"
+    },
+    {
+      "balance_minor": "99347",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:82",
+      "id": "111b0603-2485-5980-8357-c0a6c78a0e98",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.184040Z"
+    },
+    {
+      "balance_minor": "104890",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:71",
+      "id": "10ac4b5d-91ec-507a-8ae4-09955fb91f8d",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.825807Z"
+    },
+    {
+      "balance_minor": "95750",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:99",
+      "id": "10382609-40bd-5a26-8339-cb1fd6778e1a",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.200326Z"
+    },
+    {
+      "balance_minor": "102561",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:76",
+      "id": "0ed4a08e-a756-526f-8a45-75f06a0b8f3e",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.325790Z"
+    },
+    {
+      "balance_minor": "102846",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:155",
+      "id": "078ec747-07db-5145-b0f9-813248c46449",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:14.338815Z"
+    },
+    {
+      "balance_minor": "94159",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:74",
+      "id": "0720d354-8853-59f0-8a24-485fdaf4e8c5",
+      "status": "active",
+      "updated_at": "2026-10-11T05:44:59.486011Z"
+    },
+    {
+      "balance_minor": "99637",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:5",
+      "id": "040c04ac-0420-5a4d-ac12-f07e6f66467c",
+      "status": "active",
+      "updated_at": "2026-10-11T05:45:25.160668Z"
+    },
+    {
+      "balance_minor": "95574",
+      "created_at": "2026-10-09T13:24:12.432657Z",
+      "currency": "INR",
+      "external_ref": "seed:phase1-v1:39",
+      "id": "03ed05fc-827e-5453-958c-76caa30a580c",
+      "status": "active",
+      "updated_at": "2026-10-11T05:55:11.324844Z"
+    }
+  ],
+  "created_at": "2026-10-11T06:51:57.538012+00:00",
+  "dataset": {
+    "account_ids": [
+      "03ed05fc-827e-5453-958c-76caa30a580c",
+      "040c04ac-0420-5a4d-ac12-f07e6f66467c",
+      "0720d354-8853-59f0-8a24-485fdaf4e8c5",
+      "078ec747-07db-5145-b0f9-813248c46449",
+      "0ed4a08e-a756-526f-8a45-75f06a0b8f3e",
+      "10382609-40bd-5a26-8339-cb1fd6778e1a",
+      "10ac4b5d-91ec-507a-8ae4-09955fb91f8d",
+      "111b0603-2485-5980-8357-c0a6c78a0e98",
+      "12532866-1747-5758-9b3b-169d2d775021",
+      "1397483a-6c7c-57bb-bec0-33c982c572cd",
+      "16059e1f-533d-57ba-b6cc-9a0c1015108a",
+      "1637d5b3-5b32-54df-b67d-2a925fc75260",
+      "16c6a8e1-f723-5093-8a65-cfa02c186d26",
+      "16d2b049-fd15-5db5-a5fd-36f7e7388d56",
+      "1aea3168-69f3-5450-bb9b-217439be6499",
+      "1b0a4d59-a871-5181-add8-7a0d35b5dd05",
+      "1c986228-bbab-509d-a9d8-4f381d2bf6ed",
+      "1c9c3e67-e38c-50e2-a73b-62d23d814f19",
+      "1d862f52-db40-584d-af27-aeb2a9725fe4",
+      "1e0882af-bf59-5da6-854a-6a47a81e8f04",
+      "1e9a5f4b-3c3d-5475-a533-deb2e9f53ce3",
+      "1e9bc8d9-171e-596d-873c-8cdb162ca05d",
+      "1eedb8c4-971b-51c8-8f97-318f2787c386",
+      "1ef65e6d-6e78-570e-9e6a-381f6b20c1b5",
+      "20e87902-553c-59c6-b4de-967841fb548b",
+      "23dc8d72-1831-5989-b585-06ecac8b2935",
+      "2754cd2d-8a8e-5a18-bb66-3b33db77afbf",
+      "28c433cf-325a-5c43-9dc3-3c2b04f651ab",
+      "29ef3d3c-cb4a-5413-b6ac-be2ee2958474",
+      "2b3fc9ed-680d-54a9-b2ee-a6a4ee60f45a",
+      "2c1d66a8-c803-5d6c-af84-871668f4aba1",
+      "2c958f12-addb-5521-ae8d-2d60a0706360",
+      "2d6b8640-cbdd-50e7-bb5a-0effd57a81ba",
+      "2eb47d42-0f86-5b3f-ae78-2a0fe586d8b2",
+      "2ecbfeb8-0ba0-54c7-b26c-3e8feceadacc",
+      "2ed57183-0d86-526d-b5df-c3e736f6e02e",
+      "2ee10b30-1475-5c1d-8cc8-f90ac48a8b44",
+      "300725c8-1540-551b-8339-982a8573d2db",
+      "30198ef4-8a5b-59fa-9254-08dd3a952c56",
+      "34c46eab-a9bc-5210-985c-6a0bf846576d",
+      "35696c9a-3133-5b97-a6eb-a3bbf2cce7ca",
+      "37c3b199-2294-51b5-8aeb-de47d9e5910f",
+      "380cea15-a1a1-5a03-ace1-6f6ed5d59a95",
+      "3a3fd689-ef3b-566f-8995-1f3d2937480e",
+      "3a5a34e4-c161-5d49-8ae9-912c7849d78e",
+      "3b17a0a8-f073-54cd-ae7f-dcd20fb6adcb",
+      "3cb7bb98-3fd0-5377-93e8-eee32bc1bb80",
+      "3f3e7409-9713-556c-8262-a093a3086049",
+      "4057104c-7ed7-59e1-ae47-ad471fa6262e",
+      "4137e541-95c3-54f0-87d2-fbc19b5da73d",
+      "423b47ff-d065-5ac2-93c8-dbe73a803d52",
+      "4314a222-8c63-52a8-ad42-76a5c0667bba",
+      "431e30d1-c014-50e0-80a7-0bb6c921b021",
+      "449a3a79-6dff-5612-8335-ce037af20732",
+      "44e5f437-d90f-5947-9aa5-cf82fca36c92",
+      "4643d173-bd50-5e8f-9dda-a82aac23a84e",
+      "46971d0d-9849-52e9-8b0c-c117b678b182",
+      "46e5ab63-7fd8-5c94-aa37-e00ec73e8da7",
+      "494b3f49-5ec1-5b90-ac8b-233eaf20d676",
+      "494e2345-15d3-56f7-9a01-42f0ced0c101",
+      "49b00637-c63d-5020-affe-df39e73ed4a4",
+      "4aab0e45-703c-55f0-aa1c-d53fc5395a67",
+      "4f80084c-1880-51b6-9edb-dab0f9478cee",
+      "50f08e35-4ed6-54a1-98a1-a4515a7cd012",
+      "513cbf15-24e9-50a0-bd12-17b36fdea430",
+      "531d108a-9da4-54bc-b141-ef430a2bbe45",
+      "5421f552-dcbd-5f7c-9849-503a982b03e9",
+      "555b3b01-03ce-5532-977f-05b766daaa51",
+      "558431cd-e469-5af7-b992-35a9dae7b64f",
+      "5595b79d-02ab-556f-a1ab-f530cfcae429",
+      "574e8b4c-b1b5-530a-b2ee-5654ccb3b13d",
+      "5fe9da07-a340-54fb-ada5-8d66a0706a21",
+      "600b43cf-245b-5b0a-bc81-db1f4e417a3a",
+      "60612bbb-2477-5c35-8577-8b771c336c8b",
+      "61df124b-c9f3-53b1-af91-a58c70b32512",
+      "61e36022-fff8-5022-9b82-0001a749435a",
+      "62e478c9-ce91-5ea5-860a-cb0e588ab66e",
+      "68bf6c29-1900-53a9-920f-2002c5045496",
+      "68d1e1c6-6c14-5ad3-8aab-5f6190919f18",
+      "69f3b08f-6677-5d35-964f-f0ed181cbc34",
+      "69f67740-4f3d-57b4-9ffe-be01dd6c9f15",
+      "6a42960b-8688-56e8-a8b0-419c312414e0",
+      "6af21e3d-c73f-5de3-9e5a-0719fea7777d",
+      "6dd85f35-1bd9-599f-8d49-e3f64acfc54d",
+      "6f9b75b9-2ded-5507-a58e-ba46ff0e426d",
+      "7123c7d6-bb56-5615-bbca-72c6b7ef5f88",
+      "718d8717-29d9-5409-b8fd-a2ec2af6fe76",
+      "71d21195-8f7e-5141-b6ef-93057d338343",
+      "74ff81dd-1027-52f0-a28f-d840cfaee2de",
+      "75dc660e-0daf-5708-b315-77d74200eac7",
+      "76c84494-3f4c-5e8d-82f8-45e2adac1899",
+      "77d61f5f-bb77-5bb8-b420-2fd61f00e412",
+      "784c7321-b9a4-513e-a4ad-f538a4ef5992",
+      "798156e8-193a-5098-b9a5-1feddd859289",
+      "79cbe5f9-b290-5b78-91b0-aa94a8a67047",
+      "7c8c0ab3-9c79-57a9-a5ec-13519196f9cb",
+      "7c9ff1c3-23c7-5c13-a24c-40f68607127f",
+      "7cb0f821-f8d3-5d84-a010-a39694d94b49",
+      "7d20bb78-7fcf-5126-b5fb-05e730721bff",
+      "80fb1bac-eac9-5ec3-a7b4-74d8629e0bea",
+      "864adb3c-41e2-5f84-a3ec-8c4825873e2a",
+      "86ea7492-2a0d-51fb-8f55-63d02f4bd20c",
+      "870bec5b-3439-54ad-b70b-2abe30277487",
+      "887a30e1-4ac5-5f30-8d23-e6587f54f2f6",
+      "888a6c83-b230-5b72-8543-a1f04da15e67",
+      "897f5218-92d5-51a7-89a8-a82aec2af2a6",
+      "8bf0a017-8199-5f59-afeb-526f6604c273",
+      "8e306f5c-f990-504d-ad3a-86acb4853c1b",
+      "8f845c73-fa5a-5414-a7e8-ffa607bbba14",
+      "93274c61-4687-57ae-857a-619408b3829a",
+      "9457d29d-27ae-53c9-acd2-c346708457a3",
+      "96400fba-44cf-5a0c-bc3d-c68877a98603",
+      "97e8ea8f-531a-5f9b-b64a-1ccd3d9c90bb",
+      "97ec9d00-9484-5d0f-84b1-8e5496111be5",
+      "983b5b46-ba2d-50f5-8b65-06639b74fa8d",
+      "9a757dcf-c947-54bb-917a-93f9c7bb4229",
+      "9bbae3ad-dd5f-501c-ad3e-07163823512f",
+      "9bea2928-488c-574e-9341-25315efd7dce",
+      "9e3bd4a2-b9ad-59d9-aab4-e40692625460",
+      "9f5900be-d3be-501c-8785-bdfdf36c9bb7",
+      "9f92b06c-55d8-5269-9260-bb7dc63e0a04",
+      "a17b45e3-cb5a-5364-8c19-9b80d0943160",
+      "a18f551d-f200-5a31-85c0-9225e00a71f8",
+      "a1b83444-f071-5ca6-8d92-532979091179",
+      "a21ba28e-d711-56a0-80f1-48e19735595a",
+      "a3a9f506-0167-5395-8e00-8b17570d3ff0",
+      "a40267ee-4447-5e8e-b5d2-59ad1b3ed315",
+      "a525fda6-9abc-57b9-8f82-3f4f8e98b285",
+      "a565505e-ed80-545b-ba75-0485b00ae870",
+      "a64d8aae-1286-5f9b-811c-5581f5f9658f",
+      "a919f963-9c8f-505b-8790-03f5e8ccd6a4",
+      "aabb3865-2796-5d39-945a-f5bdde95ebe8",
+      "aca74a5c-6bfd-52c2-ba00-f7bc4f9fe07d",
+      "ad061db0-b567-5f9f-ac40-ace95b7cb231",
+      "ae4963ba-199b-5eb5-b10a-baea7c647201",
+      "af6bf639-7132-53cd-b81a-a8a49e64f5b1",
+      "b029f9b5-8136-5597-98bb-383385e0e03b",
+      "b2a2cab6-6099-514d-943b-0405bc39b0cf",
+      "b519b23f-f813-59fa-bb98-f410a8a6ecb8",
+      "b564257a-3af6-5948-b108-c77a944f642a",
+      "b666b7c5-389f-52f2-bc0d-668dd06ca48d",
+      "b751d214-5185-5eee-b0c3-3583eb6a5f53",
+      "b86d5307-c23a-58c1-af75-413e1b050233",
+      "b9048c43-5840-5af2-963c-619bba4d4222",
+      "b9dedb55-d72f-5a49-a463-016431c2b91d",
+      "ba189133-edc7-5562-afb1-752174fb8658",
+      "bac9b5d1-374e-5793-9588-99e615b6da63",
+      "bc16a261-9057-5871-9e54-f3177abe87d6",
+      "bc9c1f4a-0659-5724-8cf8-aad2e129385b",
+      "be42a418-2211-52fb-8655-61b47734a4c9",
+      "bfdfb07a-b538-5e44-8b7a-e7594aead35b",
+      "c0dbfdc3-1c59-5bcf-9449-5545a8254341",
+      "c2373adb-4918-5de3-8a94-18a91ad88225",
+      "c5c6e0dc-e834-5606-8517-a9277b678132",
+      "c5dac027-305a-5e31-b713-261bfbb45eef",
+      "c6ad052a-389a-5f78-83a0-0ccda367ff64",
+      "c85000ff-d65e-5372-a90b-4ebbc3415b23",
+      "c93ba6ed-1c58-55df-bfd2-941e046debd0",
+      "caf9f86a-7900-5f85-990d-a60331bf5e05",
+      "cd56f022-474f-53cb-8d53-413035deb7ea",
+      "cd76a069-4065-5050-8232-33d34a9a1c5d",
+      "cefcca67-b4b3-5964-8e6e-777b7508eede",
+      "d1b938ed-efcf-51b4-9963-81530cafefa7",
+      "d1bad7dc-266a-56bd-8ab8-95e275c71a53",
+      "d23bf0f9-4184-51fd-90a4-35e4d8926ba8",
+      "d25fc3fa-3288-5a6e-99be-e71b7b7fb19b",
+      "d2c0f63c-1050-5a30-af9f-10a9eb237a08",
+      "d509628f-d072-5e17-b7ab-8067e8c8623d",
+      "d6179b24-abb6-51ad-9689-9894ed315ab0",
+      "d69a0105-e5a4-5219-9105-62ff87d77c7c",
+      "d8d3a15d-d198-5586-9645-734397c545c1",
+      "dc676b48-16b2-5bef-b173-5f381c600a6a",
+      "ddd15571-e1a3-55c3-9975-595d80c8a934",
+      "dff9f36b-ef9f-5436-9c6a-fe525911cc82",
+      "e0648866-d588-5f87-90fa-0b9f63bb69c1",
+      "e1d25498-655e-56a9-bf66-72898c7549ab",
+      "e27211d5-1d39-5f6a-922c-ce9674322213",
+      "e2aafe7b-7dd8-5f5f-997c-b6f1256fad7c",
+      "e2b6fd4e-50cd-5e33-83dd-5d96d3d33a5e",
+      "e3a99f3f-62df-5fff-af85-22e20aca7227",
+      "e525b43f-85eb-5a18-9e8c-ac70e95034db",
+      "e67ea6ec-d1b7-5438-a3ef-b87c299547e7",
+      "e698cead-14fa-5cc1-b7f7-c924da0e2f0b",
+      "e6ac935d-fe1b-522c-af64-0f441cf16c53",
+      "e894dce9-0012-5f8c-b85f-853fad30edfc",
+      "eb40f84e-c339-5c94-824e-3356b6ded337",
+      "edef3d70-811b-5375-89d1-c872d7b2dc2e",
+      "eecb3f77-bb2c-5b97-8f18-a112cee7622d",
+      "f1a45852-6f39-5ee3-8607-99d4e7fe8a3a",
+      "f1a62dad-fef9-5c39-b87b-bdcc8e541864",
+      "f3f31fd1-5af7-54ac-bea0-a46f3e2ca055",
+      "f6f6a614-a088-52fd-a97f-4baa87bf74ff",
+      "f8a07c3b-2935-5d0c-856d-a919500f99c3",
+      "f9f3b662-726d-5110-981c-0a065cf3680d",
+      "fa9080ee-e769-5d3c-a00a-796d392ab8ab",
+      "fc8bd99a-7353-596b-a93e-824359396eaa",
+      "fddfe0fc-372f-5bf4-ba92-dda3dff3675f",
+      "fe54ece9-faac-58b1-ae89-d10d11791b4c",
+      "ff882fe7-8ed4-598e-9c4e-781c89e152cd",
+      "ffce3956-572e-58da-a947-78b0086787f7"
+    ],
+    "currency": "INR",
+    "funded_count": 200,
+    "initial_funding": [
+      {
+        "balance_minor": 95574,
+        "external_ref": "seed:phase1-v1:39",
+        "id": "03ed05fc-827e-5453-958c-76caa30a580c"
+      },
+      {
+        "balance_minor": 99637,
+        "external_ref": "seed:phase1-v1:5",
+        "id": "040c04ac-0420-5a4d-ac12-f07e6f66467c"
+      },
+      {
+        "balance_minor": 94159,
+        "external_ref": "seed:phase1-v1:74",
+        "id": "0720d354-8853-59f0-8a24-485fdaf4e8c5"
+      },
+      {
+        "balance_minor": 102846,
+        "external_ref": "seed:phase1-v1:155",
+        "id": "078ec747-07db-5145-b0f9-813248c46449"
+      },
+      {
+        "balance_minor": 102561,
+        "external_ref": "seed:phase1-v1:76",
+        "id": "0ed4a08e-a756-526f-8a45-75f06a0b8f3e"
+      },
+      {
+        "balance_minor": 95750,
+        "external_ref": "seed:phase1-v1:99",
+        "id": "10382609-40bd-5a26-8339-cb1fd6778e1a"
+      },
+      {
+        "balance_minor": 104890,
+        "external_ref": "seed:phase1-v1:71",
+        "id": "10ac4b5d-91ec-507a-8ae4-09955fb91f8d"
+      },
+      {
+        "balance_minor": 99347,
+        "external_ref": "seed:phase1-v1:82",
+        "id": "111b0603-2485-5980-8357-c0a6c78a0e98"
+      },
+      {
+        "balance_minor": 99178,
+        "external_ref": "seed:phase1-v1:89",
+        "id": "12532866-1747-5758-9b3b-169d2d775021"
+      },
+      {
+        "balance_minor": 98894,
+        "external_ref": "seed:phase1-v1:167",
+        "id": "1397483a-6c7c-57bb-bec0-33c982c572cd"
+      },
+      {
+        "balance_minor": 94119,
+        "external_ref": "seed:phase1-v1:50",
+        "id": "16059e1f-533d-57ba-b6cc-9a0c1015108a"
+      },
+      {
+        "balance_minor": 94558,
+        "external_ref": "seed:phase1-v1:136",
+        "id": "1637d5b3-5b32-54df-b67d-2a925fc75260"
+      },
+      {
+        "balance_minor": 100970,
+        "external_ref": "seed:phase1-v1:31",
+        "id": "16c6a8e1-f723-5093-8a65-cfa02c186d26"
+      },
+      {
+        "balance_minor": 96996,
+        "external_ref": "seed:phase1-v1:113",
+        "id": "16d2b049-fd15-5db5-a5fd-36f7e7388d56"
+      },
+      {
+        "balance_minor": 103113,
+        "external_ref": "seed:phase1-v1:35",
+        "id": "1aea3168-69f3-5450-bb9b-217439be6499"
+      },
+      {
+        "balance_minor": 99818,
+        "external_ref": "seed:phase1-v1:78",
+        "id": "1b0a4d59-a871-5181-add8-7a0d35b5dd05"
+      },
+      {
+        "balance_minor": 102298,
+        "external_ref": "seed:phase1-v1:171",
+        "id": "1c986228-bbab-509d-a9d8-4f381d2bf6ed"
+      },
+      {
+        "balance_minor": 98910,
+        "external_ref": "seed:phase1-v1:109",
+        "id": "1c9c3e67-e38c-50e2-a73b-62d23d814f19"
+      },
+      {
+        "balance_minor": 104293,
+        "external_ref": "seed:phase1-v1:144",
+        "id": "1d862f52-db40-584d-af27-aeb2a9725fe4"
+      },
+      {
+        "balance_minor": 100760,
+        "external_ref": "seed:phase1-v1:84",
+        "id": "1e0882af-bf59-5da6-854a-6a47a81e8f04"
+      },
+      {
+        "balance_minor": 97103,
+        "external_ref": "seed:phase1-v1:22",
+        "id": "1e9a5f4b-3c3d-5475-a533-deb2e9f53ce3"
+      },
+      {
+        "balance_minor": 99059,
+        "external_ref": "seed:phase1-v1:59",
+        "id": "1e9bc8d9-171e-596d-873c-8cdb162ca05d"
+      },
+      {
+        "balance_minor": 103602,
+        "external_ref": "seed:phase1-v1:108",
+        "id": "1eedb8c4-971b-51c8-8f97-318f2787c386"
+      },
+      {
+        "balance_minor": 103834,
+        "external_ref": "seed:phase1-v1:183",
+        "id": "1ef65e6d-6e78-570e-9e6a-381f6b20c1b5"
+      },
+      {
+        "balance_minor": 106652,
+        "external_ref": "seed:phase1-v1:127",
+        "id": "20e87902-553c-59c6-b4de-967841fb548b"
+      },
+      {
+        "balance_minor": 101422,
+        "external_ref": "seed:phase1-v1:90",
+        "id": "23dc8d72-1831-5989-b585-06ecac8b2935"
+      },
+      {
+        "balance_minor": 103042,
+        "external_ref": "seed:phase1-v1:18",
+        "id": "2754cd2d-8a8e-5a18-bb66-3b33db77afbf"
+      },
+      {
+        "balance_minor": 98482,
+        "external_ref": "seed:phase1-v1:186",
+        "id": "28c433cf-325a-5c43-9dc3-3c2b04f651ab"
+      },
+      {
+        "balance_minor": 99399,
+        "external_ref": "seed:phase1-v1:185",
+        "id": "29ef3d3c-cb4a-5413-b6ac-be2ee2958474"
+      },
+      {
+        "balance_minor": 96373,
+        "external_ref": "seed:phase1-v1:63",
+        "id": "2b3fc9ed-680d-54a9-b2ee-a6a4ee60f45a"
+      },
+      {
+        "balance_minor": 104667,
+        "external_ref": "seed:phase1-v1:27",
+        "id": "2c1d66a8-c803-5d6c-af84-871668f4aba1"
+      },
+      {
+        "balance_minor": 102759,
+        "external_ref": "seed:phase1-v1:0",
+        "id": "2c958f12-addb-5521-ae8d-2d60a0706360"
+      },
+      {
+        "balance_minor": 102893,
+        "external_ref": "seed:phase1-v1:13",
+        "id": "2d6b8640-cbdd-50e7-bb5a-0effd57a81ba"
+      },
+      {
+        "balance_minor": 99601,
+        "external_ref": "seed:phase1-v1:41",
+        "id": "2eb47d42-0f86-5b3f-ae78-2a0fe586d8b2"
+      },
+      {
+        "balance_minor": 101975,
+        "external_ref": "seed:phase1-v1:77",
+        "id": "2ecbfeb8-0ba0-54c7-b26c-3e8feceadacc"
+      },
+      {
+        "balance_minor": 107302,
+        "external_ref": "seed:phase1-v1:100",
+        "id": "2ed57183-0d86-526d-b5df-c3e736f6e02e"
+      },
+      {
+        "balance_minor": 101417,
+        "external_ref": "seed:phase1-v1:173",
+        "id": "2ee10b30-1475-5c1d-8cc8-f90ac48a8b44"
+      },
+      {
+        "balance_minor": 101107,
+        "external_ref": "seed:phase1-v1:126",
+        "id": "300725c8-1540-551b-8339-982a8573d2db"
+      },
+      {
+        "balance_minor": 98008,
+        "external_ref": "seed:phase1-v1:154",
+        "id": "30198ef4-8a5b-59fa-9254-08dd3a952c56"
+      },
+      {
+        "balance_minor": 101255,
+        "external_ref": "seed:phase1-v1:130",
+        "id": "34c46eab-a9bc-5210-985c-6a0bf846576d"
+      },
+      {
+        "balance_minor": 101755,
+        "external_ref": "seed:phase1-v1:12",
+        "id": "35696c9a-3133-5b97-a6eb-a3bbf2cce7ca"
+      },
+      {
+        "balance_minor": 95332,
+        "external_ref": "seed:phase1-v1:40",
+        "id": "37c3b199-2294-51b5-8aeb-de47d9e5910f"
+      },
+      {
+        "balance_minor": 92631,
+        "external_ref": "seed:phase1-v1:114",
+        "id": "380cea15-a1a1-5a03-ace1-6f6ed5d59a95"
+      },
+      {
+        "balance_minor": 107558,
+        "external_ref": "seed:phase1-v1:189",
+        "id": "3a3fd689-ef3b-566f-8995-1f3d2937480e"
+      },
+      {
+        "balance_minor": 97228,
+        "external_ref": "seed:phase1-v1:181",
+        "id": "3a5a34e4-c161-5d49-8ae9-912c7849d78e"
+      },
+      {
+        "balance_minor": 99908,
+        "external_ref": "seed:phase1-v1:10",
+        "id": "3b17a0a8-f073-54cd-ae7f-dcd20fb6adcb"
+      },
+      {
+        "balance_minor": 88007,
+        "external_ref": "seed:phase1-v1:96",
+        "id": "3cb7bb98-3fd0-5377-93e8-eee32bc1bb80"
+      },
+      {
+        "balance_minor": 101348,
+        "external_ref": "seed:phase1-v1:95",
+        "id": "3f3e7409-9713-556c-8262-a093a3086049"
+      },
+      {
+        "balance_minor": 97247,
+        "external_ref": "seed:phase1-v1:139",
+        "id": "4057104c-7ed7-59e1-ae47-ad471fa6262e"
+      },
+      {
+        "balance_minor": 98494,
+        "external_ref": "seed:phase1-v1:192",
+        "id": "4137e541-95c3-54f0-87d2-fbc19b5da73d"
+      },
+      {
+        "balance_minor": 98373,
+        "external_ref": "seed:phase1-v1:133",
+        "id": "423b47ff-d065-5ac2-93c8-dbe73a803d52"
+      },
+      {
+        "balance_minor": 97590,
+        "external_ref": "seed:phase1-v1:93",
+        "id": "4314a222-8c63-52a8-ad42-76a5c0667bba"
+      },
+      {
+        "balance_minor": 95646,
+        "external_ref": "seed:phase1-v1:165",
+        "id": "431e30d1-c014-50e0-80a7-0bb6c921b021"
+      },
+      {
+        "balance_minor": 102680,
+        "external_ref": "seed:phase1-v1:21",
+        "id": "449a3a79-6dff-5612-8335-ce037af20732"
+      },
+      {
+        "balance_minor": 100660,
+        "external_ref": "seed:phase1-v1:70",
+        "id": "44e5f437-d90f-5947-9aa5-cf82fca36c92"
+      },
+      {
+        "balance_minor": 98861,
+        "external_ref": "seed:phase1-v1:146",
+        "id": "4643d173-bd50-5e8f-9dda-a82aac23a84e"
+      },
+      {
+        "balance_minor": 102808,
+        "external_ref": "seed:phase1-v1:152",
+        "id": "46971d0d-9849-52e9-8b0c-c117b678b182"
+      },
+      {
+        "balance_minor": 98623,
+        "external_ref": "seed:phase1-v1:94",
+        "id": "46e5ab63-7fd8-5c94-aa37-e00ec73e8da7"
+      },
+      {
+        "balance_minor": 105720,
+        "external_ref": "seed:phase1-v1:72",
+        "id": "494b3f49-5ec1-5b90-ac8b-233eaf20d676"
+      },
+      {
+        "balance_minor": 102804,
+        "external_ref": "seed:phase1-v1:65",
+        "id": "494e2345-15d3-56f7-9a01-42f0ced0c101"
+      },
+      {
+        "balance_minor": 96096,
+        "external_ref": "seed:phase1-v1:119",
+        "id": "49b00637-c63d-5020-affe-df39e73ed4a4"
+      },
+      {
+        "balance_minor": 107194,
+        "external_ref": "seed:phase1-v1:193",
+        "id": "4aab0e45-703c-55f0-aa1c-d53fc5395a67"
+      },
+      {
+        "balance_minor": 100419,
+        "external_ref": "seed:phase1-v1:66",
+        "id": "4f80084c-1880-51b6-9edb-dab0f9478cee"
+      },
+      {
+        "balance_minor": 95339,
+        "external_ref": "seed:phase1-v1:54",
+        "id": "50f08e35-4ed6-54a1-98a1-a4515a7cd012"
+      },
+      {
+        "balance_minor": 98813,
+        "external_ref": "seed:phase1-v1:149",
+        "id": "513cbf15-24e9-50a0-bd12-17b36fdea430"
+      },
+      {
+        "balance_minor": 97528,
+        "external_ref": "seed:phase1-v1:92",
+        "id": "531d108a-9da4-54bc-b141-ef430a2bbe45"
+      },
+      {
+        "balance_minor": 102685,
+        "external_ref": "seed:phase1-v1:47",
+        "id": "5421f552-dcbd-5f7c-9849-503a982b03e9"
+      },
+      {
+        "balance_minor": 104211,
+        "external_ref": "seed:phase1-v1:49",
+        "id": "555b3b01-03ce-5532-977f-05b766daaa51"
+      },
+      {
+        "balance_minor": 99816,
+        "external_ref": "seed:phase1-v1:69",
+        "id": "558431cd-e469-5af7-b992-35a9dae7b64f"
+      },
+      {
+        "balance_minor": 100085,
+        "external_ref": "seed:phase1-v1:120",
+        "id": "5595b79d-02ab-556f-a1ab-f530cfcae429"
+      },
+      {
+        "balance_minor": 103128,
+        "external_ref": "seed:phase1-v1:169",
+        "id": "574e8b4c-b1b5-530a-b2ee-5654ccb3b13d"
+      },
+      {
+        "balance_minor": 96710,
+        "external_ref": "seed:phase1-v1:25",
+        "id": "5fe9da07-a340-54fb-ada5-8d66a0706a21"
+      },
+      {
+        "balance_minor": 97465,
+        "external_ref": "seed:phase1-v1:158",
+        "id": "600b43cf-245b-5b0a-bc81-db1f4e417a3a"
+      },
+      {
+        "balance_minor": 104512,
+        "external_ref": "seed:phase1-v1:34",
+        "id": "60612bbb-2477-5c35-8577-8b771c336c8b"
+      },
+      {
+        "balance_minor": 100814,
+        "external_ref": "seed:phase1-v1:45",
+        "id": "61df124b-c9f3-53b1-af91-a58c70b32512"
+      },
+      {
+        "balance_minor": 101700,
+        "external_ref": "seed:phase1-v1:8",
+        "id": "61e36022-fff8-5022-9b82-0001a749435a"
+      },
+      {
+        "balance_minor": 100755,
+        "external_ref": "seed:phase1-v1:131",
+        "id": "62e478c9-ce91-5ea5-860a-cb0e588ab66e"
+      },
+      {
+        "balance_minor": 102143,
+        "external_ref": "seed:phase1-v1:26",
+        "id": "68bf6c29-1900-53a9-920f-2002c5045496"
+      },
+      {
+        "balance_minor": 103219,
+        "external_ref": "seed:phase1-v1:124",
+        "id": "68d1e1c6-6c14-5ad3-8aab-5f6190919f18"
+      },
+      {
+        "balance_minor": 101141,
+        "external_ref": "seed:phase1-v1:161",
+        "id": "69f3b08f-6677-5d35-964f-f0ed181cbc34"
+      },
+      {
+        "balance_minor": 97375,
+        "external_ref": "seed:phase1-v1:135",
+        "id": "69f67740-4f3d-57b4-9ffe-be01dd6c9f15"
+      },
+      {
+        "balance_minor": 102209,
+        "external_ref": "seed:phase1-v1:142",
+        "id": "6a42960b-8688-56e8-a8b0-419c312414e0"
+      },
+      {
+        "balance_minor": 96298,
+        "external_ref": "seed:phase1-v1:20",
+        "id": "6af21e3d-c73f-5de3-9e5a-0719fea7777d"
+      },
+      {
+        "balance_minor": 92540,
+        "external_ref": "seed:phase1-v1:132",
+        "id": "6dd85f35-1bd9-599f-8d49-e3f64acfc54d"
+      },
+      {
+        "balance_minor": 102441,
+        "external_ref": "seed:phase1-v1:88",
+        "id": "6f9b75b9-2ded-5507-a58e-ba46ff0e426d"
+      },
+      {
+        "balance_minor": 102675,
+        "external_ref": "seed:phase1-v1:36",
+        "id": "7123c7d6-bb56-5615-bbca-72c6b7ef5f88"
+      },
+      {
+        "balance_minor": 99233,
+        "external_ref": "seed:phase1-v1:179",
+        "id": "718d8717-29d9-5409-b8fd-a2ec2af6fe76"
+      },
+      {
+        "balance_minor": 98829,
+        "external_ref": "seed:phase1-v1:3",
+        "id": "71d21195-8f7e-5141-b6ef-93057d338343"
+      },
+      {
+        "balance_minor": 104376,
+        "external_ref": "seed:phase1-v1:125",
+        "id": "74ff81dd-1027-52f0-a28f-d840cfaee2de"
+      },
+      {
+        "balance_minor": 93459,
+        "external_ref": "seed:phase1-v1:103",
+        "id": "75dc660e-0daf-5708-b315-77d74200eac7"
+      },
+      {
+        "balance_minor": 104344,
+        "external_ref": "seed:phase1-v1:172",
+        "id": "76c84494-3f4c-5e8d-82f8-45e2adac1899"
+      },
+      {
+        "balance_minor": 100327,
+        "external_ref": "seed:phase1-v1:147",
+        "id": "77d61f5f-bb77-5bb8-b420-2fd61f00e412"
+      },
+      {
+        "balance_minor": 104142,
+        "external_ref": "seed:phase1-v1:199",
+        "id": "784c7321-b9a4-513e-a4ad-f538a4ef5992"
+      },
+      {
+        "balance_minor": 102978,
+        "external_ref": "seed:phase1-v1:28",
+        "id": "798156e8-193a-5098-b9a5-1feddd859289"
+      },
+      {
+        "balance_minor": 98731,
+        "external_ref": "seed:phase1-v1:38",
+        "id": "79cbe5f9-b290-5b78-91b0-aa94a8a67047"
+      },
+      {
+        "balance_minor": 102405,
+        "external_ref": "seed:phase1-v1:153",
+        "id": "7c8c0ab3-9c79-57a9-a5ec-13519196f9cb"
+      },
+      {
+        "balance_minor": 99199,
+        "external_ref": "seed:phase1-v1:64",
+        "id": "7c9ff1c3-23c7-5c13-a24c-40f68607127f"
+      },
+      {
+        "balance_minor": 98197,
+        "external_ref": "seed:phase1-v1:56",
+        "id": "7cb0f821-f8d3-5d84-a010-a39694d94b49"
+      },
+      {
+        "balance_minor": 102318,
+        "external_ref": "seed:phase1-v1:6",
+        "id": "7d20bb78-7fcf-5126-b5fb-05e730721bff"
+      },
+      {
+        "balance_minor": 101969,
+        "external_ref": "seed:phase1-v1:191",
+        "id": "80fb1bac-eac9-5ec3-a7b4-74d8629e0bea"
+      },
+      {
+        "balance_minor": 103553,
+        "external_ref": "seed:phase1-v1:105",
+        "id": "864adb3c-41e2-5f84-a3ec-8c4825873e2a"
+      },
+      {
+        "balance_minor": 97621,
+        "external_ref": "seed:phase1-v1:30",
+        "id": "86ea7492-2a0d-51fb-8f55-63d02f4bd20c"
+      },
+      {
+        "balance_minor": 96985,
+        "external_ref": "seed:phase1-v1:166",
+        "id": "870bec5b-3439-54ad-b70b-2abe30277487"
+      },
+      {
+        "balance_minor": 98340,
+        "external_ref": "seed:phase1-v1:86",
+        "id": "887a30e1-4ac5-5f30-8d23-e6587f54f2f6"
+      },
+      {
+        "balance_minor": 103039,
+        "external_ref": "seed:phase1-v1:111",
+        "id": "888a6c83-b230-5b72-8543-a1f04da15e67"
+      },
+      {
+        "balance_minor": 103688,
+        "external_ref": "seed:phase1-v1:197",
+        "id": "897f5218-92d5-51a7-89a8-a82aec2af2a6"
+      },
+      {
+        "balance_minor": 101176,
+        "external_ref": "seed:phase1-v1:57",
+        "id": "8bf0a017-8199-5f59-afeb-526f6604c273"
+      },
+      {
+        "balance_minor": 102432,
+        "external_ref": "seed:phase1-v1:190",
+        "id": "8e306f5c-f990-504d-ad3a-86acb4853c1b"
+      },
+      {
+        "balance_minor": 99037,
+        "external_ref": "seed:phase1-v1:91",
+        "id": "8f845c73-fa5a-5414-a7e8-ffa607bbba14"
+      },
+      {
+        "balance_minor": 99616,
+        "external_ref": "seed:phase1-v1:55",
+        "id": "93274c61-4687-57ae-857a-619408b3829a"
+      },
+      {
+        "balance_minor": 100013,
+        "external_ref": "seed:phase1-v1:128",
+        "id": "9457d29d-27ae-53c9-acd2-c346708457a3"
+      },
+      {
+        "balance_minor": 98033,
+        "external_ref": "seed:phase1-v1:37",
+        "id": "96400fba-44cf-5a0c-bc3d-c68877a98603"
+      },
+      {
+        "balance_minor": 97578,
+        "external_ref": "seed:phase1-v1:1",
+        "id": "97e8ea8f-531a-5f9b-b64a-1ccd3d9c90bb"
+      },
+      {
+        "balance_minor": 103136,
+        "external_ref": "seed:phase1-v1:60",
+        "id": "97ec9d00-9484-5d0f-84b1-8e5496111be5"
+      },
+      {
+        "balance_minor": 96142,
+        "external_ref": "seed:phase1-v1:2",
+        "id": "983b5b46-ba2d-50f5-8b65-06639b74fa8d"
+      },
+      {
+        "balance_minor": 99386,
+        "external_ref": "seed:phase1-v1:85",
+        "id": "9a757dcf-c947-54bb-917a-93f9c7bb4229"
+      },
+      {
+        "balance_minor": 98268,
+        "external_ref": "seed:phase1-v1:42",
+        "id": "9bbae3ad-dd5f-501c-ad3e-07163823512f"
+      },
+      {
+        "balance_minor": 95817,
+        "external_ref": "seed:phase1-v1:17",
+        "id": "9bea2928-488c-574e-9341-25315efd7dce"
+      },
+      {
+        "balance_minor": 96703,
+        "external_ref": "seed:phase1-v1:81",
+        "id": "9e3bd4a2-b9ad-59d9-aab4-e40692625460"
+      },
+      {
+        "balance_minor": 99485,
+        "external_ref": "seed:phase1-v1:29",
+        "id": "9f5900be-d3be-501c-8785-bdfdf36c9bb7"
+      },
+      {
+        "balance_minor": 106357,
+        "external_ref": "seed:phase1-v1:170",
+        "id": "9f92b06c-55d8-5269-9260-bb7dc63e0a04"
+      },
+      {
+        "balance_minor": 97030,
+        "external_ref": "seed:phase1-v1:138",
+        "id": "a17b45e3-cb5a-5364-8c19-9b80d0943160"
+      },
+      {
+        "balance_minor": 100991,
+        "external_ref": "seed:phase1-v1:137",
+        "id": "a18f551d-f200-5a31-85c0-9225e00a71f8"
+      },
+      {
+        "balance_minor": 104295,
+        "external_ref": "seed:phase1-v1:159",
+        "id": "a1b83444-f071-5ca6-8d92-532979091179"
+      },
+      {
+        "balance_minor": 102034,
+        "external_ref": "seed:phase1-v1:102",
+        "id": "a21ba28e-d711-56a0-80f1-48e19735595a"
+      },
+      {
+        "balance_minor": 97398,
+        "external_ref": "seed:phase1-v1:122",
+        "id": "a3a9f506-0167-5395-8e00-8b17570d3ff0"
+      },
+      {
+        "balance_minor": 100877,
+        "external_ref": "seed:phase1-v1:175",
+        "id": "a40267ee-4447-5e8e-b5d2-59ad1b3ed315"
+      },
+      {
+        "balance_minor": 99134,
+        "external_ref": "seed:phase1-v1:53",
+        "id": "a525fda6-9abc-57b9-8f82-3f4f8e98b285"
+      },
+      {
+        "balance_minor": 95851,
+        "external_ref": "seed:phase1-v1:115",
+        "id": "a565505e-ed80-545b-ba75-0485b00ae870"
+      },
+      {
+        "balance_minor": 101485,
+        "external_ref": "seed:phase1-v1:67",
+        "id": "a64d8aae-1286-5f9b-811c-5581f5f9658f"
+      },
+      {
+        "balance_minor": 101354,
+        "external_ref": "seed:phase1-v1:14",
+        "id": "a919f963-9c8f-505b-8790-03f5e8ccd6a4"
+      },
+      {
+        "balance_minor": 100146,
+        "external_ref": "seed:phase1-v1:107",
+        "id": "aabb3865-2796-5d39-945a-f5bdde95ebe8"
+      },
+      {
+        "balance_minor": 98668,
+        "external_ref": "seed:phase1-v1:101",
+        "id": "aca74a5c-6bfd-52c2-ba00-f7bc4f9fe07d"
+      },
+      {
+        "balance_minor": 100043,
+        "external_ref": "seed:phase1-v1:97",
+        "id": "ad061db0-b567-5f9f-ac40-ace95b7cb231"
+      },
+      {
+        "balance_minor": 103258,
+        "external_ref": "seed:phase1-v1:164",
+        "id": "ae4963ba-199b-5eb5-b10a-baea7c647201"
+      },
+      {
+        "balance_minor": 94679,
+        "external_ref": "seed:phase1-v1:51",
+        "id": "af6bf639-7132-53cd-b81a-a8a49e64f5b1"
+      },
+      {
+        "balance_minor": 97556,
+        "external_ref": "seed:phase1-v1:195",
+        "id": "b029f9b5-8136-5597-98bb-383385e0e03b"
+      },
+      {
+        "balance_minor": 104980,
+        "external_ref": "seed:phase1-v1:43",
+        "id": "b2a2cab6-6099-514d-943b-0405bc39b0cf"
+      },
+      {
+        "balance_minor": 102561,
+        "external_ref": "seed:phase1-v1:46",
+        "id": "b519b23f-f813-59fa-bb98-f410a8a6ecb8"
+      },
+      {
+        "balance_minor": 101939,
+        "external_ref": "seed:phase1-v1:121",
+        "id": "b564257a-3af6-5948-b108-c77a944f642a"
+      },
+      {
+        "balance_minor": 102555,
+        "external_ref": "seed:phase1-v1:157",
+        "id": "b666b7c5-389f-52f2-bc0d-668dd06ca48d"
+      },
+      {
+        "balance_minor": 94701,
+        "external_ref": "seed:phase1-v1:194",
+        "id": "b751d214-5185-5eee-b0c3-3583eb6a5f53"
+      },
+      {
+        "balance_minor": 96167,
+        "external_ref": "seed:phase1-v1:123",
+        "id": "b86d5307-c23a-58c1-af75-413e1b050233"
+      },
+      {
+        "balance_minor": 100422,
+        "external_ref": "seed:phase1-v1:150",
+        "id": "b9048c43-5840-5af2-963c-619bba4d4222"
+      },
+      {
+        "balance_minor": 100046,
+        "external_ref": "seed:phase1-v1:4",
+        "id": "b9dedb55-d72f-5a49-a463-016431c2b91d"
+      },
+      {
+        "balance_minor": 97986,
+        "external_ref": "seed:phase1-v1:178",
+        "id": "ba189133-edc7-5562-afb1-752174fb8658"
+      },
+      {
+        "balance_minor": 98778,
+        "external_ref": "seed:phase1-v1:19",
+        "id": "bac9b5d1-374e-5793-9588-99e615b6da63"
+      },
+      {
+        "balance_minor": 99454,
+        "external_ref": "seed:phase1-v1:151",
+        "id": "bc16a261-9057-5871-9e54-f3177abe87d6"
+      },
+      {
+        "balance_minor": 95047,
+        "external_ref": "seed:phase1-v1:162",
+        "id": "bc9c1f4a-0659-5724-8cf8-aad2e129385b"
+      },
+      {
+        "balance_minor": 98736,
+        "external_ref": "seed:phase1-v1:44",
+        "id": "be42a418-2211-52fb-8655-61b47734a4c9"
+      },
+      {
+        "balance_minor": 104666,
+        "external_ref": "seed:phase1-v1:182",
+        "id": "bfdfb07a-b538-5e44-8b7a-e7594aead35b"
+      },
+      {
+        "balance_minor": 99157,
+        "external_ref": "seed:phase1-v1:52",
+        "id": "c0dbfdc3-1c59-5bcf-9449-5545a8254341"
+      },
+      {
+        "balance_minor": 101355,
+        "external_ref": "seed:phase1-v1:75",
+        "id": "c2373adb-4918-5de3-8a94-18a91ad88225"
+      },
+      {
+        "balance_minor": 99613,
+        "external_ref": "seed:phase1-v1:110",
+        "id": "c5c6e0dc-e834-5606-8517-a9277b678132"
+      },
+      {
+        "balance_minor": 99880,
+        "external_ref": "seed:phase1-v1:188",
+        "id": "c5dac027-305a-5e31-b713-261bfbb45eef"
+      },
+      {
+        "balance_minor": 105631,
+        "external_ref": "seed:phase1-v1:104",
+        "id": "c6ad052a-389a-5f78-83a0-0ccda367ff64"
+      },
+      {
+        "balance_minor": 100633,
+        "external_ref": "seed:phase1-v1:16",
+        "id": "c85000ff-d65e-5372-a90b-4ebbc3415b23"
+      },
+      {
+        "balance_minor": 100301,
+        "external_ref": "seed:phase1-v1:79",
+        "id": "c93ba6ed-1c58-55df-bfd2-941e046debd0"
+      },
+      {
+        "balance_minor": 101119,
+        "external_ref": "seed:phase1-v1:58",
+        "id": "caf9f86a-7900-5f85-990d-a60331bf5e05"
+      },
+      {
+        "balance_minor": 100989,
+        "external_ref": "seed:phase1-v1:145",
+        "id": "cd56f022-474f-53cb-8d53-413035deb7ea"
+      },
+      {
+        "balance_minor": 95422,
+        "external_ref": "seed:phase1-v1:80",
+        "id": "cd76a069-4065-5050-8232-33d34a9a1c5d"
+      },
+      {
+        "balance_minor": 101859,
+        "external_ref": "seed:phase1-v1:73",
+        "id": "cefcca67-b4b3-5964-8e6e-777b7508eede"
+      },
+      {
+        "balance_minor": 94973,
+        "external_ref": "seed:phase1-v1:23",
+        "id": "d1b938ed-efcf-51b4-9963-81530cafefa7"
+      },
+      {
+        "balance_minor": 102121,
+        "external_ref": "seed:phase1-v1:24",
+        "id": "d1bad7dc-266a-56bd-8ab8-95e275c71a53"
+      },
+      {
+        "balance_minor": 103164,
+        "external_ref": "seed:phase1-v1:198",
+        "id": "d23bf0f9-4184-51fd-90a4-35e4d8926ba8"
+      },
+      {
+        "balance_minor": 98885,
+        "external_ref": "seed:phase1-v1:129",
+        "id": "d25fc3fa-3288-5a6e-99be-e71b7b7fb19b"
+      },
+      {
+        "balance_minor": 98632,
+        "external_ref": "seed:phase1-v1:87",
+        "id": "d2c0f63c-1050-5a30-af9f-10a9eb237a08"
+      },
+      {
+        "balance_minor": 100431,
+        "external_ref": "seed:phase1-v1:9",
+        "id": "d509628f-d072-5e17-b7ab-8067e8c8623d"
+      },
+      {
+        "balance_minor": 99263,
+        "external_ref": "seed:phase1-v1:160",
+        "id": "d6179b24-abb6-51ad-9689-9894ed315ab0"
+      },
+      {
+        "balance_minor": 98792,
+        "external_ref": "seed:phase1-v1:7",
+        "id": "d69a0105-e5a4-5219-9105-62ff87d77c7c"
+      },
+      {
+        "balance_minor": 97204,
+        "external_ref": "seed:phase1-v1:196",
+        "id": "d8d3a15d-d198-5586-9645-734397c545c1"
+      },
+      {
+        "balance_minor": 97432,
+        "external_ref": "seed:phase1-v1:184",
+        "id": "dc676b48-16b2-5bef-b173-5f381c600a6a"
+      },
+      {
+        "balance_minor": 100641,
+        "external_ref": "seed:phase1-v1:143",
+        "id": "ddd15571-e1a3-55c3-9975-595d80c8a934"
+      },
+      {
+        "balance_minor": 107609,
+        "external_ref": "seed:phase1-v1:176",
+        "id": "dff9f36b-ef9f-5436-9c6a-fe525911cc82"
+      },
+      {
+        "balance_minor": 102227,
+        "external_ref": "seed:phase1-v1:112",
+        "id": "e0648866-d588-5f87-90fa-0b9f63bb69c1"
+      },
+      {
+        "balance_minor": 97069,
+        "external_ref": "seed:phase1-v1:141",
+        "id": "e1d25498-655e-56a9-bf66-72898c7549ab"
+      },
+      {
+        "balance_minor": 101603,
+        "external_ref": "seed:phase1-v1:156",
+        "id": "e27211d5-1d39-5f6a-922c-ce9674322213"
+      },
+      {
+        "balance_minor": 105786,
+        "external_ref": "seed:phase1-v1:83",
+        "id": "e2aafe7b-7dd8-5f5f-997c-b6f1256fad7c"
+      },
+      {
+        "balance_minor": 97895,
+        "external_ref": "seed:phase1-v1:174",
+        "id": "e2b6fd4e-50cd-5e33-83dd-5d96d3d33a5e"
+      },
+      {
+        "balance_minor": 98657,
+        "external_ref": "seed:phase1-v1:187",
+        "id": "e3a99f3f-62df-5fff-af85-22e20aca7227"
+      },
+      {
+        "balance_minor": 102338,
+        "external_ref": "seed:phase1-v1:61",
+        "id": "e525b43f-85eb-5a18-9e8c-ac70e95034db"
+      },
+      {
+        "balance_minor": 101790,
+        "external_ref": "seed:phase1-v1:15",
+        "id": "e67ea6ec-d1b7-5438-a3ef-b87c299547e7"
+      },
+      {
+        "balance_minor": 98705,
+        "external_ref": "seed:phase1-v1:134",
+        "id": "e698cead-14fa-5cc1-b7f7-c924da0e2f0b"
+      },
+      {
+        "balance_minor": 94298,
+        "external_ref": "seed:phase1-v1:33",
+        "id": "e6ac935d-fe1b-522c-af64-0f441cf16c53"
+      },
+      {
+        "balance_minor": 92671,
+        "external_ref": "seed:phase1-v1:98",
+        "id": "e894dce9-0012-5f8c-b85f-853fad30edfc"
+      },
+      {
+        "balance_minor": 104260,
+        "external_ref": "seed:phase1-v1:118",
+        "id": "eb40f84e-c339-5c94-824e-3356b6ded337"
+      },
+      {
+        "balance_minor": 92500,
+        "external_ref": "seed:phase1-v1:106",
+        "id": "edef3d70-811b-5375-89d1-c872d7b2dc2e"
+      },
+      {
+        "balance_minor": 99840,
+        "external_ref": "seed:phase1-v1:48",
+        "id": "eecb3f77-bb2c-5b97-8f18-a112cee7622d"
+      },
+      {
+        "balance_minor": 101281,
+        "external_ref": "seed:phase1-v1:68",
+        "id": "f1a45852-6f39-5ee3-8607-99d4e7fe8a3a"
+      },
+      {
+        "balance_minor": 101855,
+        "external_ref": "seed:phase1-v1:62",
+        "id": "f1a62dad-fef9-5c39-b87b-bdcc8e541864"
+      },
+      {
+        "balance_minor": 101618,
+        "external_ref": "seed:phase1-v1:32",
+        "id": "f3f31fd1-5af7-54ac-bea0-a46f3e2ca055"
+      },
+      {
+        "balance_minor": 100414,
+        "external_ref": "seed:phase1-v1:116",
+        "id": "f6f6a614-a088-52fd-a97f-4baa87bf74ff"
+      },
+      {
+        "balance_minor": 96533,
+        "external_ref": "seed:phase1-v1:168",
+        "id": "f8a07c3b-2935-5d0c-856d-a919500f99c3"
+      },
+      {
+        "balance_minor": 99906,
+        "external_ref": "seed:phase1-v1:140",
+        "id": "f9f3b662-726d-5110-981c-0a065cf3680d"
+      },
+      {
+        "balance_minor": 99286,
+        "external_ref": "seed:phase1-v1:148",
+        "id": "fa9080ee-e769-5d3c-a00a-796d392ab8ab"
+      },
+      {
+        "balance_minor": 94592,
+        "external_ref": "seed:phase1-v1:11",
+        "id": "fc8bd99a-7353-596b-a93e-824359396eaa"
+      },
+      {
+        "balance_minor": 94135,
+        "external_ref": "seed:phase1-v1:163",
+        "id": "fddfe0fc-372f-5bf4-ba92-dda3dff3675f"
+      },
+      {
+        "balance_minor": 100126,
+        "external_ref": "seed:phase1-v1:177",
+        "id": "fe54ece9-faac-58b1-ae89-d10d11791b4c"
+      },
+      {
+        "balance_minor": 104801,
+        "external_ref": "seed:phase1-v1:180",
+        "id": "ff882fe7-8ed4-598e-9c4e-781c89e152cd"
+      },
+      {
+        "balance_minor": 101752,
+        "external_ref": "seed:phase1-v1:117",
+        "id": "ffce3956-572e-58da-a947-78b0086787f7"
+      }
+    ],
+    "total_funds_minor": "20000000"
+  },
+  "dataset_sha256": "40d63f2ae52a1a334977c4d904fa58d888dbfb53bf6ed2aa2c51bcde7092e7ac",
+  "execution_mode": "manual_stack_ui",
+  "finished_at": "2026-10-11T07:02:28.799872+00:00",
+  "intent_journal_version": 1,
+  "profile": {
+    "accounts": {
+      "avoid_self_transfer": true,
+      "enforce_safe_funding": true,
+      "hot_account_count": 5,
+      "minimum_funded_accounts": 200,
+      "selection": "uniform",
+      "transfer_amount_minor_max": 100,
+      "transfer_amount_minor_min": 1
+    },
+    "cooldown_seconds": 60,
+    "duration_seconds": 600,
+    "mix": {
+      "account_read": 0.12,
+      "balance_read": 0.15,
+      "history_read": 0.12,
+      "summary_read": 0.15,
+      "transfer_status": 0.06,
+      "transfer_write": 0.4
+    },
+    "mode": "closed_loop",
+    "name": "nominal",
+    "reconciliation_seconds": 30,
+    "reporting": {
+      "capture_percentiles": [
+        50,
+        95,
+        99
+      ],
+      "capture_prometheus": true,
+      "capture_verifier": true,
+      "save_request_samples": false
+    },
+    "request_timeout_seconds": 5.0,
+    "require_redis": true,
+    "retry": {
+      "backoff_ms": 250,
+      "deliberate_replay_percent": 2.0,
+      "max_attempts": 2,
+      "same_idempotency_key": true
+    },
+    "safety": {
+      "integrity_unknown_grace_seconds": 0,
+      "max_concurrent_users": 150,
+      "max_duration_seconds": 7200,
+      "stop_on_error_window_seconds": 30,
+      "stop_on_integrity_failure": true,
+      "stop_on_sustained_error_rate_pct": 30.0
+    },
+    "schema_version": 1,
+    "seed": 4217,
+    "spawn_rate_users_per_second": 10.0,
+    "stages": [],
+    "target_operations_per_second": 20.0,
+    "think_time_ms": {
+      "max": 250,
+      "min": 100
+    },
+    "users": 20,
+    "warmup_seconds": 30,
+    "workers": 1
+  },
+  "profile_sha256": "bef0c034d1cea60586458847773decc27af2503160d52ef05e0d96bbe1abf4a7",
+  "run_id": "load-ui-18a2370cb3f24f80b5c10a572d3b04f9",
+  "schema_version": 1,
+  "target": "http://api:8080",
+  "traffic_mode": "on_demand"
+}

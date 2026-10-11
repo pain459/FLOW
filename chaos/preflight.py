@@ -9,6 +9,7 @@ import httpx
 import yaml
 import json
 from chaos import state
+from chaos.diagnostics import PreflightError, failure_details
 from chaos.policy import (
     SCENARIOS,
     PROJECTS,
@@ -34,6 +35,7 @@ PROVIDERS = {
     ("chaos.adapters.injection", "observe"),
     ("chaos.adapters.injection", "restore"),
 }
+LOAD_REPORTS = Path("/load-reports")
 
 
 def validate(scenario, require_opt_in=False):
@@ -87,26 +89,43 @@ def validate(scenario, require_opt_in=False):
 
 
 def load_evidence():
-    root = Path("/load-reports")
+    root = LOAD_REPORTS
     pointer = state.read(root / "active.json")
     if not pointer or not isinstance(pointer.get("run_id"), str):
-        raise ValueError("Scenario requires existing active steady HTTP load")
+        raise PreflightError(
+            "LOAD_NOT_ACTIVE",
+            "Scenario requires existing active steady HTTP load",
+            "Start a bounded read/write workload in Locust at port 8089, and wait for warmup and a stable measured window before checking preflight again.",
+        )
     identifier = pointer["run_id"]
     if not __import__("re").fullmatch(r"load-[a-zA-Z0-9_-]{1,80}", identifier):
         raise ValueError("Invalid workload pointer")
     path = root / identifier
     run = state.read(path / "state.json", {})
     observation = state.read(path / "latest-observation.json", {})
+    if run.get("status") == "WARMUP":
+        raise PreflightError(
+            "LOAD_WARMING_UP",
+            "The workload is still warming up",
+            "Keep Locust running; wait for warmup to finish and at least 15 seconds of stable measured reads and writes.",
+        )
     if (
         run.get("status") != "RUNNING"
+        or time.time() - observation.get("epoch", 0) < 0
         or time.time() - observation.get("epoch", 0) > 12
         or observation.get("active_users", 0) < 1
     ):
-        raise ValueError("Load is not RUNNING with fresh active-user evidence")
+        raise PreflightError(
+            "LOAD_NOT_PRODUCTIVE",
+            "Load is not RUNNING with fresh active-user evidence",
+            "Check Locust users and workload status. Start or resume valid traffic, then wait for fresh measured samples.",
+        )
     measured = observation.get("load", {}).get("measured", {})
     if measured.get("http", 0) < 100 or measured.get("confirmed_commits", 0) < 20:
-        raise ValueError(
-            "Load needs at least 100 actual requests and 20 confirmed writes before injection"
+        raise PreflightError(
+            "LOAD_SAMPLE_MINIMUM_REQUIRED",
+            "Load needs at least 100 actual requests and 20 confirmed writes before injection",
+            "Keep a mixed read/write Locust workload running until these measured counts are reached; rejected writes do not count.",
         )
     records = state.read(path / "recent-observations.json", {}, max_bytes=512 * 1024).get(
         "samples", []
@@ -125,19 +144,53 @@ def load_evidence():
     ]
     prior = recent[0].get("load", {}).get("measured", {}) if recent else None
     if prior is None:
-        raise ValueError("Need at least 15 seconds of stable measured load evidence")
+        raise PreflightError(
+            "LOAD_STABILITY_WINDOW_REQUIRED",
+            "Need at least 15 seconds of stable measured load evidence",
+            "Keep Locust running with successful reads and writes for at least 15 measured seconds, then retry preflight.",
+        )
     if measured.get("http", 0) <= prior.get("http", 0) or measured.get(
         "confirmed_commits", 0
     ) <= prior.get("confirmed_commits", 0):
-        raise ValueError("Recent HTTP reads/writes are not productive")
+        raise PreflightError(
+            "LOAD_NOT_PRODUCTIVE",
+            "Recent HTTP reads/writes are not productive",
+            "Check Locust for successful requests and confirmed transfers; read-only or rejected traffic cannot qualify this scenario.",
+        )
     for name in ("infrastructure_failure", "timeout", "contract_error"):
         if measured.get("outcomes", {}).get(name, 0) > prior.get("outcomes", {}).get(name, 0):
-            raise ValueError("Recent measured window was already failing before fault")
+            raise PreflightError(
+                "LOAD_BASELINE_ERRORS",
+                "Recent measured window was already failing before fault",
+                "Resolve the existing request errors and establish a fresh stable read/write window before injecting a fault.",
+            )
     return {
         "run_id": identifier,
         "manifest": state.read(path / "manifest.json"),
         "observation": observation,
     }
+
+
+def workload_status():
+    """Read the same mandatory gate without reserving a lease or injecting."""
+    try:
+        value = load_evidence()
+        return {
+            "ready": True,
+            "code": "LOAD_READY",
+            "run_id": value["run_id"],
+            "message": "Stable measured HTTP reads and writes are ready for preflight",
+            "remediation": "Check the selected scenario preflight before injection.",
+        }
+    except PreflightError as error:
+        return {"ready": False, **failure_details(error)}
+    except Exception:
+        return {
+            "ready": False,
+            "code": "LOAD_EVIDENCE_UNKNOWN",
+            "message": "Workload evidence is unavailable or invalid",
+            "remediation": "Check Locust and its retained workload report; no fault can run without valid load evidence.",
+        }
 
 
 def capability(docker):

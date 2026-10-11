@@ -1,0 +1,679 @@
+{
+  "samples": [
+    {
+      "active_users": 100,
+      "epoch": 1791705612.9736743,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1452,
+          "http": 3652,
+          "outcomes": {
+            "replay": 32,
+            "success": 3620
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705613.9855106,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1462,
+          "http": 3672,
+          "outcomes": {
+            "replay": 32,
+            "success": 3640
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705614.9970427,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1472,
+          "http": 3692,
+          "outcomes": {
+            "replay": 32,
+            "success": 3660
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705616.004961,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1481,
+          "http": 3712,
+          "outcomes": {
+            "replay": 32,
+            "success": 3680
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705617.0151398,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1489,
+          "http": 3732,
+          "outcomes": {
+            "replay": 32,
+            "success": 3700
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705618.0300245,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1497,
+          "http": 3753,
+          "outcomes": {
+            "replay": 33,
+            "success": 3720
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705619.0368223,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1505,
+          "http": 3773,
+          "outcomes": {
+            "replay": 33,
+            "success": 3740
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705620.0486522,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1511,
+          "http": 3793,
+          "outcomes": {
+            "replay": 33,
+            "success": 3760
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705621.0575755,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1520,
+          "http": 3813,
+          "outcomes": {
+            "replay": 33,
+            "success": 3780
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705622.0676425,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1527,
+          "http": 3833,
+          "outcomes": {
+            "replay": 33,
+            "success": 3800
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705623.0767097,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1539,
+          "http": 3853,
+          "outcomes": {
+            "replay": 33,
+            "success": 3820
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705624.086963,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1548,
+          "http": 3873,
+          "outcomes": {
+            "replay": 33,
+            "success": 3840
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705625.0982916,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1558,
+          "http": 3893,
+          "outcomes": {
+            "replay": 33,
+            "success": 3860
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705626.1037278,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1563,
+          "http": 3913,
+          "outcomes": {
+            "replay": 33,
+            "success": 3880
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705627.111315,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1571,
+          "http": 3933,
+          "outcomes": {
+            "replay": 33,
+            "success": 3900
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705628.1240137,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1581,
+          "http": 3953,
+          "outcomes": {
+            "replay": 33,
+            "success": 3920
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705629.130679,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1588,
+          "http": 3973,
+          "outcomes": {
+            "replay": 33,
+            "success": 3940
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705630.13947,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1595,
+          "http": 3993,
+          "outcomes": {
+            "replay": 33,
+            "success": 3960
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705631.148741,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1602,
+          "http": 4015,
+          "outcomes": {
+            "replay": 35,
+            "success": 3980
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705632.155322,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1607,
+          "http": 4035,
+          "outcomes": {
+            "replay": 35,
+            "success": 4000
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705633.1620169,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1617,
+          "http": 4056,
+          "outcomes": {
+            "replay": 36,
+            "success": 4020
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705634.1669319,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1624,
+          "http": 4076,
+          "outcomes": {
+            "replay": 36,
+            "success": 4040
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705635.1730628,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1628,
+          "http": 4097,
+          "outcomes": {
+            "replay": 37,
+            "success": 4060
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705636.182573,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1638,
+          "http": 4117,
+          "outcomes": {
+            "replay": 37,
+            "success": 4080
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705637.1890452,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1652,
+          "http": 4138,
+          "outcomes": {
+            "replay": 38,
+            "success": 4100
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705638.1939394,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1661,
+          "http": 4158,
+          "outcomes": {
+            "replay": 38,
+            "success": 4120
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705639.200625,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1671,
+          "http": 4178,
+          "outcomes": {
+            "replay": 38,
+            "success": 4140
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705640.2056487,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1682,
+          "http": 4198,
+          "outcomes": {
+            "replay": 38,
+            "success": 4160
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705641.2103524,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1692,
+          "http": 4218,
+          "outcomes": {
+            "replay": 38,
+            "success": 4180
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705642.2249951,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1700,
+          "http": 4239,
+          "outcomes": {
+            "replay": 39,
+            "success": 4200
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705643.237378,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1707,
+          "http": 4259,
+          "outcomes": {
+            "replay": 39,
+            "success": 4220
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705644.2455473,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1715,
+          "http": 4280,
+          "outcomes": {
+            "replay": 40,
+            "success": 4240
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705645.2499747,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1725,
+          "http": 4300,
+          "outcomes": {
+            "replay": 40,
+            "success": 4260
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705646.257308,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1733,
+          "http": 4320,
+          "outcomes": {
+            "replay": 40,
+            "success": 4280
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705647.263792,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1739,
+          "http": 4340,
+          "outcomes": {
+            "replay": 40,
+            "success": 4300
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705648.2754474,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1745,
+          "http": 4361,
+          "outcomes": {
+            "replay": 41,
+            "success": 4320
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705649.2895513,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1754,
+          "http": 4381,
+          "outcomes": {
+            "replay": 41,
+            "success": 4340
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705650.2990196,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1760,
+          "http": 4401,
+          "outcomes": {
+            "replay": 41,
+            "success": 4360
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705651.310119,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1767,
+          "http": 4421,
+          "outcomes": {
+            "replay": 41,
+            "success": 4380
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705652.3188958,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1771,
+          "http": 4441,
+          "outcomes": {
+            "replay": 41,
+            "success": 4400
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705653.3296297,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1784,
+          "http": 4462,
+          "outcomes": {
+            "replay": 42,
+            "success": 4420
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705654.3398836,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1792,
+          "http": 4482,
+          "outcomes": {
+            "replay": 42,
+            "success": 4440
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705655.3505018,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1801,
+          "http": 4502,
+          "outcomes": {
+            "replay": 42,
+            "success": 4460
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705656.3576255,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1808,
+          "http": 4522,
+          "outcomes": {
+            "replay": 42,
+            "success": 4480
+          }
+        }
+      },
+      "phase": "running"
+    },
+    {
+      "active_users": 100,
+      "epoch": 1791705657.3640416,
+      "load": {
+        "measured": {
+          "confirmed_commits": 1820,
+          "http": 4542,
+          "outcomes": {
+            "replay": 42,
+            "success": 4500
+          }
+        }
+      },
+      "phase": "running"
+    }
+  ]
+}

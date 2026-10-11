@@ -1,0 +1,63 @@
+version: 1.0.0
+title: PulsePay 008-postgres-outage
+description: 'Interrupt only the synthetic disposable PostgreSQL container after explicit
+  operator opt-in. Healthy precondition: independent PASS and watchdog armed. Expected
+  exposure: real readiness/write failures and UNKNOWN verification. Strict recovery:
+  original container/restart policy, no volume mutation, schema ready and independent
+  PASS. A workload safety stop is reported as an external intervention.
+
+  '
+tags:
+- pulsepay
+- 008-postgres-outage
+- postgres
+- stop
+configuration:
+  duration_seconds: 8
+  ttl_seconds: 120
+  delay_ms: 150
+  interface: eth0
+steady-state-hypothesis:
+  title: Healthy authority, event delivery and independently reconciled ledger
+  probes:
+  - type: probe
+    name: healthy-financial-and-operational-state
+    tolerance: true
+    provider:
+      type: python
+      module: chaos.adapters.health_probes
+      func: steady
+method:
+- type: action
+  name: apply-bounded-framework-fault
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: apply
+- type: probe
+  name: observe-intentional-fault-exposure
+  tolerance: true
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: observe
+- type: action
+  name: restore-original-environment
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: restore
+- type: probe
+  name: independently-verify-post-restoration-recovery
+  tolerance: true
+  provider:
+    type: python
+    module: chaos.adapters.health_probes
+    func: recovery
+rollbacks:
+- type: action
+  name: repeat-safe-scoped-restoration
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: restore

@@ -1,0 +1,24 @@
+{
+  "result": "UNSUPPORTED",
+  "provenance": "Actual Docker helper exit/error retained from this task tool transcript.",
+  "observed_at": null,
+  "backend": "Docker Desktop Linux arm64; cgroupfs v2",
+  "helper": {
+    "purpose": "idle containment diagnostic; no stressor",
+    "command": [
+      "sleep",
+      "15"
+    ],
+    "cpu_limit": 0.25,
+    "memory_limit_bytes": 67108864,
+    "pids_limit": 16,
+    "network": "none",
+    "read_only": true,
+    "capabilities": "ALL dropped",
+    "cgroup_parent": "exact API container cgroup"
+  },
+  "exit_code": 125,
+  "error": "OCI: cannot enter cgroupv2 with domain controllers -- it is in an invalid state",
+  "fault_enabled": false,
+  "cleanup": "Helper removed; API recreated with unchanged ceilings and original volumes."
+}

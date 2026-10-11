@@ -1,0 +1,584 @@
+[
+  {
+    "Config": {
+      "Cmd": [
+        "uvicorn",
+        "apps.pulsepay.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8080",
+        "--no-access-log",
+        "--limit-concurrency",
+        "128",
+        "--backlog",
+        "128",
+        "--timeout-keep-alive",
+        "5",
+        "--timeout-graceful-shutdown",
+        "15"
+      ],
+      "Entrypoint": null,
+      "Image": "pulsepay-api:v1",
+      "Labels": {
+        "com.docker.compose.config-hash": "e91f6a5719884133544ad7572bc3367d6a37b7530e95a6a81c402ca6a58e68e4",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:5e7bf1a0caf46c1425da7288bcf9fc19c93ee13efa108187200e22e1932d200c",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "chaosloop",
+        "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+        "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+        "com.docker.compose.replace": "api-1",
+        "com.docker.compose.service": "api",
+        "com.docker.compose.version": "5.5.1",
+        "io.pulsepay.chaos.role": "api",
+        "io.pulsepay.chaos.target": "true",
+        "io.pulsepay.lab": "disposable"
+      },
+      "StopSignal": null
+    },
+    "Created": "2026-10-11T05:29:59.412572802Z",
+    "HostConfig": {
+      "CapAdd": null,
+      "CgroupParent": "",
+      "Memory": 402653184,
+      "NanoCpus": 1000000000,
+      "NetworkMode": "chaosloop_edge",
+      "PidsLimit": 128,
+      "ReadonlyRootfs": true,
+      "RestartPolicy": {
+        "MaximumRetryCount": 0,
+        "Name": "unless-stopped"
+      }
+    },
+    "Id": "dacec61650017abc5fba47edc9d692d13fb860036ddfb47c725504cfb0b3db28",
+    "Image": "sha256:dadfc85ceb8301368000a07d2c340f461a8049bfd6cfd4c8cf22abf0b3b088d9",
+    "Name": "/chaosloop-api-1",
+    "NetworkSettings": {
+      "Networks": {
+        "chaosloop_edge": {
+          "Aliases": [
+            "chaosloop-api-1",
+            "api"
+          ],
+          "DNSNames": [
+            "chaosloop-api-1",
+            "api",
+            "dacec6165001"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "8193938be590e0e37baf8751e3c8e0cf4bcda047644b0caf01345cc9098bdbc2",
+          "Gateway": "172.20.0.1",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.20.0.7",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "1a:df:a0:94:3c:e9",
+          "NetworkID": "7be30747f230e9e25e12a82b02b062d6b8765d8608cfa74937a19f056ddde4fd"
+        },
+        "chaosloop_internal": {
+          "Aliases": [
+            "chaosloop-api-1",
+            "api"
+          ],
+          "DNSNames": [
+            "chaosloop-api-1",
+            "api",
+            "dacec6165001"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "4a885dc45910f44b8a0666fe86d1233624b2a8dfb41d871c56aa1fc6f9598fbd",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.12",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "42:cb:4b:c7:f1:60",
+          "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe"
+        }
+      },
+      "Ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "SandboxID": "a44ac6d1de80b59ca1cb2741031edece8ff9cd830b0e6d7317c38df5c28e92f5",
+      "SandboxKey": "/var/run/docker/netns/a44ac6d1de80"
+    },
+    "PulsePayDependencyRoutes": {
+      "DATABASE_URL": {
+        "host": "postgres",
+        "port": 5432
+      },
+      "REDIS_URL": {
+        "host": "redis",
+        "port": 6379
+      }
+    },
+    "RestartCount": 0,
+    "State": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "0001-01-01T00:00:00Z",
+      "Health": {
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "End": "2026-10-11T05:43:05.974178847Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:05.849498347Z"
+          },
+          {
+            "End": "2026-10-11T05:43:11.147392627Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:10.974691043Z"
+          },
+          {
+            "End": "2026-10-11T05:43:16.267933629Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:16.147952462Z"
+          },
+          {
+            "End": "2026-10-11T05:43:21.39175034Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:21.269140715Z"
+          },
+          {
+            "End": "2026-10-11T05:43:26.521355884Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:26.393005009Z"
+          }
+        ],
+        "Status": "healthy"
+      },
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 64189,
+      "Restarting": false,
+      "Running": true,
+      "StartedAt": "2026-10-11T05:30:00.283001344Z",
+      "Status": "running"
+    }
+  },
+  {
+    "Config": {
+      "Cmd": [
+        "python",
+        "-m",
+        "workers.event_consumer.main"
+      ],
+      "Entrypoint": null,
+      "Image": "pulsepay-api:v1",
+      "Labels": {
+        "com.docker.compose.config-hash": "440c68b5e9d488174e7a96f833a1f26b06f866f9e913e679cf02f27c0d44143f",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "migrate:service_completed_successfully:false",
+        "com.docker.compose.image": "sha256:85032ed6f647cf5e1f5db4d131ee8690f633c0973551a8cf0fc0de0c668a4192",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "chaosloop",
+        "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+        "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+        "com.docker.compose.service": "event-worker",
+        "com.docker.compose.version": "5.5.1",
+        "io.pulsepay.chaos.role": "event-worker",
+        "io.pulsepay.chaos.target": "true",
+        "io.pulsepay.lab": "disposable"
+      },
+      "StopSignal": null
+    },
+    "Created": "2026-10-11T03:49:10.271681418Z",
+    "HostConfig": {
+      "CapAdd": null,
+      "CgroupParent": "",
+      "Memory": 402653184,
+      "NanoCpus": 1000000000,
+      "NetworkMode": "chaosloop_internal",
+      "PidsLimit": 128,
+      "ReadonlyRootfs": true,
+      "RestartPolicy": {
+        "MaximumRetryCount": 0,
+        "Name": "unless-stopped"
+      }
+    },
+    "Id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad",
+    "Image": "sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13",
+    "Name": "/chaosloop-event-worker-1",
+    "NetworkSettings": {
+      "Networks": {
+        "chaosloop_internal": {
+          "Aliases": [
+            "chaosloop-event-worker-1",
+            "event-worker"
+          ],
+          "DNSNames": [
+            "chaosloop-event-worker-1",
+            "event-worker",
+            "e7a595966edd"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "632f4a51cbcdfef3fb6b1fe59a90c734265e20fb4afc7ed0c15f560138a9b0ad",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.15",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "1e:e3:2e:b8:98:28",
+          "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe"
+        }
+      },
+      "Ports": {},
+      "SandboxID": "2d82fa9f18c66ffeba15655192bc8e4516ad8d4f8a26a2c7fc8c67659fbd0c17",
+      "SandboxKey": "/var/run/docker/netns/2d82fa9f18c6"
+    },
+    "PulsePayDependencyRoutes": {
+      "DATABASE_URL": {
+        "host": "postgres",
+        "port": 5432
+      },
+      "REDIS_URL": {
+        "host": "redis",
+        "port": 6379
+      }
+    },
+    "RestartCount": 0,
+    "State": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "0001-01-01T00:00:00Z",
+      "Health": {
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "End": "2026-10-11T05:43:04.338601513Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:04.218566054Z"
+          },
+          {
+            "End": "2026-10-11T05:43:09.458469793Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:09.339133542Z"
+          },
+          {
+            "End": "2026-10-11T05:43:14.578064795Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:14.45924642Z"
+          },
+          {
+            "End": "2026-10-11T05:43:19.692750131Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:19.578514297Z"
+          },
+          {
+            "End": "2026-10-11T05:43:24.840251383Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:43:24.693128466Z"
+          }
+        ],
+        "Status": "healthy"
+      },
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 2025,
+      "Restarting": false,
+      "Running": true,
+      "StartedAt": "2026-10-11T03:49:15.120195504Z",
+      "Status": "running"
+    }
+  },
+  {
+    "Config": {
+      "Cmd": [
+        "redis-server",
+        "--appendonly",
+        "yes",
+        "--appendfsync",
+        "always",
+        "--maxmemory",
+        "128mb",
+        "--maxmemory-policy",
+        "noeviction"
+      ],
+      "Entrypoint": [
+        "docker-entrypoint.sh"
+      ],
+      "Image": "redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+      "Labels": {
+        "com.docker.compose.config-hash": "0909a2461413e2151ba739fde5c4a1cc21c5b56941dd0d6ece8bba7e8713f41e",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:e88d77a8d95d6237d88fb9c291cc28463835447ee30185e7f0eb3ed161c95c0c",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "chaosloop",
+        "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+        "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+        "com.docker.compose.service": "redis",
+        "com.docker.compose.version": "5.5.1",
+        "io.pulsepay.chaos.role": "redis",
+        "io.pulsepay.chaos.target": "true",
+        "io.pulsepay.lab": "disposable"
+      },
+      "StopSignal": null
+    },
+    "Created": "2026-10-11T03:49:10.099610293Z",
+    "HostConfig": {
+      "CapAdd": null,
+      "CgroupParent": "",
+      "Memory": 268435456,
+      "NanoCpus": 500000000,
+      "NetworkMode": "chaosloop_internal",
+      "PidsLimit": null,
+      "ReadonlyRootfs": false,
+      "RestartPolicy": {
+        "MaximumRetryCount": 0,
+        "Name": "unless-stopped"
+      }
+    },
+    "Id": "d0fb3566727cb79c1073daa09741ba00616252ff5aa06986764cf612986a4f25",
+    "Image": "sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+    "Name": "/chaosloop-redis-1",
+    "NetworkSettings": {
+      "Networks": {
+        "chaosloop_internal": {
+          "Aliases": [
+            "chaosloop-redis-1",
+            "redis"
+          ],
+          "DNSNames": [
+            "chaosloop-redis-1",
+            "redis",
+            "d0fb3566727c"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "c1cbda60d6a87da8e10348a1eaf29614b1bc960e813c80db053e8f9c682826eb",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.3",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "12:2f:1e:18:54:67",
+          "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe"
+        }
+      },
+      "Ports": {
+        "6379/tcp": null
+      },
+      "SandboxID": "2e7e613fb0c800d28047dc52e49317c08fa0bcaa9737081f801bb4fb2f8531b3",
+      "SandboxKey": "/var/run/docker/netns/2e7e613fb0c8"
+    },
+    "PulsePayDependencyRoutes": {},
+    "RestartCount": 0,
+    "State": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "0001-01-01T00:00:00Z",
+      "Health": {
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "End": "2026-10-11T05:43:15.427556045Z",
+            "ExitCode": 0,
+            "Output": "PONG\n",
+            "Start": "2026-10-11T05:43:15.40713317Z"
+          },
+          {
+            "End": "2026-10-11T05:43:18.450972172Z",
+            "ExitCode": 0,
+            "Output": "PONG\n",
+            "Start": "2026-10-11T05:43:18.428352172Z"
+          },
+          {
+            "End": "2026-10-11T05:43:21.466157048Z",
+            "ExitCode": 0,
+            "Output": "PONG\n",
+            "Start": "2026-10-11T05:43:21.454909548Z"
+          },
+          {
+            "End": "2026-10-11T05:43:24.492484008Z",
+            "ExitCode": 0,
+            "Output": "PONG\n",
+            "Start": "2026-10-11T05:43:24.470852383Z"
+          },
+          {
+            "End": "2026-10-11T05:43:27.503246968Z",
+            "ExitCode": 0,
+            "Output": "PONG\n",
+            "Start": "2026-10-11T05:43:27.493275426Z"
+          }
+        ],
+        "Status": "healthy"
+      },
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 827,
+      "Restarting": false,
+      "Running": true,
+      "StartedAt": "2026-10-11T03:49:10.491434669Z",
+      "Status": "running"
+    }
+  },
+  {
+    "Config": {
+      "Cmd": [
+        "postgres",
+        "-c",
+        "shared_preload_libraries=pg_stat_statements",
+        "-c",
+        "track_io_timing=on"
+      ],
+      "Entrypoint": [
+        "docker-entrypoint.sh"
+      ],
+      "Image": "pulsepay-postgres:v1",
+      "Labels": {
+        "com.docker.compose.config-hash": "30e1acbc2bffb07313497d93c4e5632862a5193c4c8390cb7345d94f7f181b4a",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "chaosloop",
+        "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+        "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+        "com.docker.compose.service": "postgres",
+        "com.docker.compose.version": "5.5.1",
+        "io.pulsepay.chaos.role": "postgres",
+        "io.pulsepay.chaos.target": "true",
+        "io.pulsepay.lab": "disposable"
+      },
+      "StopSignal": "SIGINT"
+    },
+    "Created": "2026-10-11T03:49:10.094999168Z",
+    "HostConfig": {
+      "CapAdd": null,
+      "CgroupParent": "",
+      "Memory": 805306368,
+      "NanoCpus": 1000000000,
+      "NetworkMode": "chaosloop_internal",
+      "PidsLimit": null,
+      "ReadonlyRootfs": false,
+      "RestartPolicy": {
+        "MaximumRetryCount": 0,
+        "Name": "unless-stopped"
+      }
+    },
+    "Id": "3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77",
+    "Image": "sha256:6386b91ffd121cd95b81309c88313ced18a72c7df9d7f961d3088a0fa44ba6a4",
+    "Name": "/chaosloop-postgres-1",
+    "NetworkSettings": {
+      "Networks": {
+        "chaosloop_internal": {
+          "Aliases": [
+            "chaosloop-postgres-1",
+            "postgres"
+          ],
+          "DNSNames": [
+            "chaosloop-postgres-1",
+            "postgres",
+            "3fa335bf14fd"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "a25971e686d684ccc65481cbbf56a4c0465820792e36e010b8c825fea191c9ff",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.6",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "3e:ce:5c:2e:dc:7d",
+          "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe"
+        }
+      },
+      "Ports": {
+        "5432/tcp": null
+      },
+      "SandboxID": "8087e6438d5bbb7a3f9f0e3266099392d459cc67ff8c4c1d8d529d6e95353d79",
+      "SandboxKey": "/var/run/docker/netns/8087e6438d5b"
+    },
+    "PulsePayDependencyRoutes": {},
+    "RestartCount": 0,
+    "State": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-11T05:12:03.490453971Z",
+      "Health": {
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "End": "2026-10-11T05:43:13.506509836Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:43:13.474193669Z"
+          },
+          {
+            "End": "2026-10-11T05:43:16.531710296Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:43:16.507487004Z"
+          },
+          {
+            "End": "2026-10-11T05:43:19.559646047Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:43:19.532272964Z"
+          },
+          {
+            "End": "2026-10-11T05:43:22.587380549Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:43:22.562401424Z"
+          },
+          {
+            "End": "2026-10-11T05:43:25.623482425Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:43:25.591141217Z"
+          }
+        ],
+        "Status": "healthy"
+      },
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 915,
+      "Restarting": false,
+      "Running": true,
+      "StartedAt": "2026-10-11T05:12:11.586906835Z",
+      "Status": "running"
+    }
+  }
+]

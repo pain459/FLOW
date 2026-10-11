@@ -1,0 +1,115 @@
+{
+  "check_run_id": "97d24d4e-af8d-44f1-b0be-28cbed8c1439",
+  "started_at": "2026-10-11T08:03:23.027461+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "global_conservation",
+      "status": "PASS",
+      "inspected_records": 200,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "ledger_balance_reconciliation",
+      "status": "PASS",
+      "inspected_records": 200,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "account_state",
+      "status": "PASS",
+      "inspected_records": 200,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "provisioning_evidence",
+      "status": "PASS",
+      "inspected_records": 1,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "transfer_double_entry",
+      "status": "PASS",
+      "inspected_records": 91756,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "ledger_topology",
+      "status": "PASS",
+      "inspected_records": 183712,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "transfer_state",
+      "status": "PASS",
+      "inspected_records": 91756,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "idempotency_uniqueness",
+      "status": "PASS",
+      "inspected_records": 91756,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "durable_event_contract",
+      "status": "PASS",
+      "inspected_records": 91756,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "committed_outbox",
+      "status": "PASS",
+      "inspected_records": 91756,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "projection_receipts",
+      "status": "PASS",
+      "inspected_records": 91756,
+      "violations": 0,
+      "details": []
+    },
+    {
+      "name": "event_delivery_lag",
+      "status": "PASS",
+      "inspected_records": 91756,
+      "violations": 0,
+      "details": [
+        {
+          "outbox_pending": 0,
+          "oldest_pending_seconds": 0.0,
+          "overdue_projections": 0,
+          "quarantined_messages": 0
+        }
+      ]
+    }
+  ],
+  "snapshot": {
+    "isolation": "repeatable read",
+    "read_only": true
+  },
+  "events": {
+    "outbox_pending": 0,
+    "oldest_pending_seconds": 0.0,
+    "overdue_projections": 0,
+    "quarantined_messages": 0
+  },
+  "totals": {
+    "accounts": 200,
+    "transfers": 91756,
+    "balance_minor": 20000000,
+    "provisioned_minor": 20000000
+  },
+  "finished_at": "2026-10-11T08:03:23.681261+00:00"
+}

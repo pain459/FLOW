@@ -1,0 +1,45 @@
+{
+  "api": {
+    "error_rate_pct": 0.0,
+    "p50_ms": 29.708904109589042,
+    "p95_ms": 49.74315068493151,
+    "p99_ms": 94.99999999999912,
+    "rps": 19.55921763129475
+  },
+  "available_investigations": [
+    "inspect_api",
+    "inspect_database",
+    "inspect_redis",
+    "inspect_workers",
+    "collect_more_evidence",
+    "escalate"
+  ],
+  "database": {
+    "connection_usage_pct": 11.0,
+    "deadlocks": 0.0,
+    "lock_waits": 0.0,
+    "reachable": true
+  },
+  "integrity": {
+    "status": "PASS",
+    "verified_at": "2026-10-11T05:12:41.510275+00:00"
+  },
+  "load": {
+    "active_users": 20.0,
+    "configured_users": 20.0,
+    "rps": 20.679875747431677
+  },
+  "missing_observations": [],
+  "observation_time": "2026-10-11T05:12:41.567255+00:00",
+  "redis": {
+    "reachable": true
+  },
+  "run_id": "chaos-20261011T051149Z-4267a1dd",
+  "schema_version": "1.0",
+  "system": "pulsepay",
+  "window_seconds": 30,
+  "worker": {
+    "consumer_lag_seconds": 0.0,
+    "outbox_pending": 0.0
+  }
+}

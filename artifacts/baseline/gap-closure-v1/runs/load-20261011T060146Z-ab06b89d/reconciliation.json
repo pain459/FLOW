@@ -1,0 +1,64 @@
+{
+  "errors": [],
+  "finished_at": "2026-10-11T06:04:19.913288+00:00",
+  "method": "lookup_then_same_key_replay",
+  "observations": [
+    {
+      "key": "load-2fc5d67e7d644a03bc907c3cc769812d",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "ac17b1db-9f37-4435-aa60-0b9f948ab24e"
+    },
+    {
+      "key": "load-ec4c1c3d89444b508ccbce011d7a033d",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "64811891-0bac-45c0-889e-95d29977ea2a"
+    },
+    {
+      "key": "load-90356d4b42294bc7b7d7822f6bd134e4",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "251a760f-f15b-4caa-baf5-b15c0326eb80"
+    },
+    {
+      "key": "load-e33576bbfd6240cc9fe91e2bc5163a8c",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "a6054a61-6803-42a3-92dc-2130dda10c7d"
+    },
+    {
+      "key": "load-e8a9d2aa489b45dab19295ea57aad5d2",
+      "phase": "cooldown",
+      "result": "COMMITTED",
+      "transfer_id": "66bfa445-5c45-4ee0-8e84-d1617663dfe2"
+    }
+  ],
+  "phases": {
+    "cooldown": {
+      "confirmed_during_run": 0,
+      "intents": 5,
+      "reconciled_commits": 5,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "measured": {
+      "confirmed_during_run": 934,
+      "intents": 934,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "warmup": {
+      "confirmed_during_run": 229,
+      "intents": 229,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    }
+  },
+  "retry_http_requests": 5,
+  "schema_version": 1,
+  "started_at": "2026-10-11T06:04:19.827865+00:00",
+  "status": "COMPLETE"
+}

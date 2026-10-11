@@ -1,0 +1,59 @@
+"""Bounded read-only diagnostic; emits exception types, never exception text."""
+from gevent import monkey
+
+monkey.patch_all()
+import json
+import time
+import gevent
+from locust.clients import HttpSession
+from locust.env import Environment
+
+environment = Environment()
+rows = []
+
+
+class User:
+    def context(self):
+        return {}
+
+
+def exception_types(error):
+    result = []
+    seen = set()
+    pending = [error]
+    while pending and len(result) < 8:
+        item = pending.pop()
+        if not isinstance(item, Exception) or id(item) in seen:
+            continue
+        seen.add(id(item))
+        result.append(type(item).__name__)
+        pending.extend([item.__cause__, item.__context__, *item.args])
+    return result
+
+
+def probe(index):
+    session = HttpSession('http://api:8080', environment.events.request, User())
+    try:
+        for iteration in range(7):
+            started = time.monotonic()
+            with session.get(
+                '/health/live', name='transport_probe', timeout=5, catch_response=True,
+                headers={'Connection': 'close'} if index >= 50 else {},
+            ) as response:
+                rows.append({
+                    'arm': 'close' if index >= 50 else 'default',
+                    'iteration': iteration,
+                    'status': response.status_code,
+                    'elapsed_ms': round((time.monotonic() - started) * 1000, 3),
+                    'error_types': exception_types(getattr(response, 'error', None)),
+                })
+            gevent.sleep(max(0, 5 - (time.monotonic() - started)))
+    finally:
+        session.close()
+
+
+gevent.joinall([gevent.spawn(probe, index) for index in range(100)], timeout=40)
+print(json.dumps({'samples': len(rows), 'errors': [row for row in rows if row['status'] != 200],
+                  'by_arm': {arm: {'requests': sum(row['arm'] == arm for row in rows),
+                                   'failures': sum(row['arm'] == arm and row['status'] != 200 for row in rows)}
+                             for arm in ['default', 'close']}}, indent=2))

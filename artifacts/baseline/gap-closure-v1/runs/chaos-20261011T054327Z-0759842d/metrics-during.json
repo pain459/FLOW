@@ -1,0 +1,1136 @@
+[
+  {
+    "container_resources": {
+      "cpu_utilization": null,
+      "memory_bytes": 266252288,
+      "networks": {
+        "eth0": {
+          "rx_bytes": 43530062,
+          "rx_dropped": 0,
+          "rx_errors": 0,
+          "rx_packets": 345753,
+          "tx_bytes": 41531103,
+          "tx_dropped": 0,
+          "tx_errors": 0,
+          "tx_packets": 322127
+        }
+      }
+    },
+    "health": {
+      "core_transactions_ready": true,
+      "dependencies": {
+        "event-worker": {
+          "last_failure_at": "2026-10-11T05:12:04.019700+00:00",
+          "last_success_at": "2026-10-11T05:43:38.097685+00:00",
+          "observed_at": "2026-10-11T05:43:38.126689+00:00",
+          "reason": "PROGRESS_CHECK",
+          "signal_age_seconds": 1.002537,
+          "status": "HEALTHY"
+        },
+        "outbox-relay": {
+          "last_failure_at": "2026-10-11T05:12:10.592042+00:00",
+          "last_success_at": "2026-10-11T05:43:38.597193+00:00",
+          "observed_at": "2026-10-11T05:43:38.615469+00:00",
+          "reason": "PROGRESS_CHECK",
+          "signal_age_seconds": 0.513757,
+          "status": "HEALTHY"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:39.116380+00:00",
+          "reason": "READY",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:39.116380+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:39.116380+00:00",
+      "status": "HEALTHY"
+    },
+    "health_request_latency_ms": 22.455917000115733,
+    "metrics": {
+      "gaps": [],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:37.275926916Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:37.333305208Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:37.216476208Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:39.027193042Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.855991501Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.781963959Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.051189792Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:35.46787593Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.22933425Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:36.310121847Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 0.0,
+        "api_5xx_rate": 0.0,
+        "api_http_counter": 9797.0,
+        "api_p50_seconds": 0.01736007462686567,
+        "api_p95_seconds": 0.044702868852459006,
+        "api_p99_seconds": 0.048940573770491796,
+        "api_rps": 20.2,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1423.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": 11.0,
+        "db_connections": 11.0,
+        "db_deadlocks": 0.0,
+        "db_lock_waits": 1.0,
+        "db_long_running_queries": 0.0,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": 0.000841,
+        "db_pool_wait_p95_seconds": 0.02170867768595041,
+        "db_reachable": 1.0,
+        "db_slow_statement_fingerprints": 3.0,
+        "db_statement_calls": 248904.0,
+        "db_statement_execution_seconds": 91.61086192399998,
+        "db_statement_max_seconds": 0.286161375,
+        "load_network_rx": 2825072.0,
+        "load_network_tx": 1473738.0,
+        "load_rps": 19.779518058132272,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7110.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:39.183586+00:00",
+    "observed_epoch": 1791697419.1835954,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": {
+      "accounts": 200,
+      "active_accounts": 200,
+      "balance_minor": "20000000",
+      "ledger_entries": 165414,
+      "oldest_pending_seconds": 0.028042,
+      "outbox_pending": 6,
+      "projections": 82595,
+      "provisioned_minor": "20000000",
+      "transfers": 82607
+    },
+    "window_seconds": 30
+  },
+  {
+    "container_resources": {
+      "cpu_utilization": -40.475309697206946,
+      "memory_bytes": null,
+      "networks": null
+    },
+    "health": {
+      "core_transactions_ready": true,
+      "dependencies": {
+        "event-worker": {
+          "last_failure_at": "2026-10-11T05:12:04.019700+00:00",
+          "last_success_at": "2026-10-11T05:43:41.182613+00:00",
+          "observed_at": "2026-10-11T05:43:41.199947+00:00",
+          "reason": "PROGRESS_CHECK",
+          "signal_age_seconds": 0.162891,
+          "status": "HEALTHY"
+        },
+        "outbox-relay": {
+          "last_failure_at": "2026-10-11T05:12:10.592042+00:00",
+          "last_success_at": "2026-10-11T05:43:40.634305+00:00",
+          "observed_at": "2026-10-11T05:43:40.651802+00:00",
+          "reason": "PROGRESS_CHECK",
+          "signal_age_seconds": 0.711036,
+          "status": "HEALTHY"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:41.360985+00:00",
+          "reason": "READY",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:41.360985+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:41.360985+00:00",
+      "status": "HEALTHY"
+    },
+    "health_request_latency_ms": 3.8671669999530423,
+    "metrics": {
+      "gaps": [],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:37.275926916Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:37.333305208Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:37.216476208Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:39.027193042Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.855991501Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.781963959Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.051189792Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:40.472100876Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:38.22933425Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:41.311326043Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 0.0,
+        "api_5xx_rate": 0.0,
+        "api_http_counter": 9797.0,
+        "api_p50_seconds": 0.01736007462686567,
+        "api_p95_seconds": 0.044702868852459006,
+        "api_p99_seconds": 0.048940573770491796,
+        "api_rps": 20.2,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1423.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": 11.0,
+        "db_connections": 11.0,
+        "db_deadlocks": 0.0,
+        "db_lock_waits": 1.0,
+        "db_long_running_queries": 0.0,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": 0.000841,
+        "db_pool_wait_p95_seconds": 0.02170867768595041,
+        "db_reachable": 1.0,
+        "db_slow_statement_fingerprints": 3.0,
+        "db_statement_calls": 248904.0,
+        "db_statement_execution_seconds": 91.61086192399998,
+        "db_statement_max_seconds": 0.286161375,
+        "load_network_rx": 2825072.0,
+        "load_network_tx": 1473738.0,
+        "load_rps": 19.779518058132272,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7110.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:41.402189+00:00",
+    "observed_epoch": 1791697421.4021974,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": {
+      "accounts": 200,
+      "active_accounts": 200,
+      "balance_minor": "20000000",
+      "ledger_entries": 165452,
+      "oldest_pending_seconds": 0.251216,
+      "outbox_pending": 8,
+      "projections": 82618,
+      "provisioned_minor": "20000000",
+      "transfers": 82626
+    },
+    "window_seconds": 30
+  },
+  {
+    "container_resources": {
+      "cpu_utilization": 0.0,
+      "memory_bytes": null,
+      "networks": null
+    },
+    "health": {
+      "core_transactions_ready": false,
+      "dependencies": {
+        "event-worker": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "outbox-relay": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:44.383139+00:00",
+          "reason": "DATABASE_OR_SCHEMA_UNAVAILABLE",
+          "signal_age_seconds": 0,
+          "status": "UNHEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:44.383139+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:44.383139+00:00",
+      "status": "UNHEALTHY"
+    },
+    "health_request_latency_ms": 8.360499999980675,
+    "metrics": {
+      "gaps": [
+        "api_health_or_dashboard_unavailable"
+      ],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.275089544Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.329982544Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.214077002Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:44.029173503Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.855398503Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.782063253Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.052915294Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:40.472100876Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.228205961Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:41.311326043Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 20.0,
+        "api_5xx_rate": 0.7226689067562703,
+        "api_http_counter": 9899.0,
+        "api_p50_seconds": 0.01744402985074627,
+        "api_p95_seconds": 0.04499999999999999,
+        "api_p99_seconds": 0.04915873015873015,
+        "api_rps": 20.16315319279438,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1438.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": null,
+        "db_connections": null,
+        "db_deadlocks": null,
+        "db_lock_waits": null,
+        "db_long_running_queries": null,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": null,
+        "db_pool_wait_p95_seconds": 0.022012195121951225,
+        "db_reachable": 0.0,
+        "db_slow_statement_fingerprints": null,
+        "db_statement_calls": null,
+        "db_statement_execution_seconds": null,
+        "db_statement_max_seconds": null,
+        "load_network_rx": 2946222.0,
+        "load_network_tx": 1557639.0,
+        "load_rps": 22.32411543497246,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7136.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:44.392274+00:00",
+    "observed_epoch": 1791697424.3922806,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": null,
+    "window_seconds": 30
+  },
+  {
+    "container_resources": {
+      "cpu_utilization": 0.0,
+      "memory_bytes": null,
+      "networks": null
+    },
+    "health": {
+      "core_transactions_ready": false,
+      "dependencies": {
+        "event-worker": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "outbox-relay": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:45.444087+00:00",
+          "reason": "DATABASE_OR_SCHEMA_UNAVAILABLE",
+          "signal_age_seconds": 0,
+          "status": "UNHEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:45.444087+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:45.444087+00:00",
+      "status": "UNHEALTHY"
+    },
+    "health_request_latency_ms": 5.796874999759893,
+    "metrics": {
+      "gaps": [
+        "api_health_or_dashboard_unavailable"
+      ],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.275089544Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.329982544Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.214077002Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:44.029173503Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.855398503Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.782063253Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.052915294Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:40.472100876Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.228205961Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:41.311326043Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 20.0,
+        "api_5xx_rate": 0.7510433750683361,
+        "api_http_counter": 9899.0,
+        "api_p50_seconds": 0.01744402985074627,
+        "api_p95_seconds": 0.04499999999999999,
+        "api_p99_seconds": 0.04915873015873015,
+        "api_rps": 20.19150099337307,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1438.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": null,
+        "db_connections": null,
+        "db_deadlocks": null,
+        "db_lock_waits": null,
+        "db_long_running_queries": null,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": null,
+        "db_pool_wait_p95_seconds": 0.022012195121951225,
+        "db_reachable": 0.0,
+        "db_slow_statement_fingerprints": null,
+        "db_statement_calls": null,
+        "db_statement_execution_seconds": null,
+        "db_statement_max_seconds": null,
+        "load_network_rx": 2946222.0,
+        "load_network_tx": 1557639.0,
+        "load_rps": 22.32411543497246,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7136.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:45.458565+00:00",
+    "observed_epoch": 1791697425.4585733,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": null,
+    "window_seconds": 30
+  },
+  {
+    "container_resources": {
+      "cpu_utilization": 0.0,
+      "memory_bytes": null,
+      "networks": null
+    },
+    "health": {
+      "core_transactions_ready": false,
+      "dependencies": {
+        "event-worker": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "outbox-relay": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:46.497673+00:00",
+          "reason": "DATABASE_OR_SCHEMA_UNAVAILABLE",
+          "signal_age_seconds": 0,
+          "status": "UNHEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:46.497673+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:46.497673+00:00",
+      "status": "UNHEALTHY"
+    },
+    "health_request_latency_ms": 6.003167000017129,
+    "metrics": {
+      "gaps": [
+        "api_health_or_dashboard_unavailable"
+      ],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.275089544Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.329982544Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:42.214077002Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:44.029173503Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.855398503Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.782063253Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.052915294Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:45.46734817Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.228205961Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:46.311424629Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 20.0,
+        "api_5xx_rate": 0.7790978305798898,
+        "api_http_counter": 9899.0,
+        "api_p50_seconds": 0.01744402985074627,
+        "api_p95_seconds": 0.04499999999999999,
+        "api_p99_seconds": 0.04915873015873015,
+        "api_rps": 20.219475445684495,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1438.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": null,
+        "db_connections": null,
+        "db_deadlocks": null,
+        "db_lock_waits": null,
+        "db_long_running_queries": null,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": null,
+        "db_pool_wait_p95_seconds": 0.022012195121951225,
+        "db_reachable": 0.0,
+        "db_slow_statement_fingerprints": null,
+        "db_statement_calls": null,
+        "db_statement_execution_seconds": null,
+        "db_statement_max_seconds": null,
+        "load_network_rx": 2946222.0,
+        "load_network_tx": 1557639.0,
+        "load_rps": 22.32411543497246,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7136.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:46.507045+00:00",
+    "observed_epoch": 1791697426.5070531,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": null,
+    "window_seconds": 30
+  },
+  {
+    "container_resources": {
+      "cpu_utilization": 0.0,
+      "memory_bytes": null,
+      "networks": null
+    },
+    "health": {
+      "core_transactions_ready": false,
+      "dependencies": {
+        "event-worker": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "outbox-relay": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:47.546937+00:00",
+          "reason": "DATABASE_OR_SCHEMA_UNAVAILABLE",
+          "signal_age_seconds": 0,
+          "status": "UNHEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:47.546937+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:47.546937+00:00",
+      "status": "UNHEALTHY"
+    },
+    "health_request_latency_ms": 4.578999999921507,
+    "metrics": {
+      "gaps": [
+        "api_health_or_dashboard_unavailable"
+      ],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.27572513Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.330054755Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.21523463Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:44.029173503Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.855398503Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.782063253Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.052915294Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:45.46734817Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.228205961Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:46.311424629Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 168.0,
+        "api_5xx_rate": 5.659581616735331,
+        "api_http_counter": 10044.0,
+        "api_p50_seconds": 0.016019721830985916,
+        "api_p95_seconds": 0.0440437657652398,
+        "api_p99_seconds": 0.048980453030866296,
+        "api_rps": 20.994820207191715,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1453.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": null,
+        "db_connections": null,
+        "db_deadlocks": null,
+        "db_lock_waits": null,
+        "db_long_running_queries": null,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": null,
+        "db_pool_wait_p95_seconds": 0.02188461538461538,
+        "db_reachable": 0.0,
+        "db_slow_statement_fingerprints": null,
+        "db_statement_calls": null,
+        "db_statement_execution_seconds": null,
+        "db_statement_max_seconds": null,
+        "load_network_rx": 2946222.0,
+        "load_network_tx": 1557639.0,
+        "load_rps": 22.32411543497246,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7136.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:47.555021+00:00",
+    "observed_epoch": 1791697427.5550292,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": null,
+    "window_seconds": 30
+  },
+  {
+    "container_resources": {
+      "cpu_utilization": 0.0,
+      "memory_bytes": null,
+      "networks": null
+    },
+    "health": {
+      "core_transactions_ready": false,
+      "dependencies": {
+        "event-worker": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "outbox-relay": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:48.606185+00:00",
+          "reason": "DATABASE_OR_SCHEMA_UNAVAILABLE",
+          "signal_age_seconds": 0,
+          "status": "UNHEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:48.606185+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:48.606185+00:00",
+      "status": "UNHEALTHY"
+    },
+    "health_request_latency_ms": 5.708125000182918,
+    "metrics": {
+      "gaps": [
+        "api_health_or_dashboard_unavailable"
+      ],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.27572513Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.330054755Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.21523463Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:44.029173503Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.855398503Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:43.782063253Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:48.05035638Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:45.46734817Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:48.229033213Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:46.311424629Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 168.0,
+        "api_5xx_rate": 5.896340146394144,
+        "api_http_counter": 10044.0,
+        "api_p50_seconds": 0.01601414436619718,
+        "api_p95_seconds": 0.04403838122393,
+        "api_p99_seconds": 0.048979527824301754,
+        "api_rps": 21.226250949962004,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1453.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": null,
+        "db_connections": null,
+        "db_deadlocks": null,
+        "db_lock_waits": null,
+        "db_long_running_queries": null,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": null,
+        "db_pool_wait_p95_seconds": 0.02188461538461538,
+        "db_reachable": 0.0,
+        "db_slow_statement_fingerprints": null,
+        "db_statement_calls": null,
+        "db_statement_execution_seconds": null,
+        "db_statement_max_seconds": null,
+        "load_network_rx": 2946222.0,
+        "load_network_tx": 1557639.0,
+        "load_rps": 22.32411543497246,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7136.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:48.614852+00:00",
+    "observed_epoch": 1791697428.61486,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": null,
+    "window_seconds": 30
+  },
+  {
+    "container_resources": {
+      "cpu_utilization": 0.050067350164587986,
+      "memory_bytes": 91144192,
+      "networks": {
+        "eth0": {
+          "rx_bytes": 99408,
+          "rx_dropped": 0,
+          "rx_errors": 0,
+          "rx_packets": 591,
+          "tx_bytes": 75323,
+          "tx_dropped": 0,
+          "tx_errors": 0,
+          "tx_packets": 521
+        }
+      }
+    },
+    "health": {
+      "core_transactions_ready": false,
+      "dependencies": {
+        "event-worker": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "outbox-relay": {
+          "observed_at": null,
+          "reason": "NO_FRESH_HEARTBEAT",
+          "signal_age_seconds": null,
+          "status": "UNKNOWN"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:43:49.662611+00:00",
+          "reason": "DATABASE_OR_SCHEMA_UNAVAILABLE",
+          "signal_age_seconds": 0,
+          "status": "UNHEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:43:49.662611+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:43:49.662611+00:00",
+      "status": "UNHEALTHY"
+    },
+    "health_request_latency_ms": 3.447957999924256,
+    "metrics": {
+      "gaps": [
+        "api_health_or_dashboard_unavailable"
+      ],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.27572513Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.330054755Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:47.21523463Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:49.027554964Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:48.856055547Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:48.781156714Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:48.05035638Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:45.46734817Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:48.229033213Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:43:46.311424629Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 168.0,
+        "api_5xx_rate": 6.133098676052958,
+        "api_http_counter": 10044.0,
+        "api_p50_seconds": 0.016008556338028168,
+        "api_p95_seconds": 0.044032951012140525,
+        "api_p99_seconds": 0.04897860005848858,
+        "api_rps": 21.459221631134756,
+        "cache_hits_counter": 79.0,
+        "cache_misses_counter": 1453.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": null,
+        "db_connections": null,
+        "db_deadlocks": null,
+        "db_lock_waits": null,
+        "db_long_running_queries": null,
+        "db_observed_at": 1791697417.1241815,
+        "db_oldest_lock_wait_seconds": null,
+        "db_pool_wait_p95_seconds": 0.02188461538461538,
+        "db_reachable": 0.0,
+        "db_slow_statement_fingerprints": null,
+        "db_statement_calls": null,
+        "db_statement_execution_seconds": null,
+        "db_statement_max_seconds": null,
+        "load_network_rx": 3025103.0,
+        "load_network_tx": 1652205.0,
+        "load_rps": 28.363061979592,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 7136.0,
+        "worker_lag": 0.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:43:49.671502+00:00",
+    "observed_epoch": 1791697429.67151,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": null,
+    "window_seconds": 30
+  }
+]

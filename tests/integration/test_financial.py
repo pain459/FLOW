@@ -81,6 +81,38 @@ async def test_seed_repeat_and_idempotency(lab):
         )
 
 
+async def test_read_only_idempotency_lookup_checks_original_payload(lab):
+    from apps.pulsepay.domain.transfers import request_hash
+    from apps.pulsepay.schemas.transfers import TransferRequest
+
+    ids = await pool(lab)
+    payload = body(ids)
+    digest = request_hash(TransferRequest.model_validate(payload))
+    headers = {"Idempotency-Key": "lost-response", "X-Request-Hash": digest}
+    route = "/api/v1/transfers/by-idempotency-key"
+    missing = await lab.client.get(route, headers=headers)
+    assert missing.status_code == 404
+    assert missing.json()["code"] == "TRANSFER_NOT_FOUND"
+    committed = await send(lab, payload, "lost-response")
+    found = await lab.client.get(route, headers=headers)
+    assert found.status_code == 200
+    assert found.json()["id"] == committed.json()["id"]
+    changed = {**headers, "X-Request-Hash": "0" * 64}
+    assert (await lab.client.get(route, headers=changed)).status_code == 409
+    assert (
+        await lab.client.get(route, headers={"Idempotency-Key": "lost-response"})
+    ).status_code == 422
+    async with lab.admin.connect() as connection:
+        assert await connection.scalar(text("SELECT count(*) FROM transfers")) == 1
+        assert (
+            await connection.scalar(
+                text("SELECT count(*) FROM ledger_entries WHERE transfer_id IS NOT NULL")
+            )
+            == 2
+        )
+        assert await connection.scalar(text("SELECT sum(balance_minor) FROM accounts")) == 400000
+
+
 @pytest.mark.parametrize(
     "kind",
     [

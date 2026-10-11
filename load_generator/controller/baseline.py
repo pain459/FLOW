@@ -60,7 +60,7 @@ def qualify(manifests: list[dict], summaries: list[dict]) -> dict:
             for phase in ("preflight", "postflight")
         ):
             reasons.append("INTEGRITY_NOT_PASS")
-    metrics = {}
+    metrics: dict[str, dict | None] = {}
     for name, group in (
         ("achieved_rps", "load"),
         ("p50_ms", "http"),

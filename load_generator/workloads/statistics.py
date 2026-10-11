@@ -8,7 +8,7 @@ class Statistics:
     def __init__(self, path: Path, worker: str):
         self.path, self.worker = path, worker
         self.phases: dict = {}
-        self.errors = []
+        self.errors: list[dict] = []
         self.clock = None
 
     def phase(self):
@@ -82,6 +82,7 @@ class Statistics:
                     "outcome": outcome,
                     "status_class": status_class,
                     "request_id": context.get("request_id", ""),
+                    "error_class": context.get("error_class", ""),
                 }
             )
 

@@ -1,0 +1,115 @@
+{
+  "check_run_id": "d9ce4b02-0db3-4760-964f-c079ff148617",
+  "checks": [
+    {
+      "details": [],
+      "inspected_records": 200,
+      "name": "global_conservation",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 200,
+      "name": "ledger_balance_reconciliation",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 200,
+      "name": "account_state",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 1,
+      "name": "provisioning_evidence",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 1167,
+      "name": "transfer_double_entry",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 2534,
+      "name": "ledger_topology",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 1167,
+      "name": "transfer_state",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 1167,
+      "name": "idempotency_uniqueness",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 1167,
+      "name": "durable_event_contract",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 1167,
+      "name": "committed_outbox",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [],
+      "inspected_records": 1167,
+      "name": "projection_receipts",
+      "status": "PASS",
+      "violations": 0
+    },
+    {
+      "details": [
+        {
+          "oldest_pending_seconds": 0.0,
+          "outbox_pending": 0,
+          "overdue_projections": 0,
+          "quarantined_messages": 0
+        }
+      ],
+      "inspected_records": 1167,
+      "name": "event_delivery_lag",
+      "status": "PASS",
+      "violations": 0
+    }
+  ],
+  "events": {
+    "oldest_pending_seconds": 0.0,
+    "outbox_pending": 0,
+    "overdue_projections": 0,
+    "quarantined_messages": 0
+  },
+  "finished_at": "2026-10-11T05:58:45.864335+00:00",
+  "snapshot": {
+    "isolation": "repeatable read",
+    "read_only": true
+  },
+  "started_at": "2026-10-11T05:58:45.815198+00:00",
+  "status": "PASS",
+  "totals": {
+    "accounts": 200,
+    "balance_minor": 20000000,
+    "provisioned_minor": 20000000,
+    "transfers": 1167
+  }
+}

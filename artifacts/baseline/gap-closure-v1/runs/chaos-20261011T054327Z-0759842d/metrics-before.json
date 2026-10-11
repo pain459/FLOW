@@ -1,0 +1,143 @@
+{
+  "health": {
+    "core_transactions_ready": true,
+    "dependencies": {
+      "event-worker": {
+        "last_failure_at": "2026-10-11T05:12:04.019700+00:00",
+        "last_success_at": "2026-10-11T05:43:27.822360+00:00",
+        "observed_at": "2026-10-11T05:43:27.837491+00:00",
+        "reason": "PROGRESS_CHECK",
+        "signal_age_seconds": 0.286376,
+        "status": "HEALTHY"
+      },
+      "outbox-relay": {
+        "last_failure_at": "2026-10-11T05:12:10.592042+00:00",
+        "last_success_at": "2026-10-11T05:43:27.347334+00:00",
+        "observed_at": "2026-10-11T05:43:27.358641+00:00",
+        "reason": "PROGRESS_CHECK",
+        "signal_age_seconds": 0.765226,
+        "status": "HEALTHY"
+      },
+      "postgres": {
+        "observed_at": "2026-10-11T05:43:28.120185+00:00",
+        "reason": "READY",
+        "signal_age_seconds": 0,
+        "status": "HEALTHY"
+      },
+      "redis": {
+        "observed_at": "2026-10-11T05:43:28.120185+00:00",
+        "reason": "REACHABLE",
+        "signal_age_seconds": 0,
+        "status": "HEALTHY"
+      }
+    },
+    "instrumentation": {
+      "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+      "status": "UNKNOWN"
+    },
+    "observed_at": "2026-10-11T05:43:28.120185+00:00",
+    "status": "HEALTHY"
+  },
+  "health_request_latency_ms": 8.179292000022542,
+  "metrics": {
+    "gaps": [],
+    "scrapes": {
+      "api": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:27.275751968Z"
+      },
+      "chaos-watchdog": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:27.330877009Z"
+      },
+      "db-observer": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:27.215223051Z"
+      },
+      "event-worker": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:24.030691716Z"
+      },
+      "load": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:23.855876049Z"
+      },
+      "locust": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:23.782461841Z"
+      },
+      "otel-collector": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:28.050974093Z"
+      },
+      "outbox-relay": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:25.467970967Z"
+      },
+      "prometheus": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:23.228299924Z"
+      },
+      "verifier": {
+        "health": "up",
+        "last_scrape": "2026-10-11T05:43:26.311719842Z"
+      }
+    },
+    "values": {
+      "api_4xx_rate": 0.0,
+      "api_5xx_counter": 0.0,
+      "api_5xx_rate": 0.0,
+      "api_http_counter": 9595.0,
+      "api_p50_seconds": 0.017559055118110237,
+      "api_p95_seconds": 0.04624000000000001,
+      "api_p99_seconds": 0.05657142857142877,
+      "api_rps": 20.240000000000002,
+      "cache_hits_counter": 77.0,
+      "cache_misses_counter": 1389.0,
+      "db_checked_out": 0.0,
+      "db_connection_usage_percent": 11.0,
+      "db_connections": 11.0,
+      "db_deadlocks": 0.0,
+      "db_lock_waits": 0.0,
+      "db_long_running_queries": 0.0,
+      "db_observed_at": 1791697407.0966702,
+      "db_oldest_lock_wait_seconds": 0.0,
+      "db_pool_wait_p95_seconds": 0.020808823529411765,
+      "db_reachable": 1.0,
+      "db_slow_statement_fingerprints": 3.0,
+      "db_statement_calls": 245782.0,
+      "db_statement_execution_seconds": 91.03541218299999,
+      "db_statement_max_seconds": 0.286161375,
+      "load_network_rx": 2414733.0,
+      "load_network_tx": 1242449.0,
+      "load_rps": 19.774514271247163,
+      "load_target_users": 20.0,
+      "load_timeouts": 0.0,
+      "load_users": 20.0,
+      "outbox_oldest_seconds": 0.0,
+      "outbox_pending": 0.0,
+      "redis_failures_counter": 0.0,
+      "verifier_status": 0.0,
+      "worker_effects_counter": 7001.0,
+      "worker_lag": 0.0,
+      "worker_pending": 0.0,
+      "worker_quarantine": 0.0,
+      "worker_retries_counter": 1.0
+    }
+  },
+  "observed_at": "2026-10-11T05:43:28.160656+00:00",
+  "observed_epoch": 1791697408.1606648,
+  "source": "Prometheus query plus actual HTTP probes",
+  "totals": {
+    "accounts": 200,
+    "active_accounts": 200,
+    "balance_minor": "20000000",
+    "ledger_entries": 165236,
+    "oldest_pending_seconds": 0.049818,
+    "outbox_pending": 7,
+    "projections": 82511,
+    "provisioned_minor": "20000000",
+    "transfers": 82518
+  },
+  "window_seconds": 30
+}

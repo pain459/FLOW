@@ -19,7 +19,7 @@ make load-test
 make load-ui
 ```
 
-Select smoke, low, nominal, read_heavy, write_heavy, burst, hot_accounts, step_ramp, soak, or journeys. Overrides are validated before traffic. Burst/step durations scale proportionally; USERS caps every declared stage. RATE controls logical-operation pacing, not guaranteed HTTP RPS. Multi-hour selection requires `ALLOW_LONG_RUN=true`. Runs never seed automatically; there is no background traffic client.
+Select smoke, low, nominal, read_heavy, write_heavy, burst, hot_accounts, step_ramp, soak, journeys, or the explicit dependency_recovery policy. Overrides are validated before traffic. Burst/step durations scale proportionally; USERS caps every declared stage. RATE controls logical-operation pacing, not guaranteed HTTP RPS. Multi-hour selection requires `ALLOW_LONG_RUN=true`. Runs never seed automatically; there is no background traffic client.
 
 The optional overlay is `compose.load.yaml`. Normal `docker compose up` does not start it. Its one-shot non-root, readonly controller container has a writable reports volume, 1 CPU/768 MiB defaults, no Docker socket and no external targets. Headless commands do not publish ports. The ordinary stack already publishes the persistent UI on localhost:8089. WORKERS uses Locust 2.46.6 local master/worker processes; scaling shares this ceiling. LOAD_CPU_LIMIT and LOAD_MEMORY_LIMIT configure it explicitly. The generator's /metrics endpoint on 9101 is internal only; Prometheus scrapes its Compose alias while a run exists. A down load scrape while idle is expected.
 
@@ -37,13 +37,21 @@ See [resource ceilings](resources.md). All Locust processes are bounded; a fail-
 
 The controller persists CREATED, VALIDATING, PREFLIGHT, READY, WARMUP, RUNNING, STOPPED, COOLDOWN, VERIFYING, REPORTING and terminal status. A guard container reserves the operator workflow before traffic starts; the controller also holds a file lock. Finite Locust runtime, bounded requests/inflight shutdown and Docker PID isolation bound traffic even if the controller disappears.
 
-`make load-stop` requests cancellation and waits up to 60 seconds for a retained terminal report. It never stops PulsePay. Interrupted runs are not benchmarks. After a crash, reporting or a subsequent locked controller marks abandoned evidence INTERRUPTED with unknown postflight evidence. If an operator wrapper was killed without cleanup, remove only its scoped reservation/resource helper containers after confirming traffic stopped; do not prune Docker:
+`make load-stop` persists cancellation, stops new traffic, and waits for a retained terminal report. Its finite wait is derived from the validated profile: `115 + 2 × cooldown_seconds + reconciliation_seconds` seconds, at most 595 seconds. This includes final verification and bounded outcome recovery. If no report appears before that limit, it fails with a STOPPING message; cancellation remains persisted and completion is not claimed. It never stops PulsePay. Interrupted runs are not benchmarks. After a crash, reporting or a subsequent locked controller marks abandoned evidence INTERRUPTED with unknown postflight evidence. If an operator wrapper was killed without cleanup, remove only its scoped reservation/resource helper containers after confirming traffic stopped; do not prune Docker:
 
 ```sh
 docker rm -f chaosloop-load-guard chaosloop-load-resources
 ```
 
 Every run has immutable profile/hash in manifest.json, summary.json/md, measured locust-stats.csv, native locust-all CSVs, time-series.json, exact verifier-pre/post JSON, bounded errors.jsonl, lifecycle/workload events, worker evidence and container-resources.jsonl. Raw artifacts are gitignored and never silently rotated. Exported reports survive container removal. `make down` retains both database and load reports volumes.
+
+Transfer intentions are fsynced to per-worker append-only `intent-journal/*.jsonl` before HTTP submission. Storage is capped at 32 MiB per worker, four workers, 2 KiB per record and 50,000 intentions per reconciliation. The existing report-volume budget also applies. Storage failure stops traffic; malformed or incomplete records produce UNKNOWN. Terminal commit evidence requires a valid transfer UUID.
+
+After inflight completion and an independent verifier barrier, `reconciliation.json` records read-only original-key/hash lookups. Only a valid full 404 error envelope and a PASS barrier permit one replay of the original key/body. Recovery requests have a total 1–120 second budget and 16 KiB response ceiling, including trickling headers and bodies. Recovery writes are followed by another cooldown and verifier. Recovered outcomes are counted separately from measured commits/RPS/latency; HTTP failures remain failures. Legacy runs without durable intentions cannot be retroactively resolved.
+
+The intentionally selected `dependency_recovery` profile caps users at 20 and duration at 600 seconds. Its uncertainty deadline is 20 seconds after an UNKNOWN observation; the evidence remains UNKNOWN. A separate deadline watcher stops traffic even while verifier communication waits, and expiry cannot be cleared by a late PASS. Periodic verification and its communication timeout remain separate bounds. Proven FAIL stops immediately. Other profiles retain zero grace and the ordinary error threshold. This policy supports bounded fault-recovery tests and cannot turn an outage into a healthy benchmark.
+
+The HTTP client retires connections after four seconds of idle time, before the API's configured five-second keep-alive expiry. This prevents a connection-reset race when 100 users are paced at 20 logical operations/sec. Shorter idle periods still reuse connections. Transport failures remain failed requests: real Requests timeouts use `timeout`, while resets/disconnects use `infrastructure_failure`. Bounded error samples retain a controlled `error_class`, and transfers keep their original idempotency key/body on every retry. Historical reports are unchanged; no reset is silently retried inside the HTTP adapter.
 
 ## Healthy-state qualification
 

@@ -1,0 +1,85 @@
+[36m[2026-10-11 05:11:59 DEBUG] [root:106] ###############################################################################
+[36m[2026-10-11 05:11:59 DEBUG] [root:107] Running command 'run'
+[36m[2026-10-11 05:11:59 DEBUG] [root:111] Using settings file '/home/svc/.chaostoolkit/settings.yaml'
+[36m[2026-10-11 05:11:59 DEBUG] [settings:31] The Chaos Toolkit settings file could not be found at '/home/svc/.chaostoolkit/settings.yaml'.
+[36m[2026-10-11 05:11:59 DEBUG] [__init__:468] No controls to apply on 'loader'
+[36m[2026-10-11 05:11:59 DEBUG] [__init__:468] No controls to apply on 'loader'
+[36m[2026-10-11 05:11:59 DEBUG] [caching:24] Building activity cache...
+[36m[2026-10-11 05:11:59 DEBUG] [caching:35] Cached 5 activities
+[32m[2026-10-11 05:11:59 INFO] [experiment:59] Validating the experiment's syntax
+[36m[2026-10-11 05:11:59 DEBUG] [configuration:64] Loading configuration...
+[36m[2026-10-11 05:11:59 DEBUG] [secret:79] Loading secrets...
+[36m[2026-10-11 05:11:59 DEBUG] [secret:104] Done loading secrets
+[32m[2026-10-11 05:12:00 INFO] [experiment:109] Experiment looks valid
+[36m[2026-10-11 05:12:00 DEBUG] [caching:42] Clearing activities cache
+[36m[2026-10-11 05:12:00 DEBUG] [run:334] Runtime strategies: hypothesis - default / rollbacks - always
+[36m[2026-10-11 05:12:00 DEBUG] [caching:24] Building activity cache...
+[36m[2026-10-11 05:12:00 DEBUG] [caching:35] Cached 5 activities
+[36m[2026-10-11 05:12:00 DEBUG] [configuration:64] Loading configuration...
+[36m[2026-10-11 05:12:00 DEBUG] [secret:79] Loading secrets...
+[36m[2026-10-11 05:12:00 DEBUG] [secret:104] Done loading secrets
+[36m[2026-10-11 05:12:00 DEBUG] [configuration:161] Loading dynamic configuration...
+[32m[2026-10-11 05:12:00 INFO] [run:446] Running experiment: PulsePay 008-postgres-outage
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:68] Initializing controls
+[32m[2026-10-11 05:12:00 INFO] [run:477] Steady-state strategy: default
+[32m[2026-10-11 05:12:00 INFO] [run:483] Rollbacks strategy: always
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:468] No controls to apply on 'experiment'
+[36m[2026-10-11 05:12:00 DEBUG] [run:660] Running steady-state hypothesis before the method
+[32m[2026-10-11 05:12:00 INFO] [hypothesis:200] Steady state hypothesis: Healthy authority, event delivery and independently reconciled ledger
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:12:00 INFO] [activity:233] Probe: healthy-financial-and-operational-state
+[36m[2026-10-11 05:12:00 DEBUG] [python:37] Activity 'healthy-financial-and-operational-state' loaded from '/workspace/chaos/adapters/health_probes.py'
+[36m[2026-10-11 05:12:00 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:12:00 DEBUG] [hypothesis:242] allowed tolerance is True
+[32m[2026-10-11 05:12:00 INFO] [hypothesis:255] Steady state hypothesis is met!
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[32m[2026-10-11 05:12:00 INFO] [run:784] Playing your experiment's method now...
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:468] No controls to apply on 'method'
+[36m[2026-10-11 05:12:00 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:12:00 INFO] [activity:233] Action: apply-bounded-framework-fault
+[36m[2026-10-11 05:12:00 DEBUG] [python:37] Activity 'apply-bounded-framework-fault' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:12:01 DEBUG] [activity:261]   => succeeded with '{'injector_started': True}'
+[36m[2026-10-11 05:12:01 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:12:01 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:12:01 INFO] [activity:233] Probe: observe-intentional-fault-exposure
+[36m[2026-10-11 05:12:01 DEBUG] [python:37] Activity 'observe-intentional-fault-exposure' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:12:14 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:12:14 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:12:14 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:12:14 INFO] [activity:233] Action: restore-original-environment
+[36m[2026-10-11 05:12:14 DEBUG] [python:37] Activity 'restore-original-environment' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:12:14 DEBUG] [activity:261]   => succeeded with '{'run_id': 'chaos-20261011T051149Z-4267a1dd', 'started_at': '2026-10-11T05:12:14.693909+00:00', 'status': 'RESTORED', 'errors': [], 'proxy_restore': {'not_applicable': True}, 'target_after': {'Id': '3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77', 'Name': '/chaosloop-postgres-1', 'Image': 'sha256:6386b91ffd121cd95b81309c88313ced18a72c7df9d7f961d3088a0fa44ba6a4', 'State': {'Status': 'running', 'Running': True, 'Paused': False, 'Restarting': False, 'OOMKilled': False, 'Dead': False, 'Pid': 915, 'ExitCode': 0, 'Error': '', 'StartedAt': '2026-10-11T05:12:11.586906835Z', 'FinishedAt': '2026-10-11T05:12:03.490453971Z', 'Health': {'Status': 'healthy', 'FailingStreak': 0, 'Log': [{'Start': '2026-10-11T05:11:54.408213216Z', 'End': '2026-10-11T05:11:54.43080005Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}, {'Start': '2026-10-11T05:11:57.431480135Z', 'End': '2026-10-11T05:11:57.457731676Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}, {'Start': '2026-10-11T05:12:00.462309636Z', 'End': '2026-10-11T05:12:00.485017511Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}, {'Start': '2026-10-11T05:12:03.485219179Z', 'End': '2026-10-11T05:12:03.491714762Z', 'ExitCode': -1, 'Output': 'OCI runtime exec failed: exec failed: unable to start container process: error executing setns process: exit status 1; runc init error(s): nsexec-1[339]: failed to open /proc/1173/ns/ipc: No such file or directory; nsexec-0[338]: failed to sync with stage-1: next state (got 0 of 4 bytes)'}, {'Start': '2026-10-11T05:12:14.637189212Z', 'End': '2026-10-11T05:12:14.664279795Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}]}}, 'RestartCount': 0, 'Created': '2026-10-11T03:49:10.094999168Z', 'NetworkSettings': {'SandboxID': '8087e6438d5bbb7a3f9f0e3266099392d459cc67ff8c4c1d8d529d6e95353d79', 'SandboxKey': '/var/run/docker/netns/8087e6438d5b', 'Ports': {'5432/tcp': None}, 'Networks': {'chaosloop_internal': {'IPAMConfig': None, 'Links': None, 'Aliases': ['chaosloop-postgres-1', 'postgres'], 'DriverOpts': None, 'GwPriority': 0, 'NetworkID': 'dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe', 'EndpointID': 'a25971e686d684ccc65481cbbf56a4c0465820792e36e010b8c825fea191c9ff', 'Gateway': '', 'IPAddress': '172.19.0.6', 'MacAddress': '3e:ce:5c:2e:dc:7d', 'IPPrefixLen': 16, 'IPv6Gateway': '', 'GlobalIPv6Address': '', 'GlobalIPv6PrefixLen': 0, 'DNSNames': ['chaosloop-postgres-1', 'postgres', '3fa335bf14fd']}}}, 'Config': {'Labels': {'com.docker.compose.config-hash': '30e1acbc2bffb07313497d93c4e5632862a5193c4c8390cb7345d94f7f181b4a', 'com.docker.compose.container-number': '1', 'com.docker.compose.depends_on': '', 'com.docker.compose.image': 'sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b', 'com.docker.compose.oneoff': 'False', 'com.docker.compose.project': 'chaosloop', 'com.docker.compose.project.config_files': '/Users/ravik/src_git/FLOW/compose.yaml', 'com.docker.compose.project.working_dir': '/Users/ravik/src_git/FLOW', 'com.docker.compose.service': 'postgres', 'com.docker.compose.version': '5.5.1', 'io.pulsepay.chaos.role': 'postgres', 'io.pulsepay.chaos.target': 'true', 'io.pulsepay.lab': 'disposable'}, 'Image': 'pulsepay-postgres:v1', 'StopSignal': 'SIGINT', 'Cmd': ['postgres', '-c', 'shared_preload_libraries=pg_stat_statements', '-c', 'track_io_timing=on'], 'Entrypoint': ['docker-entrypoint.sh']}, 'HostConfig': {'RestartPolicy': {'Name': 'unless-stopped', 'MaximumRetryCount': 0}, 'Memory': 805306368, 'NanoCpus': 1000000000, 'CgroupParent': '', 'NetworkMode': 'chaosloop_internal', 'CapAdd': None, 'ReadonlyRootfs': False, 'PidsLimit': None}, 'PulsePayDependencyRoutes': {}}, 'finished_at': '2026-10-11T05:12:14.768634+00:00'}'
+[36m[2026-10-11 05:12:14 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:12:14 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:12:14 INFO] [activity:233] Probe: independently-verify-post-restoration-recovery
+[36m[2026-10-11 05:12:14 DEBUG] [python:37] Activity 'independently-verify-post-restoration-recovery' loaded from '/workspace/chaos/adapters/health_probes.py'
+[36m[2026-10-11 05:12:40 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'method'
+[36m[2026-10-11 05:12:40 DEBUG] [run:702] Running steady-state hypothesis after the method
+[32m[2026-10-11 05:12:40 INFO] [hypothesis:200] Steady state hypothesis: Healthy authority, event delivery and independently reconciled ledger
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:12:40 INFO] [activity:233] Probe: healthy-financial-and-operational-state
+[36m[2026-10-11 05:12:40 DEBUG] [python:37] Activity 'healthy-financial-and-operational-state' loaded from '/workspace/chaos/adapters/health_probes.py'
+[36m[2026-10-11 05:12:40 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:12:40 DEBUG] [hypothesis:242] allowed tolerance is True
+[32m[2026-10-11 05:12:40 INFO] [hypothesis:255] Steady state hypothesis is met!
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[33m[2026-10-11 05:12:40 WARNING] [run:827] Rollbacks were explicitly requested to be played
+[32m[2026-10-11 05:12:40 INFO] [run:1070] Let's rollback...
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'rollback'
+[32m[2026-10-11 05:12:40 INFO] [rollback:37] Rollback: repeat-safe-scoped-restoration
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:12:40 INFO] [activity:233] Action: repeat-safe-scoped-restoration
+[36m[2026-10-11 05:12:40 DEBUG] [python:37] Activity 'repeat-safe-scoped-restoration' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:12:40 DEBUG] [activity:261]   => succeeded with '{'run_id': 'chaos-20261011T051149Z-4267a1dd', 'started_at': '2026-10-11T05:12:40.727303+00:00', 'status': 'RESTORED', 'errors': [], 'proxy_restore': {'not_applicable': True}, 'target_after': {'Id': '3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77', 'Name': '/chaosloop-postgres-1', 'Image': 'sha256:6386b91ffd121cd95b81309c88313ced18a72c7df9d7f961d3088a0fa44ba6a4', 'State': {'Status': 'running', 'Running': True, 'Paused': False, 'Restarting': False, 'OOMKilled': False, 'Dead': False, 'Pid': 915, 'ExitCode': 0, 'Error': '', 'StartedAt': '2026-10-11T05:12:11.586906835Z', 'FinishedAt': '2026-10-11T05:12:03.490453971Z', 'Health': {'Status': 'healthy', 'FailingStreak': 0, 'Log': [{'Start': '2026-10-11T05:12:26.779443509Z', 'End': '2026-10-11T05:12:26.805587509Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}, {'Start': '2026-10-11T05:12:29.805832344Z', 'End': '2026-10-11T05:12:29.846864969Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}, {'Start': '2026-10-11T05:12:32.847524054Z', 'End': '2026-10-11T05:12:32.868127304Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}, {'Start': '2026-10-11T05:12:35.869250305Z', 'End': '2026-10-11T05:12:35.906789597Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}, {'Start': '2026-10-11T05:12:38.908108626Z', 'End': '2026-10-11T05:12:38.942198584Z', 'ExitCode': 0, 'Output': '/var/run/postgresql:5432 - accepting connections\n'}]}}, 'RestartCount': 0, 'Created': '2026-10-11T03:49:10.094999168Z', 'NetworkSettings': {'SandboxID': '8087e6438d5bbb7a3f9f0e3266099392d459cc67ff8c4c1d8d529d6e95353d79', 'SandboxKey': '/var/run/docker/netns/8087e6438d5b', 'Ports': {'5432/tcp': None}, 'Networks': {'chaosloop_internal': {'IPAMConfig': None, 'Links': None, 'Aliases': ['chaosloop-postgres-1', 'postgres'], 'DriverOpts': None, 'GwPriority': 0, 'NetworkID': 'dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe', 'EndpointID': 'a25971e686d684ccc65481cbbf56a4c0465820792e36e010b8c825fea191c9ff', 'Gateway': '', 'IPAddress': '172.19.0.6', 'MacAddress': '3e:ce:5c:2e:dc:7d', 'IPPrefixLen': 16, 'IPv6Gateway': '', 'GlobalIPv6Address': '', 'GlobalIPv6PrefixLen': 0, 'DNSNames': ['chaosloop-postgres-1', 'postgres', '3fa335bf14fd']}}}, 'Config': {'Labels': {'com.docker.compose.config-hash': '30e1acbc2bffb07313497d93c4e5632862a5193c4c8390cb7345d94f7f181b4a', 'com.docker.compose.container-number': '1', 'com.docker.compose.depends_on': '', 'com.docker.compose.image': 'sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b', 'com.docker.compose.oneoff': 'False', 'com.docker.compose.project': 'chaosloop', 'com.docker.compose.project.config_files': '/Users/ravik/src_git/FLOW/compose.yaml', 'com.docker.compose.project.working_dir': '/Users/ravik/src_git/FLOW', 'com.docker.compose.service': 'postgres', 'com.docker.compose.version': '5.5.1', 'io.pulsepay.chaos.role': 'postgres', 'io.pulsepay.chaos.target': 'true', 'io.pulsepay.lab': 'disposable'}, 'Image': 'pulsepay-postgres:v1', 'StopSignal': 'SIGINT', 'Cmd': ['postgres', '-c', 'shared_preload_libraries=pg_stat_statements', '-c', 'track_io_timing=on'], 'Entrypoint': ['docker-entrypoint.sh']}, 'HostConfig': {'RestartPolicy': {'Name': 'unless-stopped', 'MaximumRetryCount': 0}, 'Memory': 805306368, 'NanoCpus': 1000000000, 'CgroupParent': '', 'NetworkMode': 'chaosloop_internal', 'CapAdd': None, 'ReadonlyRootfs': False, 'PidsLimit': None}, 'PulsePayDependencyRoutes': {}}, 'finished_at': '2026-10-11T05:12:40.774139+00:00'}'
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'rollback'
+[32m[2026-10-11 05:12:40 INFO] [run:604] Experiment ended with status: completed
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:468] No controls to apply on 'experiment'
+[36m[2026-10-11 05:12:40 DEBUG] [__init__:107] Cleaning up controls
+[36m[2026-10-11 05:12:40 DEBUG] [caching:42] Clearing activities cache

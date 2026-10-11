@@ -17,6 +17,21 @@ async def get_transfer(db: Database, transfer_id: UUID) -> Transfer:
         return item
 
 
+async def get_transfer_by_key(db: Database, key: str, digest: str) -> Transfer:
+    """Observe a committed result without issuing a transfer or changing balances."""
+    async with db.session() as session:
+        item = await session.scalar(select(Transfer).where(Transfer.idempotency_key == key))
+        if item is None:
+            raise BusinessError(
+                "TRANSFER_NOT_FOUND", "No committed transfer observed for this key", 404
+            )
+        if item.request_hash != digest:
+            raise BusinessError(
+                "IDEMPOTENCY_CONFLICT", "Key already used for a different request", 409
+            )
+        return item
+
+
 async def history(db: Database, account_id: UUID, limit: int, cursor: str | None) -> dict:
     await get_account(db, account_id)
     query = select(LedgerEntry).where(LedgerEntry.account_id == account_id)

@@ -1,0 +1,9 @@
+{
+  "code": "LOAD_BASELINE_ERRORS",
+  "message": "Recent measured window was already failing before fault",
+  "reason": "PreflightError",
+  "remediation": "Resolve the existing request errors and establish a fresh stable read/write window before injecting a fault.",
+  "result": "INVALID",
+  "run_id": "chaos-20261011T065742Z-7a297eb3",
+  "safe_message": "Recent measured window was already failing before fault"
+}

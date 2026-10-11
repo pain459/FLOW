@@ -24,6 +24,7 @@ STACK_UI = os.getenv("LOAD_STACK_UI") == "true"
 FLUSH = None
 WATCHDOG = None
 SUPERVISOR = None
+INTEGRITY_WATCHDOG = None
 
 
 @events.init.add_listener
@@ -71,7 +72,7 @@ def init(environment, **kwargs):
 
 @events.test_start.add_listener
 def start(environment, **kwargs):
-    global FLUSH, WATCHDOG, SUPERVISOR
+    global FLUSH, WATCHDOG, SUPERVISOR, INTEGRITY_WATCHDOG
     STATS.worker = "worker-" + str(os.getpid())
     if STACK_UI:
         environment.pulsepay_collector.measured_rps = None
@@ -113,10 +114,29 @@ def start(environment, **kwargs):
 
         FLUSH = gevent.spawn(flush)
     if MANUAL_UI:
+        from gevent.event import Event
+        from load_generator.workloads.web_ui import quit_ui
+        from load_generator.controller.observations import IntegrityGuard, watch_integrity_deadline
+
+        integrity_guard = IntegrityGuard(PROFILE.safety.integrity_unknown_grace_seconds)
+        deadline_done = Event()
+
+        def stop_on_uncertainty():
+            from load_generator.stack_ui import FAILURES
+
+            FAILURES.append("UI_INTEGRITY_UNKNOWN_DEADLINE")
+            atomic_json(
+                PATH / "integrity-deadline.json",
+                {"stopped_at": time.time(), "reason": "UI_INTEGRITY_UNKNOWN_DEADLINE"},
+            )
+            quit_ui(environment)
+
+        if STACK_UI:
+            INTEGRITY_WATCHDOG = gevent.spawn(
+                watch_integrity_deadline, integrity_guard, deadline_done, stop_on_uncertainty
+            )
 
         def supervise():
-            from load_generator.workloads.web_ui import quit_ui
-
             deadline = time.time() + PROFILE.warmup_seconds + PROFILE.duration_seconds
             next_verify = time.time() + 15
             while environment.runner.state not in {"stopped", "cleanup"}:
@@ -137,23 +157,37 @@ def start(environment, **kwargs):
                 if time.time() >= deadline or (PATH / "cancel").exists():
                     quit_ui(environment)
                     return
+                if STACK_UI and integrity_guard.expired():
+                    from load_generator.stack_ui import FAILURES
+
+                    FAILURES.append("UI_INTEGRITY_UNKNOWN_DEADLINE")
+                    quit_ui(environment)
+                    return
                 if STACK_UI and time.time() >= next_verify:
                     from load_generator.stack_ui import FAILURES
                     from load_generator.controller.preflight import (
                         independent_verification,
                     )
-                    from load_generator.controller.observations import (
-                        integrity_requires_stop,
-                    )
                     from load_generator.controller.storage import check_report_budget
 
                     report = independent_verification()
                     environment.pulsepay_collector.verification = report
+                    with (PATH / "integrity-observations.jsonl").open("a") as history:
+                        import json
+
+                        history.write(
+                            json.dumps({"observed_epoch": time.time(), "verification": report})
+                            + "\n"
+                        )
                     try:
                         check_report_budget(PATH.parent, reserve_bytes=1024**2)
                     except ValueError:
                         FAILURES.append("REPORT_STORAGE_BUDGET_EXCEEDED")
-                    if integrity_requires_stop(report) or FAILURES:
+                    if any(
+                        value.get("intent_storage_failures", 0) for value in STATS.phases.values()
+                    ):
+                        FAILURES.append("CLIENT_INTENT_STORAGE_UNAVAILABLE")
+                    if integrity_guard.update(report) or FAILURES:
                         FAILURES.append("UI_SAFETY_STOP")
                         quit_ui(environment)
                         return
@@ -162,7 +196,7 @@ def start(environment, **kwargs):
             if not STACK_UI:
                 quit_ui(environment)
 
-        from load_generator.workloads.web_ui import supervise_safely, quit_ui
+        from load_generator.workloads.web_ui import supervise_safely
 
         SUPERVISOR = gevent.spawn(supervise_safely, environment, supervise)
         WATCHDOG = gevent.spawn_later(
@@ -186,7 +220,7 @@ def observed(name, response_time, response_length, context, **kwargs):
 
 @events.test_stop.add_listener
 def stop(environment, **kwargs):
-    for greenlet in (SUPERVISOR, WATCHDOG):
+    for greenlet in (SUPERVISOR, WATCHDOG, INTEGRITY_WATCHDOG):
         if greenlet and greenlet is not gevent.getcurrent():
             greenlet.kill()
     if FLUSH:

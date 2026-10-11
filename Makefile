@@ -16,7 +16,7 @@ down:
 test:
 	sh scripts/test.sh
 lint:
-	docker compose run --rm tests sh -c 'ruff check . && ruff format --check . && mypy apps shared workers verifier'
+	docker compose run --rm tests sh -c 'ruff check . && ruff format --check . && mypy --explicit-package-bases --exclude "(^|/)tests/" apps shared workers verifier load_generator chaos'
 logs:
 	docker compose logs -f api outbox-relay event-worker
 seed:

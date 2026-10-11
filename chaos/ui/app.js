@@ -26,11 +26,11 @@ function controls() {
   const active = model.status?.active_experiment;
   const working = model.job?.status === 'RUNNING' || model.status?.browser_job?.status === 'RUNNING';
   $('#preflight').disabled = !ready || working || active || !model.selected?.enabled;
-  $('#run').disabled = !ready || working || active || !model.selected?.enabled;
+  $('#run').disabled = !ready || working || active || !model.selected?.enabled || !model.status?.workload?.ready;
   $('#abort').disabled = !model.status?.controls_ready || (!active && !working);
   $('#restore').disabled = !ready || working;
 }
-function renderJob(job) { model.job = job; $('#job-status').textContent = job.status; $('#job-status').className = `badge ${tone(job.status)}`; $('#job-output').textContent = job.output || `${job.operation}: ${job.status}\n${job.reason || 'Waiting for native framework output…'}`; controls(); }
+function renderJob(job) { model.job = job; $('#job-status').textContent = job.status; $('#job-status').className = `badge ${tone(job.status)}`; let output = job.output || `${job.operation}: ${job.status}\n${job.reason || 'Waiting for native framework output…'}`; try { const result = JSON.parse(output.trim().split('\n').at(-1)); if (result.message) output = `${result.message}\n\n${result.remediation || ''}\n\n${output}`; } catch {} $('#job-output').textContent = output; controls(); }
 async function action(operation, body = {}) {
   model.busy = true; controls(); notice('');
   try { renderJob(await request(`/api/actions/${operation}`, body)); }
@@ -52,7 +52,7 @@ async function report(identifier) {
   const data = await request(`/api/runs/${encodeURIComponent(identifier)}`); $('#report-panel').hidden = false; $('#report-title').textContent = identifier;
   const integrity = data.summary?.integrity?.after || 'UNKNOWN'; const restoration = data.summary?.restoration || 'UNKNOWN';
   $('#report-verdicts').replaceChildren(badge(data.summary?.result), badge(integrity, `Integrity: ${integrity}`), badge(restoration, `Restoration: ${restoration}`));
-  $('#report-summary').textContent = pretty(data.summary || data.failure || { status: 'Evidence incomplete' });
+  $('#report-summary').textContent = pretty(data.failure ? { ...data.summary, failure: data.failure } : data.summary || { status: 'Evidence incomplete' });
   $('#report-timeline').replaceChildren(...data.timeline.map(item => { const node = element('li', item.event); node.append(element('small', item.timestamp)); return node; }));
   $('#report-artifacts').replaceChildren(...data.artifacts.map(name => { const link = element('a', name); link.href = `/api/runs/${encodeURIComponent(identifier)}/artifacts/${encodeURIComponent(name)}`; link.target = '_blank'; link.rel = 'noopener'; return link; }));
   $('#report-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -62,6 +62,7 @@ async function refresh() {
     model.status = await request('/api/status');
     for (const [name, selector] of [['gateway','#gateway-status'],['watchdog','#watchdog-status']]) { const value = model.status.controls[name]; $(selector).textContent = value; $(selector).className = tone(value); }
     const active = model.status.active_experiment; $('#active-status').textContent = active?.scenario || 'Idle'; $('#active-id').textContent = active?.run_id || 'No fault is being injected';
+    const load = model.status.workload; $('#load-status').textContent = load?.ready ? 'Locust workload ready' : 'Workload prerequisite: action needed'; $('#load-guidance').textContent = [load?.message, load?.remediation].filter(Boolean).join('. ');
     $('#freshness').textContent = `Observed ${new Date(model.status.observed_at).toLocaleTimeString()}`;
     if (!model.status.controls_ready) notice('Experiment controls unavailable. Run make up to start the stack controls. History remains accessible.');
     if (model.job?.status === 'RUNNING') { renderJob(await request(`/api/jobs/${model.job.job_id}`)); if (model.job.status !== 'RUNNING') await history(); }
@@ -77,7 +78,7 @@ $('#abort').addEventListener('click', () => action('abort'));
 $('#restore').addEventListener('click', () => action('restore'));
 $('#refresh').addEventListener('click', async () => { await refresh(); await history().catch(error => notice(error.message)); });
 $('#close-report').addEventListener('click', () => { $('#report-panel').hidden = true; });
-for (const [id, port] of [['pulsepay-link',8080],['overview-link',8080],['locust-link',8089],['grafana-link',3000]]) { const url = new URL(location.href); url.port = port; url.pathname = '/'; url.search = ''; url.hash = ''; $(`#${id}`).href = url; }
+for (const [id, port] of [['pulsepay-link',8080],['overview-link',8080],['locust-link',8089],['start-load-link',8089],['grafana-link',3000]]) { const url = new URL(location.href); url.port = port; url.pathname = '/'; url.search = ''; url.hash = ''; $(`#${id}`).href = url; }
 try {
   model.token = (await request('/api/session')).token;
   model.scenarios = (await request('/api/scenarios')).items;

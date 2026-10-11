@@ -1,0 +1,6 @@
+{
+  "checked_at": "2026-10-11T06:06:15.112187+00:00",
+  "checks": "Known environment password/token values and credential-bearing PostgreSQL URLs; no secret values emitted.",
+  "result": "PASS",
+  "matching_files": []
+}

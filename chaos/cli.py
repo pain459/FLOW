@@ -20,6 +20,7 @@ from chaos.adapters.evidence import finish, recovery_acknowledgement
 from chaos.restoration import restore
 from chaos.adapters import health_probes, verification
 from chaos.docker_client import Docker
+from chaos.diagnostics import failure_details
 
 
 def execution(scenario, inject=False):
@@ -150,22 +151,15 @@ def execution(scenario, inject=False):
                     time.sleep(0.2)
                 framework_code = child.returncode
         except Exception as exc:
-            state.write(
-                path / "failure.json",
-                {
-                    "reason": type(exc).__name__,
-                    "safe_message": str(exc)[:300]
-                    if isinstance(exc, (ValueError, RuntimeError))
-                    else type(exc).__name__,
-                },
-            )
+            failure = failure_details(exc)
+            state.write(path / "failure.json", failure)
             if not lease.get("armed"):
                 state.write(
                     path / "summary.json",
                     {
                         "run_id": run_id,
                         "result": "INVALID",
-                        "reason": type(exc).__name__,
+                        **failure,
                     },
                 )
                 current = Docker().lease()

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "pytest",
+    "-q",
+    "load_generator/tests"
+  ],
+  "started_at": "2026-10-11T05:40:02.202417+00:00",
+  "finished_at": "2026-10-11T05:40:07.219875+00:00",
+  "exit_code": 0
+}

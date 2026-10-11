@@ -1,0 +1,145 @@
+{
+  "errors": [],
+  "finished_at": "2026-10-11T05:11:35.807650+00:00",
+  "proxy_restore": {
+    "not_applicable": true
+  },
+  "run_id": "chaos-20261011T051021Z-4c7c81a6",
+  "started_at": "2026-10-11T05:11:35.760084+00:00",
+  "status": "RESTORED",
+  "target_after": {
+    "Config": {
+      "Cmd": [
+        "python",
+        "-m",
+        "workers.event_consumer.main"
+      ],
+      "Entrypoint": null,
+      "Image": "pulsepay-api:v1",
+      "Labels": {
+        "com.docker.compose.config-hash": "440c68b5e9d488174e7a96f833a1f26b06f866f9e913e679cf02f27c0d44143f",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "migrate:service_completed_successfully:false",
+        "com.docker.compose.image": "sha256:85032ed6f647cf5e1f5db4d131ee8690f633c0973551a8cf0fc0de0c668a4192",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "chaosloop",
+        "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+        "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+        "com.docker.compose.service": "event-worker",
+        "com.docker.compose.version": "5.5.1",
+        "io.pulsepay.chaos.role": "event-worker",
+        "io.pulsepay.chaos.target": "true",
+        "io.pulsepay.lab": "disposable"
+      },
+      "StopSignal": null
+    },
+    "Created": "2026-10-11T03:49:10.271681418Z",
+    "HostConfig": {
+      "CapAdd": null,
+      "CgroupParent": "",
+      "Memory": 402653184,
+      "NanoCpus": 1000000000,
+      "NetworkMode": "chaosloop_internal",
+      "PidsLimit": 128,
+      "ReadonlyRootfs": true,
+      "RestartPolicy": {
+        "MaximumRetryCount": 0,
+        "Name": "unless-stopped"
+      }
+    },
+    "Id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad",
+    "Image": "sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13",
+    "Name": "/chaosloop-event-worker-1",
+    "NetworkSettings": {
+      "Networks": {
+        "chaosloop_internal": {
+          "Aliases": [
+            "chaosloop-event-worker-1",
+            "event-worker"
+          ],
+          "DNSNames": [
+            "chaosloop-event-worker-1",
+            "event-worker",
+            "e7a595966edd"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "632f4a51cbcdfef3fb6b1fe59a90c734265e20fb4afc7ed0c15f560138a9b0ad",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.15",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "1e:e3:2e:b8:98:28",
+          "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe"
+        }
+      },
+      "Ports": {},
+      "SandboxID": "2d82fa9f18c66ffeba15655192bc8e4516ad8d4f8a26a2c7fc8c67659fbd0c17",
+      "SandboxKey": "/var/run/docker/netns/2d82fa9f18c6"
+    },
+    "PulsePayDependencyRoutes": {
+      "DATABASE_URL": {
+        "host": "postgres",
+        "port": 5432
+      },
+      "REDIS_URL": {
+        "host": "redis",
+        "port": 6379
+      }
+    },
+    "RestartCount": 0,
+    "State": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "0001-01-01T00:00:00Z",
+      "Health": {
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "End": "2026-10-11T05:11:10.30090971Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:11:10.185806501Z"
+          },
+          {
+            "End": "2026-10-11T05:11:15.432005212Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:11:15.302080795Z"
+          },
+          {
+            "End": "2026-10-11T05:11:20.57026409Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:11:20.437337465Z"
+          },
+          {
+            "End": "2026-10-11T05:11:25.700451217Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:11:25.570800925Z"
+          },
+          {
+            "End": "2026-10-11T05:11:30.82206347Z",
+            "ExitCode": 0,
+            "Output": "",
+            "Start": "2026-10-11T05:11:30.701500886Z"
+          }
+        ],
+        "Status": "healthy"
+      },
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 2025,
+      "Restarting": false,
+      "Running": true,
+      "StartedAt": "2026-10-11T03:49:15.120195504Z",
+      "Status": "running"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+version: 1.0.0
+title: PulsePay 002-worker-pause
+description: 'Pause only the event consumer while HTTP transfers continue. Healthy
+  precondition: productive consumer and independent PASS. Expected exposure: durable
+  transfers grow faster than projections and measurable backlog accumulates. Strict
+  recovery: original consumer unpaused, catch-up under sustained load, healthy probes
+  and full independent PASS.
+
+  '
+tags:
+- pulsepay
+- 002-worker-pause
+- worker
+- pause
+configuration:
+  duration_seconds: 20
+  ttl_seconds: 120
+  delay_ms: 150
+  interface: eth0
+steady-state-hypothesis:
+  title: Healthy authority, event delivery and independently reconciled ledger
+  probes:
+  - type: probe
+    name: healthy-financial-and-operational-state
+    tolerance: true
+    provider:
+      type: python
+      module: chaos.adapters.health_probes
+      func: steady
+method:
+- type: action
+  name: apply-bounded-framework-fault
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: apply
+- type: probe
+  name: observe-intentional-fault-exposure
+  tolerance: true
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: observe
+- type: action
+  name: restore-original-environment
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: restore
+- type: probe
+  name: independently-verify-post-restoration-recovery
+  tolerance: true
+  provider:
+    type: python
+    module: chaos.adapters.health_probes
+    func: recovery
+rollbacks:
+- type: action
+  name: repeat-safe-scoped-restoration
+  provider:
+    type: python
+    module: chaos.adapters.injection
+    func: restore

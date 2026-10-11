@@ -1,0 +1,25 @@
+schema_version: 1
+name: dependency_recovery
+seed: 4217
+mode: closed_loop
+users: 20
+spawn_rate_users_per_second: 10
+duration_seconds: 360
+warmup_seconds: 30
+cooldown_seconds: 60
+reconciliation_seconds: 30
+target_operations_per_second: 20
+mix:
+  account_read: 0.12
+  balance_read: 0.15
+  summary_read: 0.15
+  history_read: 0.12
+  transfer_status: 0.06
+  transfer_write: 0.40
+safety:
+  max_duration_seconds: 600
+  max_concurrent_users: 20
+  stop_on_integrity_failure: true
+  stop_on_sustained_error_rate_pct: 30
+  stop_on_error_window_seconds: 60
+  integrity_unknown_grace_seconds: 20

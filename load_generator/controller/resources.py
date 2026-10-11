@@ -4,6 +4,7 @@ import platform
 import time
 import math
 from pathlib import Path
+from typing import Any
 from load_generator.controller.lifecycle import read_json
 
 
@@ -33,7 +34,7 @@ def network_counters(value: str) -> dict:
 
 def cgroup():
     root = Path("/sys/fs/cgroup")
-    result = {
+    result: dict[str, Any] = {
         "cpu_usage_usec": None,
         "cpu_limit": None,
         "memory_bytes": None,
@@ -88,7 +89,7 @@ def source_digest():
 
 
 def collect_metadata(lines: list[str]) -> dict:
-    result = {
+    result: dict[str, Any] = {
         "services": {},
         "machine": {"architecture": platform.machine(), "kernel": platform.release()},
     }
@@ -177,12 +178,11 @@ def resource_metric_values(row: dict) -> dict:
     )
     if not service:
         return {}
-    result = {"service": service, "observed_epoch": row.get("observed_epoch")}
+    result: dict[str, Any] = {"service": service, "observed_epoch": row.get("observed_epoch")}
     for key in ("cpu_percent", "memory_percent"):
         try:
-            result[key] = float(row[key].rstrip("%"))
-            if not math.isfinite(result[key]) or result[key] < 0:
-                result[key] = None
+            value = float(row[key].rstrip("%"))
+            result[key] = value if math.isfinite(value) and value >= 0 else None
         except (ValueError, KeyError, AttributeError):
             result[key] = None
     match = re.match(r"([0-9.]+)([kKMGT]?i?B)", row.get("memory", ""))

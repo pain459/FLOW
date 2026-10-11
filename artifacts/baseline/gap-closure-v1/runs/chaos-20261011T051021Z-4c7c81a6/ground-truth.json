@@ -1,0 +1,43 @@
+{
+  "configuration": {
+    "delay_ms": 150,
+    "duration_seconds": 20,
+    "interface": "eth0",
+    "ttl_seconds": 120
+  },
+  "excluded_from_decision_observations": true,
+  "fault_started_epoch": 1791695444.7405891,
+  "impact_first_observed_at": "2026-10-11T05:10:47.934200+00:00",
+  "independent_fault_deadline_epoch": 1791695479.7405894,
+  "injection_confirmed": true,
+  "injector": {
+    "applied_at": "2026-10-11T05:10:44.806014+00:00",
+    "container_id": "1919884be8b747ba244b515d21385e1abbfc4b738e2974ccc7dae0fb0b2895ac",
+    "kind": "pumba"
+  },
+  "privileged": true,
+  "restore_verified_at": "2026-10-11T05:11:35.049294+00:00",
+  "run_id": "chaos-20261011T051021Z-4c7c81a6",
+  "scenario": "002-worker-pause",
+  "schema_version": 1,
+  "source": "gateway-owned lease, injector result, native journal and sampled observations",
+  "target": {
+    "id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad",
+    "labels": {
+      "com.docker.compose.config-hash": "440c68b5e9d488174e7a96f833a1f26b06f866f9e913e679cf02f27c0d44143f",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.depends_on": "migrate:service_completed_successfully:false",
+      "com.docker.compose.image": "sha256:85032ed6f647cf5e1f5db4d131ee8690f633c0973551a8cf0fc0de0c668a4192",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "chaosloop",
+      "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+      "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+      "com.docker.compose.service": "event-worker",
+      "com.docker.compose.version": "5.5.1",
+      "io.pulsepay.chaos.role": "event-worker",
+      "io.pulsepay.chaos.target": "true",
+      "io.pulsepay.lab": "disposable"
+    },
+    "name": "/chaosloop-event-worker-1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "active_users": 100,
+  "epoch": 1791705657.3640416,
+  "load": {
+    "measured": {
+      "confirmed_commits": 1820,
+      "http": 4542,
+      "outcomes": {
+        "replay": 42,
+        "success": 4500
+      }
+    }
+  },
+  "phase": "running"
+}

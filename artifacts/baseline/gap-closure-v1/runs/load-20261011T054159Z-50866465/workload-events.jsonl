@@ -1,0 +1,3 @@
+{"phase": "warmup", "users": 5, "timestamp_epoch": 1791697320.8393352}
+{"phase": "running", "users": 20, "timestamp_epoch": 1791697340.880214}
+{"phase": "cooldown", "users": 0, "timestamp_epoch": 1791697521.4842405}

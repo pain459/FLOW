@@ -1,0 +1,14 @@
+{"timestamp": "2026-10-11T05:10:22.645662+00:00", "event": "authorized_helper_created", "image": "ghcr.io/alexei-led/pumba-alpine-nettools@sha256:bdcfacdd0c42f64cd280319d6dd5d3911f33425ce4a5168bb1b7de9570b72cd1", "status": 201}
+{"timestamp": "2026-10-11T05:10:22.705114+00:00", "event": "docker_mutation", "operation": "start", "container_id": "11c267ddcd5d41aff3ae123a893b8b7b1f0fb49c47526e81030c621ec8381f12", "status": 204}
+{"timestamp": "2026-10-11T05:10:23.004716+00:00", "event": "authorized_helper_created", "image": "ghcr.io/alexei-led/pumba:1.2.1@sha256:780505fe261932765921c94a23e24bda107c72927654c26a5893a238d7708bf0", "status": 201}
+{"timestamp": "2026-10-11T05:10:23.079588+00:00", "event": "docker_mutation", "operation": "start", "container_id": "748206837ff0fa235099d549fa0f6df97393b9682d905fe98896ed5dac269da3", "status": 204}
+{"timestamp": "2026-10-11T05:10:23.246304+00:00", "event": "authorization_refused", "method": "GET", "path": "/images/sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13/json", "reason": "ValueError"}
+{"timestamp": "2026-10-11T05:10:44.733553+00:00", "event": "authorized_helper_created", "image": "ghcr.io/alexei-led/pumba:1.2.1@sha256:780505fe261932765921c94a23e24bda107c72927654c26a5893a238d7708bf0", "status": 201}
+{"timestamp": "2026-10-11T05:10:44.805382+00:00", "event": "docker_mutation", "operation": "start", "container_id": "1919884be8b747ba244b515d21385e1abbfc4b738e2974ccc7dae0fb0b2895ac", "status": 204}
+{"timestamp": "2026-10-11T05:10:45.012216+00:00", "event": "authorization_refused", "method": "GET", "path": "/images/sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13/json", "reason": "ValueError"}
+{"timestamp": "2026-10-11T05:10:45.146925+00:00", "event": "docker_mutation", "operation": "pause", "container_id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad", "status": 204}
+{"timestamp": "2026-10-11T05:11:05.183201+00:00", "event": "docker_mutation", "operation": "unpause", "container_id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad", "status": 204}
+{"timestamp": "2026-10-11T05:11:09.141259+00:00", "event": "docker_mutation", "operation": "update", "container_id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad", "status": 200}
+{"timestamp": "2026-10-11T05:11:09.532354+00:00", "event": "docker_mutation", "operation": "update", "container_id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad", "status": 200}
+{"timestamp": "2026-10-11T05:11:35.613364+00:00", "event": "docker_mutation", "operation": "update", "container_id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad", "status": 200}
+{"timestamp": "2026-10-11T05:11:35.805254+00:00", "event": "docker_mutation", "operation": "update", "container_id": "e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad", "status": 200}

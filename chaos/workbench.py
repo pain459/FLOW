@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from chaos import state
 from chaos.policy import SCENARIOS
+from chaos.preflight import workload_status
 
 UI = Path(__file__).parent / "ui"
 IDENTIFIER = re.compile(r"chaos-[a-zA-Z0-9_-]{1,80}")
@@ -130,7 +131,7 @@ class Jobs:
                     self.children[record["job_id"]] = child
                     if self.stopping.is_set() or record.get("cancel_requested"):
                         terminate(child)
-                output = []
+                output: list[bytes] = []
                 reader = threading.Thread(
                     target=capture_tail, args=(child.stdout, output), daemon=True
                 )
@@ -141,6 +142,8 @@ class Jobs:
                 if child.returncode:
                     break
             text = tail.decode(errors="replace")
+            if child is None:
+                raise RuntimeError("Native framework process did not start")
             record.update(
                 status="COMPLETED" if child.returncode == 0 else "FAILED",
                 exit_code=child.returncode,
@@ -314,6 +317,7 @@ def create_app():
             if active
             else None,
             "browser_job": jobs.latest,
+            "workload": workload_status(),
             "observed_at": state.now(),
         }
 

@@ -156,3 +156,11 @@ def test_isolated_capability_helper_cannot_select_any_host_cgroup():
             None,
             "chaosloop",
         )
+
+
+def test_helper_body_must_be_an_object():
+    import pytest
+    from chaos.policy import validate_helper
+
+    with pytest.raises(ValueError, match="object"):
+        validate_helper(None, None, "chaosloop")

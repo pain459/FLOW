@@ -1,0 +1,1203 @@
+{
+  "captured_at": "2026-10-11 06:07:04 UTC",
+  "services": [
+    {
+      "name": "/chaosloop-api-1",
+      "image_id": "sha256:dadfc85ceb8301368000a07d2c340f461a8049bfd6cfd4c8cf22abf0b3b088d9",
+      "image_tag": "pulsepay-api:v1",
+      "service": "api",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:38.526131209Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:38.377886584Z"
+            },
+            {
+              "End": "2026-10-11T06:06:43.670573169Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:43.526334419Z"
+            },
+            {
+              "End": "2026-10-11T06:06:48.819445172Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:48.672973839Z"
+            },
+            {
+              "End": "2026-10-11T06:06:53.967441299Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:53.819795466Z"
+            },
+            {
+              "End": "2026-10-11T06:06:59.107861593Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:58.968106635Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 64189,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T05:30:00.283001344Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 1000000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": 128,
+      "privileged": false,
+      "read_only": true,
+      "user": "pulsepay",
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "mounts": []
+    },
+    {
+      "name": "/chaosloop-postgres-1",
+      "image_id": "sha256:6386b91ffd121cd95b81309c88313ced18a72c7df9d7f961d3088a0fa44ba6a4",
+      "image_tag": "pulsepay-postgres:v1",
+      "service": "postgres",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-11T05:43:41.49281121Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:51.241985798Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n",
+              "Start": "2026-10-11T06:06:51.219633006Z"
+            },
+            {
+              "End": "2026-10-11T06:06:54.28141605Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n",
+              "Start": "2026-10-11T06:06:54.24296255Z"
+            },
+            {
+              "End": "2026-10-11T06:06:57.314163634Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n",
+              "Start": "2026-10-11T06:06:57.282144176Z"
+            },
+            {
+              "End": "2026-10-11T06:07:00.353621469Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n",
+              "Start": "2026-10-11T06:07:00.314666969Z"
+            },
+            {
+              "End": "2026-10-11T06:07:03.386904512Z",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n",
+              "Start": "2026-10-11T06:07:03.357647054Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 13807,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T05:43:49.581865589Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 1000000000,
+      "memory_limit_bytes": 805306368,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "",
+      "ports": {},
+      "mounts": [
+        {
+          "Destination": "/var/lib/postgresql/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_pg-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_pg-data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-redis-1",
+      "image_id": "sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+      "image_tag": "redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+      "service": "redis",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:50.297523423Z",
+              "ExitCode": 0,
+              "Output": "PONG\n",
+              "Start": "2026-10-11T06:06:50.283901298Z"
+            },
+            {
+              "End": "2026-10-11T06:06:53.309267257Z",
+              "ExitCode": 0,
+              "Output": "PONG\n",
+              "Start": "2026-10-11T06:06:53.297987424Z"
+            },
+            {
+              "End": "2026-10-11T06:06:56.333127301Z",
+              "ExitCode": 0,
+              "Output": "PONG\n",
+              "Start": "2026-10-11T06:06:56.310429384Z"
+            },
+            {
+              "End": "2026-10-11T06:06:59.353218802Z",
+              "ExitCode": 0,
+              "Output": "PONG\n",
+              "Start": "2026-10-11T06:06:59.334147719Z"
+            },
+            {
+              "End": "2026-10-11T06:07:02.367052637Z",
+              "ExitCode": 0,
+              "Output": "PONG\n",
+              "Start": "2026-10-11T06:07:02.35373422Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 827,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:10.491434669Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 500000000,
+      "memory_limit_bytes": 268435456,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "",
+      "ports": {},
+      "mounts": [
+        {
+          "Destination": "/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_redis-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_redis-data/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-outbox-relay-1",
+      "image_id": "sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13",
+      "image_tag": "pulsepay-api:v1",
+      "service": "outbox-relay",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:38.523093667Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:38.37793325Z"
+            },
+            {
+              "End": "2026-10-11T06:06:43.674532544Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:43.523611169Z"
+            },
+            {
+              "End": "2026-10-11T06:06:48.818813839Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:48.674908797Z"
+            },
+            {
+              "End": "2026-10-11T06:06:53.967377924Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:53.819827633Z"
+            },
+            {
+              "End": "2026-10-11T06:06:59.108551635Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:58.96806251Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1969,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:15.062831296Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 1000000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": 128,
+      "privileged": false,
+      "read_only": true,
+      "user": "pulsepay",
+      "ports": {},
+      "mounts": []
+    },
+    {
+      "name": "/chaosloop-event-worker-1",
+      "image_id": "sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13",
+      "image_tag": "pulsepay-api:v1",
+      "service": "event-worker",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:40.478397085Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:40.353659085Z"
+            },
+            {
+              "End": "2026-10-11T06:06:45.614975295Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:45.479576129Z"
+            },
+            {
+              "End": "2026-10-11T06:06:50.75911809Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:50.618958298Z"
+            },
+            {
+              "End": "2026-10-11T06:06:55.9013543Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:55.7602153Z"
+            },
+            {
+              "End": "2026-10-11T06:07:01.032446386Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:07:00.902050553Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 2025,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:15.120195504Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 1000000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": 128,
+      "privileged": false,
+      "read_only": true,
+      "user": "pulsepay",
+      "ports": {},
+      "mounts": []
+    },
+    {
+      "name": "/chaosloop-verifier-1",
+      "image_id": "sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13",
+      "image_tag": "pulsepay-api:v1",
+      "service": "verifier",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:38.523135709Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:38.378216917Z"
+            },
+            {
+              "End": "2026-10-11T06:06:43.670342128Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:43.523576419Z"
+            },
+            {
+              "End": "2026-10-11T06:06:48.819612547Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:48.672924089Z"
+            },
+            {
+              "End": "2026-10-11T06:06:53.967442883Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:53.819886591Z"
+            },
+            {
+              "End": "2026-10-11T06:06:59.107837427Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:58.968250135Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 2145,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:15.248215338Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 1000000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": 128,
+      "privileged": false,
+      "read_only": true,
+      "user": "pulsepay",
+      "ports": {},
+      "mounts": []
+    },
+    {
+      "name": "/chaosloop-db-observer-1",
+      "image_id": "sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13",
+      "image_tag": "pulsepay-api:v1",
+      "service": "db-observer",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:40.470142418Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:39.876241334Z"
+            },
+            {
+              "End": "2026-10-11T06:06:45.982328421Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:45.473290879Z"
+            },
+            {
+              "End": "2026-10-11T06:06:51.464312548Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:50.985389423Z"
+            },
+            {
+              "End": "2026-10-11T06:06:57.064762051Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:56.465086134Z"
+            },
+            {
+              "End": "2026-10-11T06:07:02.686534554Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:07:02.066168803Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1891,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:14.979456379Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 250000000,
+      "memory_limit_bytes": 134217728,
+      "pids_limit": 128,
+      "privileged": false,
+      "read_only": true,
+      "user": "pulsepay",
+      "ports": {},
+      "mounts": []
+    },
+    {
+      "name": "/chaosloop-prometheus-1",
+      "image_id": "sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62",
+      "image_tag": "prom/prometheus:v3.2.1@sha256:6927e0919a144aa7616fd0137d4816816d42f6b816de3af269ab065250859a62",
+      "service": "prometheus",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 746,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:10.406443085Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 500000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "nobody",
+      "ports": {
+        "9090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "9090"
+          }
+        ]
+      },
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_prom-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_prom-data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus/prometheus.yml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/Users/ravik/src_git/FLOW/observability/prometheus/prometheus.yml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-grafana-1",
+      "image_id": "sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb",
+      "image_tag": "grafana/grafana:11.6.0@sha256:62d2b9d20a19714ebfe48d1bb405086081bc602aa053e28cf6d73c7537640dfb",
+      "service": "grafana",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1010,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:10.683110877Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 500000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "472",
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3000"
+          }
+        ]
+      },
+      "mounts": [
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/host_mnt/Users/ravik/src_git/FLOW/observability/grafana/provisioning",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_grafana-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_grafana-data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/var/lib/grafana/dashboards",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/host_mnt/Users/ravik/src_git/FLOW/observability/grafana/dashboards",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-otel-collector-1",
+      "image_id": "sha256:e39311df1f3d941923c00da79ac7ba6269124a870ee87e3c3ad24d60f8aee4d2",
+      "image_tag": "otel/opentelemetry-collector-contrib:0.123.0@sha256:e39311df1f3d941923c00da79ac7ba6269124a870ee87e3c3ad24d60f8aee4d2",
+      "service": "otel-collector",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 952,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:10.616644377Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 500000000,
+      "memory_limit_bytes": 268435456,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "10001:10001",
+      "ports": {},
+      "mounts": [
+        {
+          "Destination": "/etc/otel/config.yaml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/Users/ravik/src_git/FLOW/observability/otel/config.yaml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-tempo-1",
+      "image_id": "sha256:4b0277a9b572a4b1fa43b01468e58911ec214dd69d033f2cd476596d14de9fe3",
+      "image_tag": "grafana/tempo:2.7.2@sha256:4b0277a9b572a4b1fa43b01468e58911ec214dd69d033f2cd476596d14de9fe3",
+      "service": "tempo",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-11T05:55:51.423078007Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 54892,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T05:55:51.544175382Z",
+        "Status": "running"
+      },
+      "restart_count": 1,
+      "cpu_nanocpus": 500000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "10001:10001",
+      "ports": {},
+      "mounts": [
+        {
+          "Destination": "/var/tempo",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_tempo-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_tempo-data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/tempo/config.yaml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/Users/ravik/src_git/FLOW/observability/tempo/config.yaml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-loki-1",
+      "image_id": "sha256:58a6c186ce78ba04d58bfe2a927eff296ba733a430df09645d56cdc158f3ba08",
+      "image_tag": "grafana/loki:3.4.2@sha256:58a6c186ce78ba04d58bfe2a927eff296ba733a430df09645d56cdc158f3ba08",
+      "service": "loki",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1543,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:11.397014544Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 500000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "10001:10001",
+      "ports": {},
+      "mounts": [
+        {
+          "Destination": "/loki",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_loki-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_loki-data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/loki/config.yaml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/Users/ravik/src_git/FLOW/observability/loki/config.yaml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-log-collector-1",
+      "image_id": "sha256:d6dec000c4929a439562525728c708f6e99800d7ddc82efd6aa4f45f3a20b562",
+      "image_tag": "fluent/fluent-bit:3.2.10@sha256:d6dec000c4929a439562525728c708f6e99800d7ddc82efd6aa4f45f3a20b562",
+      "service": "log-collector",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 1396,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T03:49:11.094535919Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 250000000,
+      "memory_limit_bytes": 134217728,
+      "pids_limit": null,
+      "privileged": false,
+      "read_only": false,
+      "user": "0",
+      "ports": {
+        "24224/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "24224"
+          }
+        ]
+      },
+      "mounts": [
+        {
+          "Destination": "/buffers",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_log-buffer",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_log-buffer/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/fluent-bit/etc/config.yaml",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/host_mnt/Users/ravik/src_git/FLOW/observability/log-collector/config.yaml",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-locust-1",
+      "image_id": "sha256:14fcf23215b5ae6fd782846ece0bb542d58db2d028a5487f3760409b1e9aa3e0",
+      "image_tag": "pulsepay-load:v1",
+      "service": "locust",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:38.523633Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:38.377857459Z"
+            },
+            {
+              "End": "2026-10-11T06:06:43.671308669Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:43.523891378Z"
+            },
+            {
+              "End": "2026-10-11T06:06:48.823234422Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:48.673028047Z"
+            },
+            {
+              "End": "2026-10-11T06:06:53.968111258Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:53.823396549Z"
+            },
+            {
+              "End": "2026-10-11T06:06:59.110418802Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:58.968447052Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 64123,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T05:30:00.209933386Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 1000000000,
+      "memory_limit_bytes": 805306368,
+      "pids_limit": 128,
+      "privileged": false,
+      "read_only": true,
+      "user": "pulsepay",
+      "ports": {
+        "8089/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8089"
+          }
+        ]
+      },
+      "mounts": [
+        {
+          "Destination": "/reports",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_load-reports",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_load-reports/_data",
+          "Type": "volume"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-chaos-workbench-1",
+      "image_id": "sha256:ccb58755f0231d6076d543291b868cfa44849a8b97841490885b46468e31094c",
+      "image_tag": "pulsepay-chaos:v1",
+      "service": "chaos-workbench",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:43.174377669Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:43.116036128Z"
+            },
+            {
+              "End": "2026-10-11T06:06:48.224550672Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:48.174941422Z"
+            },
+            {
+              "End": "2026-10-11T06:06:53.278890341Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:53.225268632Z"
+            },
+            {
+              "End": "2026-10-11T06:06:58.393221385Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:58.282908468Z"
+            },
+            {
+              "End": "2026-10-11T06:07:03.438144929Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:07:03.393758387Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 24096,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T05:46:44.736032795Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 500000000,
+      "memory_limit_bytes": 402653184,
+      "pids_limit": 64,
+      "privileged": false,
+      "read_only": true,
+      "user": "1001:1001",
+      "ports": {
+        "8090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8090"
+          }
+        ]
+      },
+      "mounts": [
+        {
+          "Destination": "/baselines",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/host_mnt/Users/ravik/src_git/FLOW/artifacts/baseline",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/control",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_chaos-control",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-control/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/evidence",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_chaos-evidence",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-evidence/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/load-reports",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "chaosloop_load-reports",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/chaosloop_load-reports/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/revision",
+          "Mode": "ro",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/host_mnt/Users/ravik/src_git/FLOW/.git",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-docker-gate-1",
+      "image_id": "sha256:ccb58755f0231d6076d543291b868cfa44849a8b97841490885b46468e31094c",
+      "image_tag": "pulsepay-chaos:v1",
+      "service": "docker-gate",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:51.337893131Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:51.247863381Z"
+            },
+            {
+              "End": "2026-10-11T06:06:54.441552508Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:54.338092966Z"
+            },
+            {
+              "End": "2026-10-11T06:06:57.628462593Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:57.443766468Z"
+            },
+            {
+              "End": "2026-10-11T06:07:00.839308219Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:07:00.631818261Z"
+            },
+            {
+              "End": "2026-10-11T06:07:04.027022846Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:07:03.841074679Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 24042,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T05:46:44.672500837Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 250000000,
+      "memory_limit_bytes": 134217728,
+      "pids_limit": 32,
+      "privileged": false,
+      "read_only": true,
+      "user": "0:1001",
+      "ports": {},
+      "mounts": [
+        {
+          "Destination": "/authority",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_chaos-authority",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-authority/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/control",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_chaos-control",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-control/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/evidence",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_chaos-evidence",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-evidence/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/var/run/docker.sock",
+          "Mode": "rw",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "/var/run/docker.sock",
+          "Type": "bind"
+        }
+      ]
+    },
+    {
+      "name": "/chaosloop-chaos-watchdog-1",
+      "image_id": "sha256:ccb58755f0231d6076d543291b868cfa44849a8b97841490885b46468e31094c",
+      "image_tag": "pulsepay-chaos:v1",
+      "service": "chaos-watchdog",
+      "project": "chaosloop",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "End": "2026-10-11T06:06:50.305969298Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:50.105453923Z"
+            },
+            {
+              "End": "2026-10-11T06:06:53.414196091Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:53.306271632Z"
+            },
+            {
+              "End": "2026-10-11T06:06:56.524313884Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:56.415054051Z"
+            },
+            {
+              "End": "2026-10-11T06:06:59.714294219Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:06:59.527097885Z"
+            },
+            {
+              "End": "2026-10-11T06:07:02.904568262Z",
+              "ExitCode": 0,
+              "Output": "",
+              "Start": "2026-10-11T06:07:02.714995095Z"
+            }
+          ],
+          "Status": "healthy"
+        },
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 64725,
+        "Restarting": false,
+        "Running": true,
+        "StartedAt": "2026-10-11T05:30:03.622456637Z",
+        "Status": "running"
+      },
+      "restart_count": 0,
+      "cpu_nanocpus": 250000000,
+      "memory_limit_bytes": 134217728,
+      "pids_limit": 32,
+      "privileged": false,
+      "read_only": true,
+      "user": "1001:1001",
+      "ports": {},
+      "mounts": [
+        {
+          "Destination": "/authority",
+          "Driver": "local",
+          "Mode": "ro",
+          "Name": "chaosloop_chaos-authority",
+          "Propagation": "",
+          "RW": false,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-authority/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/control",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_chaos-control",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-control/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/evidence",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "chaosloop_chaos-evidence",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/chaosloop_chaos-evidence/_data",
+          "Type": "volume"
+        }
+      ]
+    }
+  ],
+  "total_cpu_ceilings": 10.5,
+  "total_memory_limit_bytes": 6308233216,
+  "socket_services": [
+    "docker-gate"
+  ]
+}

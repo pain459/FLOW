@@ -1,0 +1,55 @@
+{
+  "captured_at": "2026-10-11 06:09:03 UTC",
+  "checks": [
+    {
+      "name": "compose-all-overlays",
+      "status": "fulfilled",
+      "chunk_id": "08f6a2",
+      "wall_time_seconds": 0.000005166,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "name": "database-opt-in-gateway",
+      "status": "fulfilled",
+      "chunk_id": "4d5fcb",
+      "wall_time_seconds": 0.066665166,
+      "exit_code": 0,
+      "original_token_count": 9,
+      "output": "{\"ALLOW_DATABASE_CHAOS\": \"false\"}\n"
+    },
+    {
+      "name": "database-opt-in-workbench",
+      "status": "fulfilled",
+      "chunk_id": "481ff8",
+      "wall_time_seconds": 0.00000575,
+      "exit_code": 0,
+      "original_token_count": 9,
+      "output": "{\"ALLOW_DATABASE_CHAOS\": \"false\"}\n"
+    },
+    {
+      "name": "api-cgroup",
+      "status": "fulfilled",
+      "chunk_id": "a80ea3",
+      "wall_time_seconds": 0.000005958,
+      "exit_code": 0,
+      "original_token_count": 28,
+      "output": "{\"cgroup.type\": \"domain\", \"cgroup.subtree_control\": \"\", \"cpu.max\": \"100000 100000\", \"memory.max\": \"402653184\"}\n"
+    },
+    {
+      "name": "whitespace-shell-branch",
+      "status": "fulfilled",
+      "chunk_id": "8f4afc",
+      "wall_time_seconds": 0.000005375,
+      "exit_code": 0,
+      "original_token_count": 17,
+      "output": "feat/pulsepay-dashboard\n680d0974ee25814702bad528b42fcb68d3dc19a6\n"
+    }
+  ],
+  "qualification": {
+    "command": "RESUME_QUALIFICATION=true QUALIFICATION_NOMINAL_ONLY=true sh scripts/load-qualify.sh",
+    "exit_code": 0,
+    "provenance": "Completed exec session 56440; exact per-run outputs retained in qualification/"
+  }
+}

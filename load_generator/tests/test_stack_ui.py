@@ -14,6 +14,7 @@ def test_report_write_failure_releases_lock_and_retains_recovery_pointer(tmp_pat
     path.mkdir()
     lock = RunLock(tmp_path).__enter__()
     monkeypatch.setattr(stack_ui, "LOCK", lock)
+    monkeypatch.setattr(stack_ui, "STARTED", 0.0)
     monkeypatch.setenv("LOAD_TARGET", "http://api:8080")
     monkeypatch.setattr(
         stack_ui,

@@ -87,3 +87,36 @@ def test_atomic_json_and_run_path_cannot_escape_reports(tmp_path):
         run_path(tmp_path, "../../etc")
     with pytest.raises(OSError):
         atomic_json(Path("/proc/pulsepay-unwritable.json"), {})
+
+
+def test_stop_waits_for_supported_finalization_and_never_claims_early_completion(
+    tmp_path, monkeypatch
+):
+    from load_generator.controller import cli
+    from load_generator.controller.lifecycle import atomic_json
+    from load_generator.controller.schemas import Profile
+
+    profile = Profile.model_validate(
+        {**profile_values(), "cooldown_seconds": 180, "reconciliation_seconds": 120}
+    )
+    path = tmp_path / "load-stop-test"
+    path.mkdir()
+    atomic_json(tmp_path / "active.json", {"run_id": path.name})
+    atomic_json(path / "manifest.json", {"profile": profile.model_dump()})
+    clock = [0]
+
+    def sleep(seconds):
+        clock[0] += seconds
+        if clock[0] >= 70:
+            atomic_json(path / "summary.json", {"result": "INTERRUPTED"})
+
+    def lock_busy(*args):
+        raise RuntimeError("Existing controller owns run")
+
+    monkeypatch.setattr(cli.time, "monotonic", lambda: clock[0])
+    monkeypatch.setattr(cli.time, "sleep", sleep)
+    monkeypatch.setattr(cli, "RunLock", lock_busy)
+    result = cli.stop_run(tmp_path)
+    assert (path / "cancel").exists()
+    assert result == {"run_id": path.name, "status": "INTERRUPTED"}
+    assert 70 <= clock[0] < 600

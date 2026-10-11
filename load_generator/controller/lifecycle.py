@@ -54,7 +54,7 @@ class RunLock:
 class Lifecycle:
     def __init__(self, path: Path, run_id: str):
         self.path, self.run_id = path, run_id
-        self.events = []
+        self.events: list[dict] = []
 
     def transition(self, status: str, reason: str = ""):
         event = {

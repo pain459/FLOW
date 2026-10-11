@@ -1,0 +1,15 @@
+{
+  "captured_at": "2026-10-11T08:03:23.882428+00:00",
+  "branch": "feat/pulsepay-dashboard",
+  "git_sha": "680d0974ee25814702bad528b42fcb68d3dc19a6",
+  "working_tree": true,
+  "files": {
+    "load_generator/clients/contracts.py": "7813d8c322cca60ffc572c0d3d53fe5d170bfc30d1cdc1b7a5cfc4b6adbb0e65",
+    "load_generator/clients/pulsepay.py": "99e47ebd144007214d9019c7bce4fdd174683fd5032600dfb757e2a83ef23382",
+    "load_generator/workloads/statistics.py": "2fc1164768a33141744b95125e0275b56760440d5ba59b7bddf79559cc7070da",
+    "load_generator/tests/test_contracts.py": "c6ce14e7d277536c1e926434f7a432582b5387963f66c109e0ba1ce13a7dcbde",
+    "load_generator/tests/test_http_instrumentation.py": "fd9179492e5b021ecc632e3eaa80241f939612d860800bdf7e4cb6edbadaf4cc",
+    "requirements.lock": "d8715e59b4d492676f201cfa49b4f8c72100ee5f14009973f7e5403b1a9b88aa",
+    "pyproject.toml": "ac0063212a1489ffcffb5979f3f6865e989b151ff9c84a20fabe0633de3ba838"
+  }
+}

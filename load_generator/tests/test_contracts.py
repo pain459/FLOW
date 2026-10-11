@@ -17,6 +17,21 @@ def profile_values():
     }
 
 
+@pytest.mark.parametrize("code", [None, [], {}])
+def test_malformed_business_error_code_is_contract_failure(code):
+    from load_generator.clients.contracts import classify
+
+    assert (
+        classify(
+            "transfer_write",
+            422,
+            {"code": code, "message": "Invalid envelope", "request_id": "test"},
+            {},
+        )
+        == "contract_error"
+    )
+
+
 def test_strict_profile_contract_and_safety():
     from load_generator.controller.schemas import Profile
     from pydantic import ValidationError
@@ -140,3 +155,19 @@ def test_valid_read_contract_and_unexpected_read_rejection():
     assert (
         classify("rejection", 201, {}, {"expected_code": "INSUFFICIENT_FUNDS"}) == "contract_error"
     )
+
+
+@pytest.mark.parametrize(
+    "error, expected",
+    [
+        ("connection", "infrastructure_failure"),
+        ("timeout", "timeout"),
+        ("missing", "infrastructure_failure"),
+    ],
+)
+def test_transport_errors_distinguish_resets_from_timeouts(error, expected):
+    from requests.exceptions import ConnectionError, ReadTimeout
+    from load_generator.clients.contracts import classify
+
+    exception = {"connection": ConnectionError(), "timeout": ReadTimeout(), "missing": None}[error]
+    assert classify("balance_read", 0, {}, {}, exception) == expected

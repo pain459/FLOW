@@ -1,0 +1,19 @@
+{"timestamp": "2026-10-11T05:43:37.595495+00:00", "event": "BASELINE_CAPTURED"}
+{"timestamp": "2026-10-11T05:43:37.603669+00:00", "event": "ARMED"}
+{"timestamp": "2026-10-11T05:43:38.915191+00:00", "event": "framework_steady_state_probe", "healthy": true, "integrity": "PASS"}
+{"timestamp": "2026-10-11T05:43:38.915612+00:00", "event": "INJECTING"}
+{"timestamp": "2026-10-11T05:43:39.079210+00:00", "event": "pumba_started", "container_id": "23af5c3922aaccb8c57d39642e2d041b1fc5a8095d188dee61cc4ddd9c5c6521"}
+{"timestamp": "2026-10-11T05:43:39.083500+00:00", "event": "OBSERVING"}
+{"timestamp": "2026-10-11T05:43:44.397823+00:00", "event": "observable_impact_start"}
+{"timestamp": "2026-10-11T05:43:52.437840+00:00", "event": "fault_exposure_end", "impact_observed": true}
+{"timestamp": "2026-10-11T05:43:52.445384+00:00", "event": "RESTORING"}
+{"timestamp": "2026-10-11T05:43:52.525763+00:00", "event": "restoration_result", "status": "RESTORED"}
+{"timestamp": "2026-10-11T05:43:52.868820+00:00", "event": "RESTORING"}
+{"timestamp": "2026-10-11T05:43:52.916605+00:00", "event": "restoration_result", "status": "RESTORED"}
+{"timestamp": "2026-10-11T05:44:15.925178+00:00", "event": "verified_recovery"}
+{"timestamp": "2026-10-11T05:44:16.452540+00:00", "event": "framework_steady_state_probe", "healthy": true, "integrity": "PASS"}
+{"timestamp": "2026-10-11T05:44:16.460337+00:00", "event": "RESTORING"}
+{"timestamp": "2026-10-11T05:44:16.507056+00:00", "event": "restoration_result", "status": "RESTORED"}
+{"timestamp": "2026-10-11T05:44:16.798785+00:00", "event": "RESTORING"}
+{"timestamp": "2026-10-11T05:44:16.853729+00:00", "event": "restoration_result", "status": "RESTORED"}
+{"timestamp": "2026-10-11T05:44:17.869774+00:00", "event": "FINAL_REPORT", "result": "PASS"}

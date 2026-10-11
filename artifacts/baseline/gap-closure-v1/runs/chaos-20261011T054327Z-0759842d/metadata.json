@@ -1,0 +1,17 @@
+{
+  "configuration": {
+    "delay_ms": 150,
+    "duration_seconds": 8,
+    "interface": "eth0",
+    "ttl_seconds": 120
+  },
+  "effective_experiment_sha256": "54276443efa1a435a0ce72e01a84d816926d164aea01797b7cf35df1b3e05093",
+  "framework": "chaostoolkit==1.21.4",
+  "git_sha": "680d0974ee25814702bad528b42fcb68d3dc19a6",
+  "project": "chaosloop",
+  "run_id": "chaos-20261011T054327Z-0759842d",
+  "runner_image_id": "sha256:ccb58755f0231d6076d543291b868cfa44849a8b97841490885b46468e31094c",
+  "scenario": "008-postgres-outage",
+  "scenario_sha256": "64df5af6dff13f8211f414631dd119f27eef824d1940189e76496708c6874e9f",
+  "started_at": "2026-10-11T05:43:27.978233+00:00"
+}

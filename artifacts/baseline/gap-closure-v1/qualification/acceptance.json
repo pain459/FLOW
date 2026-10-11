@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-10-11T06:06:15.112187+00:00",
+  "result": "PASS",
+  "run_ids": [
+    "load-20261011T055611Z-5d18b8f4",
+    "load-20261011T055858Z-3f5f57e5",
+    "load-20261011T060146Z-ab06b89d"
+  ],
+  "same_initial_dataset_image_profile_and_limits": true,
+  "measured_seconds_per_run": 120,
+  "warmup_seconds_per_run": 30,
+  "users": 20,
+  "logical_operation_rate_limit_per_second": 20,
+  "activity": "absent",
+  "note": "This qualifies bounded nominal traffic, not host capacity or a new hour-long soak."
+}

@@ -1,10 +1,15 @@
 """All financial operations go through Locust's real instrumented HTTP session."""
 
 import json
+from time import monotonic
 from uuid import uuid4
 import gevent
-from load_generator.clients.contracts import classify
+from load_generator.clients.contracts import classify, transport_error_class
 from load_generator.workloads.idempotency import TransferIntent
+from load_generator.workloads.intents import IntentJournal
+
+# Retire idle sockets before the API's configured five-second keep-alive expiry.
+MAX_CONNECTION_IDLE_SECONDS = 4.0
 
 
 class PulsePayClient:
@@ -17,8 +22,25 @@ class PulsePayClient:
         )
         self.transfers = []
         self.cursors = {}
+        self.journal = IntentJournal(stats.path, stats.worker)
+        self.last_request_finished: float | None = None
+
+    def persist(self, method, *args, phase):
+        try:
+            method(*args)
+        except (OSError, ValueError):
+            self.stats.logical("intent_storage_failures", phase=phase)
+            raise RuntimeError(
+                "Durable client intent storage unavailable; no new transfer may be issued"
+            ) from None
 
     def request(self, operation: str, method: str, path: str, context: dict, body=None, key=None):
+        if (
+            self.last_request_finished is not None
+            and monotonic() - self.last_request_finished >= MAX_CONNECTION_IDLE_SECONDS
+        ):
+            self.session.close()
+            self.stats.logical("idle_connection_refreshes")
         context = {
             **context,
             "phase": self.stats.phase(),
@@ -44,15 +66,23 @@ class PulsePayClient:
                 data = response.json()
             except (ValueError, TypeError):
                 data = {}
-            outcome = classify(operation, response.status_code, data, context)
+            error = getattr(response, "error", None)
+            outcome = classify(operation, response.status_code, data, context, error)
             context["outcome"] = outcome
             context["status"] = response.status_code
+            if response.status_code == 0:
+                context["error_class"] = transport_error_class(error)
             # HttpSession merges user context into a copy before the response is classified.
-            response.request_meta["context"].update(outcome=outcome, status=response.status_code)
+            response.request_meta["context"].update(context)
             if outcome in {"success", "replay", "expected_rejection"}:
                 response.success()
             else:
-                response.failure(outcome)
+                response.failure(
+                    outcome + ": " + context["error_class"]
+                    if response.status_code == 0
+                    else outcome
+                )
+            self.last_request_finished = monotonic()
             return outcome, data
 
     def read(self, operation: str, account=None):
@@ -88,6 +118,7 @@ class PulsePayClient:
         intent = TransferIntent.new(source, destination, amount, self.pool.currency)
         payload = json.loads(intent.body)
         phase = self.stats.phase()
+        self.persist(self.journal.begin, intent, phase, phase=phase)
         self.stats.logical("logical_attempts", phase=phase)
         last = None
         for attempt in range(self.profile.retry.max_attempts):
@@ -100,6 +131,7 @@ class PulsePayClient:
                 intent.key,
             )
             if outcome in {"success", "replay"}:
+                self.persist(self.journal.resolve, intent.key, "committed", data["id"], phase=phase)
                 self.stats.logical("confirmed_commits", phase=phase)
                 self.transfers.append((data["id"], intent))
                 self.transfers = self.transfers[-100:]
@@ -120,6 +152,7 @@ class PulsePayClient:
                         self.stats.logical("replay_inconsistency", phase=phase)
                 return outcome, data
             if outcome == "business_rejection":
+                self.persist(self.journal.resolve, intent.key, "rejected", phase=phase)
                 self.stats.logical("logical_rejections", phase=phase)
                 self.stats.logical("unexpected_business_rejections", phase=phase)
                 return outcome, data

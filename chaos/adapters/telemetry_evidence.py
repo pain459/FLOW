@@ -2,12 +2,13 @@
 
 import json
 import time
+from typing import Any
 
 import httpx
 
 
 def collect(since_epoch):
-    result = {
+    result: dict[str, Any] = {
         "observed_epoch": time.time(),
         "source": "Loki and Tempo HTTP APIs",
         "logs": [],

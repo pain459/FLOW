@@ -1,0 +1,4 @@
+{
+  "reason": "ValueError",
+  "safe_message": "Scenario requires existing active steady HTTP load"
+}

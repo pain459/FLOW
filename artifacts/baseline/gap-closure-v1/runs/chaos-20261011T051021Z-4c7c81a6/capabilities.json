@@ -1,0 +1,17 @@
+{
+  "docker_cgroup_driver": "cgroupfs",
+  "network_probe": {
+    "exit_code": 0,
+    "output": "",
+    "scope": "isolated helper loopback only; no lab target mutation",
+    "supported": true
+  },
+  "supported": {
+    "netem": true,
+    "partition": true,
+    "pause": true,
+    "stop": true,
+    "stress": false,
+    "toxic": true
+  }
+}

@@ -1,0 +1,430 @@
+{
+  "errors": [],
+  "finished_at": "2026-10-11T05:45:25.203304+00:00",
+  "method": "lookup_then_same_key_replay",
+  "observations": [
+    {
+      "key": "load-42ba71f5490a4886be485c76ab5caff7",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "79174eeb-eb29-47eb-a870-fa5add670fd8"
+    },
+    {
+      "key": "load-53ef379bab9a4397a006f8f9f3f9d4af",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "1b2db6c3-aa3f-448d-8013-c4d456f298e7"
+    },
+    {
+      "key": "load-11001d77934b4143b6558e954a880f8f",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "1193d847-becf-4999-9cae-fc9417c50145"
+    },
+    {
+      "key": "load-53204b052a584ae2912e805be2fc671d",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "07a7917b-a79e-4ef8-a2c4-4dba868b56ae"
+    },
+    {
+      "key": "load-85f6c5a3dda74f9093ba16e09ce40380",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "a8910184-6349-4d69-97ba-41b240a16510"
+    },
+    {
+      "key": "load-bc7d3b6dae924a32a91b6b1bf67f0079",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "79ff3ae3-0b2b-448e-a516-e6899e9617e9"
+    },
+    {
+      "key": "load-9689bb5b5ce44206ae95e584df913c0b",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "35699fd5-fb1e-484c-92b7-0e4ff19297bd"
+    },
+    {
+      "key": "load-5fc47cd8d7d94d21887cf22bdb91935f",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "75286ef2-adca-44f5-aeab-daca08878ad1"
+    },
+    {
+      "key": "load-036e9ee91d0043d3a7887fb72732c607",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "9d11ae83-e47c-452f-8f53-e21f0777710c"
+    },
+    {
+      "key": "load-a6069748c7364b6aa7e1d291a8aa3095",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "c2a15120-ad43-471f-b5c7-4279bd5959e8"
+    },
+    {
+      "key": "load-67abe315b0754267bd0ff43677c77ff3",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "1eb6d7eb-f8ee-43f7-be32-d6b7f0501329"
+    },
+    {
+      "key": "load-cf9b48311a5c46d3a1847f399c3df7ee",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "7da3ba73-750c-4deb-bd05-337d64859a30"
+    },
+    {
+      "key": "load-ee22cdd5f91d4c87b33babe7b4f17a14",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "914e26f5-9f01-4c8d-b8b9-62cdeda81f40"
+    },
+    {
+      "key": "load-93037994bc9848989fdb7fbf7e5f6055",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f8c41054-33a6-47fa-b969-1b32034a8be6"
+    },
+    {
+      "key": "load-e0ab2110a3f640e7822830871556e920",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "1469a1ce-9b3b-4e30-a451-b82ba8d6698c"
+    },
+    {
+      "key": "load-0b37c855b16a47b6a2abd10e3e4f3b07",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "afe45af7-586e-4498-b30a-6c8e3d15f882"
+    },
+    {
+      "key": "load-213314a76470405ead180e6e3dc3c65e",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "91ab65a0-7430-4eff-953c-9f188dead694"
+    },
+    {
+      "key": "load-04f2dfe02d5c4618a02009bb3d96b239",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "469b1b9b-4c53-4f04-a30a-74da0f46805b"
+    },
+    {
+      "key": "load-cee6008937af45c980c1afd62f5929ae",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "bf3e61fb-95e4-4f16-be08-f814a8403e2c"
+    },
+    {
+      "key": "load-25639c3534db4c3ca95749aa269eb73c",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "56ddc19c-7259-4f3c-b9b8-05e998c1eb97"
+    },
+    {
+      "key": "load-13a090b7e75247329b667fea2120458c",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "3f14c781-9810-4711-a344-bb402b53fec0"
+    },
+    {
+      "key": "load-0626f60291b14c6d9fff0bda95f95dba",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "74cc54f7-345c-4293-9020-b7caa2cabd9c"
+    },
+    {
+      "key": "load-2716ead8261340ff94219dd128a78628",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "e528f85b-26b8-4f92-b44a-0c2142e8c933"
+    },
+    {
+      "key": "load-e4e6cfae0619489cbcc19a72c1299ccc",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "0a568a55-cb38-41c1-a3d4-a65108ba06bb"
+    },
+    {
+      "key": "load-e89627f77f974ec89fe0b75a89de3ca5",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "05742a67-8f47-4e79-b7cd-1f954da7ffed"
+    },
+    {
+      "key": "load-5fba0b921ec9424b91c8828612668782",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "30bc59ce-00ad-4738-be68-d8468d0bbd11"
+    },
+    {
+      "key": "load-43822919c68b4e3eb9238bd5b06f74f9",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "54b4d7b1-451a-4ca5-9415-d1b3f2117cb1"
+    },
+    {
+      "key": "load-47c56e0f86b7491bb42e994f6a41fba5",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "06956d73-8b25-4177-a4a7-bc206b31211c"
+    },
+    {
+      "key": "load-3ebf820f5ff84e7c9f7c857d153341be",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "6b0344ec-e776-4d15-a30d-aabbbe2e6658"
+    },
+    {
+      "key": "load-5c88a42ef3ec4c28bdfc2c704cfac32a",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "0238d1e2-498c-4ff9-ad47-eac0af83a7e2"
+    },
+    {
+      "key": "load-3ab0d57166d64b468d4ef194a9097334",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "b1585f71-2126-433b-9e5f-4f4d9d33fd06"
+    },
+    {
+      "key": "load-e703ea06473746ed9987d8c3f15e88c7",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "02b48be9-7356-4393-b81a-23d48e96563a"
+    },
+    {
+      "key": "load-153bf45cfee2488d8f22b3711294a872",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "701070fd-2def-444d-abb8-c7fd104fae2f"
+    },
+    {
+      "key": "load-569a1d5390144be6993be2788c8f286a",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f6739c0c-6a9d-4590-a304-1d9197a86b50"
+    },
+    {
+      "key": "load-a6c0e3cc4c4b493ba7782e6e5d012522",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "8122f537-3336-4770-9427-829692813961"
+    },
+    {
+      "key": "load-d72ab4f269df4c93ad502e0cc334882b",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f7ce54e5-aa0b-43ff-a30a-f6fbede6584c"
+    },
+    {
+      "key": "load-bf094975e5294af78b5277179174c927",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "bbb82f67-ef60-435f-a8ee-ac5caa11160d"
+    },
+    {
+      "key": "load-8be11b5d23d24be6b28a0fd3bfcefaf4",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "0b58e49a-e2bb-4c2b-883e-a984e0beb833"
+    },
+    {
+      "key": "load-edba225fe7954088b53110325df4cdee",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "804089d0-51c2-4188-a696-48dd6834c109"
+    },
+    {
+      "key": "load-144b47b73e754dae8e9dd73598265399",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "ab7bbe4a-2581-411b-b05b-e14899750086"
+    },
+    {
+      "key": "load-057d9731320d4e8481659776dae55b7e",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "6dc0369b-1061-4354-8379-3f9028e116f2"
+    },
+    {
+      "key": "load-2f6d27bd5c124e068ee0fa2cc1feb3f1",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "668ac109-6227-4fd4-9847-13965b3ae6ce"
+    },
+    {
+      "key": "load-4f6c1b1e7462479986c9fe0a50d7f7c3",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "2bde915c-a25f-4811-ab04-4aefca9acbb3"
+    },
+    {
+      "key": "load-93b378d711784dc0bc23cb99454a111b",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "64e60912-b671-46ae-8130-9b5985f295dd"
+    },
+    {
+      "key": "load-edaa7006d12f4786809748a76f92b10c",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "1548c5a6-d553-40a9-a54f-3f8750300a47"
+    },
+    {
+      "key": "load-a740d6f24fa446438ce0164ae3a3d0d1",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "fcf16f6d-91cd-4ab1-8191-0934d4c4f248"
+    },
+    {
+      "key": "load-b4550914c1844441a43960e14a5b436a",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "a1f3fb60-3003-4669-ab84-b6580c83e876"
+    },
+    {
+      "key": "load-c98428674cbb4bb1ac93fd69bcb5f87a",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f4e55a18-3066-41de-a832-c6932735e565"
+    },
+    {
+      "key": "load-f1b9265cc37f4872a5b2d268c006d6ee",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f0bddf4a-8a40-4ac9-9f88-f8e11a3d0180"
+    },
+    {
+      "key": "load-64e698ede3664ca7805d84507082554f",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "2edd3e19-2d66-40af-aead-a3a751ea0fbc"
+    },
+    {
+      "key": "load-d8daaca9de5f4ad6903eff5dd8e9e441",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "b2845332-bab2-4db9-86cb-4488119bb2d8"
+    },
+    {
+      "key": "load-80c0170e95bc4ebc9bbad1fe83ec6f2b",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "1e08b7b9-2bce-4c53-8607-37c9faf58b27"
+    },
+    {
+      "key": "load-a7a225f3712444528156c4b328c0589c",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "50199658-9e61-4fe3-a830-63deae0da4ba"
+    },
+    {
+      "key": "load-9768ef225dfa441284b276bcf14a162b",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "5d113ae5-cda8-4252-b02e-7a3c7b8e7100"
+    },
+    {
+      "key": "load-9dca72efd30e406aa86f4bd548c3d221",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "7427fdad-effd-4ece-ba89-b42ded8836d1"
+    },
+    {
+      "key": "load-de9e4329686d4773920503d852b9f52a",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "49692df3-0b4c-4097-b9d1-f2fe74117572"
+    },
+    {
+      "key": "load-4bf21f020df142f8809ab91874adbcaa",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "8b41a531-8256-4533-8631-99a50b5e231b"
+    },
+    {
+      "key": "load-14bf3f98496642bfbc75504c505958b4",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f3f4bc89-f09d-428e-aa0e-8c9e0cad7d39"
+    },
+    {
+      "key": "load-39267f3f38684e609fc93b0e7152793f",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "88fd8da9-bf70-450e-af79-ce6d967224c0"
+    },
+    {
+      "key": "load-1793cf0964ec43d3a916f19a795d53b2",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "10cffa6a-acb2-4a64-b48f-d95cef6bc2de"
+    },
+    {
+      "key": "load-ea207aea1df24a5b816d5001513a5e7f",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "a126fd21-4699-4674-87ea-9cf31fb8f53f"
+    },
+    {
+      "key": "load-bbd643dffa5640ac899719f9be36254b",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f597369c-9cc4-4810-8908-259c3db97db5"
+    },
+    {
+      "key": "load-4805662926de414ea841620934a57ab8",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "3e8f6763-318e-44c9-bf27-20c507260835"
+    },
+    {
+      "key": "load-ed4706d9aef64d26bd0bf31b972b9d1e",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "1e1e4589-a35c-4e2c-a543-834a84da53b9"
+    },
+    {
+      "key": "load-6fa0644b94b74becb45b4c60b2d7d624",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "19d500be-d287-459d-bec5-074a0d840ae1"
+    },
+    {
+      "key": "load-913f1ae4c450496eb97a40a53a423adc",
+      "phase": "measured",
+      "result": "COMMITTED",
+      "transfer_id": "f63f2229-4835-4255-a503-e41f9eaf07d3"
+    }
+  ],
+  "phases": {
+    "cooldown": {
+      "confirmed_during_run": 1,
+      "intents": 1,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "measured": {
+      "confirmed_during_run": 1351,
+      "intents": 1417,
+      "reconciled_commits": 66,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "warmup": {
+      "confirmed_during_run": 157,
+      "intents": 157,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    }
+  },
+  "retry_http_requests": 66,
+  "schema_version": 1,
+  "started_at": "2026-10-11T05:45:24.771150+00:00",
+  "status": "COMPLETE"
+}

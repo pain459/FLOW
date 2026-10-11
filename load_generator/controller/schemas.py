@@ -66,6 +66,7 @@ class Safety(StrictModel):
     stop_on_integrity_failure: Literal[True] = True
     stop_on_sustained_error_rate_pct: float = Field(default=30, gt=0, le=100)
     stop_on_error_window_seconds: int = Field(default=30, ge=5, le=120)
+    integrity_unknown_grace_seconds: int = Field(default=0, ge=0, le=30)
 
 
 class Reporting(StrictModel):
@@ -91,6 +92,7 @@ class Profile(StrictModel):
     duration_seconds: int = Field(ge=1, le=14400)
     warmup_seconds: int = Field(default=30, ge=0, le=120)
     cooldown_seconds: int = Field(default=60, ge=1, le=180)
+    reconciliation_seconds: int = Field(default=30, ge=1, le=120)
     request_timeout_seconds: float = Field(default=5, gt=0, le=15)
     target_operations_per_second: float | None = Field(default=20, gt=0, le=500)
     require_redis: bool = True

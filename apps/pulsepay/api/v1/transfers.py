@@ -37,6 +37,19 @@ async def create(
     )
 
 
+@router.get("/by-idempotency-key", response_model=TransferResponse)
+async def by_key(
+    idempotency_key: str = Header(min_length=1, max_length=128, pattern=r"^[A-Za-z0-9_.:-]+$"),
+    x_request_hash: str = Header(min_length=64, max_length=64, pattern=r"^[a-f0-9]{64}$"),
+):
+    from apps.pulsepay.main import db
+
+    result = await queries.get_transfer_by_key(db, idempotency_key, x_request_hash)
+    return TransferResponse.model_validate(result).model_copy(
+        update={"request_id": request_id_var.get()}
+    )
+
+
 @router.get("/{transfer_id}", response_model=TransferResponse)
 async def get(transfer_id: UUID):
     from apps.pulsepay.main import db

@@ -46,6 +46,7 @@ def build_summary(
     seconds: float,
     failures: list[str],
     interrupted: bool = False,
+    reconciliation: dict | None = None,
 ) -> dict:
     measured = stats.get("measured", {})
     complete = complete_measurements(measured)
@@ -58,6 +59,21 @@ def build_summary(
     confirmed = measured.get("confirmed_commits", 0)
     rejected = measured.get("logical_rejections", 0)
     unknown = max(measured.get("unknown_outcomes", 0), attempted - confirmed - rejected)
+    unknown_initial = unknown
+    reconciled = reconciliation.get("phases", {}).get("measured", {}) if reconciliation else {}
+    recovered = reconciled.get("reconciled_commits", 0)
+    recovered_rejections = max(0, reconciled.get("rejected", 0) - rejected)
+    if reconciliation and reconciliation.get("status") == "COMPLETE":
+        unknown = max(
+            reconciled.get("unresolved", 0),
+            attempted - confirmed - rejected - recovered - recovered_rejections,
+            unknown_initial - recovered - recovered_rejections,
+        )
+    intent_gap = bool(
+        reconciliation
+        and reconciliation.get("status") == "COMPLETE"
+        and reconciled.get("intents", 0) != attempted
+    )
     result = "PASS"
     if interrupted:
         result = "INTERRUPTED"
@@ -69,6 +85,8 @@ def build_summary(
         or unknown
         or measured.get("unexpected_business_rejections", 0)
         or measured.get("replay_inconsistency", 0)
+        or measured.get("intent_storage_failures", 0)
+        or (reconciliation and reconciliation.get("status") == "INCONSISTENT")
     ):
         result = "FAILED"
     elif (
@@ -77,6 +95,8 @@ def build_summary(
         or seconds <= 0
         or pre.get("status") != "PASS"
         or post.get("status") != "PASS"
+        or intent_gap
+        or (reconciliation and reconciliation.get("status") != "COMPLETE")
     ):
         result = "INCOMPLETE"
     durations = measured.get("latencies", {})
@@ -132,6 +152,10 @@ def build_summary(
             "business_rejections": rejected,
             "expected_rejections": outcomes.get("expected_rejection", 0),
             "unknown_outcomes": unknown,
+            "unknown_outcomes_before_reconciliation": unknown_initial,
+            "reconciled_commits": recovered,
+            "reconciled_rejections": recovered_rejections,
+            "durable_intents": reconciled.get("intents") if reconciliation else None,
         },
         "warmup": stats.get("warmup", {}),
         "integrity": {
@@ -143,6 +167,7 @@ def build_summary(
             "postflight": "UNKNOWN",
         },
         "result": result,
+        "reconciliation": reconciliation,
         "failures": failures + ([] if complete else ["WORKER_MEASUREMENTS_INCOMPLETE"]),
         "artifact_paths": [
             "manifest.json",
@@ -153,6 +178,9 @@ def build_summary(
             "verifier-pre.json",
             "verifier-post.json",
             "errors.jsonl",
+            "reconciliation.json",
+            "intent-journal/",
+            "integrity-observations.jsonl",
         ],
     }
 
@@ -189,6 +217,7 @@ def write_report(path: Path, summary: dict, stats: dict, samples: list, workers:
         f"Measured seconds: {summary['timing']['measured_seconds']:.3f}; achieved HTTP RPS: {summary['load']['achieved_rps']}.",
         f"HTTP p50/p95/p99 ms: {summary['http']['p50_ms']} / {summary['http']['p95_ms']} / {summary['http']['p99_ms']}.",
         f"Confirmed logical commits: {summary['business']['confirmed_commits']}; unknown: {summary['business']['unknown_outcomes']}.",
+        f"Commits reconciled after traffic: {summary['business'].get('reconciled_commits', 0)}; excluded from measured throughput.",
         "",
         "Warmup is excluded. Closed-loop operation ceiling is not an arrival guarantee. See manifest and underlying samples.",
         "",

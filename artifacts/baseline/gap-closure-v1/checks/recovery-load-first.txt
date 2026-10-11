@@ -1,0 +1,19 @@
+time="2026-10-11T10:38:28+05:30" level=warning msg="Found orphan containers (chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-d0c85062708b Creating 
+ Container chaosloop-load-controller-run-d0c85062708b Created 
+{"status": "VALID", "profile": "dependency_recovery", "sha256": "29c5561fde3ac7b318420c2a1983fce30f9aa1e7ba325e7d2e0f30d70921144d"}
+time="2026-10-11T10:38:29+05:30" level=warning msg="Found orphan containers (chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-guard Creating 
+ Container chaosloop-load-guard Created 
+time="2026-10-11T10:38:29+05:30" level=warning msg="Found orphan containers (chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-84601a889456 Creating 
+ Container chaosloop-load-controller-run-84601a889456 Created 
+Captured sanitized Docker environment
+time="2026-10-11T10:38:30+05:30" level=warning msg="Found orphan containers (chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-36cce1ec48fb Creating 
+ Container chaosloop-load-controller-run-36cce1ec48fb Created 
+{"run_id": "load-20261011T050831Z-97a93563", "result": "FAILED", "achieved_rps": 20.294444444444444, "valid_reads": 4222, "confirmed_commits": 2813, "integrity": {"preflight": "PASS", "postflight": "PASS"}, "failures": []}
+
+time="2026-10-11T10:45:13+05:30" level=warning msg="Found orphan containers (chaosloop-toxiproxy-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container chaosloop-load-controller-run-f0f02e7e7786 Creating 
+ Container chaosloop-load-controller-run-f0f02e7e7786 Created 

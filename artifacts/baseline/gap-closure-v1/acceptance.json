@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "overall_framework_catalog": "INCOMPLETE",
+  "workbench_readiness_and_diagnostics": "PASS",
+  "durable_client_outcome_recovery": "PASS",
+  "conditional_postgresql_recovery_under_sustained_load": "PASS",
+  "current_bounded_nominal_baseline": "PASS",
+  "application_tests": {"passed": 56, "skipped_default_live_opt_ins": 2},
+  "workload_tests": {"passed": 61},
+  "framework_tests": {"passed": 71},
+  "quality": {"ruff": "PASS", "format_files": 135, "mypy_runtime_files": 88},
+  "qualified_scenarios": [
+    "001-api-pause", "002-worker-pause", "003-redis-outage",
+    "004-api-network-delay", "005-db-network-delay",
+    "007-redis-network-partition", "008-postgres-outage"
+  ],
+  "postgresql_recovery_conditions": [
+    "Explicit database-fault opt-in at invocation and gateway",
+    "Intentionally selected bounded dependency_recovery workload",
+    "Financial UNKNOWN remains UNKNOWN; corruption or deadline expiry stops traffic",
+    "Original HTTP infrastructure failures remain counted as failed healthy benchmarks"
+  ],
+  "remaining_limits": [
+    "CPU-pressure fault disabled after this Docker host rejected safe cgroup containment",
+    "Native Linux and WSL2 unavailable for platform verification",
+    "Historical ambiguous client outcomes without original intention bodies remain unresolved",
+    "Historical full-hour soak was not rerun on the new images",
+    "This nominal pacing experiment does not establish a saturation threshold"
+  ],
+  "handoff": {
+    "compose_project": "chaosloop",
+    "persistent_services": 17,
+    "aggregate_memory_ceiling_mib": 6016,
+    "aggregate_cpu_ceilings": 10.5,
+    "locust": "IDLE",
+    "active_experiment": null,
+    "database_fault_opt_in": false,
+    "temporary_qualification_deployment": "STOPPED",
+    "final_integrity": "PASS",
+    "unrelated_or_disposable_volumes_deleted": false
+  }
+}

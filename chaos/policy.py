@@ -181,7 +181,9 @@ def empty(value):
     return value in (None, False, 0, "", [], {})
 
 
-def validate_helper(body: dict, lease: dict | None, project: str) -> dict:
+def validate_helper(body: dict | None, lease: dict | None, project: str) -> dict:
+    if not isinstance(body, dict):
+        raise ValueError("Helper body must be an object")
     if lease:
         bound_configuration(lease["scenario"], lease["configuration"], allow_database=True)
         role = SCENARIOS[lease["scenario"]][0]

@@ -7,12 +7,13 @@ import signal
 import subprocess
 import sys
 import tarfile
+import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
 from prometheus_client import CollectorRegistry, start_http_server
-from load_generator.controller.schemas import load_profile
+from load_generator.controller.schemas import Profile, load_profile
 from load_generator.controller.lifecycle import (
     RunLock,
     Lifecycle,
@@ -37,6 +38,8 @@ from load_generator.controller.resources import (
 )
 from load_generator.controller.telemetry import prometheus_sample, LoadCollector
 from load_generator.controller.storage import check_report_budget
+from load_generator.workloads.intents import reconcile
+from load_generator.controller.observations import IntegrityGuard, watch_integrity_deadline
 
 
 def root_path():
@@ -64,7 +67,10 @@ def configured(args):
 def safe_shutdown(process, grace=30):
     if process.poll() is not None:
         return
-    os.killpg(process.pid, signal.SIGINT)
+    try:
+        os.killpg(process.pid, signal.SIGINT)
+    except ProcessLookupError:
+        return
     try:
         process.wait(timeout=grace)
     except subprocess.TimeoutExpired:
@@ -86,12 +92,51 @@ def recover_abandoned(root):
         stats, workers = merge_workers(path)
         pre = read_json(path / "verifier-pre.json", {"status": "UNKNOWN"})
         post = {"status": "UNKNOWN", "reason": "CONTROLLER_INTERRUPTED", "checks": []}
+        reconciliation = None
+        if manifest.get("intent_journal_version") == 1:
+            barrier = independent_verification()
+            reconciliation = reconcile(path, allow_retry=barrier.get("status") == "PASS")
         atomic_json(path / "verifier-post.json", post)
-        summary = build_summary(manifest, stats, pre, post, 0, ["CONTROLLER_INTERRUPTED"], True)
+        summary = build_summary(
+            manifest,
+            stats,
+            pre,
+            post,
+            0,
+            ["CONTROLLER_INTERRUPTED"],
+            True,
+            reconciliation=reconciliation,
+        )
         samples = read_json(path / "time-series.json", {}).get("samples", [])
         write_report(path, summary, stats, samples, workers)
         Lifecycle(path, active["run_id"]).transition("INTERRUPTED", "CONTROLLER_INTERRUPTED")
     (root / "active.json").unlink(missing_ok=True)
+
+
+def stop_run(root):
+    active = read_json(root / "active.json")
+    if not active:
+        raise ValueError("No active workload run")
+    path = run_path(root, active["run_id"])
+    (path / "cancel").touch()
+    profile = Profile.model_validate(read_json(path / "manifest.json")["profile"])
+    # Child drain, verifier communication, two cooldowns, bounded reconciliation,
+    # and evidence collection. Validated profile maxima keep this below ten minutes.
+    budget = 115 + 2 * profile.cooldown_seconds + profile.reconciliation_seconds
+    deadline = time.monotonic() + budget
+    while not read_json(path / "summary.json") and time.monotonic() < deadline:
+        try:
+            with RunLock(root):
+                recover_abandoned(root)
+        except RuntimeError:
+            pass
+        time.sleep(0.5)
+    summary = read_json(path / "summary.json")
+    if not summary:
+        raise TimeoutError(
+            f"STOPPING: cancellation persisted; final report absent after {budget} seconds"
+        )
+    return {"run_id": active["run_id"], "status": summary["result"]}
 
 
 def run(args):
@@ -127,6 +172,7 @@ def run(args):
             "target": "http://api:8080",
             "measurement_mode": "closed_loop",
             "execution_mode": "manual_ui" if manual_ui else "headless",
+            "intent_journal_version": 1,
         }
         atomic_json(path / "manifest.json", manifest)
         collector = LoadCollector(profile)
@@ -134,12 +180,9 @@ def run(args):
         registry.register(collector)
         server, thread = start_http_server(9101, registry=registry)
         observer = Observer(os.getenv("LOAD_TARGET", "http://api:8080"))
-        failures, samples, pre, post = (
-            [],
-            [],
-            {"status": "UNKNOWN"},
-            {"status": "UNKNOWN"},
-        )
+        failures: list[str] = []
+        samples: list[dict] = []
+        pre, post = {"status": "UNKNOWN"}, {"status": "UNKNOWN"}
         process, interrupted, measured_seconds, snapshot_post = None, False, 0.0, None
 
         def cancelled(*unused):
@@ -150,6 +193,9 @@ def run(args):
         }
         telemetry_samples = 0
         resource_offset = 0
+        integrity_guard = IntegrityGuard(profile.safety.integrity_unknown_grace_seconds)
+        deadline_done = threading.Event()
+        deadline_watcher = None
         try:
             state.transition("VALIDATING")
             state.transition("PREFLIGHT")
@@ -210,6 +256,25 @@ def run(args):
                 process = subprocess.Popen(
                     command, env=env, stdout=log, stderr=log, start_new_session=True
                 )
+
+                def stop_on_uncertainty():
+                    failures.append("INTEGRITY_UNKNOWN_DEADLINE")
+                    # Signal the exact child process group before any further evidence I/O.
+                    try:
+                        os.killpg(process.pid, signal.SIGINT)
+                    except ProcessLookupError:
+                        pass
+                    atomic_json(
+                        path / "integrity-deadline.json",
+                        {"stopped_at": now(), "reason": "INTEGRITY_UNKNOWN_DEADLINE"},
+                    )
+
+                deadline_watcher = threading.Thread(
+                    target=watch_integrity_deadline,
+                    args=(integrity_guard, deadline_done, stop_on_uncertainty),
+                    daemon=True,
+                )
+                deadline_watcher.start()
                 state.transition("WARMUP")
                 collector.status = 1
                 deadline = (
@@ -224,6 +289,10 @@ def run(args):
                 measured_started, error_windows = None, []
                 previous_phase = "warmup"
                 while process.poll() is None:
+                    if integrity_guard.expired():
+                        failures.append("INTEGRITY_UNKNOWN_DEADLINE")
+                        safe_shutdown(process)
+                        break
                     current = time.monotonic()
                     control = read_json(path / "control.json", {"phase": "warmup", "users": 0})
                     clock = read_json(path / "clock.json")
@@ -385,6 +454,8 @@ def run(args):
                                 failures.append("SUSTAINED_INFRASTRUCTURE_ERROR_RATE")
                         if measured.get("unexpected_business_rejections", 0) > 10:
                             failures.append("DATASET_FUNDING_OR_ACCOUNT_STATE_LIMIT")
+                        if measured.get("intent_storage_failures", 0):
+                            failures.append("CLIENT_INTENT_STORAGE_UNAVAILABLE")
                         if clock and time.time() - clock["started_epoch"] > 15:
                             fresh_workers = [
                                 w for w in workers if time.time() - w["observed_epoch"] < 10
@@ -399,11 +470,11 @@ def run(args):
                         check = independent_verification()
                         collector.verification = check
                         atomic_json(path / "verifier-latest.json", check)
-                        from load_generator.controller.observations import (
-                            integrity_requires_stop,
-                        )
-
-                        if integrity_requires_stop(check):
+                        with (path / "integrity-observations.jsonl").open("a") as history:
+                            history.write(
+                                json.dumps({"observed_at": now(), "verification": check}) + "\n"
+                            )
+                        if integrity_guard.update(check):
                             failures.append("INTEGRITY_DURING_RUN_" + check["status"])
                             safe_shutdown(process)
                             break
@@ -434,10 +505,25 @@ def run(args):
                 else type(exc).__name__
             )
         finally:
+            deadline_done.set()
+            if deadline_watcher:
+                deadline_watcher.join(timeout=1)
             if process:
                 safe_shutdown(process)
             state.transition("VERIFYING")
             post = independent_verification()
+            reconciliation = reconcile(
+                path,
+                seconds=profile.reconciliation_seconds,
+                allow_retry=post.get("status") == "PASS",
+            )
+            if reconciliation.get("retry_http_requests", 0):
+                try:
+                    snapshot_post = observer.cooldown(profile.cooldown_seconds)
+                    manifest["snapshot_post"] = snapshot_post
+                except Exception:
+                    failures.append("RECONCILIATION_BACKLOG_DID_NOT_SETTLE")
+                post = independent_verification()
             collector.verification = post
             atomic_json(path / "verifier-post.json", post)
             if not (path / "verifier-pre.json").exists():
@@ -455,7 +541,14 @@ def run(args):
             )
             atomic_json(path / "manifest.json", manifest)
             summary = build_summary(
-                manifest, stats, pre, post, measured_seconds, failures, interrupted
+                manifest,
+                stats,
+                pre,
+                post,
+                measured_seconds,
+                failures,
+                interrupted,
+                reconciliation=reconciliation,
             )
             summary["timing"].update(
                 {
@@ -679,23 +772,7 @@ def main():
             finally:
                 observer.close()
         elif args.command == "stop":
-            active = read_json(root / "active.json")
-            if not active:
-                raise ValueError("No active workload run")
-            path = run_path(root, active["run_id"])
-            (path / "cancel").touch()
-            deadline = time.monotonic() + 60
-            while not read_json(path / "summary.json") and time.monotonic() < deadline:
-                try:
-                    with RunLock(root):
-                        recover_abandoned(root)
-                except RuntimeError:
-                    pass
-                time.sleep(0.5)
-            summary = read_json(path / "summary.json")
-            if not summary:
-                raise TimeoutError("Stop requested; controller has not finished within 60 seconds")
-            print(json.dumps({"run_id": active["run_id"], "status": summary["result"]}))
+            print(json.dumps(stop_run(root)))
         elif args.command == "export":
             with tarfile.open(fileobj=sys.stdout.buffer, mode="w|") as archive:
                 for path in sorted(root.iterdir()):

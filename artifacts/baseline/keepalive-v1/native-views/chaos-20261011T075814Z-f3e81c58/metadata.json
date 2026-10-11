@@ -1,0 +1,17 @@
+{
+  "configuration": {
+    "delay_ms": 150,
+    "duration_seconds": 15,
+    "interface": "eth0",
+    "ttl_seconds": 120
+  },
+  "effective_experiment_sha256": "f4c76d6b46190afe424c412ab14217b3bfe4833fb7efbca72c40435c5d5a2bee",
+  "framework": "chaostoolkit==1.21.4",
+  "git_sha": "680d0974ee25814702bad528b42fcb68d3dc19a6",
+  "project": "chaosloop",
+  "run_id": "chaos-20261011T075814Z-f3e81c58",
+  "runner_image_id": null,
+  "scenario": "003-redis-outage",
+  "scenario_sha256": "7da4f08641d0a56c8c34f0da11231da32fa61bec16e6065278db63b8686e864e",
+  "started_at": "2026-10-11T07:58:15.375191+00:00"
+}

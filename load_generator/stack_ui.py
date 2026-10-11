@@ -10,10 +10,11 @@ from load_generator.controller.preflight import Observer, independent_verificati
 from load_generator.controller.reports import build_summary, write_report
 from load_generator.controller.schemas import load_profile
 from load_generator.controller.storage import check_report_budget
+from load_generator.workloads.intents import reconcile
 
 LOCK = None
 STARTED = None
-FAILURES = []
+FAILURES: list[str] = []
 
 
 def observe_session(path, stats, users, epoch=None):
@@ -79,6 +80,7 @@ def prepare(profile):
             "traffic_mode": "on_demand",
             "execution_mode": "manual_stack_ui",
             "target": observer.target,
+            "intent_journal_version": 1,
         }
         atomic_json(path / "manifest.json", manifest)
         atomic_json(path / "verifier-pre.json", pre)
@@ -98,13 +100,26 @@ def finish(path, stats, profile):
     if LOCK is None:
         return
     observer = Observer(os.environ["LOAD_TARGET"])
+    stopped_epoch = time.time()
     try:
+        session_started = STARTED
+        if session_started is None:
+            raise RuntimeError("Manual workload start time is unavailable")
         atomic_json(path / "state.json", {"status": "STOPPING", "timestamp": now()})
         try:
             observer.cooldown(profile.cooldown_seconds)
         except Exception:
             FAILURES.append("UI_COOLDOWN_INCOMPLETE")
         post = independent_verification()
+        reconciliation = reconcile(
+            path, seconds=profile.reconciliation_seconds, allow_retry=post.get("status") == "PASS"
+        )
+        if reconciliation.get("retry_http_requests", 0):
+            try:
+                observer.cooldown(profile.cooldown_seconds)
+            except Exception:
+                FAILURES.append("UI_RECONCILIATION_COOLDOWN_INCOMPLETE")
+            post = independent_verification()
         atomic_json(path / "verifier-post.json", post)
         manifest = read_json(path / "manifest.json")
         manifest["finished_at"] = now()
@@ -118,10 +133,11 @@ def finish(path, stats, profile):
                 0,
                 min(
                     profile.duration_seconds,
-                    time.time() - STARTED - profile.warmup_seconds,
+                    stopped_epoch - session_started - profile.warmup_seconds,
                 ),
             ),
             FAILURES,
+            reconciliation=reconciliation,
         )
         if summary["result"] == "PASS":
             summary["result"] = "INCOMPLETE"

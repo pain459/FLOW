@@ -1,0 +1,85 @@
+[36m[2026-10-11 05:10:43 DEBUG] [root:106] ###############################################################################
+[36m[2026-10-11 05:10:43 DEBUG] [root:107] Running command 'run'
+[36m[2026-10-11 05:10:43 DEBUG] [root:111] Using settings file '/home/svc/.chaostoolkit/settings.yaml'
+[36m[2026-10-11 05:10:43 DEBUG] [settings:31] The Chaos Toolkit settings file could not be found at '/home/svc/.chaostoolkit/settings.yaml'.
+[36m[2026-10-11 05:10:43 DEBUG] [__init__:468] No controls to apply on 'loader'
+[36m[2026-10-11 05:10:43 DEBUG] [__init__:468] No controls to apply on 'loader'
+[36m[2026-10-11 05:10:43 DEBUG] [caching:24] Building activity cache...
+[36m[2026-10-11 05:10:43 DEBUG] [caching:35] Cached 5 activities
+[32m[2026-10-11 05:10:43 INFO] [experiment:59] Validating the experiment's syntax
+[36m[2026-10-11 05:10:43 DEBUG] [configuration:64] Loading configuration...
+[36m[2026-10-11 05:10:43 DEBUG] [secret:79] Loading secrets...
+[36m[2026-10-11 05:10:43 DEBUG] [secret:104] Done loading secrets
+[32m[2026-10-11 05:10:44 INFO] [experiment:109] Experiment looks valid
+[36m[2026-10-11 05:10:44 DEBUG] [caching:42] Clearing activities cache
+[36m[2026-10-11 05:10:44 DEBUG] [run:334] Runtime strategies: hypothesis - default / rollbacks - always
+[36m[2026-10-11 05:10:44 DEBUG] [caching:24] Building activity cache...
+[36m[2026-10-11 05:10:44 DEBUG] [caching:35] Cached 5 activities
+[36m[2026-10-11 05:10:44 DEBUG] [configuration:64] Loading configuration...
+[36m[2026-10-11 05:10:44 DEBUG] [secret:79] Loading secrets...
+[36m[2026-10-11 05:10:44 DEBUG] [secret:104] Done loading secrets
+[36m[2026-10-11 05:10:44 DEBUG] [configuration:161] Loading dynamic configuration...
+[32m[2026-10-11 05:10:44 INFO] [run:446] Running experiment: PulsePay 002-worker-pause
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:68] Initializing controls
+[32m[2026-10-11 05:10:44 INFO] [run:477] Steady-state strategy: default
+[32m[2026-10-11 05:10:44 INFO] [run:483] Rollbacks strategy: always
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'experiment'
+[36m[2026-10-11 05:10:44 DEBUG] [run:660] Running steady-state hypothesis before the method
+[32m[2026-10-11 05:10:44 INFO] [hypothesis:200] Steady state hypothesis: Healthy authority, event delivery and independently reconciled ledger
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:10:44 INFO] [activity:233] Probe: healthy-financial-and-operational-state
+[36m[2026-10-11 05:10:44 DEBUG] [python:37] Activity 'healthy-financial-and-operational-state' loaded from '/workspace/chaos/adapters/health_probes.py'
+[36m[2026-10-11 05:10:44 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:10:44 DEBUG] [hypothesis:242] allowed tolerance is True
+[32m[2026-10-11 05:10:44 INFO] [hypothesis:255] Steady state hypothesis is met!
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[32m[2026-10-11 05:10:44 INFO] [run:784] Playing your experiment's method now...
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'method'
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:10:44 INFO] [activity:233] Action: apply-bounded-framework-fault
+[36m[2026-10-11 05:10:44 DEBUG] [python:37] Activity 'apply-bounded-framework-fault' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:10:44 DEBUG] [activity:261]   => succeeded with '{'injector_started': True}'
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:10:44 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:10:44 INFO] [activity:233] Probe: observe-intentional-fault-exposure
+[36m[2026-10-11 05:10:44 DEBUG] [python:37] Activity 'observe-intentional-fault-exposure' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:11:09 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:11:09 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:11:09 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:11:09 INFO] [activity:233] Action: restore-original-environment
+[36m[2026-10-11 05:11:09 DEBUG] [python:37] Activity 'restore-original-environment' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:11:09 DEBUG] [activity:261]   => succeeded with '{'run_id': 'chaos-20261011T051021Z-4c7c81a6', 'started_at': '2026-10-11T05:11:09.068246+00:00', 'status': 'RESTORED', 'errors': [], 'proxy_restore': {'not_applicable': True}, 'target_after': {'Id': 'e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad', 'Name': '/chaosloop-event-worker-1', 'Image': 'sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13', 'State': {'Status': 'running', 'Running': True, 'Paused': False, 'Restarting': False, 'OOMKilled': False, 'Dead': False, 'Pid': 2025, 'ExitCode': 0, 'Error': '', 'StartedAt': '2026-10-11T03:49:15.120195504Z', 'FinishedAt': '0001-01-01T00:00:00Z', 'Health': {'Status': 'unhealthy', 'FailingStreak': 0, 'Log': [{'Start': '2026-10-11T05:10:24.392819758Z', 'End': '2026-10-11T05:10:24.520969842Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:10:29.522497719Z', 'End': '2026-10-11T05:10:29.664894511Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:10:34.665442055Z', 'End': '2026-10-11T05:10:34.797347263Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:10:39.797774084Z', 'End': '2026-10-11T05:10:39.932706418Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:10:44.932839254Z', 'End': '2026-10-11T05:10:45.074448379Z', 'ExitCode': 0, 'Output': ''}]}}, 'RestartCount': 0, 'Created': '2026-10-11T03:49:10.271681418Z', 'NetworkSettings': {'SandboxID': '2d82fa9f18c66ffeba15655192bc8e4516ad8d4f8a26a2c7fc8c67659fbd0c17', 'SandboxKey': '/var/run/docker/netns/2d82fa9f18c6', 'Ports': {}, 'Networks': {'chaosloop_internal': {'IPAMConfig': None, 'Links': None, 'Aliases': ['chaosloop-event-worker-1', 'event-worker'], 'DriverOpts': None, 'GwPriority': 0, 'NetworkID': 'dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe', 'EndpointID': '632f4a51cbcdfef3fb6b1fe59a90c734265e20fb4afc7ed0c15f560138a9b0ad', 'Gateway': '', 'IPAddress': '172.19.0.15', 'MacAddress': '1e:e3:2e:b8:98:28', 'IPPrefixLen': 16, 'IPv6Gateway': '', 'GlobalIPv6Address': '', 'GlobalIPv6PrefixLen': 0, 'DNSNames': ['chaosloop-event-worker-1', 'event-worker', 'e7a595966edd']}}}, 'Config': {'Labels': {'com.docker.compose.config-hash': '440c68b5e9d488174e7a96f833a1f26b06f866f9e913e679cf02f27c0d44143f', 'com.docker.compose.container-number': '1', 'com.docker.compose.depends_on': 'migrate:service_completed_successfully:false', 'com.docker.compose.image': 'sha256:85032ed6f647cf5e1f5db4d131ee8690f633c0973551a8cf0fc0de0c668a4192', 'com.docker.compose.oneoff': 'False', 'com.docker.compose.project': 'chaosloop', 'com.docker.compose.project.config_files': '/Users/ravik/src_git/FLOW/compose.yaml', 'com.docker.compose.project.working_dir': '/Users/ravik/src_git/FLOW', 'com.docker.compose.service': 'event-worker', 'com.docker.compose.version': '5.5.1', 'io.pulsepay.chaos.role': 'event-worker', 'io.pulsepay.chaos.target': 'true', 'io.pulsepay.lab': 'disposable'}, 'Image': 'pulsepay-api:v1', 'StopSignal': None, 'Cmd': ['python', '-m', 'workers.event_consumer.main'], 'Entrypoint': None}, 'HostConfig': {'RestartPolicy': {'Name': 'unless-stopped', 'MaximumRetryCount': 0}, 'Memory': 402653184, 'NanoCpus': 1000000000, 'CgroupParent': '', 'NetworkMode': 'chaosloop_internal', 'CapAdd': None, 'ReadonlyRootfs': True, 'PidsLimit': 128}, 'PulsePayDependencyRoutes': {'REDIS_URL': {'host': 'redis', 'port': 6379}, 'DATABASE_URL': {'host': 'postgres', 'port': 5432}}}, 'finished_at': '2026-10-11T05:11:09.144959+00:00'}'
+[36m[2026-10-11 05:11:09 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:11:09 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:11:09 INFO] [activity:233] Probe: independently-verify-post-restoration-recovery
+[36m[2026-10-11 05:11:09 DEBUG] [python:37] Activity 'independently-verify-post-restoration-recovery' loaded from '/workspace/chaos/adapters/health_probes.py'
+[36m[2026-10-11 05:11:35 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'method'
+[36m[2026-10-11 05:11:35 DEBUG] [run:702] Running steady-state hypothesis after the method
+[32m[2026-10-11 05:11:35 INFO] [hypothesis:200] Steady state hypothesis: Healthy authority, event delivery and independently reconciled ledger
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:11:35 INFO] [activity:233] Probe: healthy-financial-and-operational-state
+[36m[2026-10-11 05:11:35 DEBUG] [python:37] Activity 'healthy-financial-and-operational-state' loaded from '/workspace/chaos/adapters/health_probes.py'
+[36m[2026-10-11 05:11:35 DEBUG] [activity:261]   => succeeded with 'True'
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:11:35 DEBUG] [hypothesis:242] allowed tolerance is True
+[32m[2026-10-11 05:11:35 INFO] [hypothesis:255] Steady state hypothesis is met!
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'hypothesis'
+[33m[2026-10-11 05:11:35 WARNING] [run:827] Rollbacks were explicitly requested to be played
+[32m[2026-10-11 05:11:35 INFO] [run:1070] Let's rollback...
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'rollback'
+[32m[2026-10-11 05:11:35 INFO] [rollback:37] Rollback: repeat-safe-scoped-restoration
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'activity'
+[32m[2026-10-11 05:11:35 INFO] [activity:233] Action: repeat-safe-scoped-restoration
+[36m[2026-10-11 05:11:35 DEBUG] [python:37] Activity 'repeat-safe-scoped-restoration' loaded from '/workspace/chaos/adapters/injection.py'
+[36m[2026-10-11 05:11:35 DEBUG] [activity:261]   => succeeded with '{'run_id': 'chaos-20261011T051021Z-4c7c81a6', 'started_at': '2026-10-11T05:11:35.568156+00:00', 'status': 'RESTORED', 'errors': [], 'proxy_restore': {'not_applicable': True}, 'target_after': {'Id': 'e7a595966eddc083ba5fa2cecdb7fa092afe11644598fc3fdacd5d8f259652ad', 'Name': '/chaosloop-event-worker-1', 'Image': 'sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13', 'State': {'Status': 'running', 'Running': True, 'Paused': False, 'Restarting': False, 'OOMKilled': False, 'Dead': False, 'Pid': 2025, 'ExitCode': 0, 'Error': '', 'StartedAt': '2026-10-11T03:49:15.120195504Z', 'FinishedAt': '0001-01-01T00:00:00Z', 'Health': {'Status': 'healthy', 'FailingStreak': 0, 'Log': [{'Start': '2026-10-11T05:11:10.185806501Z', 'End': '2026-10-11T05:11:10.30090971Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:11:15.302080795Z', 'End': '2026-10-11T05:11:15.432005212Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:11:20.437337465Z', 'End': '2026-10-11T05:11:20.57026409Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:11:25.570800925Z', 'End': '2026-10-11T05:11:25.700451217Z', 'ExitCode': 0, 'Output': ''}, {'Start': '2026-10-11T05:11:30.701500886Z', 'End': '2026-10-11T05:11:30.82206347Z', 'ExitCode': 0, 'Output': ''}]}}, 'RestartCount': 0, 'Created': '2026-10-11T03:49:10.271681418Z', 'NetworkSettings': {'SandboxID': '2d82fa9f18c66ffeba15655192bc8e4516ad8d4f8a26a2c7fc8c67659fbd0c17', 'SandboxKey': '/var/run/docker/netns/2d82fa9f18c6', 'Ports': {}, 'Networks': {'chaosloop_internal': {'IPAMConfig': None, 'Links': None, 'Aliases': ['chaosloop-event-worker-1', 'event-worker'], 'DriverOpts': None, 'GwPriority': 0, 'NetworkID': 'dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe', 'EndpointID': '632f4a51cbcdfef3fb6b1fe59a90c734265e20fb4afc7ed0c15f560138a9b0ad', 'Gateway': '', 'IPAddress': '172.19.0.15', 'MacAddress': '1e:e3:2e:b8:98:28', 'IPPrefixLen': 16, 'IPv6Gateway': '', 'GlobalIPv6Address': '', 'GlobalIPv6PrefixLen': 0, 'DNSNames': ['chaosloop-event-worker-1', 'event-worker', 'e7a595966edd']}}}, 'Config': {'Labels': {'com.docker.compose.config-hash': '440c68b5e9d488174e7a96f833a1f26b06f866f9e913e679cf02f27c0d44143f', 'com.docker.compose.container-number': '1', 'com.docker.compose.depends_on': 'migrate:service_completed_successfully:false', 'com.docker.compose.image': 'sha256:85032ed6f647cf5e1f5db4d131ee8690f633c0973551a8cf0fc0de0c668a4192', 'com.docker.compose.oneoff': 'False', 'com.docker.compose.project': 'chaosloop', 'com.docker.compose.project.config_files': '/Users/ravik/src_git/FLOW/compose.yaml', 'com.docker.compose.project.working_dir': '/Users/ravik/src_git/FLOW', 'com.docker.compose.service': 'event-worker', 'com.docker.compose.version': '5.5.1', 'io.pulsepay.chaos.role': 'event-worker', 'io.pulsepay.chaos.target': 'true', 'io.pulsepay.lab': 'disposable'}, 'Image': 'pulsepay-api:v1', 'StopSignal': None, 'Cmd': ['python', '-m', 'workers.event_consumer.main'], 'Entrypoint': None}, 'HostConfig': {'RestartPolicy': {'Name': 'unless-stopped', 'MaximumRetryCount': 0}, 'Memory': 402653184, 'NanoCpus': 1000000000, 'CgroupParent': '', 'NetworkMode': 'chaosloop_internal', 'CapAdd': None, 'ReadonlyRootfs': True, 'PidsLimit': 128}, 'PulsePayDependencyRoutes': {'REDIS_URL': {'host': 'redis', 'port': 6379}, 'DATABASE_URL': {'host': 'postgres', 'port': 5432}}}, 'finished_at': '2026-10-11T05:11:35.616079+00:00'}'
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'activity'
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'rollback'
+[32m[2026-10-11 05:11:35 INFO] [run:604] Experiment ended with status: completed
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:468] No controls to apply on 'experiment'
+[36m[2026-10-11 05:11:35 DEBUG] [__init__:107] Cleaning up controls
+[36m[2026-10-11 05:11:35 DEBUG] [caching:42] Clearing activities cache

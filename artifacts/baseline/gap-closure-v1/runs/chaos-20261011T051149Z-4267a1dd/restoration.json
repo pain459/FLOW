@@ -1,0 +1,142 @@
+{
+  "errors": [],
+  "finished_at": "2026-10-11T05:12:41.044392+00:00",
+  "proxy_restore": {
+    "not_applicable": true
+  },
+  "run_id": "chaos-20261011T051149Z-4267a1dd",
+  "started_at": "2026-10-11T05:12:40.994417+00:00",
+  "status": "RESTORED",
+  "target_after": {
+    "Config": {
+      "Cmd": [
+        "postgres",
+        "-c",
+        "shared_preload_libraries=pg_stat_statements",
+        "-c",
+        "track_io_timing=on"
+      ],
+      "Entrypoint": [
+        "docker-entrypoint.sh"
+      ],
+      "Image": "pulsepay-postgres:v1",
+      "Labels": {
+        "com.docker.compose.config-hash": "30e1acbc2bffb07313497d93c4e5632862a5193c4c8390cb7345d94f7f181b4a",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "chaosloop",
+        "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+        "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+        "com.docker.compose.service": "postgres",
+        "com.docker.compose.version": "5.5.1",
+        "io.pulsepay.chaos.role": "postgres",
+        "io.pulsepay.chaos.target": "true",
+        "io.pulsepay.lab": "disposable"
+      },
+      "StopSignal": "SIGINT"
+    },
+    "Created": "2026-10-11T03:49:10.094999168Z",
+    "HostConfig": {
+      "CapAdd": null,
+      "CgroupParent": "",
+      "Memory": 805306368,
+      "NanoCpus": 1000000000,
+      "NetworkMode": "chaosloop_internal",
+      "PidsLimit": null,
+      "ReadonlyRootfs": false,
+      "RestartPolicy": {
+        "MaximumRetryCount": 0,
+        "Name": "unless-stopped"
+      }
+    },
+    "Id": "3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77",
+    "Image": "sha256:6386b91ffd121cd95b81309c88313ced18a72c7df9d7f961d3088a0fa44ba6a4",
+    "Name": "/chaosloop-postgres-1",
+    "NetworkSettings": {
+      "Networks": {
+        "chaosloop_internal": {
+          "Aliases": [
+            "chaosloop-postgres-1",
+            "postgres"
+          ],
+          "DNSNames": [
+            "chaosloop-postgres-1",
+            "postgres",
+            "3fa335bf14fd"
+          ],
+          "DriverOpts": null,
+          "EndpointID": "a25971e686d684ccc65481cbbf56a4c0465820792e36e010b8c825fea191c9ff",
+          "Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "GwPriority": 0,
+          "IPAMConfig": null,
+          "IPAddress": "172.19.0.6",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "Links": null,
+          "MacAddress": "3e:ce:5c:2e:dc:7d",
+          "NetworkID": "dcc72ced69eba3947df5cd4cb24b3aeef58d1306cc8e08666c6f34a3b0add5fe"
+        }
+      },
+      "Ports": {
+        "5432/tcp": null
+      },
+      "SandboxID": "8087e6438d5bbb7a3f9f0e3266099392d459cc67ff8c4c1d8d529d6e95353d79",
+      "SandboxKey": "/var/run/docker/netns/8087e6438d5b"
+    },
+    "PulsePayDependencyRoutes": {},
+    "RestartCount": 0,
+    "State": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-11T05:12:03.490453971Z",
+      "Health": {
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "End": "2026-10-11T05:12:26.805587509Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:12:26.779443509Z"
+          },
+          {
+            "End": "2026-10-11T05:12:29.846864969Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:12:29.805832344Z"
+          },
+          {
+            "End": "2026-10-11T05:12:32.868127304Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:12:32.847524054Z"
+          },
+          {
+            "End": "2026-10-11T05:12:35.906789597Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:12:35.869250305Z"
+          },
+          {
+            "End": "2026-10-11T05:12:38.942198584Z",
+            "ExitCode": 0,
+            "Output": "/var/run/postgresql:5432 - accepting connections\n",
+            "Start": "2026-10-11T05:12:38.908108626Z"
+          }
+        ],
+        "Status": "healthy"
+      },
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 915,
+      "Restarting": false,
+      "Running": true,
+      "StartedAt": "2026-10-11T05:12:11.586906835Z",
+      "Status": "running"
+    }
+  }
+}

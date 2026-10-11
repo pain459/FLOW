@@ -1,0 +1,3 @@
+{"error":"Error response from daemon: Restricted lab Docker API refused this request","image":"sha256:604cdac2aa4fb2dce39d45598a1476fea82052142f7dcfa68a7866c7c9bf6d13","level":"warning","msg":"failed to inspect container image, skipping image metadata","time":"2026-10-11T05:11:51Z"}
+{"dryrun":true,"id":"3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77","level":"info","msg":"stopping container","name":"/chaosloop-postgres-1","signal":"SIGTERM","time":"2026-10-11T05:11:51Z","timout":2}
+{"dryrun":true,"id":"3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77","level":"info","msg":"starting container","name":"/chaosloop-postgres-1","time":"2026-10-11T05:11:59Z"}

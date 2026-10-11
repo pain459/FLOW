@@ -24,6 +24,7 @@
     <article class="status-card"><span class="muted">Restoration watchdog</span><strong id="watchdog-status">Checking…</strong><small>Independent timeout and rollback</small></article>
     <article class="status-card"><span class="muted">Active experiment</span><strong id="active-status">Checking…</strong><small id="active-id">Waiting for current state</small></article>
   </section>
+  <section class="notice" aria-label="Workload prerequisite"><strong id="load-status">Checking workload…</strong><p id="load-guidance">A stable Locust read/write workload is required before fault injection.</p><a id="start-load-link" href="http://localhost:8089" target="_blank" rel="noopener">Open Locust to start load ↗</a></section>
   <div class="workspace-grid">
     <section class="panel"><div class="panel-head"><div><h2>Reviewed scenarios</h2><p>Select a scenario to see its scope and controls.</p></div><span class="small-tag">BOUNDED EXPOSURE</span></div><div id="scenario-list" class="scenario-list"></div></section>
     <section class="panel execution-panel"><div class="panel-head"><div><h2 id="scenario-title">Select a scenario</h2><p id="scenario-description">Definitions use native Chaos Toolkit YAML.</p></div></div>

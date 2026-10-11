@@ -1,0 +1,39 @@
+{
+  "status": "HEALTHY",
+  "core_transactions_ready": true,
+  "observed_at": "2026-10-11T06:06:16.024601+00:00",
+  "dependencies": {
+    "postgres": {
+      "status": "HEALTHY",
+      "observed_at": "2026-10-11T06:06:16.024601+00:00",
+      "signal_age_seconds": 0,
+      "reason": "READY"
+    },
+    "redis": {
+      "status": "HEALTHY",
+      "observed_at": "2026-10-11T06:06:16.024601+00:00",
+      "signal_age_seconds": 0,
+      "reason": "REACHABLE"
+    },
+    "outbox-relay": {
+      "status": "HEALTHY",
+      "observed_at": "2026-10-11T06:06:16.002457+00:00",
+      "signal_age_seconds": 0.023354,
+      "last_success_at": "2026-10-11T06:06:16.000488+00:00",
+      "last_failure_at": "2026-10-11T05:43:49.450453+00:00",
+      "reason": "PROGRESS_CHECK"
+    },
+    "event-worker": {
+      "status": "HEALTHY",
+      "observed_at": "2026-10-11T06:06:15.523892+00:00",
+      "signal_age_seconds": 0.501919,
+      "last_success_at": "2026-10-11T06:06:14.996057+00:00",
+      "last_failure_at": "2026-10-11T05:12:04.019700+00:00",
+      "reason": "PROGRESS_CHECK"
+    }
+  },
+  "instrumentation": {
+    "status": "UNKNOWN",
+    "reason": "EXPORT_DELIVERY_NOT_CONFIRMED"
+  }
+}

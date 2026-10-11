@@ -1,0 +1,7 @@
+operation,measured_http_requests,p50_ms,p95_ms,p99_ms
+account_read,856,23.0,45.0,61.0
+balance_read,1095,24.0,45.0,62.0
+history_read,871,35.0,59.0,105.0
+summary_read,1094,28.0,51.0,67.0
+transfer_status,415,22.0,44.0,62.0
+transfer_write,2975,32.0,52.0,68.0

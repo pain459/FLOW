@@ -1,0 +1,23 @@
+{
+  "controls": {
+    "gateway": "HEALTHY",
+    "watchdog": "HEALTHY"
+  },
+  "controls_ready": true,
+  "active_experiment": null,
+  "browser_job": {
+    "job_id": "job-355ca9af93f14df9872054d5534ba989",
+    "operation": "run",
+    "scenario": "002-worker-pause",
+    "status": "RUNNING",
+    "started_at": "2026-10-11T08:03:22.549753+00:00"
+  },
+  "workload": {
+    "ready": true,
+    "code": "LOAD_READY",
+    "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+    "message": "Stable measured HTTP reads and writes are ready for preflight",
+    "remediation": "Check the selected scenario preflight before injection."
+  },
+  "observed_at": "2026-10-11T08:03:22.708592+00:00"
+}

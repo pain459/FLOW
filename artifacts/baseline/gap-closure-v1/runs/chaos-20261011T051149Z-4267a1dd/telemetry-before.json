@@ -1,0 +1,2178 @@
+{
+  "logs": [
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-2ddebbcefbd44f6e8daeee14fd1e31ae",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "4160ab08faf451cefe3172366beef8b6"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-511f5c27ab024d14b0f08632ec1943f5",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "21cb7e92ba750d8a2ad906d918aa18fe"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-c2a436c7fbdb4b6da600402e09b252d1",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "cb63ef0b85b1355cca59ef56aff19402"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-5b1a45b7b6c7492898267fc1b8913cb7",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "cb709f3c8c45fd493c3ec8b77a1410b6"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-20cfbce195264adebdcdc50e12c5ce3e",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "58f60e0ca33f4dae7dba6a9ca078ee71"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-3dd42aa4a8d64e4ea5fec6ba5c78e333",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "6ab6febded23d34d1a51f0be9c44b4fc"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-ca6cf8be38f24a568fa08dc0496a5fc6",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "1da1aa140d566e0b6878f973a97916f2"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-b77280df7bd94689a546fabc51860f2c",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "2590b7ee1658518d3ea1d73f064a6f9a"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-ca6cf8be38f24a568fa08dc0496a5fc6",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "1da1aa140d566e0b6878f973a97916f2"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-649dc34f6a34434fa6e5fd154fe4b46e",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "29be1eacbfec7c351664eab83dc57f64"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-19ee323892504c9f943c2a5e41125550",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "4d3080ccf1af572a5d10558b0cfcc994"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-19ee323892504c9f943c2a5e41125550",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "4d3080ccf1af572a5d10558b0cfcc994"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-8abd202a9ecb49409a64aa9c31fe53ad",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "967d83b4f6958ebcd24c328373105da5"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-20cfbce195264adebdcdc50e12c5ce3e",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "58f60e0ca33f4dae7dba6a9ca078ee71"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-bc5b2201ad2d4b958a57599fe18e85dc",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "bfffe408f0b864887a164da776e25da0"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-f43005bc06354919a5328630845dd182",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "c66d5a443ee49000a2d42182724034b4"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-22bdcf982c4a4f7a8de347100a09f74c",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "56fad6907a1e918503c7996a0e93d28b"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-781db0c0cbcb40febb04e7ba44e7758d",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "e3a4065c93d915c04beb4b90fee718de"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-386ebfe471044e4f93ecf3df828b6b42",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "77c747ca43aece9437da2fd221c412b9"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-8abd202a9ecb49409a64aa9c31fe53ad",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "967d83b4f6958ebcd24c328373105da5"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-087d83bb9e79474686fa91e666d9d7d9",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "e82c413b4b114b6eec00402f3d06e07d"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-087d83bb9e79474686fa91e666d9d7d9",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "e82c413b4b114b6eec00402f3d06e07d"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-c2c28878915d43ecb5e130bd5b666276",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "a428a87fec344ac6edbc71c9c911ba49"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-3251248077964edbadd9c92360829291",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "13c3d9d87ce2f82173b924e8e8639607"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-649dc34f6a34434fa6e5fd154fe4b46e",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "29be1eacbfec7c351664eab83dc57f64"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-0d4a854c1efb4398be603e42dccb73f8",
+      "service": "api",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "09f2dbaa683c648db64bbd3129ef3ae8"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e7c43534249a47d99eda5c24303fba16",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "7fe7e13a6091e09cd42dacf314489cd1"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-3f2fde999b384d7196e8edb7afaff639",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "92e0ef3a5ee096c2f55b7a9925c11348"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-08ac5184635a43c78c7f0d8dec5cc934",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "24a918e39f06bdbe4d688a5a95fa125d"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e16d8683467341b787749930a4a2cddd",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "c77496991887a76416e61888c7a643cc"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-6b911dbbceb94519921e54281669f544",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "3f6fcd99264bbf22f7a8dd1ba70211c9"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-08ac5184635a43c78c7f0d8dec5cc934",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "24a918e39f06bdbe4d688a5a95fa125d"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-53dc63b1db164255bc369aaa2149237f",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "c31ee06b2dac31643c0be0b8d9524a9f"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-d791deec53ff45d09f87ae7cfba6794e",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "0983ad1b3b902d4829d1292ec3f6103c"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d46db66932034a3a8b47a52cec9b44be",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "a902ea7087932081f2c73ad4837291c2"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-b001dc68b9e14d4face7d42a58f0e5d2",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "7ab217748678eb9b40d9010421c31a53"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-24546945f7114d1b99ee94126288193d",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "4d6c29f849c870d89d7fc0c06a377ac1"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-b1f1742708e64009918e8a30bd541ec0",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "258a457afb679d6d05e370bbc8071d50"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-bfd53b8d284d4b39950488ec48a1983d",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "130321baec8895af330c9dacf5df9f1a"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-6b911dbbceb94519921e54281669f544",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "3f6fcd99264bbf22f7a8dd1ba70211c9"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-af609f2ee7a44b4bab16f25409aec63b",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "62074c817912376749a7d160f0b0e2bf"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-53dc63b1db164255bc369aaa2149237f",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "c31ee06b2dac31643c0be0b8d9524a9f"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d46db66932034a3a8b47a52cec9b44be",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "a902ea7087932081f2c73ad4837291c2"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-37facbec34a44f1ca8dbc32b4e0b7af6",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "6f9a6014c99551cf233cb972743c3fef"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e7c43534249a47d99eda5c24303fba16",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "7fe7e13a6091e09cd42dacf314489cd1"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-bfd53b8d284d4b39950488ec48a1983d",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "130321baec8895af330c9dacf5df9f1a"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4df05b05b353475eb526d6acaf254e94",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "4924f8978262f01d7eaa09d7b81735c0"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d89d4e4eb3de4f8084cea11f259a7370",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "7e538fcaed97921d857b085ee897a56e"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-af609f2ee7a44b4bab16f25409aec63b",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "62074c817912376749a7d160f0b0e2bf"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-a298ac06d00e43adad61a9836c5f0fde",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "41cf4a6518ebf56234e5dc5558abd55d"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4df05b05b353475eb526d6acaf254e94",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "b8360b0a83d983f092c3b8c12b389ff7"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e16d8683467341b787749930a4a2cddd",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "c77496991887a76416e61888c7a643cc"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d89d4e4eb3de4f8084cea11f259a7370",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "7e538fcaed97921d857b085ee897a56e"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-3899939525534d1888536f8952525545",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "53906f04168e300eca0901523c73571f"
+    },
+    {
+      "event": "apps.pulsepay.api.v1.transfers",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4df05b05b353475eb526d6acaf254e94",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "4924f8978262f01d7eaa09d7b81735c0"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-05ddbd499c534c70ab1d2dab40195636",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "51cf2a6c78d615707d0ae30eb4548c45"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4df05b05b353475eb526d6acaf254e94",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "b8360b0a83d983f092c3b8c12b389ff7"
+    },
+    {
+      "event": "http_request",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-read-83f8646638424720b1514d39f9e59734",
+      "service": "api",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "bbe9b6da48c544003d93ddf3136f7d66"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d89d4e4eb3de4f8084cea11f259a7370",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "e7a855a6f3868818c689c5b35ae4fa89"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-bfd53b8d284d4b39950488ec48a1983d",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "e60d70244734b863580d95ca771b3dff"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d46db66932034a3a8b47a52cec9b44be",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "0299ab6df6789617016e021d6bf0cd0a"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-08ac5184635a43c78c7f0d8dec5cc934",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "608397e5886c26b6d5c98dc7c23e32ec"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4df05b05b353475eb526d6acaf254e94",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "27f2791695fd5ef0d89968179226ac0e"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-af609f2ee7a44b4bab16f25409aec63b",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "1c0b2606d16d94f104599bf8e1bbf82b"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-6b911dbbceb94519921e54281669f544",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "02383516043fca990238e6095cf05d68"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-53dc63b1db164255bc369aaa2149237f",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "db35a669d8cd2af19ca3bd2b7f81e833"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e16d8683467341b787749930a4a2cddd",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "05f0857fa95da38480eb6da3e65fcb12"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e7c43534249a47d99eda5c24303fba16",
+      "service": "event-worker",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "7449cb0c55cdc87c61bf9c1159896529"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-09cf519e2cb345c4a537e4936ea24e5b",
+      "service": "event-worker",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "b0b39cde3f1ce9fbcd4660b4dd6cb83a"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-a4f11ae275184266bac0be6fe46aa131",
+      "service": "event-worker",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "c4b8f880b2061ae2d55f8ce04cbc1061"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4c79b38b60094153a816f21761904e18",
+      "service": "event-worker",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "7a3c9a476e59681e80fc67e0549957f7"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-9b10371847464c27a9e36d76a4ef68f1",
+      "service": "event-worker",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "00ac3c00e56813cfce908a5d1cca2924"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-88a46ffa0caa4fff8a8dc2e47fc4a45f",
+      "service": "event-worker",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "5e145346c10bdff69c7fade54613e123"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-1b66f31b92084690bbaee142d0e0dfb0",
+      "service": "event-worker",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "39c32c89e3b2585c02fffbdf51fa41e1"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-125f9c5e35bb41888321429eab502850",
+      "service": "event-worker",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "dfc4e2a19a24e4ae9a90730d2253ac89"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-2f32de15bf5b422094e5fdc744703927",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "e31886d575defc7eaf9374bc6f445b97"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-669ffa2078bf45b0a287d4caf969f386",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "924ebbec250880fd240210ac102afed2"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-b816e65c07944b508392955bfb50afa9",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "7e9e572f101e0d092bff9892237dbb2b"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-1d18cd7dc74b48a6b4dbf388194d3eb9",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "5f3fd287b6a25bf14bc387130feb0dbd"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-990766ba148e4008aed614571d536b78",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "a264934b9a7793c7f78f6956031e469d"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-609f86ded4e9480b8cb8e6455cce4faa",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "686deed7d36c4689874966753d7f15f1"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-ad872b3e1c034b889990f48552231fad",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "f693dbb1831291a26662ed98942ec1b0"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-52cb942707734f51a3107904f5b105f0",
+      "service": "event-worker",
+      "timestamp_ns": "1791695507000000000",
+      "trace_id": "ed01105efd2472ad3eeff96d3420a148"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d89d4e4eb3de4f8084cea11f259a7370",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "7e538fcaed97921d857b085ee897a56e"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-bfd53b8d284d4b39950488ec48a1983d",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "130321baec8895af330c9dacf5df9f1a"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-d46db66932034a3a8b47a52cec9b44be",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "a902ea7087932081f2c73ad4837291c2"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-08ac5184635a43c78c7f0d8dec5cc934",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "24a918e39f06bdbe4d688a5a95fa125d"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4df05b05b353475eb526d6acaf254e94",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "4924f8978262f01d7eaa09d7b81735c0"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-af609f2ee7a44b4bab16f25409aec63b",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "62074c817912376749a7d160f0b0e2bf"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-6b911dbbceb94519921e54281669f544",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "3f6fcd99264bbf22f7a8dd1ba70211c9"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-53dc63b1db164255bc369aaa2149237f",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "c31ee06b2dac31643c0be0b8d9524a9f"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e16d8683467341b787749930a4a2cddd",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "c77496991887a76416e61888c7a643cc"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-e7c43534249a47d99eda5c24303fba16",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695509000000000",
+      "trace_id": "7fe7e13a6091e09cd42dacf314489cd1"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-09cf519e2cb345c4a537e4936ea24e5b",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "931d91fe5e26f6030f2829a0331ca6be"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-a4f11ae275184266bac0be6fe46aa131",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "a88add0c158c31eebf44f05e00fc8fb2"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-9b10371847464c27a9e36d76a4ef68f1",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "5261d0b3624f47bb6c502fe357195844"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-125f9c5e35bb41888321429eab502850",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "23af54a2f6c29b56358f39c19f3a43bd"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-88a46ffa0caa4fff8a8dc2e47fc4a45f",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "3a90f5f09c1f46ce955115dfd86a86d1"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-1b66f31b92084690bbaee142d0e0dfb0",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "2ad3d63206da477921c6597f219dea4d"
+    },
+    {
+      "event": "__main__",
+      "level": "INFO",
+      "operation_id": "",
+      "request_id": "load-4c79b38b60094153a816f21761904e18",
+      "service": "outbox-relay",
+      "timestamp_ns": "1791695508000000000",
+      "trace_id": "54acc8ab8029aae48751d1bfc75870cb"
+    }
+  ],
+  "missing": [],
+  "observed_epoch": 1791695510.884521,
+  "source": "Loki and Tempo HTTP APIs",
+  "traces": [
+    {
+      "response": {
+        "batches": [
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.sqlalchemy",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509207457756",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "connect",
+                    "parentSpanId": "JuMswpDslC4=",
+                    "spanId": "kRNU1K6P0Vg=",
+                    "startTimeUnixNano": "1791695509203087714",
+                    "status": {},
+                    "traceId": "QWCrCPr0Uc7+MXI2a+74tg=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "db.statement",
+                        "value": {
+                          "stringValue": "SELECT accounts.id AS accounts_id, accounts.external_ref AS accounts_external_ref, accounts.currency AS accounts_currency, accounts.balance_minor AS accounts_balance_minor, accounts.status AS accounts_status, accounts.created_at AS accounts_created_at, accounts.updated_at AS accounts_updated_at \nFROM accounts \nWHERE accounts.id = $1::UUID"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      },
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509208941922",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "SELECT pulsepay",
+                    "parentSpanId": "JuMswpDslC4=",
+                    "spanId": "1Gvo2fdjGzM=",
+                    "startTimeUnixNano": "1791695509207594881",
+                    "status": {},
+                    "traceId": "QWCrCPr0Uc7+MXI2a+74tg=="
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.fastapi",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "asgi.event.type",
+                        "value": {
+                          "stringValue": "http.response.start"
+                        }
+                      },
+                      {
+                        "key": "http.status_code",
+                        "value": {
+                          "intValue": "200"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509212267839",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_INTERNAL",
+                    "name": "GET /api/v1/accounts/{account_id}/summary http send",
+                    "parentSpanId": "JuMswpDslC4=",
+                    "spanId": "VBqzqh0dfm8=",
+                    "startTimeUnixNano": "1791695509212261297",
+                    "status": {},
+                    "traceId": "QWCrCPr0Uc7+MXI2a+74tg=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "asgi.event.type",
+                        "value": {
+                          "stringValue": "http.response.body"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509212484506",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_INTERNAL",
+                    "name": "GET /api/v1/accounts/{account_id}/summary http send",
+                    "parentSpanId": "JuMswpDslC4=",
+                    "spanId": "xEeFNgjXHz8=",
+                    "startTimeUnixNano": "1791695509212480797",
+                    "status": {},
+                    "traceId": "QWCrCPr0Uc7+MXI2a+74tg=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "http.scheme",
+                        "value": {
+                          "stringValue": "http"
+                        }
+                      },
+                      {
+                        "key": "http.host",
+                        "value": {
+                          "stringValue": "172.19.0.7:8080"
+                        }
+                      },
+                      {
+                        "key": "net.host.port",
+                        "value": {
+                          "intValue": "8080"
+                        }
+                      },
+                      {
+                        "key": "http.flavor",
+                        "value": {
+                          "stringValue": "1.1"
+                        }
+                      },
+                      {
+                        "key": "http.target",
+                        "value": {
+                          "stringValue": "/api/v1/accounts/7c8c0ab3-9c79-57a9-a5ec-13519196f9cb/summary"
+                        }
+                      },
+                      {
+                        "key": "http.url",
+                        "value": {
+                          "stringValue": "http://172.19.0.7:8080/api/v1/accounts/7c8c0ab3-9c79-57a9-a5ec-13519196f9cb/summary"
+                        }
+                      },
+                      {
+                        "key": "http.method",
+                        "value": {
+                          "stringValue": "GET"
+                        }
+                      },
+                      {
+                        "key": "http.server_name",
+                        "value": {
+                          "stringValue": "api:8080"
+                        }
+                      },
+                      {
+                        "key": "http.user_agent",
+                        "value": {
+                          "stringValue": "python-requests/2.34.2"
+                        }
+                      },
+                      {
+                        "key": "net.peer.ip",
+                        "value": {
+                          "stringValue": "172.19.0.20"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "35232"
+                        }
+                      },
+                      {
+                        "key": "http.route",
+                        "value": {
+                          "stringValue": "/api/v1/accounts/{account_id}/summary"
+                        }
+                      },
+                      {
+                        "key": "http.status_code",
+                        "value": {
+                          "intValue": "200"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509214066922",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_SERVER",
+                    "name": "GET /api/v1/accounts/{account_id}/summary",
+                    "spanId": "JuMswpDslC4=",
+                    "startTimeUnixNano": "1791695509201892714",
+                    "status": {},
+                    "traceId": "QWCrCPr0Uc7+MXI2a+74tg=="
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.redis",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "redis"
+                        }
+                      },
+                      {
+                        "key": "db.redis.database_index",
+                        "value": {
+                          "intValue": "0"
+                        }
+                      },
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "redis"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "6379"
+                        }
+                      },
+                      {
+                        "key": "net.transport",
+                        "value": {
+                          "stringValue": "ip_tcp"
+                        }
+                      },
+                      {
+                        "key": "db.redis.args_length",
+                        "value": {
+                          "intValue": "2"
+                        }
+                      },
+                      {
+                        "key": "db.statement",
+                        "value": {
+                          "stringValue": "GET"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509203063756",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "GET",
+                    "parentSpanId": "JuMswpDslC4=",
+                    "spanId": "BfcVUzfkl6c=",
+                    "startTimeUnixNano": "1791695509201947214",
+                    "status": {},
+                    "traceId": "QWCrCPr0Uc7+MXI2a+74tg=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "redis"
+                        }
+                      },
+                      {
+                        "key": "db.redis.database_index",
+                        "value": {
+                          "intValue": "0"
+                        }
+                      },
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "redis"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "6379"
+                        }
+                      },
+                      {
+                        "key": "net.transport",
+                        "value": {
+                          "stringValue": "ip_tcp"
+                        }
+                      },
+                      {
+                        "key": "db.redis.args_length",
+                        "value": {
+                          "intValue": "5"
+                        }
+                      },
+                      {
+                        "key": "db.statement",
+                        "value": {
+                          "stringValue": "SET"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509212214589",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "SET",
+                    "parentSpanId": "JuMswpDslC4=",
+                    "spanId": "wC7lGpqFQK0=",
+                    "startTimeUnixNano": "1791695509211011089",
+                    "status": {},
+                    "traceId": "QWCrCPr0Uc7+MXI2a+74tg=="
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "trace_id": "4160ab08faf451cefe3172366beef8b6"
+    },
+    {
+      "response": {
+        "batches": [
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.fastapi",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "http.scheme",
+                        "value": {
+                          "stringValue": "http"
+                        }
+                      },
+                      {
+                        "key": "http.host",
+                        "value": {
+                          "stringValue": "172.19.0.7:8080"
+                        }
+                      },
+                      {
+                        "key": "net.host.port",
+                        "value": {
+                          "intValue": "8080"
+                        }
+                      },
+                      {
+                        "key": "http.flavor",
+                        "value": {
+                          "stringValue": "1.1"
+                        }
+                      },
+                      {
+                        "key": "http.target",
+                        "value": {
+                          "stringValue": "/api/v1/accounts/b2a2cab6-6099-514d-943b-0405bc39b0cf/transactions"
+                        }
+                      },
+                      {
+                        "key": "http.url",
+                        "value": {
+                          "stringValue": "http://172.19.0.7:8080/api/v1/accounts/b2a2cab6-6099-514d-943b-0405bc39b0cf/transactions?limit=25"
+                        }
+                      },
+                      {
+                        "key": "http.method",
+                        "value": {
+                          "stringValue": "GET"
+                        }
+                      },
+                      {
+                        "key": "http.server_name",
+                        "value": {
+                          "stringValue": "api:8080"
+                        }
+                      },
+                      {
+                        "key": "http.user_agent",
+                        "value": {
+                          "stringValue": "python-requests/2.34.2"
+                        }
+                      },
+                      {
+                        "key": "net.peer.ip",
+                        "value": {
+                          "stringValue": "172.19.0.20"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "35264"
+                        }
+                      },
+                      {
+                        "key": "http.route",
+                        "value": {
+                          "stringValue": "/api/v1/accounts/{account_id}/transactions"
+                        }
+                      },
+                      {
+                        "key": "http.status_code",
+                        "value": {
+                          "intValue": "200"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509222795631",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_SERVER",
+                    "name": "GET /api/v1/accounts/{account_id}/transactions",
+                    "spanId": "8nnPUrrNLJM=",
+                    "startTimeUnixNano": "1791695509206762631",
+                    "status": {},
+                    "traceId": "Ict+krp1DYoq2QbZGKoY/g=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "asgi.event.type",
+                        "value": {
+                          "stringValue": "http.response.start"
+                        }
+                      },
+                      {
+                        "key": "http.status_code",
+                        "value": {
+                          "intValue": "200"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509222649214",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_INTERNAL",
+                    "name": "GET /api/v1/accounts/{account_id}/transactions http send",
+                    "parentSpanId": "8nnPUrrNLJM=",
+                    "spanId": "UAFtuBD0cWU=",
+                    "startTimeUnixNano": "1791695509222640506",
+                    "status": {},
+                    "traceId": "Ict+krp1DYoq2QbZGKoY/g=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "asgi.event.type",
+                        "value": {
+                          "stringValue": "http.response.body"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509222675256",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_INTERNAL",
+                    "name": "GET /api/v1/accounts/{account_id}/transactions http send",
+                    "parentSpanId": "8nnPUrrNLJM=",
+                    "spanId": "v6+OchXUvvQ=",
+                    "startTimeUnixNano": "1791695509222672131",
+                    "status": {},
+                    "traceId": "Ict+krp1DYoq2QbZGKoY/g=="
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.sqlalchemy",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509213119839",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "connect",
+                    "parentSpanId": "8nnPUrrNLJM=",
+                    "spanId": "IawGMorgQPU=",
+                    "startTimeUnixNano": "1791695509206841589",
+                    "status": {},
+                    "traceId": "Ict+krp1DYoq2QbZGKoY/g=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "db.statement",
+                        "value": {
+                          "stringValue": "SELECT accounts.id AS accounts_id, accounts.external_ref AS accounts_external_ref, accounts.currency AS accounts_currency, accounts.balance_minor AS accounts_balance_minor, accounts.status AS accounts_status, accounts.created_at AS accounts_created_at, accounts.updated_at AS accounts_updated_at \nFROM accounts \nWHERE accounts.id = $1::UUID"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      },
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509215440297",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "SELECT pulsepay",
+                    "parentSpanId": "8nnPUrrNLJM=",
+                    "spanId": "bPRJc2HpZW4=",
+                    "startTimeUnixNano": "1791695509213246297",
+                    "status": {},
+                    "traceId": "Ict+krp1DYoq2QbZGKoY/g=="
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.sqlalchemy",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509220856714",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "connect",
+                    "parentSpanId": "8nnPUrrNLJM=",
+                    "spanId": "b25ImqTYxZE=",
+                    "startTimeUnixNano": "1791695509217396214",
+                    "status": {},
+                    "traceId": "Ict+krp1DYoq2QbZGKoY/g=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "db.statement",
+                        "value": {
+                          "stringValue": "SELECT ledger_entries.id, ledger_entries.transfer_id, ledger_entries.seed_run_id, ledger_entries.account_id, ledger_entries.entry_kind, ledger_entries.signed_amount_minor, ledger_entries.currency, ledger_entries.created_at \nFROM ledger_entries \nWHERE ledger_entries.account_id = $1::UUID ORDER BY ledger_entries.created_at DESC, ledger_entries.id DESC \n LIMIT $2::INTEGER"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      },
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509222169339",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "SELECT pulsepay",
+                    "parentSpanId": "8nnPUrrNLJM=",
+                    "spanId": "h22fGNVP4rA=",
+                    "startTimeUnixNano": "1791695509221051131",
+                    "status": {},
+                    "traceId": "Ict+krp1DYoq2QbZGKoY/g=="
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "trace_id": "21cb7e92ba750d8a2ad906d918aa18fe"
+    },
+    {
+      "response": {
+        "batches": [
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.sqlalchemy",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509189861589",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "connect",
+                    "parentSpanId": "4yl/eZag8M8=",
+                    "spanId": "fCarTXXJ/m8=",
+                    "startTimeUnixNano": "1791695509188437589",
+                    "status": {},
+                    "traceId": "y2PvC4WxNVzKWe9Wr/GUAg=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "db.statement",
+                        "value": {
+                          "stringValue": "SELECT accounts.id AS accounts_id, accounts.external_ref AS accounts_external_ref, accounts.currency AS accounts_currency, accounts.balance_minor AS accounts_balance_minor, accounts.status AS accounts_status, accounts.created_at AS accounts_created_at, accounts.updated_at AS accounts_updated_at \nFROM accounts \nWHERE accounts.id = $1::UUID"
+                        }
+                      },
+                      {
+                        "key": "db.system",
+                        "value": {
+                          "stringValue": "postgresql"
+                        }
+                      },
+                      {
+                        "key": "net.peer.name",
+                        "value": {
+                          "stringValue": "postgres"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "5432"
+                        }
+                      },
+                      {
+                        "key": "db.name",
+                        "value": {
+                          "stringValue": "pulsepay"
+                        }
+                      },
+                      {
+                        "key": "db.user",
+                        "value": {
+                          "stringValue": "pulsepay_app"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509190302672",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_CLIENT",
+                    "name": "SELECT pulsepay",
+                    "parentSpanId": "4yl/eZag8M8=",
+                    "spanId": "wP0G5vcRGOY=",
+                    "startTimeUnixNano": "1791695509189977589",
+                    "status": {},
+                    "traceId": "y2PvC4WxNVzKWe9Wr/GUAg=="
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "resource": {
+              "attributes": [
+                {
+                  "key": "telemetry.sdk.language",
+                  "value": {
+                    "stringValue": "python"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "value": {
+                    "stringValue": "opentelemetry"
+                  }
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "value": {
+                    "stringValue": "1.32.1"
+                  }
+                },
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "api"
+                  }
+                },
+                {
+                  "key": "deployment.environment",
+                  "value": {
+                    "stringValue": "lab"
+                  }
+                }
+              ]
+            },
+            "scopeSpans": [
+              {
+                "scope": {
+                  "name": "opentelemetry.instrumentation.fastapi",
+                  "version": "0.53b1"
+                },
+                "spans": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "asgi.event.type",
+                        "value": {
+                          "stringValue": "http.response.start"
+                        }
+                      },
+                      {
+                        "key": "http.status_code",
+                        "value": {
+                          "intValue": "200"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509192029881",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_INTERNAL",
+                    "name": "GET /api/v1/accounts/{account_id}/balance http send",
+                    "parentSpanId": "4yl/eZag8M8=",
+                    "spanId": "kOYTg+6dDjo=",
+                    "startTimeUnixNano": "1791695509192025089",
+                    "status": {},
+                    "traceId": "y2PvC4WxNVzKWe9Wr/GUAg=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "asgi.event.type",
+                        "value": {
+                          "stringValue": "http.response.body"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509192389547",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_INTERNAL",
+                    "name": "GET /api/v1/accounts/{account_id}/balance http send",
+                    "parentSpanId": "4yl/eZag8M8=",
+                    "spanId": "20WYCZPh3VI=",
+                    "startTimeUnixNano": "1791695509192384922",
+                    "status": {},
+                    "traceId": "y2PvC4WxNVzKWe9Wr/GUAg=="
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "http.scheme",
+                        "value": {
+                          "stringValue": "http"
+                        }
+                      },
+                      {
+                        "key": "http.host",
+                        "value": {
+                          "stringValue": "172.19.0.7:8080"
+                        }
+                      },
+                      {
+                        "key": "net.host.port",
+                        "value": {
+                          "intValue": "8080"
+                        }
+                      },
+                      {
+                        "key": "http.flavor",
+                        "value": {
+                          "stringValue": "1.1"
+                        }
+                      },
+                      {
+                        "key": "http.target",
+                        "value": {
+                          "stringValue": "/api/v1/accounts/798156e8-193a-5098-b9a5-1feddd859289/balance"
+                        }
+                      },
+                      {
+                        "key": "http.url",
+                        "value": {
+                          "stringValue": "http://172.19.0.7:8080/api/v1/accounts/798156e8-193a-5098-b9a5-1feddd859289/balance"
+                        }
+                      },
+                      {
+                        "key": "http.method",
+                        "value": {
+                          "stringValue": "GET"
+                        }
+                      },
+                      {
+                        "key": "http.server_name",
+                        "value": {
+                          "stringValue": "api:8080"
+                        }
+                      },
+                      {
+                        "key": "http.user_agent",
+                        "value": {
+                          "stringValue": "python-requests/2.34.2"
+                        }
+                      },
+                      {
+                        "key": "net.peer.ip",
+                        "value": {
+                          "stringValue": "172.19.0.20"
+                        }
+                      },
+                      {
+                        "key": "net.peer.port",
+                        "value": {
+                          "intValue": "33320"
+                        }
+                      },
+                      {
+                        "key": "http.route",
+                        "value": {
+                          "stringValue": "/api/v1/accounts/{account_id}/balance"
+                        }
+                      },
+                      {
+                        "key": "http.status_code",
+                        "value": {
+                          "intValue": "200"
+                        }
+                      }
+                    ],
+                    "endTimeUnixNano": "1791695509193054422",
+                    "flags": 256,
+                    "kind": "SPAN_KIND_SERVER",
+                    "name": "GET /api/v1/accounts/{account_id}/balance",
+                    "spanId": "4yl/eZag8M8=",
+                    "startTimeUnixNano": "1791695509188379381",
+                    "status": {},
+                    "traceId": "y2PvC4WxNVzKWe9Wr/GUAg=="
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "trace_id": "cb63ef0b85b1355cca59ef56aff19402"
+    }
+  ]
+}

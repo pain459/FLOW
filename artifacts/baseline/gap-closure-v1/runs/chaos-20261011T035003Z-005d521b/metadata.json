@@ -1,0 +1,16 @@
+{
+  "configuration": {
+    "delay_ms": 150,
+    "duration_seconds": 20,
+    "interface": "eth0",
+    "ttl_seconds": 120
+  },
+  "framework": "chaostoolkit==1.21.4",
+  "git_sha": "680d0974ee25814702bad528b42fcb68d3dc19a6",
+  "project": "chaosloop",
+  "run_id": "chaos-20261011T035003Z-005d521b",
+  "runner_image_id": null,
+  "scenario": "002-worker-pause",
+  "scenario_sha256": "7e1b51e255f05afd91b086f98ff6ec35e8d93c31612e4a11718d34cc31cfab97",
+  "started_at": "2026-10-11T03:50:03.693594+00:00"
+}

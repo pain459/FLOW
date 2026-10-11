@@ -1,0 +1,7 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,transfer_status,CatchResponseError('infrastructure_failure'),7,2026-10-11T05:43:42Z,2026-10-11T05:43:48Z
+GET,history_read,CatchResponseError('infrastructure_failure'),26,2026-10-11T05:43:42Z,2026-10-11T05:43:49Z
+POST,transfer_write,CatchResponseError('infrastructure_failure'),132,2026-10-11T05:43:42Z,2026-10-11T05:43:49Z
+GET,summary_read,CatchResponseError('infrastructure_failure'),23,2026-10-11T05:43:42Z,2026-10-11T05:43:49Z
+GET,account_read,CatchResponseError('infrastructure_failure'),18,2026-10-11T05:43:42Z,2026-10-11T05:43:49Z
+GET,balance_read,CatchResponseError('infrastructure_failure'),20,2026-10-11T05:43:43Z,2026-10-11T05:43:49Z

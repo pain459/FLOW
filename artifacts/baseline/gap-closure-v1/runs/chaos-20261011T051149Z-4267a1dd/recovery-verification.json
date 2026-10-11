@@ -1,0 +1,263 @@
+{
+  "integrity": {
+    "check_run_id": "a33da92a-f72a-43e1-b069-5d4b7254cf9b",
+    "checks": [
+      {
+        "details": [],
+        "inspected_records": 200,
+        "name": "global_conservation",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 200,
+        "name": "ledger_balance_reconciliation",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 200,
+        "name": "account_state",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 1,
+        "name": "provisioning_evidence",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 77379,
+        "name": "transfer_double_entry",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 154958,
+        "name": "ledger_topology",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 77379,
+        "name": "transfer_state",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 77379,
+        "name": "idempotency_uniqueness",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 77379,
+        "name": "durable_event_contract",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 77379,
+        "name": "committed_outbox",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [],
+        "inspected_records": 77371,
+        "name": "projection_receipts",
+        "status": "PASS",
+        "violations": 0
+      },
+      {
+        "details": [
+          {
+            "oldest_pending_seconds": 0.0,
+            "outbox_pending": 0,
+            "overdue_projections": 0,
+            "quarantined_messages": 0
+          }
+        ],
+        "inspected_records": 77379,
+        "name": "event_delivery_lag",
+        "status": "PASS",
+        "violations": 0
+      }
+    ],
+    "events": {
+      "oldest_pending_seconds": 0.0,
+      "outbox_pending": 0,
+      "overdue_projections": 0,
+      "quarantined_messages": 0
+    },
+    "finished_at": "2026-10-11T05:12:40.231718+00:00",
+    "snapshot": {
+      "isolation": "repeatable read",
+      "read_only": true
+    },
+    "started_at": "2026-10-11T05:12:39.828057+00:00",
+    "status": "PASS",
+    "totals": {
+      "accounts": 200,
+      "balance_minor": 20000000,
+      "provisioned_minor": 20000000,
+      "transfers": 77379
+    }
+  },
+  "productive_since_epoch": 1791695534.768634,
+  "sample": {
+    "health": {
+      "core_transactions_ready": true,
+      "dependencies": {
+        "event-worker": {
+          "last_failure_at": "2026-10-11T05:12:04.019700+00:00",
+          "last_success_at": "2026-10-11T05:12:39.744809+00:00",
+          "observed_at": "2026-10-11T05:12:39.775449+00:00",
+          "reason": "PROGRESS_CHECK",
+          "signal_age_seconds": 0.013319,
+          "status": "HEALTHY"
+        },
+        "outbox-relay": {
+          "last_failure_at": "2026-10-11T05:12:10.592042+00:00",
+          "last_success_at": "2026-10-11T05:12:39.736877+00:00",
+          "observed_at": "2026-10-11T05:12:39.767700+00:00",
+          "reason": "PROGRESS_CHECK",
+          "signal_age_seconds": 0.021068,
+          "status": "HEALTHY"
+        },
+        "postgres": {
+          "observed_at": "2026-10-11T05:12:39.787374+00:00",
+          "reason": "READY",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        },
+        "redis": {
+          "observed_at": "2026-10-11T05:12:39.787374+00:00",
+          "reason": "REACHABLE",
+          "signal_age_seconds": 0,
+          "status": "HEALTHY"
+        }
+      },
+      "instrumentation": {
+        "reason": "EXPORT_DELIVERY_NOT_CONFIRMED",
+        "status": "UNKNOWN"
+      },
+      "observed_at": "2026-10-11T05:12:39.787374+00:00",
+      "status": "HEALTHY"
+    },
+    "health_request_latency_ms": 2.9845419999219303,
+    "metrics": {
+      "gaps": [],
+      "scrapes": {
+        "api": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:37.2764505Z"
+        },
+        "chaos-watchdog": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:37.330093958Z"
+        },
+        "db-observer": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:37.214965958Z"
+        },
+        "event-worker": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:39.027859501Z"
+        },
+        "load": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:38.860069417Z"
+        },
+        "locust": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:38.785843209Z"
+        },
+        "otel-collector": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:38.052571959Z"
+        },
+        "outbox-relay": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:35.46954343Z"
+        },
+        "prometheus": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:38.230835959Z"
+        },
+        "verifier": {
+          "health": "up",
+          "last_scrape": "2026-10-11T05:12:36.311102514Z"
+        }
+      },
+      "values": {
+        "api_4xx_rate": 0.0,
+        "api_5xx_counter": 219.0,
+        "api_5xx_rate": 0.0,
+        "api_http_counter": 4970.0,
+        "api_p50_seconds": 0.029708904109589044,
+        "api_p95_seconds": 0.04974315068493151,
+        "api_p99_seconds": 0.09499999999999911,
+        "api_rps": 19.55921763129475,
+        "cache_hits_counter": 40.0,
+        "cache_misses_counter": 699.0,
+        "db_checked_out": 0.0,
+        "db_connection_usage_percent": 11.0,
+        "db_connections": 11.0,
+        "db_deadlocks": 0.0,
+        "db_lock_waits": 0.0,
+        "db_long_running_queries": 0.0,
+        "db_observed_at": 1791695556.0144129,
+        "db_oldest_lock_wait_seconds": 0.0,
+        "db_pool_wait_p95_seconds": 0.02443832599118943,
+        "db_reachable": 1.0,
+        "db_slow_statement_fingerprints": 0.0,
+        "db_statement_calls": 8277.0,
+        "db_statement_execution_seconds": 1.8815548370000004,
+        "db_statement_max_seconds": 0.148277125,
+        "load_network_rx": 6795546.0,
+        "load_network_tx": 3558308.0,
+        "load_rps": 20.679875747431677,
+        "load_target_users": 20.0,
+        "load_timeouts": 0.0,
+        "load_users": 20.0,
+        "outbox_oldest_seconds": 0.0,
+        "outbox_pending": 0.0,
+        "redis_failures_counter": 0.0,
+        "verifier_status": 0.0,
+        "worker_effects_counter": 1881.0,
+        "worker_lag": 6.0,
+        "worker_pending": 0.0,
+        "worker_quarantine": 0.0,
+        "worker_retries_counter": 1.0
+      }
+    },
+    "observed_at": "2026-10-11T05:12:39.826151+00:00",
+    "observed_epoch": 1791695559.8261583,
+    "source": "Prometheus query plus actual HTTP probes",
+    "totals": {
+      "accounts": 200,
+      "active_accounts": 200,
+      "balance_minor": "20000000",
+      "ledger_entries": 154958,
+      "oldest_pending_seconds": 0.0,
+      "outbox_pending": 0,
+      "projections": 77371,
+      "provisioned_minor": "20000000",
+      "transfers": 77379
+    },
+    "window_seconds": 30
+  },
+  "status": "PASS",
+  "verified_at": "2026-10-11T05:12:40.232038+00:00"
+}

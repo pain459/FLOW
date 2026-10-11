@@ -1,6 +1,8 @@
 # PulsePay framework experiment acceptance
 
-**Overall verdict: INCOMPLETE.** Six distinct fault scenarios have qualified results with independently verified financial integrity. PostgreSQL outage exposed a workload safety-stop and client-outcome limitation; CPU pressure remains disabled because kernel containment is unproven. Neither is recorded as a passing resilience test.
+**Overall catalog verdict: INCOMPLETE; seven supported scenarios have qualified recovery evidence.** The 2026-10-11 follow-up below fixes the hidden idle-load rejection, adds durable client-outcome recovery and qualifies PostgreSQL restoration under an explicitly bounded recovery workload. CPU pressure remains unavailable on this Docker host; native Linux/WSL2 remains unverified. Historical failed runs and their unresolved client outcomes are preserved, rather than relabeled.
+
+Latest gap-closure work uses existing branch `feat/pulsepay-dashboard` at `680d097`, without a new branch, commit, tag or push. Actual image/source hashes identify the working-tree build. See [gap-closure evidence](../artifacts/baseline/gap-closure-v1/README.md) and [its implementation ledger](superpowers/plans/2026-10-11-fault-readiness-and-gap-closure.md). The original framework-v1 evidence and limitations below describe its historical build.
 
 Executed on 2026-10-10/11 using Docker Desktop's Linux arm64 VM on macOS. Existing branch `feat/pulsepay-dashboard` is preserved, with no new branch, commit, tag or push. Git HEAD is `ebb71ac5fb13038bc61447293651782176231f94`; actual image IDs, scenario hashes and manifests identify uncommitted builds. Native Linux and Windows/WSL2 were unavailable and remain unverified.
 
@@ -123,3 +125,63 @@ docker compose run --rm --no-deps \
 ```
 
 This explicit test starts bounded manual HTTP traffic and worker faults, then stops its traffic. Default tests never inject. Final handoff keeps one 17-service stack, direct PostgreSQL/Redis clients, healthy Workbench/gateway/watchdog and idle Locust; Toxiproxy and all injector helpers remain stopped/absent. Existing CPU/PostgreSQL/platform limitations preserve the overall framework **INCOMPLETE** verdict.
+
+## Fault-readiness and recovery follow-up — 2026-10-11
+
+The user-reported `chaos-20261011T035003Z-005d521b` was INVALID before injection: `Scenario requires existing active steady HTTP load`. Its preserved failure artifact already contained this reason; the browser hid it behind the exception-only summary. The Workbench now shares the real preflight workload gate, displays readiness/remediation, disables Run while prerequisites fail, and reads historical failure details without rewriting records. An actual idle Chromium preflight now shows `LOAD_NOT_ACTIVE` and the Locust next step.
+
+The compatible read-only `GET /api/v1/transfers/by-idempotency-key` checks the original canonical hash. Load clients persist bounded fsynced intentions before submission. Finalization looks up ambiguous intentions and permits one original-key/body completion only after an independent PASS barrier and validated complete not-found evidence. Recovery writes get a subsequent cooldown and verifier. Malformed/unavailable evidence remains UNKNOWN; original HTTP failures and measured throughput are not rewritten.
+
+| Executed gate | Actual outcome |
+|---|---|
+| Application unit/integration/concurrency/resilience | **56 passed**; two explicit live gates skipped by the default command |
+| Workload contracts/instrumentation/reconciliation/lifecycle | **61 passed** |
+| Native framework/safety/rollback/evidence | **71 passed**; upstream Starlette warning |
+| Ruff check/format; expanded runtime mypy | PASS; 135 formatted files, 88 checked runtime source files |
+| Main dashboard Chromium; Workbench catalog and idle rejection | PASS; no implicit fault or load startup |
+| Live Locust Start/Stop/repeated session | PASS; UI retained and final integrity independently checked |
+| Live metrics/logs/traces/Grafana gate | **1 passed**, real workload samples and provisioned panel queries |
+| All Compose overlays, shell syntax, whitespace | PASS |
+| HTTP smoke and independent verifier | PASS |
+
+Docker regression outputs, original journals, intentions and exact verifier reports are retained in [gap-closure-v1](../artifacts/baseline/gap-closure-v1/README.md). Relevant commands include:
+
+```sh
+docker compose run --rm --no-deps tests pytest -q tests --ignore=tests/ui
+docker compose -f compose.yaml -f compose.load.yaml run --rm --no-deps load-controller pytest -q load_generator/tests
+make chaos-test
+make lint
+docker compose run --rm --no-deps -e WORKBENCH_UI_TEST=true ui-tests pytest -q tests/ui/test_workbench_browser.py -k idle_fault_preflight
+make smoke
+make verify
+```
+
+Worker pause `chaos-20261011T051021Z-4c7c81a6` passed through the browser while preserving an already active headless workload. PostgreSQL outage `chaos-20261011T051149Z-4267a1dd` then passed under that same workload: real eight-second exposure, restoration verified, pre/post financial PASS and productive recovery under sustained traffic. Its workload correctly reports FAILED as a healthy benchmark because it observed 211 infrastructure responses. All 51 measured ambiguous intentions were resolved separately; no original transport failure was hidden.
+
+The post-review PostgreSQL repeat `chaos-20261011T054327Z-0759842d` also **PASS** under unchanged active workload `load-20261011T054159Z-50866465`. The workload completed all 180 measured seconds, retained 226 infrastructure responses and a FAILED benchmark verdict, and reconciled **all 66** measured ambiguous intentions with the same original keys/bodies. Final unknown count is zero; independent pre/post integrity PASS. Recovery occurred before traffic ended, with no safety intervention or generator restart. Both runs deliberately selected the capped `dependency_recovery` policy; ordinary nominal UNKNOWN-stop behavior is unchanged.
+
+An independent six-minute healthy check on the final images, `load-20261011T053002Z-3ccb11ea`, **PASS**: achieved 20.1 HTTP requests/sec, 2,869 measured confirmed transfers, zero unknown outcomes, pre/post integrity PASS. It is a functional check, not a new three-repeat capacity baseline. Original frozen-image performance evidence remains valid only for its recorded environment/data volume.
+
+One fresh review identified five important gaps and they were reproduced before correction: sticky independent integrity deadline, malformed journal handling, total HTTP deadline/body ceiling, complete not-found envelope validation, and Stop's finalization wait. The focused tests changed from 10 failures/17 passes to 28 passes, then the complete workload suite passed. Broadened typing also exposed malformed business-code/helper-body handling; both received failing regression tests and fail-closed fixes. No mutation authority or default safety gate was relaxed.
+
+CPU containment is now an observed backend limitation rather than an assumed capability. A capped, read-only, network-isolated idle helper with the exact API cgroup parent failed before executing: OCI rejected an invalid cgroup-v2 domain-controller state. No stressor ran. The API was recreated with unchanged fixed ceilings to clear the failed daemon setup; CPU injection remains disabled. Native Linux/WSL2 was unavailable. Older ambiguous client outcomes lack original intention bodies and remain unresolved historical evidence. These explicit catalog/platform limits retain the overall INCOMPLETE verdict; the Workbench error, new client-outcome path and conditional PostgreSQL recovery gaps are closed.
+
+The handoff retains one ordinary stack with idle Locust, no active chaos lease, database-fault opt-in false and all persistent resource ceilings intact. Original sealed artifacts are untouched.
+
+### Final matching-image qualification and handoff
+
+The existing Docker-only qualification workflow completed three new comparable nominal repetitions, each from the identical supported seed snapshot, on one frozen generator/application configuration. Each had 30 seconds of warmup and 120 measured seconds, 20 users and a 20 logical operations/sec pacing ceiling. All three reports **PASS** with independent pre/post integrity PASS, zero failed measured HTTP requests and zero unknown outcomes. Median/range: achieved HTTP **20.1750 requests/sec (20.1750–20.2167)**, **p50 26 ms (23–31)**, **p95 47 ms (44–50)**, **p99 57 ms (53–60)**. The retained [qualification JSON](../artifacts/baseline/gap-closure-v1/qualification/baseline.json) identifies all three runs and their comparison key. This is a new bounded nominal reference, not a repeat of the historical full-hour soak or a saturation claim.
+
+Executed command: `RESUME_QUALIFICATION=true QUALIFICATION_NOMINAL_ONLY=true sh scripts/load-qualify.sh`, exit **0**. Its temporary `chaosloop-load-baseline` project stopped automatically without deleting volumes/reports. Final `docker compose ls` shows only `chaosloop`, with **17** running persistent services, fixed **6,016 MiB / 10.5 CPU aggregate ceilings**, no paused/privileged service and socket access only in the gateway. Locust is stopped with zero users; no active experiment lease exists. Core health and both control services are healthy. The API's unconfirmed exporter-delivery signal remains explicitly UNKNOWN; the separate live metrics/logs/traces/dashboard gate passed.
+
+Final read-only verifier `51767386-aa31-4387-bfbb-1c9da7ded1a3` **PASS** at `2026-10-11T06:06:15Z`: 200 accounts, **83,579** transfers, all checks zero violations, total balances/provisioning **20,000,000** minor units, no pending outbox or overdue projection. Original framework/workbench checksum seals verified unchanged, and the new bundle passed the credential scan. Exact resource, health, source hashes and verifier evidence are included in the new bundle.
+
+One final Locust idle assertion initially failed because a simultaneously executed smoke transfer changed the count from 83,417 to 83,418. The unchanged test reran alone and **PASS** in 37.34 seconds; this harness failure is retained in `checks/live-checks.json`. No test or integrity requirement was weakened.
+
+## Paced-user preflight regression — 2026-10-11
+
+User run `chaos-20261011T065742Z-7a297eb3` correctly refused injection with LOAD_BASELINE_ERRORS. The existing 100-user Locust session had repeated connection resets; every status-0 transport failure was misleadingly classified as a timeout. A controlled 700-request diagnostic reproduced 54 resets among 350 requests using default reused sockets and none among 350 requests using fresh sockets. Actual exception chains were Requests ConnectionError → ProtocolError → RemoteDisconnected/ConnectionResetError, with millisecond durations. At the configured rate cap, user pacing coincided with the API's five-second idle connection expiry.
+
+Clients now retire sockets after four seconds idle, preserve shorter-period reuse, and retain real reset/timeout categories and controlled error classes. Existing transfer identities, retries, resource limits and financial write behavior are unchanged. Real-socket and classification regressions failed before the fix; full workload **66 PASS**, application **56 PASS / two default live checks skipped**, framework **71 PASS**, Ruff/format and mypy **PASS**. Only idle Locust was recreated; no new deployment or fault was started.
+
+The fresh 100-user session `load-ui-4745f8d2f7cf430c8c973397e04518a2` passed its bounded functional check without HTTP errors, maintained LOAD_READY for another 30 seconds and remained available to the operator under its 630-second lifetime cap. Independent financial verification PASS. CLI Redis-outage preflight `chaos-20261011T075814Z-f3e81c58` and the actual Workbench preflight `chaos-20261011T080037Z-43143f50` both **PASS**, explicitly `injected=false`. Original failed reports retain their verdicts, and the mandatory healthy-window gate is intact. See [keepalive-v1 evidence](../artifacts/baseline/keepalive-v1/README.md). This new-image functional check does not relabel earlier frozen capacity measurements or establish a new nominal/soak qualification.

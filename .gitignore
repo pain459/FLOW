@@ -228,3 +228,7 @@ __marimo__/
 !/artifacts/baseline/workload-v3/
 !/artifacts/baseline/framework-v1/
 !/artifacts/baseline/workbench-v1/
+!/artifacts/baseline/gap-closure-v1/
+!/artifacts/baseline/gap-closure-v1/**/*.log
+!/artifacts/baseline/keepalive-v1/
+!/artifacts/baseline/keepalive-v1/**/*.log

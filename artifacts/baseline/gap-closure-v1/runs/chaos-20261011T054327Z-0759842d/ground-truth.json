@@ -1,0 +1,43 @@
+{
+  "configuration": {
+    "delay_ms": 150,
+    "duration_seconds": 8,
+    "interface": "eth0",
+    "ttl_seconds": 120
+  },
+  "excluded_from_decision_observations": true,
+  "fault_started_epoch": 1791697418.924389,
+  "impact_first_observed_at": "2026-10-11T05:43:44.392274+00:00",
+  "independent_fault_deadline_epoch": 1791697441.9243891,
+  "injection_confirmed": true,
+  "injector": {
+    "applied_at": "2026-10-11T05:43:39.078050+00:00",
+    "container_id": "23af5c3922aaccb8c57d39642e2d041b1fc5a8095d188dee61cc4ddd9c5c6521",
+    "kind": "pumba"
+  },
+  "privileged": true,
+  "restore_verified_at": "2026-10-11T05:44:15.924022+00:00",
+  "run_id": "chaos-20261011T054327Z-0759842d",
+  "scenario": "008-postgres-outage",
+  "schema_version": 1,
+  "source": "gateway-owned lease, injector result, native journal and sampled observations",
+  "target": {
+    "id": "3fa335bf14fdd74aaac70766e16de05a6688fe08ec0fc0ddfc0281f4ec43bf77",
+    "labels": {
+      "com.docker.compose.config-hash": "30e1acbc2bffb07313497d93c4e5632862a5193c4c8390cb7345d94f7f181b4a",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.depends_on": "",
+      "com.docker.compose.image": "sha256:3b3ae29c40c9576d5478671b4cda9a206c15a7ff3b3452a224375f9b94efeb7b",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "chaosloop",
+      "com.docker.compose.project.config_files": "/Users/ravik/src_git/FLOW/compose.yaml",
+      "com.docker.compose.project.working_dir": "/Users/ravik/src_git/FLOW",
+      "com.docker.compose.service": "postgres",
+      "com.docker.compose.version": "5.5.1",
+      "io.pulsepay.chaos.role": "postgres",
+      "io.pulsepay.chaos.target": "true",
+      "io.pulsepay.lab": "disposable"
+    },
+    "name": "/chaosloop-postgres-1"
+  }
+}

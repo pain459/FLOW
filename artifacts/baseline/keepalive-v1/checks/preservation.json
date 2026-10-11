@@ -1,0 +1,17 @@
+[
+  {
+    "bundle": "framework-v1",
+    "files": 33,
+    "result": "PASS"
+  },
+  {
+    "bundle": "workbench-v1",
+    "files": 21,
+    "result": "PASS"
+  },
+  {
+    "bundle": "gap-closure-v1",
+    "files": 288,
+    "result": "PASS"
+  }
+]

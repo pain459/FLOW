@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "finished_at": "2026-10-11T08:00:55.467036+00:00",
+  "job_id": "job-7541c607927a44d687f520fb6ef8aa72",
+  "operation": "preflight",
+  "output": "{\"run_id\": \"chaos-20261011T080037Z-43143f50\", \"stage\": \"PREFLIGHT_PASS\", \"target_id\": \"1cb72c3126199f4058973a32b684982ea016a3468b45fe3350e84acf88c36a7f\", \"target_name\": \"/chaosloop-redis-1\", \"exposure_seconds\": 15}\n{\"run_id\": \"chaos-20261011T080037Z-43143f50\", \"preflight\": \"PASS\", \"target_id\": \"1cb72c3126199f4058973a32b684982ea016a3468b45fe3350e84acf88c36a7f\", \"target_name\": \"/chaosloop-redis-1\", \"injected\": false}\n",
+  "scenario": "003-redis-outage",
+  "started_at": "2026-10-11T08:00:37.332304+00:00",
+  "status": "COMPLETED"
+}

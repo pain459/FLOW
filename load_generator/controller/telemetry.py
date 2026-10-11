@@ -1,12 +1,16 @@
 import math
 import time
 from datetime import datetime, timezone
+from typing import Any
+from collections.abc import Iterable
 import httpx
 from prometheus_client.core import (
     GaugeMetricFamily,
     CounterMetricFamily,
     HistogramMetricFamily,
 )
+from prometheus_client.metrics_core import Metric
+from prometheus_client.registry import Collector
 
 QUERIES = {
     "api_http_counter": 'sum(http_requests_total{job="api",route=~"/api/v1/accounts.*|/api/v1/transfers.*"})',
@@ -40,7 +44,7 @@ CORE_JOBS = {"api", "outbox-relay", "event-worker", "verifier", "db-observer"}
 
 
 def prometheus_sample(client: httpx.Client) -> dict:
-    result = {"values": {}, "gaps": [], "scrapes": {}}
+    result: dict[str, Any] = {"values": {}, "gaps": [], "scrapes": {}}
     try:
         response = client.get("http://prometheus:9090/api/v1/targets")
         response.raise_for_status()
@@ -78,7 +82,7 @@ def prometheus_sample(client: httpx.Client) -> dict:
     return result
 
 
-class LoadCollector:
+class LoadCollector(Collector):
     def __init__(self, profile):
         self.profile, self.stats, self.users, self.target, self.status = (
             profile,
@@ -89,10 +93,10 @@ class LoadCollector:
         )
         self.resources = {}
         self.container_resources = {}
-        self.verification = {}
+        self.verification: dict[str, Any] = {}
         self.measured_rps = None
 
-    def collect(self):
+    def collect(self) -> Iterable[Metric]:
         requests = CounterMetricFamily(
             "load_requests_total",
             "Real HTTP attempts",
@@ -233,7 +237,7 @@ class LoadCollector:
         verdict.add_metric(
             [],
             {"PASS": 0, "FAIL": 1, "UNKNOWN": 2, "DEGRADED": 3}.get(
-                self.verification.get("status"), 2
+                self.verification.get("status", "UNKNOWN"), 2
             ),
         )
         yield verdict

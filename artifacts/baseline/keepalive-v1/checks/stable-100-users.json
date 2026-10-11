@@ -1,0 +1,381 @@
+{
+  "result": "PASS",
+  "started_epoch": 1791705402.3614395,
+  "finished_at": "2026-10-11T07:58:02.589189+00:00",
+  "samples": [
+    {
+      "observed_at": "2026-10-11T07:56:42.428619+00:00",
+      "state": "spawning",
+      "users": 10,
+      "requests": 0,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_NOT_PRODUCTIVE",
+        "message": "Load is not RUNNING with fresh active-user evidence",
+        "safe_message": "Load is not RUNNING with fresh active-user evidence",
+        "remediation": "Check Locust users and workload status. Start or resume valid traffic, then wait for fresh measured samples."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:56:47.437174+00:00",
+      "state": "spawning",
+      "users": 60,
+      "requests": 71,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_WARMING_UP",
+        "message": "The workload is still warming up",
+        "safe_message": "The workload is still warming up",
+        "remediation": "Keep Locust running; wait for warmup to finish and at least 15 seconds of stable measured reads and writes."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:56:52.444690+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 172,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_WARMING_UP",
+        "message": "The workload is still warming up",
+        "safe_message": "The workload is still warming up",
+        "remediation": "Keep Locust running; wait for warmup to finish and at least 15 seconds of stable measured reads and writes."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:56:57.453212+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 272,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_WARMING_UP",
+        "message": "The workload is still warming up",
+        "safe_message": "The workload is still warming up",
+        "remediation": "Keep Locust running; wait for warmup to finish and at least 15 seconds of stable measured reads and writes."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:02.465549+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 373,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_WARMING_UP",
+        "message": "The workload is still warming up",
+        "safe_message": "The workload is still warming up",
+        "remediation": "Keep Locust running; wait for warmup to finish and at least 15 seconds of stable measured reads and writes."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:07.474547+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 473,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_WARMING_UP",
+        "message": "The workload is still warming up",
+        "safe_message": "The workload is still warming up",
+        "remediation": "Keep Locust running; wait for warmup to finish and at least 15 seconds of stable measured reads and writes."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:12.482124+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 576,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_WARMING_UP",
+        "message": "The workload is still warming up",
+        "safe_message": "The workload is still warming up",
+        "remediation": "Keep Locust running; wait for warmup to finish and at least 15 seconds of stable measured reads and writes."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:17.492016+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 677,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_STABILITY_WINDOW_REQUIRED",
+        "message": "Need at least 15 seconds of stable measured load evidence",
+        "safe_message": "Need at least 15 seconds of stable measured load evidence",
+        "remediation": "Keep Locust running with successful reads and writes for at least 15 measured seconds, then retry preflight."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:22.499681+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 779,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_STABILITY_WINDOW_REQUIRED",
+        "message": "Need at least 15 seconds of stable measured load evidence",
+        "safe_message": "Need at least 15 seconds of stable measured load evidence",
+        "remediation": "Keep Locust running with successful reads and writes for at least 15 measured seconds, then retry preflight."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:27.509027+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 880,
+      "failures": 0,
+      "workload": {
+        "ready": false,
+        "reason": "PreflightError",
+        "code": "LOAD_STABILITY_WINDOW_REQUIRED",
+        "message": "Need at least 15 seconds of stable measured load evidence",
+        "safe_message": "Need at least 15 seconds of stable measured load evidence",
+        "remediation": "Keep Locust running with successful reads and writes for at least 15 measured seconds, then retry preflight."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:32.520063+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 982,
+      "failures": 0,
+      "workload": {
+        "ready": true,
+        "code": "LOAD_READY",
+        "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+        "message": "Stable measured HTTP reads and writes are ready for preflight",
+        "remediation": "Check the selected scenario preflight before injection."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:37.531230+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 1082,
+      "failures": 0,
+      "workload": {
+        "ready": true,
+        "code": "LOAD_READY",
+        "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+        "message": "Stable measured HTTP reads and writes are ready for preflight",
+        "remediation": "Check the selected scenario preflight before injection."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:42.547071+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 1182,
+      "failures": 0,
+      "workload": {
+        "ready": true,
+        "code": "LOAD_READY",
+        "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+        "message": "Stable measured HTTP reads and writes are ready for preflight",
+        "remediation": "Check the selected scenario preflight before injection."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:47.555612+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 1284,
+      "failures": 0,
+      "workload": {
+        "ready": true,
+        "code": "LOAD_READY",
+        "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+        "message": "Stable measured HTTP reads and writes are ready for preflight",
+        "remediation": "Check the selected scenario preflight before injection."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:52.568435+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 1385,
+      "failures": 0,
+      "workload": {
+        "ready": true,
+        "code": "LOAD_READY",
+        "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+        "message": "Stable measured HTTP reads and writes are ready for preflight",
+        "remediation": "Check the selected scenario preflight before injection."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:57:57.579682+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 1485,
+      "failures": 0,
+      "workload": {
+        "ready": true,
+        "code": "LOAD_READY",
+        "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+        "message": "Stable measured HTTP reads and writes are ready for preflight",
+        "remediation": "Check the selected scenario preflight before injection."
+      }
+    },
+    {
+      "observed_at": "2026-10-11T07:58:02.589179+00:00",
+      "state": "running",
+      "users": 100,
+      "requests": 1588,
+      "failures": 0,
+      "workload": {
+        "ready": true,
+        "code": "LOAD_READY",
+        "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+        "message": "Stable measured HTTP reads and writes are ready for preflight",
+        "remediation": "Check the selected scenario preflight before injection."
+      }
+    }
+  ],
+  "locust_errors": [],
+  "operation_stats": [
+    {
+      "avg_content_length": 223.92090395480227,
+      "avg_response_time": 25.615664943567634,
+      "current_fail_per_sec": 0.0,
+      "current_rps": 2.4,
+      "max_response_time": 70.0,
+      "median_response_time": 24,
+      "method": "GET",
+      "min_response_time": 2.0,
+      "name": "account_read",
+      "num_failures": 0,
+      "num_requests": 177,
+      "response_time_percentile_0.95": 51,
+      "response_time_percentile_0.99": 63,
+      "total_fail_per_sec": 0.0,
+      "total_rps": 2.210052388941171
+    },
+    {
+      "avg_content_length": 163.52631578947367,
+      "avg_response_time": 25.366708330782554,
+      "current_fail_per_sec": 0.0,
+      "current_rps": 3.5,
+      "max_response_time": 66.0,
+      "median_response_time": 24,
+      "method": "GET",
+      "min_response_time": 3.0,
+      "name": "balance_read",
+      "num_failures": 0,
+      "num_requests": 266,
+      "response_time_percentile_0.95": 50,
+      "response_time_percentile_0.99": 60,
+      "total_fail_per_sec": 0.0,
+      "total_rps": 3.3213216692562235
+    },
+    {
+      "avg_content_length": 5505.0,
+      "avg_response_time": 36.36619893718989,
+      "current_fail_per_sec": 0.0,
+      "current_rps": 2.6,
+      "max_response_time": 81.0,
+      "median_response_time": 36,
+      "method": "GET",
+      "min_response_time": 6.0,
+      "name": "history_read",
+      "num_failures": 0,
+      "num_requests": 191,
+      "response_time_percentile_0.95": 63,
+      "response_time_percentile_0.99": 76,
+      "total_fail_per_sec": 0.0,
+      "total_rps": 2.3848587925862357
+    },
+    {
+      "avg_content_length": 293.49339207048456,
+      "avg_response_time": 28.546868021935413,
+      "current_fail_per_sec": 0.0,
+      "current_rps": 3.0,
+      "max_response_time": 70.0,
+      "median_response_time": 27,
+      "method": "GET",
+      "min_response_time": 3.0,
+      "name": "summary_read",
+      "num_failures": 0,
+      "num_requests": 227,
+      "response_time_percentile_0.95": 55,
+      "response_time_percentile_0.99": 67,
+      "total_fail_per_sec": 0.0,
+      "total_rps": 2.8343609733878297
+    },
+    {
+      "avg_content_length": 326.9240506329114,
+      "avg_response_time": 26.340370772093685,
+      "current_fail_per_sec": 0.0,
+      "current_rps": 1.1,
+      "max_response_time": 64.0,
+      "median_response_time": 25,
+      "method": "GET",
+      "min_response_time": 4.0,
+      "name": "transfer_status",
+      "num_failures": 0,
+      "num_requests": 79,
+      "response_time_percentile_0.95": 50,
+      "response_time_percentile_0.99": 64,
+      "total_fail_per_sec": 0.0,
+      "total_rps": 0.9864075634257204
+    },
+    {
+      "avg_content_length": 321.94135802469134,
+      "avg_response_time": 34.264043461439826,
+      "current_fail_per_sec": 0.0,
+      "current_rps": 7.7,
+      "max_response_time": 72.0,
+      "median_response_time": 34,
+      "method": "POST",
+      "min_response_time": 2.0,
+      "name": "transfer_write",
+      "num_failures": 0,
+      "num_requests": 648,
+      "response_time_percentile_0.95": 58,
+      "response_time_percentile_0.99": 69,
+      "total_fail_per_sec": 0.0,
+      "total_rps": 8.091039254428694
+    },
+    {
+      "avg_content_length": 904.0648614609572,
+      "avg_response_time": 30.851126954024334,
+      "current_fail_per_sec": 0.0,
+      "current_rps": 20.3,
+      "max_response_time": 81.0,
+      "median_response_time": 30,
+      "method": "",
+      "min_response_time": 2.0,
+      "name": "Aggregated",
+      "num_failures": 0,
+      "num_requests": 1588,
+      "response_time_percentile_0.95": 57,
+      "response_time_percentile_0.99": 68,
+      "total_fail_per_sec": 0.0,
+      "total_rps": 19.828040642025876
+    }
+  ],
+  "load_run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+  "traffic_left_running": true,
+  "maximum_session_seconds": 630,
+  "note": "100 actual users, default 20 logical operations/sec cap; no injected fault."
+}

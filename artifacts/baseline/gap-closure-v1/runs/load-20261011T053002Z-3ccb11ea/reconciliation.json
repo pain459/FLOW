@@ -1,0 +1,33 @@
+{
+  "errors": [],
+  "finished_at": "2026-10-11T05:36:37.592015+00:00",
+  "method": "lookup_then_same_key_replay",
+  "observations": [],
+  "phases": {
+    "cooldown": {
+      "confirmed_during_run": 2,
+      "intents": 2,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "measured": {
+      "confirmed_during_run": 2869,
+      "intents": 2869,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    },
+    "warmup": {
+      "confirmed_during_run": 227,
+      "intents": 227,
+      "reconciled_commits": 0,
+      "rejected": 0,
+      "unresolved": 0
+    }
+  },
+  "retry_http_requests": 0,
+  "schema_version": 1,
+  "started_at": "2026-10-11T05:36:37.545288+00:00",
+  "status": "COMPLETE"
+}

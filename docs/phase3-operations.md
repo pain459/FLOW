@@ -6,7 +6,11 @@ Use the synthetic `chaosloop` Docker project only. `make up` runs PulsePay, idle
 
 Start Locust from its UI, leave its PulsePay API target unchanged, and let the configured warmup finish. Preflight then requires at least 100 actual requests, 20 confirmed writes and a productive, error-free measured window of at least 15 seconds. Select **worker pause** in Workbench, click **Check preflight** and inspect the exact resolved target in the output. Click **Run experiment** and confirm the selected scenario. Run repeats native preflight before arming the independent watchdog. **Abort & restore** remains available during an active run; **Verify restoration** invokes the existing restoration/independent verification command. History shows actual failure/unknown verdicts, journals, timeline and JSON evidence.
 
+The workload prerequisite is visible before injection. Run stays disabled while Locust is idle, warming up, stale, or lacking productive measured reads/writes. Preflight remains available for diagnostics. `LOAD_NOT_ACTIVE` includes the Locust link and a next step; native INVALID summaries include safe reason/remediation rather than just an exception class. Old history reads the preserved failure artifact without rewriting it.
+
 Manual Locust evidence is measured and suitable for the existing experiment gates, but its performance report remains `INCOMPLETE` with `MANUAL_UI_SESSION_NOT_A_QUALIFIED_BENCHMARK`. Use versioned headless commands for capacity qualification. Controls accept only the eight reviewed scenario IDs, never uploaded YAML, arbitrary flags, targets or commands. CPU is shown as unavailable; database interruption needs `ALLOW_DATABASE_CHAOS=true` for both Workbench and gateway. Proxy scenarios refuse direct dependency routing.
+
+`LOAD_BASELINE_ERRORS` means one of the recent measured transport/contract counters increased before injection. Inspect the Locust Errors tab and retained workload report; earlier lifetime errors alone do not block a later clean window. Wait for at least 35 seconds of productive error-free measured traffic after the last error, then check preflight again. A 2026-10-11 paced-100-user connection-reset race is fixed by retiring four-second-idle client sockets before the API closes them at five seconds; genuine failures continue to block the gate. [Keep-alive evidence](../artifacts/baseline/keepalive-v1/README.md) preserves the failed session, reproductions and new validation.
 
 Workbench uses a non-root read-only image, 384 MiB / 0.5 CPU / 64 PIDs, 64 MiB tmpfs, bounded 4 KiB JSON actions and 128 KiB command output, health checks and graceful child termination. The independent watchdog continues restoration if its browser or process disappears. Its HTTP API requires an allowed local Host, matching Origin, same-site session cookie and CSRF header for changes. Ports bind to host loopback; no public ingress is supported. Browser history is intentionally operator evidence, including fault ground truth; sanitized future observations remain separate.
 
@@ -47,6 +51,25 @@ The named scenario must be a reviewed native Chaos Toolkit YAML. The operator ca
 | `008-postgres-outage` | 8 s | Pumba stop/restart | Explicit opt-in, original DB/volume, full reconciliation |
 
 `chaos-list` reports observed capability state. Network support requires actual isolated Linux `tc` probing. CPU injection is currently always refused with `KERNEL_CGROUP_MEMBERSHIP_UNVERIFIED`: Docker configuration echoes and coincident memory deltas do not prove containment. Its diagnostic uses a bounded read-only helper, never a stressor. The acceptance document records what actually ran on the available platform.
+
+On this Docker Desktop cgroup-v2 host, an explicitly bounded 15-second idle helper with the API's exact cgroup parent failed before execution: OCI reported that a cgroup with domain controllers was in an invalid state. No stressor ran. The failed daemon setup changed the parent's controller mode, so the API was recreated from its unchanged 1 CPU / 384 MiB Compose ceiling; its cgroup returned to `domain` with no delegated subtree. CPU pressure stays unavailable. See the [kernel's cgroup-v2 constraints](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html) and [Docker's cgroup-parent interface](https://docs.docker.com/engine/containers/run/). Native Linux/WSL2 remains untested.
+
+## Explicit database recovery qualification
+
+Default nominal traffic still stops immediately on unknown integrity evidence. To deliberately test recovery under sustained traffic, select `dependency_recovery`: at most 20 users, 600 measured seconds, a recorded 20-second uncertainty grace with independent expiry, and the existing 30% infrastructure-error threshold over 60 seconds. UNKNOWN is never PASS; a proven invariant FAIL always stops. Use separate terminals:
+
+```sh
+# Arm only this conservative database scenario; retain normal direct dependency routing.
+ALLOW_DATABASE_CHAOS=true docker compose --profile chaos up -d --no-deps docker-gate chaos-watchdog chaos-workbench
+LOAD_IMAGE_PREBUILT=true PROFILE=dependency_recovery DURATION=360 WARMUP=30 USERS=20 RATE=20 sh scripts/load-run.sh
+# Once Workbench reports ready, in another terminal:
+ALLOW_DATABASE_CHAOS=true CHAOS_IMAGE_PREBUILT=true sh chaos/scripts/experiment.sh run 008-postgres-outage
+# After the run and verification, restore the ordinary opt-in state:
+ALLOW_DATABASE_CHAOS=false docker compose --profile chaos up -d --no-deps docker-gate chaos-watchdog chaos-workbench
+make verify
+```
+
+Native experiment PASS requires real impact, the same workload still running after productive recovery, restoration and independent integrity PASS. A workload containing injected HTTP errors remains FAILED as a healthy benchmark. Post-run client intention recovery resolves original keys through HTTP, records recovered commits separately, and does not erase those failures. Older sealed outcomes without intention bodies remain unresolved historical evidence.
 
 ## Explicit dependency routing
 

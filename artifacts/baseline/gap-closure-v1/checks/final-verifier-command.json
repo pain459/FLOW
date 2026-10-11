@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "verifier.main",
+    "--once"
+  ],
+  "principal": "pulsepay_verifier",
+  "started_at": "2026-10-11T06:06:15.163724+00:00",
+  "finished_at": "2026-10-11T06:06:15.994181+00:00",
+  "exit_code": 0
+}

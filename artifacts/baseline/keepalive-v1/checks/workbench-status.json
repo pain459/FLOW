@@ -1,0 +1,26 @@
+{
+  "controls": {
+    "gateway": "HEALTHY",
+    "watchdog": "HEALTHY"
+  },
+  "controls_ready": true,
+  "active_experiment": null,
+  "browser_job": {
+    "job_id": "job-7541c607927a44d687f520fb6ef8aa72",
+    "operation": "preflight",
+    "scenario": "003-redis-outage",
+    "status": "COMPLETED",
+    "started_at": "2026-10-11T08:00:37.332304+00:00",
+    "exit_code": 0,
+    "output": "{\"run_id\": \"chaos-20261011T080037Z-43143f50\", \"stage\": \"PREFLIGHT_PASS\", \"target_id\": \"1cb72c3126199f4058973a32b684982ea016a3468b45fe3350e84acf88c36a7f\", \"target_name\": \"/chaosloop-redis-1\", \"exposure_seconds\": 15}\n{\"run_id\": \"chaos-20261011T080037Z-43143f50\", \"preflight\": \"PASS\", \"target_id\": \"1cb72c3126199f4058973a32b684982ea016a3468b45fe3350e84acf88c36a7f\", \"target_name\": \"/chaosloop-redis-1\", \"injected\": false}\n",
+    "finished_at": "2026-10-11T08:00:55.467036+00:00"
+  },
+  "workload": {
+    "ready": true,
+    "code": "LOAD_READY",
+    "run_id": "load-ui-4745f8d2f7cf430c8c973397e04518a2",
+    "message": "Stable measured HTTP reads and writes are ready for preflight",
+    "remediation": "Check the selected scenario preflight before injection."
+  },
+  "observed_at": "2026-10-11T08:00:56.395795+00:00"
+}

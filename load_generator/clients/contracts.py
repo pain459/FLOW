@@ -1,5 +1,10 @@
 import json
-from pydantic import ValidationError
+from pydantic import BaseModel, ValidationError
+from requests.exceptions import (
+    ConnectionError as RequestsConnectionError,
+    RequestException,
+    Timeout,
+)
 from apps.pulsepay.schemas.accounts import (
     AccountResponse,
     BalanceResponse,
@@ -14,7 +19,7 @@ BUSINESS_CODES = {
     "ACCOUNT_INACTIVE": 409,
     "IDEMPOTENCY_CONFLICT": 409,
 }
-MODELS = {
+MODELS: dict[str, type[BaseModel]] = {
     "account_read": AccountResponse,
     "balance_read": BalanceResponse,
     "summary_read": SummaryResponse,
@@ -24,9 +29,22 @@ MODELS = {
 }
 
 
-def classify(operation: str, status: int, data: dict, context: dict) -> str:
+def transport_error_class(error: Exception | None) -> str:
+    """Controlled diagnostics; exception text can contain URLs or credentials."""
+    if isinstance(error, Timeout):
+        return "Timeout"
+    if isinstance(error, RequestsConnectionError):
+        return "ConnectionError"
+    if isinstance(error, RequestException):
+        return "RequestError"
+    return "UnknownTransportError"
+
+
+def classify(
+    operation: str, status: int, data: dict, context: dict, error: Exception | None = None
+) -> str:
     if status == 0:
-        return "timeout"
+        return "timeout" if isinstance(error, Timeout) else "infrastructure_failure"
     if status >= 500 or status == 429:
         return "infrastructure_failure"
     if not isinstance(data, dict):
@@ -36,7 +54,8 @@ def classify(operation: str, status: int, data: dict, context: dict) -> str:
             return "contract_error"
         code = data.get("code")
         if (
-            BUSINESS_CODES.get(code) != status
+            not isinstance(code, str)
+            or BUSINESS_CODES.get(code) != status
             or not isinstance(data.get("message"), str)
             or not isinstance(data.get("request_id"), str)
         ):
@@ -68,10 +87,10 @@ def classify(operation: str, status: int, data: dict, context: dict) -> str:
             ):
                 if key in context and str(getattr(result, key)) != str(context[key]):
                     return "contract_error"
-        elif operation == "history_read":
+        elif isinstance(result, LedgerPage):
             if len(result.items) > context.get("limit", 100):
                 return "contract_error"
-        else:
+        elif isinstance(result, (AccountResponse, BalanceResponse, SummaryResponse)):
             actual_id = getattr(result, "account_id", getattr(result, "id", None))
             if (
                 str(actual_id) != context.get("account_id")
@@ -79,6 +98,8 @@ def classify(operation: str, status: int, data: dict, context: dict) -> str:
                 or result.balance_minor < 0
             ):
                 return "contract_error"
+        else:
+            return "contract_error"
         return "replay" if operation == "transfer_write" and status == 200 else "success"
     except (ValidationError, ValueError, TypeError, KeyError):
         return "contract_error"

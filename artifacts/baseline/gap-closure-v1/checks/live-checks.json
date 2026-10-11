@@ -1,0 +1,47 @@
+{
+  "recorded_at": "2026-10-11T06:06:15.112187+00:00",
+  "provenance": "Executed Docker command outputs in this task tool transcript; durations retained where observed.",
+  "checks": [
+    {
+      "name": "main_dashboard_chromium",
+      "passed": 7
+    },
+    {
+      "name": "workbench_catalog_history_disabled_cpu",
+      "passed": 1,
+      "seconds": 0.72
+    },
+    {
+      "name": "idle_fault_preflight_chromium",
+      "passed": 1,
+      "seconds": 2.95
+    },
+    {
+      "name": "browser_worker_fault_under_existing_load",
+      "passed": 1,
+      "seconds": 76.97,
+      "run_id": "chaos-20261011T051021Z-4c7c81a6"
+    },
+    {
+      "name": "locust_start_stop_repeated_session_final_isolated",
+      "passed": 1,
+      "seconds": 37.34
+    },
+    {
+      "name": "live_prometheus_loki_tempo_grafana",
+      "passed": 1,
+      "seconds": 3.28
+    },
+    {
+      "name": "http_smoke",
+      "result": "PASS",
+      "transfer_id": "98d91da3-4893-4513-8e0b-46ee86a02799"
+    }
+  ],
+  "retained_test_harness_failure": {
+    "name": "locust_idle_transfer_count",
+    "result": "FAILED",
+    "observation": "An overlapping smoke transfer changed the count from 83417 to 83418.",
+    "correction": "Reran the unchanged Start/Stop test alone; PASS in 37.34 seconds."
+  }
+}
