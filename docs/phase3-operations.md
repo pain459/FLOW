@@ -20,11 +20,11 @@ docker compose -f compose.yaml -f compose.chaos.yaml --profile chaos \
 
 For an explicit exposure, watchdog TTL is at least exposure plus **120 seconds** (maximum **420 seconds**). A frozen fault deadline allows at most exposure plus 15 seconds for injector startup/cleanup and cannot be extended by another injection. Heartbeat loss, Abort and expiry still revoke authority and restore independently. The browser subprocess budget grows with the bounded TTL so longer runs can finish recovery and reporting. Pumba targeting dry runs use three seconds with `--dry-run`, irrespective of selected fault duration, to avoid consuming the lease before injection. CPU/memory limits do not change.
 
-Plan the Locust session to cover warmup, preflight, exposure and recovery. Longer API/database outages can reach the existing workload error/UNKNOWN safety ceilings; extending exposure does not disable those safeguards or promise recovery under sustained load. Database interruption still needs explicit deployment opt-in, proxy faults still need deliberate routing, and unsupported CPU pressure stays disabled. The full three-hundred-second range is configuration-tested; actual fault demonstrations and their durations are recorded in acceptance.
+Plan the Locust session to cover warmup, preflight, exposure and recovery. Longer API/database outages can reach the existing workload error/UNKNOWN safety ceilings; extending exposure does not disable those safeguards or promise recovery under sustained load. PostgreSQL outage is available with normal `make up`; proxy faults still need deliberate routing, and unsupported CPU pressure stays disabled. The full three-hundred-second range is configuration-tested; actual fault demonstrations and their durations are recorded in acceptance.
 
 The workload prerequisite is visible before injection. Run stays disabled while Locust is idle, warming up, stale, or lacking productive measured reads/writes. Preflight remains available for diagnostics. `LOAD_NOT_ACTIVE` includes the Locust link and a next step; native INVALID summaries include safe reason/remediation rather than just an exception class. Old history reads the preserved failure artifact without rewriting it.
 
-Manual Locust evidence is measured and suitable for the existing experiment gates, but its performance report remains `INCOMPLETE` with `MANUAL_UI_SESSION_NOT_A_QUALIFIED_BENCHMARK`. Use versioned headless commands for capacity qualification. Controls accept only the eight reviewed scenario IDs, never uploaded YAML, arbitrary flags, targets or commands. CPU is shown as unavailable; database interruption needs `ALLOW_DATABASE_CHAOS=true` for both Workbench and gateway. Proxy scenarios refuse direct dependency routing.
+Manual Locust evidence is measured and suitable for the existing experiment gates, but its performance report remains `INCOMPLETE` with `MANUAL_UI_SESSION_NOT_A_QUALIFIED_BENCHMARK`. Use versioned headless commands for capacity qualification. Controls accept only the eight reviewed scenario IDs, never uploaded YAML, arbitrary flags, targets or commands. CPU is shown as unavailable. Workbench, gateway and CLI share the Compose database-interruption permission, enabled by default. An explicitly disabled database scenario is marked unavailable. Proxy scenarios refuse direct dependency routing.
 
 `LOAD_BASELINE_ERRORS` means one of the recent measured transport/contract counters increased before injection. Inspect the Locust Errors tab and retained workload report; earlier lifetime errors alone do not block a later clean window. Wait for at least 35 seconds of productive error-free measured traffic after the last error, then check preflight again. A 2026-10-11 paced-100-user connection-reset race is fixed by retiring four-second-idle client sockets before the API closes them at five seconds; genuine failures continue to block the gate. [Keep-alive evidence](../artifacts/baseline/keepalive-v1/README.md) preserves the failed session, reproductions and new validation.
 
@@ -64,7 +64,7 @@ The named scenario must be a reviewed native Chaos Toolkit YAML. The operator ca
 | `005-db-network-delay` | 15 s / 150 ms | Toxiproxy | Only the run-owned latency toxic removed |
 | `006-cpu-pressure` | Disabled | Pumba stress-ng definition only | Refused on every backend pending kernel containment proof |
 | `007-redis-network-partition` | 15 s | Toxiproxy | Original explicit Redis proxy enabled/configuration restored |
-| `008-postgres-outage` | 8 s | Pumba stop/restart | Explicit opt-in, original DB/volume, full reconciliation |
+| `008-postgres-outage` | 8 s | Pumba stop/restart | Confirm selected run, original DB/volume, full reconciliation |
 
 `chaos-list` reports observed capability state. Network support requires actual isolated Linux `tc` probing. CPU injection is currently always refused with `KERNEL_CGROUP_MEMBERSHIP_UNVERIFIED`: Docker configuration echoes and coincident memory deltas do not prove containment. Its diagnostic uses a bounded read-only helper, never a stressor. The acceptance document records what actually ran on the available platform.
 
@@ -75,13 +75,12 @@ On this Docker Desktop cgroup-v2 host, an explicitly bounded 15-second idle help
 Default nominal traffic still stops immediately on unknown integrity evidence. To deliberately test recovery under sustained traffic, select `dependency_recovery`: at most 20 users, 600 measured seconds, a recorded 20-second uncertainty grace with independent expiry, and the existing 30% infrastructure-error threshold over 60 seconds. UNKNOWN is never PASS; a proven invariant FAIL always stops. Use separate terminals:
 
 ```sh
-# Arm only this conservative database scenario; retain normal direct dependency routing.
-ALLOW_DATABASE_CHAOS=true docker compose --profile chaos up -d --no-deps docker-gate chaos-watchdog chaos-workbench
+# Normal startup includes the reviewed database scenario; retain direct dependency routing.
+make up
 LOAD_IMAGE_PREBUILT=true PROFILE=dependency_recovery DURATION=360 WARMUP=30 USERS=20 RATE=20 sh scripts/load-run.sh
 # Once Workbench reports ready, in another terminal:
-ALLOW_DATABASE_CHAOS=true CHAOS_IMAGE_PREBUILT=true sh chaos/scripts/experiment.sh run 008-postgres-outage
-# After the run and verification, restore the ordinary opt-in state:
-ALLOW_DATABASE_CHAOS=false docker compose --profile chaos up -d --no-deps docker-gate chaos-watchdog chaos-workbench
+CHAOS_IMAGE_PREBUILT=true sh chaos/scripts/experiment.sh run 008-postgres-outage
+# After the run, verify the restored system:
 make verify
 ```
 
@@ -117,16 +116,17 @@ make verify
 
 These commands deliberately recreate selected clients as routing changes; an active experiment never changes their routing or restarts the load generator to conceal impact.
 
-## Database opt-in
+## Database interruption availability
 
-Before the PostgreSQL-outage scenario, explicitly grant the gate and invocation permission. This does not grant broader targets or filesystem access:
+Normal `make up` makes the reviewed PostgreSQL-outage scenario available. The Compose default and `.env.example` set `ALLOW_DATABASE_CHAOS=true` consistently for Workbench, the authorization gateway and the one-shot CLI runner. Availability does not start a fault, authorize broader targets or grant filesystem access. Select the scenario and confirm Run after healthy preflight:
 
 ```sh
-ALLOW_DATABASE_CHAOS=true docker compose -f compose.yaml -f compose.chaos.yaml \
-  up -d --wait docker-gate chaos-watchdog
-ALLOW_DATABASE_CHAOS=true CHAOS_IMAGE_PREBUILT=true make chaos-run SCENARIO=008-postgres-outage
-docker compose -f compose.yaml -f compose.chaos.yaml up -d --wait docker-gate chaos-watchdog
+make up
+CHAOS_IMAGE_PREBUILT=true make chaos-preflight SCENARIO=008-postgres-outage
+CHAOS_IMAGE_PREBUILT=true make chaos-run SCENARIO=008-postgres-outage
 ```
+
+To deliberately disable database interruption, set `ALLOW_DATABASE_CHAOS=false` in `.env` and run `make up`. Both the gateway and Workbench refuse it, and the browser disables its controls. Set it back to `true` and run `make up` to restore availability. Existing `.env` files that explicitly contain the old `false` setting need that single setting updated; passwords and database data are unaffected. A shell override also follows normal Compose precedence. CLI wrappers no longer overwrite the configured permission when the shell variable is absent.
 
 The existing load controller's integrity/error safeguards remain authoritative. A database outage may trigger its independent safety stop; the experiment records that external intervention and cannot claim recovery under sustained load. Financial records are never altered to force a passing result.
 

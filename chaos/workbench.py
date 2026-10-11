@@ -52,7 +52,7 @@ DESCRIPTIONS = {
     "005-db-network-delay": "Add PostgreSQL latency through deliberately configured Toxiproxy routing.",
     "006-cpu-pressure": "Disabled until actual kernel resource containment can be proven.",
     "007-redis-network-partition": "Interrupt explicitly proxied Redis connections, then restore them.",
-    "008-postgres-outage": "Explicit database opt-in required; known workload safety-stop finding.",
+    "008-postgres-outage": "Interrupt PostgreSQL; restore the original database and verify financial integrity.",
 }
 
 
@@ -303,7 +303,10 @@ def create_app():
                     "min_duration_seconds": MIN_EXPOSURE_SECONDS,
                     "max_duration_seconds": MAX_EXPOSURE_SECONDS,
                     "description": DESCRIPTIONS[name],
-                    "enabled": kind != "stress",
+                    "enabled": kind != "stress"
+                    and (
+                        not name.startswith("008-") or os.getenv("ALLOW_DATABASE_CHAOS") == "true"
+                    ),
                     "requires_proxy": kind in {"toxic", "partition"},
                     "database_opt_in": name.startswith("008-"),
                 }
@@ -351,9 +354,7 @@ def create_app():
             if operation == "run" and value.confirm != value.scenario:
                 raise HTTPException(422, "Explicit selected-scenario confirmation required")
             if value.scenario.startswith("008-") and os.getenv("ALLOW_DATABASE_CHAOS") != "true":
-                raise HTTPException(
-                    409, "Database interruption requires explicit deployment opt-in"
-                )
+                raise HTTPException(409, "Database interruption is disabled in this deployment")
         elif value.scenario or value.confirm or value.duration_seconds is not None:
             raise HTTPException(422, "Abort/restore accept no scenario or arbitrary arguments")
         return jobs.start(operation, value.scenario, value.duration_seconds)

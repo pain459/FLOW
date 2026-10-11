@@ -157,6 +157,30 @@ async def test_idle_fault_preflight_displays_actionable_load_requirement():
         await browser.close()
 
 
+async def test_postgres_preflight_is_available_in_normal_stack():
+    """Use the deployed browser/API path; idle load prevents any fault injection."""
+    from playwright.async_api import async_playwright, expect
+
+    async with httpx.AsyncClient(timeout=5, trust_env=False) as client:
+        state = (await client.get("http://locust:8089/stats/requests")).json()["state"]
+        assert state in {"ready", "stopped"}, "This check requires idle Locust"
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch()
+        page = await browser.new_page()
+        await page.goto("http://chaos-workbench:8090/")
+        await page.locator('[data-scenario="008-postgres-outage"]').click()
+        await expect(page.locator("#scenario-note")).to_contain_text("available")
+        await expect(page.locator("#preflight")).to_be_enabled()
+        await expect(page.locator("#run")).to_be_disabled()
+        async with page.expect_response("**/api/actions/preflight") as response:
+            await page.locator("#preflight").click()
+        assert (await response.value).status == 202
+        await expect(page.locator("#job-status")).to_have_text("FAILED", timeout=30000)
+        await expect(page.locator("#job-output")).to_contain_text("LOAD_NOT_ACTIVE")
+        assert "deployment opt-in" not in await page.locator("#job-output").inner_text()
+        await browser.close()
+
+
 @pytest.mark.skipif(
     os.getenv("WORKBENCH_EXTERNAL_LOAD_TEST") != "true",
     reason="Requires explicit bounded existing workload",

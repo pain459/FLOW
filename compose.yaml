@@ -82,7 +82,7 @@ services:
     environment:
       <<: *framework-env
       SERVICE_NAME: chaos-workbench
-      ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-false}
+      ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-true}
     healthcheck:
       test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8090/health/live',timeout=2)"]
       interval: 5s
@@ -102,7 +102,7 @@ services:
     networks: [chaos-control]
     environment:
       COMPOSE_PROJECT_NAME: ${COMPOSE_PROJECT_NAME:-chaosloop}
-      ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-false}
+      ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-true}
     healthcheck:
       test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:2375/health',timeout=2)"]
       interval: 3s

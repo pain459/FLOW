@@ -17,7 +17,6 @@ chaos_ready() {
 }
 chaos_cli() {
   chaos_compose run --rm --no-deps -T \
-    -e ALLOW_DATABASE_CHAOS="${ALLOW_DATABASE_CHAOS:-false}" \
     -e CHAOS_IMAGE_ID="$(docker image inspect pulsepay-chaos:v1 --format '{{.Id}}')" \
     chaos-runner "$@"
 }

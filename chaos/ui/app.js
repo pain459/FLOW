@@ -22,7 +22,7 @@ function select(scenario) {
   $('#duration-seconds').max = scenario.max_duration_seconds;
   $('#duration-seconds').value = scenario.duration_seconds;
   $('#exposure-hint').textContent = `Choose ${scenario.min_duration_seconds}–${scenario.max_duration_seconds} seconds. The independent watchdog deadline adjusts automatically. Longer outages can trigger the workload safety stop.`;
-  $('#scenario-note').textContent = !scenario.enabled ? 'Unavailable: kernel CPU containment has not been independently verified.' : scenario.database_opt_in ? 'Database interruption needs explicit deployment opt-in. A previous run reached the load safety ceiling.' : scenario.requires_proxy ? 'Requires explicit Toxiproxy routing. Preflight checks the actual dependency configuration.' : 'Preflight requires fresh telemetry, stable write traffic and an independent PASS. The exact container target appears in the action output.';
+  $('#scenario-note').textContent = !scenario.enabled ? (scenario.database_opt_in ? 'Database interruption is disabled by the deployment configuration. Enable ALLOW_DATABASE_CHAOS and run make up to make this reviewed scenario available.' : 'Unavailable: kernel CPU containment has not been independently verified.') : scenario.database_opt_in ? 'PostgreSQL outage is available. Confirm the selected scenario before injection. The watchdog restores the original database; workload integrity and error safeguards remain active.' : scenario.requires_proxy ? 'Requires explicit Toxiproxy routing. Preflight checks the actual dependency configuration.' : 'Preflight requires fresh telemetry, stable write traffic and an independent PASS. The exact container target appears in the action output.';
   controls();
 }
 function exposure() {

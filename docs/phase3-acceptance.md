@@ -2,6 +2,31 @@
 
 **Overall catalog verdict: INCOMPLETE; seven supported scenarios have qualified recovery evidence.** The 2026-10-11 follow-up below fixes the hidden idle-load rejection, adds durable client-outcome recovery and qualifies PostgreSQL restoration under an explicitly bounded recovery workload. CPU pressure remains unavailable on this Docker host; native Linux/WSL2 remains unverified. Historical failed runs and their unresolved client outcomes are preserved, rather than relabeled.
 
+## Normal-stack PostgreSQL scenario availability — 2026-10-11
+
+The PostgreSQL-outage selection fix is **PASS**, executed on the existing `feat/pulsepay-dashboard` branch at HEAD `154a006`, with no new branch or commit. Normal Compose defaults previously disabled database interruption in Workbench and the gateway, while the CLI wrapper also replaced an absent shell setting with `false`. Workbench nevertheless advertised the scenario as enabled. The normal lab defaults now enable the reviewed scenario consistently in Workbench, gateway and CLI; wrappers respect Compose configuration. Explicit `ALLOW_DATABASE_CHAOS=false` remains an intentional opt-out and disables the catalog controls. Scenario confirmation, exact disposable-lab target authorization, preflight, exposure bounds, independent watchdog, workload safety and read-only verification remain enforced.
+
+Actual Docker checks:
+
+| Command/check | Observed result |
+|---|---|
+| Regression tests before implementation | 4 failed / 4 passed; reproduced CLI setting override and incorrect disabled catalog availability |
+| Deployed PostgreSQL browser check before implementation | Failed on the old deployment-opt-in message |
+| `make up` | Exit 0; normal stack rebuilt and started without extra environment arguments |
+| Runtime setting checks in Workbench, gateway and one-shot runner | All reported `ALLOW_DATABASE_CHAOS=true` |
+| `docker compose --profile observability --profile chaos config --quiet` | Exit 0 |
+| `docker compose -f compose.yaml -f compose.chaos.yaml --profile chaos run --rm --no-deps -T -v "$PWD:/workspace" --entrypoint pytest chaos-runner -c /dev/null -p no:cacheprovider -q chaos/tests` | 113 passed in 18.85 s |
+| `docker compose run --rm --no-deps -T -e WORKBENCH_UI_TEST=true -v "$PWD:/app" ui-tests pytest -q tests/ui/test_workbench_browser.py` | 4 passed / 3 optional fault tests skipped in 9.96 s |
+| `make chaos-validate SCENARIO=008-postgres-outage` | Native validation PASS; default exposure 8 s / TTL 120 s, no extra opt-in argument |
+| `docker compose run --rm --no-deps -T -v "$PWD:/app" tests pytest -q` | 56 passed / 16 optional live/browser tests skipped in 25.94 s |
+| `docker compose -f compose.yaml -f compose.load.yaml run --rm --no-deps -T -v "$PWD:/workspace" load-controller pytest -q load_generator/tests` | 66 passed in 5.73 s |
+| Ruff check and format plus mypy in the tests container with current repository mounted at `/app` | PASS; 137 Python files formatted, 88 runtime files type checked |
+| `docker compose exec -T verifier python -m verifier.main --once` | PASS; check `e055299a-4bd6-42cf-aed9-fe9d64ceb278`, 2026-10-11 16:08:10 UTC |
+
+The browser selected PostgreSQL outage in the running stack and received HTTP 202 for native preflight, rather than HTTP 409 for deployment opt-in. With intentionally idle Locust, the resulting `chaos-20261011T160751Z-2d01d8ee` report correctly remained `INVALID` / `LOAD_NOT_ACTIVE`: no injection occurred and the workload guard was not bypassed. Browser confirmation tests and gateway tests also preserve rejection of unconfirmed runs, unrelated projects, protected targets and wrong service roles. No real outage was needed for this availability correction; prior sealed recovery demonstrations remain unchanged. The suites emitted existing upstream deprecation warnings. An initial quality command used the application image without the full source tree and could not find `load_generator`; the repeated command with the current repository mounted completed successfully.
+
+At handoff, all 17 normal services were running; every service retained positive CPU/memory limits, totaling 6,016 MiB and 10.5 CPU in configured ceilings. No container was privileged or paused; only the private gateway mounted the Docker socket. The independent snapshot covered 200 accounts and 99,754 transfers, with balances and recorded issuance both 20,000,000 minor units, zero integrity violations, zero pending outbox rows and zero overdue projections. Gateway/watchdog were healthy and there was no active experiment. The local `.env` had no database-interruption override, so the corrected defaults applied without editing credentials. This is a scenario-availability fix, not a new capacity or fault-recovery qualification.
+
 Latest gap-closure work uses existing branch `feat/pulsepay-dashboard` at `680d097`, without a new branch, commit, tag or push. Actual image/source hashes identify the working-tree build. See [gap-closure evidence](../artifacts/baseline/gap-closure-v1/README.md) and [its implementation ledger](superpowers/plans/2026-10-11-fault-readiness-and-gap-closure.md). The original framework-v1 evidence and limitations below describe its historical build.
 
 Executed on 2026-10-10/11 using Docker Desktop's Linux arm64 VM on macOS. Existing branch `feat/pulsepay-dashboard` is preserved, with no new branch, commit, tag or push. Git HEAD is `ebb71ac5fb13038bc61447293651782176231f94`; actual image IDs, scenario hashes and manifests identify uncommitted builds. Native Linux and Windows/WSL2 were unavailable and remain unverified.

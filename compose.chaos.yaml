@@ -25,6 +25,7 @@ x-chaos-env: &chaos-env
   SERVICE_NAME: chaos-runner
   PULSEPAY_CURRENCY: ${PULSEPAY_CURRENCY:-INR}
   CHAOS_BASELINE_PATH: /baselines/workload-v3/baseline.json
+  ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-true}
 services:
   chaos-runner:
     <<: *chaos
