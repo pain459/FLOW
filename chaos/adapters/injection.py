@@ -123,7 +123,7 @@ def observe(configuration=None):
                 "sampled_at": state.now(),
             },
         )
-        snapshot = observations.snapshot(sample, lease["run_id"])
+        snapshot = observations.publish(sample, lease["run_id"])
         state.write(path / "observation.json", snapshot)
         with (path / "observations.jsonl").open("a") as file:
             file.write(json.dumps(snapshot) + "\n")

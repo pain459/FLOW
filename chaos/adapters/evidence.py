@@ -1,4 +1,5 @@
 import hashlib
+import json
 from pathlib import Path
 from chaos import state
 from chaos.adapters import verification, observations, health_probes
@@ -157,7 +158,10 @@ def finish(lease, restore, framework_exit_code=None):
     state.write(path / "telemetry-after.json", telemetry)
     state.write(path / "integrity-after.json", post)
     state.write(path / "metrics-after.json", sample)
-    state.write(path / "observation.json", observations.snapshot(sample, lease["run_id"], post))
+    final_snapshot = observations.publish(sample, lease["run_id"], post)
+    state.write(path / "observation.json", final_snapshot)
+    with (path / "observations.jsonl").open("a") as stream:
+        stream.write(json.dumps(final_snapshot) + "\n")
     try:
         containers = Docker().targets()
     except Exception:

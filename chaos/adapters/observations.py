@@ -2,9 +2,14 @@
 
 import math
 import time
+import os
+import json
+import stat
+from pathlib import Path
 import httpx
 from chaos import state
 from load_generator.controller.telemetry import prometheus_sample
+from chaos.observation_contract import build_snapshot, validate_snapshot, valid_run_id, MAX_BYTES
 
 EXTRA_QUERIES = {
     "api_p50_seconds": 'histogram_quantile(0.50,sum by(le)(rate(http_request_duration_seconds_bucket{job="api"}[30s])))',
@@ -12,11 +17,14 @@ EXTRA_QUERIES = {
     "api_5xx_rate": 'sum(rate(http_requests_total{job="api",status_class="5xx"}[30s]))',
     "api_4xx_rate": 'sum(rate(http_requests_total{job="api",status_class="4xx"}[30s]))',
     "db_observed_at": 'pulsepay_database_observed_timestamp_seconds{job="db-observer"}',
+    "worker_observed_at": 'pulsepay_component_observed_timestamp_seconds{job="event-worker",service="event-worker"}',
+    "relay_observed_at": 'pulsepay_component_observed_timestamp_seconds{job="outbox-relay",service="outbox-relay"}',
     "db_reachable": 'pulsepay_service_up{job="db-observer",service="db-observer"}',
     "worker_quarantine": 'sum(pulsepay_events_processed_total{job="event-worker",outcome="quarantined"})',
-    "load_rps": "max(load_measured_rps)",
-    "load_users": "max(load_active_users)",
-    "load_target_users": "max(load_target_users)",
+    "consumer_oldest_seconds": 'pulsepay_consumer_oldest_pending_age_seconds{job="event-worker"}',
+    "load_rps": "max by(job)(load_measured_rps and on(job) (load_active_users > 0))",
+    "load_users": "max(load_active_users and on(job) (load_active_users > 0))",
+    "load_target_users": "max(load_target_users and on(job) (load_active_users > 0))",
     "load_network_rx": "max(load_generator_network_received_bytes)",
     "load_network_tx": "max(load_generator_network_sent_bytes)",
     "load_timeouts": 'sum(load_outcome_requests_total{outcome="timeout",phase="measured"})',
@@ -36,17 +44,22 @@ def capture():
                 metrics["values"][name] = (
                     value if value is not None and math.isfinite(value) else None
                 )
+                if name == "load_rps" and len(rows) == 1:
+                    job = rows[0].get("metric", {}).get("job")
+                    if job in ("load", "locust"):
+                        metrics["active_load_job"] = job
                 if metrics["values"][name] is None:
                     metrics["gaps"].append(name)
             except (ValueError, KeyError, httpx.HTTPError):
                 metrics["values"][name] = None
                 metrics["gaps"].append(name)
-        health, totals, api_response_ms = None, None, None
+        health, totals, api_response_ms, health_observed_at = None, None, None, None
         started = time.monotonic()
         try:
             response = client.get("http://api:8080/health/dependencies")
             response.raise_for_status()
             health = response.json()
+            health_observed_at = state.now()
             api_response_ms = (time.monotonic() - started) * 1000
             dashboard = client.get("http://api:8080/api/v1/dashboard")
             dashboard.raise_for_status()
@@ -62,64 +75,42 @@ def capture():
             "health": health,
             "totals": totals,
             "health_request_latency_ms": api_response_ms,
+            "health_observed_at": health_observed_at,
         }
 
 
 def snapshot(sample, run_id, integrity=None):
-    values = sample["metrics"]["values"]
-    dependencies = (sample.get("health") or {}).get("dependencies", {})
+    return build_snapshot(sample, run_id, integrity)
 
-    def reachable(name):
-        status = dependencies.get(name, {}).get("status")
-        return True if status == "HEALTHY" else False if status == "UNHEALTHY" else None
 
-    rps, failures = values.get("api_rps"), values.get("api_5xx_rate")
-    return {
-        "schema_version": "1.0",
-        "run_id": run_id,
-        "observation_time": sample["observed_at"],
-        "window_seconds": sample["window_seconds"],
-        "system": "pulsepay",
-        "api": {
-            "rps": rps,
-            "error_rate_pct": failures / rps * 100 if failures is not None and rps else None,
-            "p50_ms": values.get("api_p50_seconds") * 1000
-            if values.get("api_p50_seconds") is not None
-            else None,
-            "p95_ms": values.get("api_p95_seconds") * 1000
-            if values.get("api_p95_seconds") is not None
-            else None,
-            "p99_ms": values.get("api_p99_seconds") * 1000
-            if values.get("api_p99_seconds") is not None
-            else None,
-        },
-        "database": {
-            "reachable": reachable("postgres"),
-            "connection_usage_pct": values.get("db_connection_usage_percent"),
-            "lock_waits": values.get("db_lock_waits"),
-            "deadlocks": values.get("db_deadlocks"),
-        },
-        "redis": {"reachable": reachable("redis")},
-        "worker": {
-            "outbox_pending": values.get("outbox_pending"),
-            "consumer_lag_seconds": values.get("outbox_oldest_seconds"),
-        },
-        "integrity": {
-            "status": (integrity or {}).get("status", "UNKNOWN"),
-            "verified_at": (integrity or {}).get("finished_at"),
-        },
-        "load": {
-            "rps": values.get("load_rps"),
-            "active_users": values.get("load_users"),
-            "configured_users": values.get("load_target_users"),
-        },
-        "missing_observations": sorted(set(sample["metrics"]["gaps"])),
-        "available_investigations": [
-            "inspect_api",
-            "inspect_database",
-            "inspect_redis",
-            "inspect_workers",
-            "collect_more_evidence",
-            "escalate",
-        ],
-    }
+def publish(sample, run_id, integrity=None, *, root=None):
+    value = validate_snapshot(snapshot(sample, run_id, integrity))
+    configured = root if root is not None else os.getenv("OBSERVATION_DIR")
+    if configured is None:
+        return value
+    if not valid_run_id(run_id):
+        raise ValueError("Unsafe observation identifier")
+    root = Path(configured)
+    root.mkdir(parents=True, exist_ok=True)
+    if root.is_symlink() or not root.is_dir():
+        raise ValueError("Unsafe observation namespace")
+    directory = root / run_id
+    directory.mkdir(exist_ok=True)
+    if root.is_symlink() or directory.is_symlink() or not directory.is_dir():
+        raise ValueError("Unsafe observation namespace")
+    line = (json.dumps(value, allow_nan=False) + "\n").encode()
+    descriptor = os.open(
+        directory / "sequence.jsonl",
+        os.O_WRONLY | os.O_APPEND | os.O_CREAT | os.O_NOFOLLOW | os.O_NONBLOCK,
+        0o660,
+    )
+    with os.fdopen(descriptor, "ab") as stream:
+        info = os.fstat(stream.fileno())
+        if not stat.S_ISREG(info.st_mode) or info.st_size + len(line) > MAX_BYTES:
+            raise ValueError("Unsafe or oversized observation sequence")
+        stream.write(line)
+        stream.flush()
+        os.fsync(stream.fileno())
+    state.write(directory / "latest.json", value)
+    state.write(root / "latest.json", {"run_id": run_id})
+    return value

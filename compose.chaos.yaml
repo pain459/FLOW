@@ -26,6 +26,7 @@ x-chaos-env: &chaos-env
   PULSEPAY_CURRENCY: ${PULSEPAY_CURRENCY:-INR}
   CHAOS_BASELINE_PATH: /baselines/workload-v3/baseline.json
   ALLOW_DATABASE_CHAOS: ${ALLOW_DATABASE_CHAOS:-true}
+  OBSERVATION_DIR: /observations
 services:
   chaos-runner:
     <<: *chaos
@@ -35,11 +36,13 @@ services:
       - ./.git:/revision:ro
       - chaos-control:/control
       - chaos-evidence:/evidence
+      - chaos-observations:/observations
       - load-reports:/load-reports:ro
     networks: [internal, chaos-control]
     environment: *chaos-env
     depends_on:
       chaos-watchdog: {condition: service_healthy}
+      observation-init: {condition: service_completed_successfully}
   pumba:
     image: ghcr.io/alexei-led/pumba:1.2.1@sha256:780505fe261932765921c94a23e24bda107c72927654c26a5893a238d7708bf0
     profiles: [chaos-tools]

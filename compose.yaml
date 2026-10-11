@@ -66,6 +66,7 @@ x-framework-env: &framework-env
   DATABASE_URL: postgresql+asyncpg://pulsepay_verifier:${VERIFIER_PASSWORD:?run bootstrap}@postgres:5432/${POSTGRES_DB:-pulsepay}
   PULSEPAY_CURRENCY: ${PULSEPAY_CURRENCY:-INR}
   CHAOS_BASELINE_PATH: /baselines/workload-v3/baseline.json
+  OBSERVATION_DIR: /observations
 
 services:
   chaos-workbench:
@@ -78,6 +79,7 @@ services:
       - ./.git:/revision:ro
       - chaos-control:/control
       - chaos-evidence:/evidence
+      - chaos-observations:/observations
       - load-reports:/load-reports:ro
     environment:
       <<: *framework-env
@@ -88,6 +90,50 @@ services:
       interval: 5s
       timeout: 3s
       retries: 20
+  observation-init:
+    build: {context: ., dockerfile: chaos/Dockerfile.observations}
+    image: pulsepay-observations:v1
+    entrypoint: [python, -c]
+    command: ['import os; os.chown("/observations",1001,1001); os.chmod("/observations",0o770)']
+    user: '0:1001'
+    read_only: true
+    volumes: [chaos-observations:/observations]
+    network_mode: none
+    mem_limit: 32m
+    cpus: 0.1
+    pids_limit: 16
+    cap_drop: [ALL]
+    cap_add: [CHOWN, FOWNER]
+    security_opt: [no-new-privileges:true]
+    restart: 'no'
+    labels: {io.pulsepay.chaos.protected: 'true'}
+    logging: *infra-logging
+  observation-feed:
+    build: {context: ., dockerfile: chaos/Dockerfile.observations}
+    image: pulsepay-observations:v1
+    entrypoint: [python, -m, chaos.observation_feed]
+    init: true
+    user: '1001:1001'
+    read_only: true
+    tmpfs: ['/tmp:size=8m,mode=1777']
+    volumes: [chaos-observations:/observations:ro]
+    networks: [investigation]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 32
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 10s
+    restart: unless-stopped
+    labels: {io.pulsepay.chaos.protected: 'true'}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8091/health/live',timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    logging: *infra-logging
+    depends_on:
+      observation-init: {condition: service_completed_successfully}
   docker-gate:
     <<: *framework
     profiles: [chaos]
@@ -420,6 +466,7 @@ services:
 
 networks:
   internal: {internal: true}
+  investigation: {internal: true}
   edge:
   chaos-control:
     name: ${COMPOSE_PROJECT_NAME:-chaosloop}_chaos-control
@@ -436,3 +483,4 @@ volumes:
   chaos-control:
   chaos-evidence:
   chaos-authority:
+  chaos-observations:

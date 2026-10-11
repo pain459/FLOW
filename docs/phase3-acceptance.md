@@ -1,6 +1,12 @@
 # PulsePay framework experiment acceptance
 
-**Overall catalog verdict: INCOMPLETE; seven supported scenarios have qualified recovery evidence.** The 2026-10-11 follow-up below fixes the hidden idle-load rejection, adds durable client-outcome recovery and qualifies PostgreSQL restoration under an explicitly bounded recovery workload. CPU pressure remains unavailable on this Docker host; native Linux/WSL2 remains unverified. Historical failed runs and their unresolved client outcomes are preserved, rather than relabeled.
+**Current supported Phase 3 qualification: PASS; shadow-mode handoff GO.** The [2026-10-11 readiness completion](audits/phase3-completion.md) closes the observation/freshness, investigator-boundary and evaluator-evidence audit blockers, qualifies seven real supported scenarios plus a repeat, and proves runner-kill/abort restoration with independent integrity. The new matrix is 26 PASS / 1 SKIPPED_UNSUPPORTED. CPU pressure stays disabled on this backend; a Phase 4 read-only investigation executor remains future work. Historical results below retain their original dates, limits and verdicts.
+
+## Readiness completion — 2026-10-11 UTC
+
+Evidence: [readiness-v1](../artifacts/baseline/readiness-v1/README.md). Final suites: 157 framework, 57 application and 66 workload checks pass; browser/Locust/telemetry checks pass. Eight complete native PASS bundles cover API/worker pause, Redis/PostgreSQL outage, API/PostgreSQL latency and Redis partition/repeat. Watchdog SIGKILL and manual abort restore in 15 and 4 seconds, with ABORTED preserved. The final healthy nominal workload and all independent pre/post verifications pass; final funds equal recorded provisioning at 20,000,000 minor units. No unresolved new transfer outcomes remain.
+
+Normal stack handoff: one project, 18 persistent services, 6,144 MiB / 10.75 CPU ceilings, idle Locust, direct dependency routes, no active lease/helper/toxic, optional proxy stopped. Original five baseline seals (447 files) and the original audit (59 files) remain unchanged. Read-only investigator snapshots use a separate isolated feed; the operator UI continues to expose privileged history only to the operator.
 
 ## Normal-stack PostgreSQL scenario availability — 2026-10-11
 

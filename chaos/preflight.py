@@ -234,13 +234,17 @@ def preflight(lease, path):
     state.write(state.CONTROL / "active.json", {"run_id": lease["run_id"]})
     state.heartbeat(lease["run_id"])
     load = load_evidence()
-    sample = observations.capture()
     integrity = verification.collect()
+    sample = observations.capture()
     baseline = state.read(os.getenv("CHAOS_BASELINE_PATH", "/baselines/workload-v3/baseline.json"))
     if not baseline or baseline.get("result", baseline.get("status")) != "PASS":
         raise ValueError("A qualified healthy reference is required")
     if not health_probes.healthy(sample) or integrity["status"] != "PASS":
         raise ValueError("Healthy dependency/telemetry/independent integrity precondition failed")
+    snapshot = observations.publish(sample, lease["run_id"], integrity)
+    state.write(path / "observation.json", snapshot)
+    with (path / "observations.jsonl").open("a") as stream:
+        stream.write(json.dumps(snapshot) + "\n")
     telemetry = telemetry_evidence.collect(time.time() - 60)
     state.write(path / "telemetry-before.json", telemetry)
     if telemetry["missing"]:

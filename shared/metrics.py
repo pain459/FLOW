@@ -23,6 +23,9 @@ verification = Gauge(
     "pulsepay_verification_status", "PASS=0 FAIL=1 UNKNOWN=2 DEGRADED=3", ["check"]
 )
 service_up = Gauge("pulsepay_service_up", "Observed component reachable", ["service"])
+component_observed = Gauge(
+    "pulsepay_component_observed_timestamp_seconds", "Last completed component poll", ["service"]
+)
 
 # These finite dimensions have a known zero at process startup. Missing/stale
 # scrapes still mean UNKNOWN; initialization does not substitute for availability.

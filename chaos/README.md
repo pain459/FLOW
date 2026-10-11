@@ -20,7 +20,9 @@ make chaos-abort
 make chaos-restore
 ```
 
-`chaos-validate` validates without starting the authorization/watchdog services. First build with `docker compose -f compose.yaml -f compose.chaos.yaml build chaos-runner`. Subsequent commands can use `CHAOS_IMAGE_PREBUILT=true`. `chaos-preflight` creates only bounded read-only/dry-run helpers, including a `tc` capability probe in its own isolated loopback namespace. It never pauses an application target. Pumba's dry-run uses a fixed three-second targeting check.
+`chaos-validate` validates without starting the authorization/watchdog services. First build with `docker compose -f compose.yaml -f compose.chaos.yaml --profile chaos build chaos-runner`. Subsequent commands can use `CHAOS_IMAGE_PREBUILT=true`. `chaos-preflight` creates only bounded read-only/dry-run helpers, including a `tc` capability probe in its own isolated loopback namespace. It never pauses an application target. Pumba's dry-run uses a fixed three-second targeting check.
+
+Sanitized observation schema 1.1 and bounded replay are delivered by the separate `observation-feed` service on its private investigation network. The feed has no host port, control credentials, private artifacts or financial/telemetry connectivity. See [the observation contract](../docs/chaos-observations.md) for fields, freshness semantics and Docker access. Workbench remains an operator interface with privileged experiment history.
 
 The reviewed PostgreSQL-outage scenario is available with normal `make up`. Workbench, gateway and the CLI runner use the same Compose setting, enabled by default for this disposable lab. Each browser Run still needs explicit scenario confirmation. Set `ALLOW_DATABASE_CHAOS=false` in `.env` and run `make up` to deliberately disable database interruption; the gateway independently refuses it and Workbench marks it unavailable. The CLI respects this setting instead of replacing it with a shell default. Proxy scenarios require a deliberate routing overlay, documented in [operations](../docs/phase3-operations.md).
 

@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import random
+import time
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from typing import Protocol, TYPE_CHECKING
@@ -20,6 +21,12 @@ class Component(Protocol):
     health: str
 
     async def tick(self) -> int: ...
+
+
+async def observe_component(component: Component, service: str) -> None:
+    await component.tick()
+    # A failed or stalled poll must never refresh the provenance of cached gauges.
+    metrics.component_observed.labels(service).set(time.time())
 
 
 async def write_heartbeat(db: "Database", service: str, state: dict) -> None:
@@ -67,7 +74,7 @@ async def run_component(
         while True:
             stamp = datetime.now(timezone.utc).isoformat()
             try:
-                await component.tick()
+                await observe_component(component, config.service_name)
                 state.update(status=component.health, observed_at=stamp, reason="PROGRESS_CHECK")
                 if component.health == "HEALTHY":
                     state["last_success_at"] = stamp

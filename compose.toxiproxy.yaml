@@ -33,7 +33,10 @@ services:
     environment:
       REDIS_URL: redis://toxiproxy:16379/0
   docker-gate:
-    networks: [chaos-control, proxy-control]
+    networks:
+      chaos-control: {}
+      proxy-control:
+        ipv4_address: 10.254.251.3
 networks:
   proxy-control:
     internal: true
