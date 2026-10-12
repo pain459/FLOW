@@ -10,7 +10,7 @@ baseline:
 bootstrap:
 	sh scripts/bootstrap.sh
 up:
-	docker compose --profile observability --profile chaos up --build -d
+	sh scripts/phase4/up.sh
 down:
 	sh scripts/down.sh
 test:
@@ -18,7 +18,7 @@ test:
 lint:
 	docker compose run --rm tests sh -c 'ruff check . && ruff format --check . && mypy --explicit-package-bases --exclude "(^|/)tests/" apps shared workers verifier load_generator chaos'
 logs:
-	docker compose logs -f api outbox-relay event-worker
+	docker compose -f compose.yaml -f compose.phase4.yaml logs -f api outbox-relay event-worker incident-controller laya-service investigation-ui evidence-reader
 seed:
 	sh scripts/seed.sh
 verify:
@@ -71,3 +71,19 @@ chaos-recovery-test:
 	sh chaos/scripts/test-recovery.sh
 chaos-stop:
 	sh chaos/scripts/stop.sh
+
+.PHONY: intelligence-setup intelligence-test intelligence-replay intelligence-report intelligence-status intelligence-export intelligence-ask
+intelligence-ask:
+	sh scripts/phase4/ask.sh
+intelligence-setup:
+	sh scripts/phase4/setup.sh
+intelligence-test:
+	sh scripts/phase4/test.sh
+intelligence-replay:
+	sh scripts/phase4/replay.sh --dataset $(DATASET)
+intelligence-report:
+	sh scripts/phase4/report.sh
+intelligence-status:
+	docker compose -f compose.yaml -f compose.phase4.yaml run --rm --no-deps --entrypoint python incident-controller -m decision_engine.cli health
+intelligence-export:
+	sh scripts/phase4/export.sh

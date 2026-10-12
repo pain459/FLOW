@@ -1,0 +1,186 @@
+x-decision: &decision
+  init: true
+  user: '10001:10001'
+  read_only: true
+  tmpfs: ['/tmp:size=64m,mode=1777']
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 64
+  restart: unless-stopped
+  stop_grace_period: 20s
+  labels: {io.pulsepay.chaos.protected: 'true'}
+  logging: {driver: json-file, options: {max-size: '10m', max-file: '3'}}
+services:
+  ui-tests:
+    networks: [internal, investigation, decision-ui]
+    environment:
+      INTELLIGENCE_UI_TEST: 'true'
+      DECISION_API_TOKEN: ${DECISION_API_TOKEN:-unprovisioned}
+  postgres:
+    networks: [internal, decision-store]
+  incident-controller:
+    <<: *decision
+    profiles: [intelligence]
+    build: {context: ., dockerfile: decision_engine/Dockerfile, target: runtime}
+    image: pulsepay-decisions:v1
+    mem_limit: 384m
+    cpus: 0.5
+    networks: [investigation, decision-model, decision-store, decision-ui, decision-observations]
+    volumes:
+      - ./artifacts/baseline/readiness-v1/public-observations:/public:ro
+      - decision-evidence:/reports
+    environment:
+      DECISION_DATABASE_URL: postgresql://pulsepay_decision:${DECISION_PASSWORD:-unprovisioned}@postgres:5432/${POSTGRES_DB:-pulsepay}
+      DECISION_API_TOKEN: ${DECISION_API_TOKEN:-unprovisioned}
+      SOURCE_REVISION: ${SOURCE_REVISION:-94cfb14}
+    depends_on:
+      postgres: {condition: service_healthy}
+      evidence-reader: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8092/health/live',timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  evidence-reader:
+    <<: *decision
+    profiles: [intelligence]
+    image: pulsepay-decisions:v1
+    entrypoint: [uvicorn, decision_engine.api.evidence:app, --host, 0.0.0.0, --port, '8093', --no-access-log, --limit-concurrency, '4']
+    mem_limit: 128m
+    cpus: 0.25
+    networks: [internal, decision-observations]
+    # No mounts, secrets, DB principal, Docker access or chaos-control network.
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8093/health/live',timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  investigation-ui:
+    <<: *decision
+    profiles: [intelligence]
+    image: pulsepay-decisions:v1
+    entrypoint: [uvicorn, decision_engine.api.ingress:app, --host, 0.0.0.0, --port, '8092', --no-access-log, --limit-concurrency, '32']
+    mem_limit: 128m
+    cpus: 0.25
+    networks: [decision-ui, edge]
+    ports: ['127.0.0.1:${INVESTIGATION_PORT:-8092}:8092']
+    depends_on:
+      incident-controller: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8092/health/live',timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  decision-roles:
+    <<: *decision
+    profiles: [tools]
+    build: {context: ., dockerfile: decision_engine/Dockerfile, target: tools}
+    image: pulsepay-decisions-tools:v1
+    entrypoint: [python, -m, decision_engine.setup_roles]
+    restart: 'no'
+    mem_limit: 128m
+    cpus: 0.25
+    networks: [decision-store]
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-pulsepay_owner}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run bootstrap}
+      POSTGRES_DB: ${POSTGRES_DB:-pulsepay}
+      DECISION_PASSWORD: ${DECISION_PASSWORD:-unprovisioned}
+      DECISION_MIGRATOR_PASSWORD: ${DECISION_MIGRATOR_PASSWORD:-unprovisioned}
+      EVALUATOR_PASSWORD: ${EVALUATOR_PASSWORD:-unprovisioned}
+  decision-migrate:
+    <<: *decision
+    profiles: [tools]
+    build: {context: ., dockerfile: decision_engine/Dockerfile, target: tools}
+    image: pulsepay-decisions-tools:v1
+    entrypoint: [alembic, -c, alembic.decision.ini, upgrade, head]
+    restart: 'no'
+    mem_limit: 256m
+    cpus: 0.25
+    networks: [decision-store]
+    environment:
+      DECISION_MIGRATION_URL: postgresql+asyncpg://pulsepay_decision_migrator:${DECISION_MIGRATOR_PASSWORD:-unprovisioned}@postgres:5432/${POSTGRES_DB:-pulsepay}
+  laya-service:
+    <<: *decision
+    profiles: [intelligence]
+    build: {context: ., dockerfile: decision_engine/Dockerfile.model}
+    image: pulsepay-laya:0.4.3
+    mem_limit: 3g
+    cpus: 2.0
+    networks: [decision-model]
+    volumes: [laya-cache:/cache:ro]
+    environment:
+      LAYA_REVISION: e4e9ddf21a7b1903b7acffd8814ad4307bf63a67
+      HF_HUB_OFFLINE: '1'
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8010/health/ready',timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+      start_period: 60s
+  model-provision:
+    <<: *decision
+    profiles: [tools]
+    build: {context: ., dockerfile: decision_engine/Dockerfile.model}
+    image: pulsepay-laya:0.4.3
+    entrypoint: [python, -m, decision_engine.provision]
+    restart: 'no'
+    mem_limit: 512m
+    cpus: 0.5
+    networks: [edge]
+    volumes: [laya-cache:/cache]
+    environment: {HF_HUB_OFFLINE: '0'}
+  decision-evaluator:
+    <<: *decision
+    profiles: [tools]
+    build: {context: ., dockerfile: decision_engine/Dockerfile, target: tools}
+    image: pulsepay-decisions-tools:v1
+    entrypoint: [python, -m, decision_engine.evaluation.scorer]
+    restart: 'no'
+    mem_limit: 256m
+    cpus: 0.5
+    networks: [decision-store]
+    volumes:
+      - ./artifacts/baseline/readiness-v1/runs:/truth:ro
+      - ./artifacts/baseline/readiness-v1/public-observations:/public:ro
+      - decision-evidence:/reports:ro
+      - ./artifacts/phase4/evaluations:/evaluations
+    environment:
+      EVALUATION_DATABASE_URL: postgresql://pulsepay_evaluator:${EVALUATOR_PASSWORD:-unprovisioned}@postgres:5432/${POSTGRES_DB:-pulsepay}
+  decision-tests:
+    <<: *decision
+    profiles: [tests]
+    build: {context: ., dockerfile: decision_engine/Dockerfile, target: tools}
+    image: pulsepay-decisions-tools:v1
+    restart: 'no'
+    entrypoint: [pytest, -c, decision_engine/pytest.ini, -q, decision_engine/tests]
+    mem_limit: 384m
+    cpus: 0.5
+    networks: [decision-store]
+    volumes:
+      - ./artifacts/baseline/readiness-v1/public-observations:/public:ro
+      - decision-test-evidence:/reports
+    environment:
+      DECISION_DATABASE_URL: postgresql://pulsepay_decision:${DECISION_PASSWORD:-unprovisioned}@postgres:5432/pulsepay_decision_test
+      DECISION_API_TOKEN: ${DECISION_API_TOKEN:-unprovisioned}
+  decision-export:
+    <<: *decision
+    profiles: [tools]
+    image: pulsepay-decisions-tools:v1
+    entrypoint: [python, -m, decision_engine.export_bundles]
+    restart: 'no'
+    mem_limit: 128m
+    cpus: 0.25
+    network_mode: none
+    volumes:
+      - decision-evidence:/reports:ro
+      - ./artifacts/phase4/sessions:/exports
+networks:
+  decision-ui: {internal: true}
+  decision-observations: {internal: true}
+  decision-model: {internal: true}
+  decision-store: {internal: true}
+volumes:
+  laya-cache:
+  decision-evidence:
+  decision-test-evidence:

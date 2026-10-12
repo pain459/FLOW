@@ -27,6 +27,17 @@ Every Compose service has an explicit CPU quota and memory ceiling, including on
 | Pumba / namespace helper (each, at most four) | 64 MiB | 0.25 |
 | Reserved stress helper (currently disabled) | 64 MiB | 1 |
 | Optional Toxiproxy | 64 MiB | 0.25 |
+| CPU Laya inference | 3,072 MiB | 2 |
+| Incident controller | 384 MiB | 0.5 |
+| Localhost investigation ingress | 128 MiB | 0.25 |
+| Fixed-read live evidence reader | 128 MiB | 0.25 |
+| Model provisioning (transient) | 512 MiB | 0.5 |
+| Decision roles / export (each, transient) | 128 MiB | 0.25 |
+| Decision migration (transient) | 256 MiB | 0.25 |
+| Evaluator (transient) | 256 MiB | 0.5 |
+| Decision tests (transient) | 384 MiB | 0.5 |
+
+The inference/controller/ingress/evidence services add **3,712 MiB / 3.00 CPUs** to the earlier persistent ceiling totals: **9,856 MiB / 13.75 CPUs** overall. These are enforced per-service ceilings, not reserved usage. The current 8 GiB Docker VM was sufficient for the measured idle/replay checks; allocating 12 GiB provides headroom for the complete stack and transient test jobs. This does not establish high-load capacity. No service is uncapped.
 
 The normal persistent `make up` stack, including idle Locust, Workbench, its gateway/watchdog, the read-only database observer and restricted observation feed, totals **6,144 MiB / 10.75 CPU ceilings**. A headless run plus its helpers adds **928 MiB / 1.35 CPUs**, for **7,072 MiB / 12.10 CPUs** while running. Browser-triggered native Toolkit processes share the Workbench's 384 MiB / 0.5 CPU ceiling; a separate CLI runner adds 384 MiB / 0.5 CPU only while invoked. Each Pumba/namespace helper is capped and at most four can exist. CPU stress is disabled on every backend until actual kernel parent-cgroup containment is proven. CPU quotas limit individual processes; fewer physical CPUs simply mean shared contention. Configure the Docker VM with sufficient memory for the chosen services and transient jobs. The temporary qualification project is a second copy only while validation runs; its exit cleanup stops all profiles without deleting evidence. Plain `docker compose up` without the `chaos` profile starts Workbench in history/read-only mode; `make up` enables the reviewed controls, without automatic injection.
 

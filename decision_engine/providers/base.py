@@ -1,0 +1,6 @@
+from typing import Protocol
+
+
+class DecisionProvider(Protocol):
+    async def decide(self, state: dict, questions: dict) -> dict: ...
+    async def health(self) -> dict: ...

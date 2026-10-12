@@ -20,7 +20,15 @@ def test_reset_requires_acknowledgement_and_exact_project(tmp_path, ack, project
     calls = tmp_path / "calls"
     fake.write_text("""#!/usr/bin/env python3
 import json,os,sys
-if sys.argv[1:4]==['compose','config','--format']:
+args=sys.argv[1:]
+if args[0]=='compose':
+    position=1
+    while position < len(args) and args[position] in ('-f','--file','--profile'):
+        position+=2
+    operation=args[position:]
+else:
+    operation=[]
+if operation==['config','--format','json']:
     print(json.dumps({'name':os.environ['FAKE_PROJECT']}))
 elif sys.argv[1]=='run':
     print(json.load(sys.stdin)['name'])
@@ -50,6 +58,7 @@ else:
     if allowed:
         command = calls.read_text()
         assert "down --volumes --remove-orphans" in command
+        assert "-f compose.yaml -f compose.phase4.yaml" in command
         assert "prune" not in command
     else:
         assert not calls.exists()

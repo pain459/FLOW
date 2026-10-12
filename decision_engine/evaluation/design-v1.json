@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "design_version": "paired-replay-v1",
+  "question_version": "investigation-v1",
+  "policy_version": "shadow-policy-v1",
+  "development_runs": ["chaos-20261011T173126Z-f0cfd929", "chaos-20261011T173244Z-4a48ffcd", "chaos-20261011T173405Z-bb98b14a", "chaos-20261011T173544Z-173e7b3b"],
+  "holdout_runs": ["chaos-20261011T174755Z-e8a0f1e2", "chaos-20261011T174926Z-4f60f4c4", "chaos-20261011T175051Z-26dc651c", "chaos-20261011T175250Z-2fba1d4e"],
+  "comparison_step": "first step with two consecutive observed impaired windows; exclude unavailable answers and retain exclusion counts",
+  "positive_gate": "native PASS and injector confirmation and independently observed impact",
+  "healthy_controls": "recorded snapshots before observed impairment; detector false alarms separately reported",
+  "ranking_yield": "UNKNOWN: no captured diagnostic execution results; no invented counterfactuals",
+  "confidence_policy": "uncalibrated; no learned thresholds; noul 0.5 only indicates evidence preference",
+  "sample_limits": "8 whole runs, 4 holdout runs; repeated Redis partition correlated; no population generalization"
+}
