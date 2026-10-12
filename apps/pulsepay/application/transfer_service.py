@@ -10,7 +10,7 @@ from apps.pulsepay.domain.transfers import MAX_MINOR, request_hash
 from apps.pulsepay.infrastructure.db import Database
 from apps.pulsepay.persistence.models import Account, LedgerEntry, OutboxEvent, Transfer
 from apps.pulsepay.schemas.transfers import TransferRequest
-from shared.logging import request_id_var
+from shared.logging import request_id_var, call_id_var
 
 tracer = trace.get_tracer(__name__)
 
@@ -96,7 +96,11 @@ async def transfer(db: Database, request: TransferRequest, key: str) -> tuple[Tr
                         "transfer_id": str(result.id),
                         "schema_version": 1,
                         "event_type": "TransferCommitted",
-                        "metadata": {**carrier, "request_id": request_id_var.get()},
+                        "metadata": {
+                            **carrier,
+                            "request_id": request_id_var.get(),
+                            "call_id": call_id_var.get(),
+                        },
                     }
                     session.add(
                         OutboxEvent(

@@ -313,16 +313,16 @@ def answer_view(state: dict, raw_answers: dict) -> dict:
     )
     facts = []
     if live.database.reachable is False:
-        facts.append("Current database reachability probe failed")
+        facts.append("Database reachability signal failed in the selected window")
     if live.redis.reachable is False:
-        facts.append("Current Redis reachability probe failed")
+        facts.append("Redis reachability signal failed in the selected window")
     if live.database.connection_usage_pct is not None and live.database.connection_usage_pct >= 80:
         facts.append(f"Database connection usage {live.database.connection_usage_pct:.1f}%")
     if live.database.lock_waits:
         facts.append(f"Database lock waits {live.database.lock_waits:g}")
     if live.api.error_rate_pct:
         facts.append(
-            f"Current HTTP 5xx rate {live.api.error_rate_pct:.1f}% over {live.window_seconds}s"
+            f"HTTP 5xx rate {live.api.error_rate_pct:.1f}% over the selected {live.window_seconds}s window"
         )
     if live.worker.outbox_oldest_seconds:
         facts.append(f"Oldest pending outbox event {live.worker.outbox_oldest_seconds:.1f}s")

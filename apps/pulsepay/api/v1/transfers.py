@@ -31,7 +31,10 @@ async def create(
         metrics.transfer_duration.observe(time.monotonic() - started)
     await cache.invalidate(request.source_account_id, request.destination_account_id)
     response.status_code = 200 if repeated else 201
-    log.info("transfer_replayed" if repeated else "transfer_committed")
+    log.info(
+        "transfer_replayed" if repeated else "transfer_committed",
+        extra={"event": "transfer_replayed" if repeated else "transfer_committed"},
+    )
     return TransferResponse.model_validate(result).model_copy(
         update={"request_id": request_id_var.get()}
     )

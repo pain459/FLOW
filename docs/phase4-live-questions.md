@@ -2,7 +2,7 @@
 
 The operator can ask Laya about a call while PulsePay is running, whether or not an experiment exists. This extends the approved suggestion flow; it does not grant autonomous diagnostic execution or infrastructure control.
 
-Open `http://127.0.0.1:8092/`, enter your local `DECISION_API_TOKEN`, and use **Ask Laya now**. Supply an error/trace excerpt, a response's `X-Request-ID`, a 32-character lowercase W3C trace ID, or no correlation reference to inspect the current window. Request/trace lookups are bounded to 1–15 minutes; system metrics use a separate 30-second window. Re-ask after fresh evidence arrives. Each submission reserves an idempotent, durable session and makes exactly one model decision.
+The default UI at `http://127.0.0.1:8092/` is now the [Calls workspace](call-investigations.md): select an actual HTTP attempt, then explicitly request **Explain this call**. The former questionnaire was removed from the default interface. This document describes the retained manual API/CLI for error excerpts, request/trace IDs and current-window suggestions. Request/trace lookups there remain bounded to 1–15 minutes; system metrics use a separate 30-second window. Each explicit submission reserves an idempotent, durable session and makes exactly one model decision.
 
 ```sh
 make up

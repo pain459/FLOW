@@ -9,7 +9,7 @@ from apps.pulsepay.infrastructure.db import Database
 from apps.pulsepay.infrastructure.redis import redis_client
 from shared.config import Settings
 from shared import metrics
-from shared.logging import request_id_var
+from shared.logging import request_id_var, call_id_var
 from opentelemetry import propagate, trace
 
 tracer = trace.get_tracer(__name__)
@@ -45,16 +45,24 @@ class Relay:
             try:
                 with tracer.start_as_current_span(
                     "outbox.publish", context=propagate.extract(row["payload"].get("metadata", {}))
-                ):
+                ) as span:
                     request_token = request_id_var.set(
                         row["payload"].get("metadata", {}).get("request_id", "")
                     )
+                    call_token = call_id_var.set(
+                        row["payload"].get("metadata", {}).get("call_id", "")
+                    )
+                    if call_id_var.get():
+                        span.set_attribute("pulsepay.call_id", call_id_var.get())
                     try:
                         await self.redis.xadd(
                             self.config.stream_name, {"event": json.dumps(row["payload"])}
                         )
-                        logging.getLogger(__name__).info("outbox_published")
+                        logging.getLogger(__name__).info(
+                            "outbox_published", extra={"event": "outbox_published"}
+                        )
                     finally:
+                        call_id_var.reset(call_token)
                         request_id_var.reset(request_token)
                 metrics.redis_operations.labels("xadd", "success").inc()
             except Exception as exc:
@@ -74,7 +82,12 @@ class Relay:
                         },
                     )
                 logging.getLogger(__name__).warning(
-                    "outbox_publish_retry", extra={"error_class": type(exc).__name__}
+                    "outbox_publish_retry",
+                    extra={
+                        "event": "outbox_publish_retry",
+                        "error_class": type(exc).__name__,
+                        "call_id": row["payload"].get("metadata", {}).get("call_id", ""),
+                    },
                 )
                 continue
             # Redis confirmation precedes DB marker. Crash here deliberately permits duplicates.

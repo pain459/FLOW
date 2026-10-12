@@ -48,7 +48,11 @@ class PulsePayClient:
             "request_id": key or "load-read-" + uuid4().hex,
             "body_bytes": len(body.encode()) if body else 0,
         }
-        headers = {"Accept": "application/json", "X-Request-ID": context["request_id"]}
+        headers = {
+            "Accept": "application/json",
+            "X-PulsePay-Client": "locust",
+            "X-Request-ID": context["request_id"],
+        }
         if body:
             headers.update({"Content-Type": "application/json", "Idempotency-Key": key})
         with self.session.request(

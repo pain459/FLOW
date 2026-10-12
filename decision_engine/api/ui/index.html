@@ -1,9 +1,54 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PulsePay · Investigations</title><link rel="stylesheet" href="/assets/shared.css"><link rel="stylesheet" href="/assets/intelligence.css"><script type="module" src="/assets/intelligence.js"></script></head>
-<body><aside class="sidebar"><a class="brand" href="http://127.0.0.1:8080">PulsePay<small>INVESTIGATION LAB</small></a><nav><a class="nav-item" href="http://127.0.0.1:8080">Overview</a><a class="nav-item active" href="/">Investigations</a><a class="nav-item" href="http://127.0.0.1:8090" target="_blank" rel="noopener">Chaos Workbench</a><a class="nav-item" href="http://127.0.0.1:3000" target="_blank" rel="noopener">Grafana</a></nav><div class="sidebar-bottom"><div class="lab-label">LOCAL · SYNTHETIC · SHADOW</div></div></aside>
-<main><header class="topbar"><strong>Incident investigation</strong><span id="health" class="badge neutral">Checking</span></header><div class="page-heading"><div><div class="eyebrow">LAYA DECISION INTELLIGENCE</div><h1>Ask Laya about a call</h1><p>Get a first-response suggestion from current symptoms and correlated request evidence.</p></div></div>
-<div class="banner">Suggestions only. Laya sees observed symptoms, not experiment metadata. It cannot inject faults, change infrastructure or execute diagnostics.</div>
-<article class="panel"><div class="panel-head"><div><h2>Ask Laya now</h2><p>Paste an error or trace excerpt, enter a request or trace ID, or ask about the current system. Trace lookup is limited to the selected recent window. Only structured, redacted signals reach the model.</p></div></div><form id="ask-form"><label class="wide">Error or trace excerpt (optional)<textarea id="error-excerpt" maxlength="4096" rows="3" placeholder="For example: HTTP 503 DATABASE_UNAVAILABLE, TimeoutError, or a failed trace excerpt"></textarea></label><label>Request ID (optional)<input id="request-id" maxlength="64" placeholder="X-Request-ID from the response"></label><label>Trace ID (optional)<input id="trace-id" maxlength="32" pattern="[a-f0-9]{32}" placeholder="32 lowercase hex characters"></label><label>Look back<select id="lookback"><option value="60">1 minute</option><option value="300">5 minutes</option><option value="600" selected>10 minutes</option><option value="900">15 minutes</option></select></label><label>Operator API token<input id="token" type="password" autocomplete="off" required placeholder="DECISION_API_TOKEN from local .env"></label><button class="button primary" id="ask" type="submit">Ask Laya</button></form><p id="ask-notice" role="status" class="muted"></p><div id="answer" aria-live="polite"></div></article>
-<article class="panel"><div class="panel-head"><div><h2>Replay a recorded window</h2><p>Compare an earlier observation sequence with fixed rules. Uses the operator token above.</p></div></div><form id="start-form"><label>Recorded dataset<select id="dataset" required aria-label="Recorded dataset"></select></label><button class="button primary" id="start" type="submit">Start shadow replay</button></form><p id="notice" role="status" class="muted"></p></article>
-<div class="investigation-grid"><article class="panel"><div class="panel-head"><h2>Sessions</h2><button id="refresh" class="button quiet">Refresh</button></div><div id="sessions"></div></article><article class="panel"><div class="panel-head"><h2>Decision timeline</h2><button id="cancel" class="button quiet" hidden>Cancel</button></div><div id="details" class="muted">Select a session to inspect immutable observations, probabilities and policy decisions.</div></article></div>
-<article class="panel"><div class="panel-head"><h2>Read-only tool catalog</h2></div><div id="tools"></div></article><footer>Conclusions are investigative hypotheses. Independent verification owns recovery and financial correctness.</footer></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PulsePay · Investigations</title>
+  <link rel="stylesheet" href="/assets/shared.css"><link rel="stylesheet" href="/assets/intelligence.css">
+  <script type="module" src="/assets/intelligence.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="http://127.0.0.1:8080">PulsePay<small>INVESTIGATION LAB</small></a>
+  <nav><a class="nav-item" href="http://127.0.0.1:8080">Overview</a><a class="nav-item active" href="/">Investigations</a><a class="nav-item" href="http://127.0.0.1:8090" target="_blank" rel="noopener">Chaos Workbench</a><a class="nav-item" href="http://127.0.0.1:3000" target="_blank" rel="noopener">Grafana</a></nav>
+  <div class="sidebar-bottom"><div class="lab-label">LOCAL · SYNTHETIC · READ ONLY</div></div>
+</aside>
+<main>
+  <header class="topbar"><strong>Operations / Investigations</strong><div class="topbar-right"><span id="health" class="badge neutral">Checking services</span><button id="authorize" class="button quiet">Sign in</button></div></header>
+  <div class="page-heading"><div><div class="eyebrow">REQUEST INVESTIGATIONS</div><h1>Understand a call.</h1><p>Follow a request through the system. Ask Laya when you need a second look.</p></div><span class="badge good">ANALYSIS ON REQUEST</span></div>
+  <div class="workspace-tabs" role="tablist" aria-label="Investigation workspace">
+    <button role="tab" aria-selected="true" aria-controls="calls-view" id="tab-calls" data-view="calls">Calls</button>
+    <button role="tab" aria-selected="false" aria-controls="history-view" id="tab-history" data-view="history">History</button>
+    <button role="tab" aria-selected="false" aria-controls="replays-view" id="tab-replays" data-view="replays">Recorded replays</button>
+  </div>
+  <section id="calls-view" role="tabpanel" aria-labelledby="tab-calls">
+    <div class="calls-workspace">
+      <article class="panel call-inventory">
+        <div class="panel-head"><div><h2>Recent calls</h2><p>Server-observed HTTP attempts · UTC</p></div><button id="refresh-calls" class="button quiet">Refresh</button></div>
+        <form id="call-filters" class="filters">
+          <label>Window<select id="call-window"><option value="60">Last minute</option><option value="300">5 minutes</option><option value="900" selected>15 minutes</option><option value="3600">1 hour</option><option value="86400">24 hours</option></select></label>
+          <label>Outcome<select id="call-outcome"><option value="all">All calls</option><option value="infrastructure_error">Server errors</option><option value="slow">Slow · ≥ 500 ms</option><option value="business_rejection">Business rejections</option><option value="http_rejection">Other 4xx</option><option value="success">Successful</option></select></label>
+          <label class="wide">Endpoint<select id="call-route"><option value="">All endpoints</option><option value="/api/v1/accounts/{account_id}">Account</option><option value="/api/v1/accounts/{account_id}/balance">Balance</option><option value="/api/v1/accounts/{account_id}/transactions">History</option><option value="/api/v1/accounts/{account_id}/summary">Summary</option><option value="/api/v1/transfers">Transfer submit</option><option value="/api/v1/transfers/{transfer_id}">Transfer status</option><option value="/api/v1/transfers/by-idempotency-key">Transfer retry lookup</option><option value="/api/v1/accounts">Account creation</option></select></label>
+        </form>
+        <details class="trace-shortcut"><summary>Open by trace ID</summary><form id="trace-form"><label>Trace ID<input id="trace-id" maxlength="32" pattern="[a-f0-9]{32}" required placeholder="32 lowercase hex characters"></label><button class="button secondary" type="submit">Find call</button></form><button id="clear-trace" class="text-button" hidden>Clear trace filter</button></details>
+        <p id="calls-notice" role="status" class="inventory-notice">Loading recent calls…</p>
+        <div id="calls-list" aria-label="Recent calls"></div>
+        <div class="pagination"><span id="call-count">0 shown</span><button id="more-calls" class="button quiet" hidden>Older calls</button></div>
+        <p class="inventory-help">One row per HTTP attempt. Client failures that never reached the API have no server record. Log and trace delivery may lag.</p>
+      </article>
+      <div class="call-inspector">
+        <article class="panel"><div class="panel-head"><div><h2>Call details</h2><p>Facts from the selected request</p></div><span id="trace-status" class="badge neutral">No call selected</span></div><div id="call-details" class="panel-body empty-state">Select a call to inspect its outcome, recorded path and evidence.</div></article>
+        <article id="laya-panel" class="panel"><div class="panel-head"><div><h2>Laya assessment</h2><p>Starts only when you request it. Suggestions, with evidence and limits.</p></div><span id="analysis-status" class="badge neutral">NOT REQUESTED</span></div><div class="analysis-actions"><button id="explain" class="button primary" disabled>Explain this call</button><button id="reanalyse" class="button quiet" hidden>Re-analyze</button><button id="cancel-analysis" class="button quiet" hidden>Cancel</button></div><p id="ask-notice" class="inline-notice" role="status">Browsing calls and traces does not use Laya.</p><div id="answer" class="panel-body"><p>Select a call, then request analysis when you need it.</p></div></article>
+      </div>
+    </div>
+  </section>
+  <section id="history-view" role="tabpanel" aria-labelledby="tab-history" hidden>
+    <div class="investigation-grid"><article class="panel"><div class="panel-head"><h2>Saved investigations</h2><button id="refresh" class="button quiet">Refresh</button></div><div id="sessions"></div><div class="pagination"><button id="older-sessions" class="button quiet">Older sessions</button><button id="newest-sessions" class="button quiet">Newest</button></div></article><article class="panel"><div class="panel-head"><h2>Decision timeline</h2><button id="cancel" class="button quiet" hidden>Cancel</button></div><div id="details" class="panel-body muted">Select a saved session. Opening history never starts inference.</div></article></div>
+  </section>
+  <section id="replays-view" role="tabpanel" aria-labelledby="tab-replays" hidden>
+    <article class="panel"><div class="panel-head"><div><h2>Recorded shadow replay</h2><p>Research view. Replays use captured observations, separate from live call analysis. No diagnostics execute.</p></div></div><form id="start-form"><label>Recorded dataset<select id="dataset" required></select></label><button id="start" class="button primary" type="submit">Start shadow replay</button></form><p id="notice" class="inline-notice" role="status"></p></article>
+    <article class="panel"><div class="panel-head"><h2>Read-only tool catalog</h2></div><div id="tools" class="panel-body"></div></article>
+  </section>
+  <footer>Request evidence is separate from financial transactions. Independent verification owns recovery and ledger correctness.</footer>
+</main>
+<dialog id="auth-dialog" aria-labelledby="auth-title"><div class="dialog-header"><div><h2 id="auth-title">Operator sign-in</h2><p>Authorize analysis once for this browser session. Calls remain viewable without sign-in.</p></div><button id="close-auth" class="button quiet" aria-label="Close sign-in">Close</button></div><form id="auth-form" class="dialog-body"><label>Operator API token<input id="token" type="password" autocomplete="off" required placeholder="DECISION_API_TOKEN from local .env"></label><p class="form-help">Authorization expires after 8 hours. The token is never stored in browser storage.</p><p id="auth-notice" role="status"></p><button id="sign-in" class="button primary" type="submit">Sign in</button></form></dialog>
+</body></html>

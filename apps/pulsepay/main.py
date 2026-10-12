@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from starlette.requests import Request
+from starlette.routing import Match
 from sqlalchemy.exc import DBAPIError, IntegrityError, TimeoutError as PoolTimeout
 import asyncio
 import logging
@@ -12,7 +13,7 @@ from uuid import uuid4
 from apps.pulsepay.domain.errors import BusinessError
 from apps.pulsepay.api.v1.accounts import router as accounts_router
 from apps.pulsepay.api.v1.transfers import router as transfers_router
-from shared.logging import request_id_var
+from shared.logging import request_id_var, call_id_var
 from apps.pulsepay.infrastructure.db import Database
 from shared.config import settings
 from shared.logging import configure_logging
@@ -30,6 +31,7 @@ from asyncpg import PostgresConnectionError, InvalidPasswordError
 from opentelemetry.trace import Span
 from starlette.types import Scope
 from pathlib import Path
+from opentelemetry import trace
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from apps.pulsepay.api.v1.dashboard import router as dashboard_router
@@ -72,6 +74,11 @@ async def dashboard():
 
 
 def capture_request_trace(span: Span, scope: Scope) -> None:
+    # Instrumentation may wrap or be nested inside HTTP middleware. Both
+    # boundaries reuse the generated ASGI attempt ID regardless of their order.
+    call_id = scope.get("pulsepay_call_id") or str(uuid4())
+    scope["pulsepay_call_id"] = call_id
+    span.set_attribute("pulsepay.call_id", call_id)
     context = span.get_span_context()
     if context.is_valid:
         scope["pulsepay_trace_id"] = format(context.trace_id, "032x")
@@ -93,11 +100,13 @@ def error(code: str, message: str, status: int) -> JSONResponse:
 
 @app.exception_handler(BusinessError)
 async def business_error(request: Request, exc: BusinessError):
+    request.scope["pulsepay_error_code"] = exc.code
     return error(exc.code, exc.message, exc.status)
 
 
 @app.exception_handler(RequestValidationError)
 async def invalid_request(request: Request, exc: RequestValidationError):
+    request.scope["pulsepay_error_code"] = "INVALID_TRANSFER"
     return error("INVALID_TRANSFER", "Request validation failed", 422)
 
 
@@ -107,6 +116,10 @@ async def invalid_request(request: Request, exc: RequestValidationError):
 @app.exception_handler(PostgresConnectionError)
 @app.exception_handler(InvalidPasswordError)
 async def database_error(request: Request, exc: Exception):
+    request.scope["pulsepay_error_code"] = (
+        "INTERNAL_ERROR" if isinstance(exc, IntegrityError) else "DATABASE_UNAVAILABLE"
+    )
+    request.scope["pulsepay_error_class"] = type(exc).__name__
     metrics.db_errors.labels(
         "constraint" if isinstance(exc, IntegrityError) else "unavailable"
     ).inc()
@@ -125,42 +138,83 @@ async def database_error(request: Request, exc: Exception):
 @app.middleware("http")
 async def request_boundary(request: Request, call_next):
     started = time.monotonic()
+    started_at = datetime.now(timezone.utc).isoformat()
     supplied = request.headers.get("X-Request-ID", "")
     rid = supplied if re.fullmatch(r"[A-Za-z0-9_.:-]{1,64}", supplied) else str(uuid4())
     token = request_id_var.set(rid)
+    call_id = request.scope.get("pulsepay_call_id") or str(uuid4())
+    request.scope["pulsepay_call_id"] = call_id
+    call_token = call_id_var.set(call_id)
+    trace.get_current_span().set_attribute("pulsepay.call_id", call_id)
     status_code = 500
+    response = None
     try:
         if int(request.headers.get("content-length", "0")) > 16384:
+            request.scope["pulsepay_error_code"] = "INVALID_TRANSFER"
             response = error("INVALID_TRANSFER", "Request exceeds 16 KiB", 413)
         else:
             async with asyncio.timeout(config.request_timeout_seconds):
                 response = await call_next(request)
-        response.headers["X-Request-ID"] = rid
-        route = request.scope.get("route")
-        path = getattr(route, "path", "unmatched")
-        method = request.method if request.method in HTTP_METHOD_LABELS else "OTHER"
         status_code = response.status_code
-        logging.getLogger(__name__).info(
-            "http_request",
-            extra={"event": "http_request", "trace_id": request.scope.get("pulsepay_trace_id", "")},
-        )
         return response
     except TimeoutError:
         status_code = 503
-        return error(
+        request.scope["pulsepay_error_code"] = "DATABASE_UNAVAILABLE"
+        request.scope["pulsepay_error_class"] = "TimeoutError"
+        response = error(
             "DATABASE_UNAVAILABLE", "Request timed out; retry writes with the same key", 503
         )
+        return response
     except Exception as exc:
+        request.scope["pulsepay_error_code"] = "INTERNAL_ERROR"
+        request.scope["pulsepay_error_class"] = type(exc).__name__
         logging.getLogger(__name__).error(
             "request_failed", extra={"error_class": type(exc).__name__}
         )
-        return error("INTERNAL_ERROR", "Unexpected request failure", 500)
+        response = error("INTERNAL_ERROR", "Unexpected request failure", 500)
+        return response
     finally:
+        if response is not None:
+            response.headers["X-Request-ID"] = rid
+            response.headers["X-Call-ID"] = call_id
         route = request.scope.get("route")
+        if route is None:
+            # Early size/receive failures occur before the router sets scope.route.
+            # Resolve a code-owned template without logging the raw request path.
+            route = next(
+                (
+                    candidate
+                    for candidate in app.routes
+                    if getattr(candidate, "methods", None)
+                    and candidate.matches(request.scope)[0] in (Match.FULL, Match.PARTIAL)
+                ),
+                None,
+            )
         path = getattr(route, "path", "unmatched")
         method = request.method if request.method in HTTP_METHOD_LABELS else "OTHER"
+        duration = time.monotonic() - started
+        client_kind = request.headers.get("X-PulsePay-Client", "unknown")
+        logging.getLogger(__name__).info(
+            "http_request",
+            extra={
+                "event": "http_request",
+                "record_schema": 1,
+                "call_id": call_id,
+                "trace_id": request.scope.get("pulsepay_trace_id", ""),
+                "method": method,
+                "route": path,
+                "status_code": status_code,
+                "duration_ms": round(duration * 1000, 3),
+                "started_at": started_at,
+                "completed_at": datetime.now(timezone.utc).isoformat(),
+                "error_code": request.scope.get("pulsepay_error_code", ""),
+                "error_class": request.scope.get("pulsepay_error_class", ""),
+                "client_kind": client_kind if client_kind in ("dashboard", "locust") else "unknown",
+            },
+        )
         metrics.http_requests.labels(method, path, f"{status_code // 100}xx").inc()
-        metrics.http_duration.labels(method, path).observe(time.monotonic() - started)
+        metrics.http_duration.labels(method, path).observe(duration)
+        call_id_var.reset(call_token)
         request_id_var.reset(token)
 
 

@@ -20,7 +20,7 @@ export async function request(path, { method = 'GET', body, signal } = {}) {
   const timer = setTimeout(abort, 15000);
   try {
     const response = await fetch(path, { method, body, cache: 'no-store', signal: controller.signal,
-      headers: { 'Accept': 'application/json', 'X-Request-ID': `ui-${uuid()}`, ...(body ? { 'Content-Type': 'application/json' } : {}) } });
+      headers: { 'Accept': 'application/json', 'X-PulsePay-Client': 'dashboard', 'X-Request-ID': `ui-${uuid()}`, ...(body ? { 'Content-Type': 'application/json' } : {}) } });
     const data = await response.json();
     if (!response.ok) throw new ApiError(data.message || `Request failed (${response.status})`, response.status, data.code, data.request_id);
     return data;
@@ -77,7 +77,7 @@ export async function commitIntent(intent) {
   const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 15000);
   try {
     const response = await fetch('/api/v1/transfers', { method: 'POST', signal: controller.signal,
-      headers: { 'Content-Type': 'application/json', 'Idempotency-Key': intent.key, 'X-Request-ID': intent.key }, body: transferBody(intent.payload) });
+      headers: { 'Content-Type': 'application/json', 'X-PulsePay-Client': 'dashboard', 'Idempotency-Key': intent.key, 'X-Request-ID': intent.key }, body: transferBody(intent.payload) });
     const data = await response.json();
     if (!response.ok) throw new ApiError(data.message || 'Transfer failed', response.status, data.code, data.request_id);
     return { transfer: data, replayed: response.status === 200 };

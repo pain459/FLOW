@@ -1,8 +1,8 @@
 import asyncio
-import hmac
 import os
 from contextlib import asynccontextmanager
 from pathlib import Path
+from typing import Annotated
 from uuid import UUID
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query
@@ -19,6 +19,8 @@ from decision_engine.providers.laya_provider import LayaProvider
 from decision_engine.tools.registry import catalog as tool_catalog
 from decision_engine.http_limits import RequestLimits
 from decision_engine.models.live import Ask, answer_view
+from decision_engine.models.calls import CallQuery, Explain
+from decision_engine.api.auth import operator, router as auth_router
 
 
 @asynccontextmanager
@@ -57,6 +59,7 @@ async def lifespan(app):
 
 app = FastAPI(title="PulsePay investigation intelligence", version="1.0", lifespan=lifespan)
 app.add_middleware(RequestLimits)
+app.include_router(auth_router)
 
 
 @app.exception_handler(RequestValidationError)
@@ -65,15 +68,6 @@ async def invalid(request, error):
         {"code": "INVALID_REQUEST", "message": "Request does not match the allowed schema"},
         status_code=422,
     )
-
-
-async def operator(authorization: str = Header(default="")):
-    if not hmac.compare_digest(
-        authorization.encode("utf-8"),
-        ("Bearer " + os.environ.get("DECISION_API_TOKEN", "unprovisioned")).encode("utf-8"),
-    ):
-        raise HTTPException(401, "operator authorization required")
-    return "local-operator"
 
 
 class Start(StrictModel):
@@ -98,7 +92,7 @@ async def health():
         async with c.store.pool.acquire(timeout=3) as connection:
             db = (
                 await connection.fetchval("SELECT version_num FROM decision_intel.schema_version")
-                == "di0002"
+                == "di0003"
             )
     except Exception:
         db = False
@@ -109,6 +103,8 @@ async def health():
         "shadow_go": True,
         "gate_scope": "shadow_and_operator_requested_live_suggestions",
         "manual_live_questions": True,
+        "analysis_trigger": "explicit_request_only",
+        "analysis_busy": await c.store.analysis_busy() or bool(model.get("busy")),
         "readiness_source": "completed_independent_phase3_audit",
         "readonly_go": False,
         "readonly_reason": "Independent executor safety qualification not granted",
@@ -123,6 +119,64 @@ async def datasets():
 @app.get("/api/v1/intelligence/tools")
 async def tools():
     return {"tools": tool_catalog()}
+
+
+@app.get("/api/v1/intelligence/calls")
+async def calls(query: Annotated[CallQuery, Query()]):
+    try:
+        return await app.state.controller.call_collector.list(query)
+    except Exception:
+        raise HTTPException(503, "CALL_INVENTORY_UNAVAILABLE") from None
+
+
+@app.get("/api/v1/intelligence/calls/{uid}")
+async def call(uid: UUID):
+    try:
+        result = await app.state.controller.call_collector.detail(uid)
+    except LookupError:
+        raise HTTPException(404, "CALL_NOT_OBSERVED") from None
+    except Exception:
+        raise HTTPException(503, "CALL_EVIDENCE_UNAVAILABLE") from None
+    result["analysis"] = await app.state.controller.store.call_analysis(uid)
+    if "route" in result.get("call", {}):
+        from decision_engine.api.links import grafana_links
+
+        result["links"] = grafana_links(result["call"])
+    return result
+
+
+@app.get("/api/v1/intelligence/calls/{uid}/measurements")
+async def measurements(uid: UUID):
+    try:
+        return await app.state.controller.call_collector.state(uid)
+    except LookupError:
+        raise HTTPException(404, "CALL_NOT_OBSERVED") from None
+    except Exception:
+        raise HTTPException(503, "CALL_MEASUREMENTS_UNAVAILABLE") from None
+
+
+@app.post("/api/v1/intelligence/calls/{uid}/explain", status_code=202)
+async def explain(
+    uid: UUID,
+    body: Explain,
+    requester=Depends(operator),
+    idempotency_key: str = Header(
+        alias="Idempotency-Key", min_length=1, max_length=64, pattern=r"^[A-Za-z0-9_.:-]+$"
+    ),
+):
+    try:
+        identifier, cached = await app.state.controller.start_call(
+            uid, requester, idempotency_key, reanalyse=body.reanalyse
+        )
+    except LookupError:
+        raise HTTPException(404, "CALL_NOT_OBSERVED") from None
+    except ValueError:
+        raise HTTPException(409, "IDEMPOTENCY_CONFLICT") from None
+    except RuntimeError:
+        raise HTTPException(429, "ANALYSIS_BUSY") from None
+    except Exception:
+        raise HTTPException(503, "CALL_EVIDENCE_UNAVAILABLE") from None
+    return {"id": identifier, "call_id": uid, "cached": cached, "recommendation_only": True}
 
 
 @app.post("/api/v1/intelligence/ask", status_code=202)
@@ -199,6 +253,8 @@ async def timeline(uid: UUID):
             if decisions and decisions[0]["validation_status"] == "VALID"
             else None
         )
+    call_id = await app.state.controller.store.session_call(uid)
+    result["context"] = {"kind": "call_time" if call_id else row["mode"], "call_id": call_id}
     return result
 
 

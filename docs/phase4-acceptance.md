@@ -87,3 +87,31 @@ Review reproduced and fixed: SDK truncation hiding call evidence; old errors lab
 The initial application regression in checks/application-regression.txt failed two reset tests because the fake Docker parser did not recognize Compose overlay flags. Only the stub was corrected; acknowledgement/project isolation requirements were preserved and no real reset ran. Earlier failed/truncated attempts remain retained rather than relabelled successful.
 
 Historical replay inputs did not retain SDK completeness metadata. Their original measured results remain preserved, but full-input completeness is UNKNOWN; do not treat them as proof of complete-context model performance. The new guard is qualified for the manual suite. No chaos incident was injected to evaluate the new reason question, no holdout was tuned, and useful causal diagnosis is still unproven. New source images/resources are captured separately; evidence-reader adds 128MiB/0.25CPU within fixed stack ceilings. Decision schema is now di0002, financial schema remains unchanged. Native Linux, WSL2 and GPU remain NOT_RUN.
+
+## Calls workspace release — 2026-10-12
+
+**Feature verdict: PASS for the approved call-selection and explicit-analysis workflow. Full autonomous Phase 4 remains INCOMPLETE.** [Calls](call-investigations.md) replaces the questionnaire landing screen. Inventory/detail/history/trace lookup and refresh make zero model requests. One explicit Explain makes one decision; saved results reopen without inference, and Re-analyze is explicit. Signed operator cookies authorize once, with same-origin mutation checks. The financial dashboard keeps its business focus.
+
+Evidence root: `artifacts/phase4/call-investigations/`. The final source stays uncommitted on `feat/pulsepay-dashboard`, based on `f4233d5006a3000c6e5d9f09aed3d0da1e5a5117`. Docker image hashes, fixed ceilings and real test outputs are retained. Decision migration `di0003` was applied inside Docker; financial migration remains `0002`.
+
+| Executed check | Outcome | Evidence |
+|---|---|---|
+| Compose config and affected image build/start | PASS | checks/build.txt, final-config.txt, final-deployment.txt, runtime-release.txt |
+| Decision contracts/auth/idempotency/historical evidence | 103 PASS | checks/final-decision-tests.txt |
+| Application financial/concurrency/negative tests | 66 PASS; 22 gated checks skipped in this invocation | checks/release-application.txt |
+| Workload regressions | 66 PASS | checks/load-tests.txt |
+| Native chaos/safety unit regressions; no live faults | 157 PASS | checks/chaos-tests.txt |
+| Chromium desktop/mobile: Calls, auth, saved/reopened active results, real CPU Laya, financial UI, transfer/event correlation | 13 PASS | checks/release-browser.txt, browser/*.png and *.json |
+| Ruff and diff whitespace checks | PASS | checks/final-lint.txt; final command log |
+| Independent post-release reconciliation | All 12 checks PASS, zero violations; repeatable-read/read-only | verifier-post.json |
+| Durable session export | PASS; 2 new bundles copied, 39 unchanged, zero partial | checks/export-release.txt |
+
+The browser suite separately enabled its gated tests; the skipped application-suite checks must not be treated as passed. Nine other gated application checks were not rerun in that invocation. Dependency deprecation warnings remain visible. No fault injection, resource ceiling increase, financial reset, branch change or autonomous diagnostic execution was performed.
+
+Review reproduced and corrected: malformed call filters becoming 503; coerced re-analysis flags; filtered/tied-timestamp pagination losing calls; spans from another HTTP attempt in a shared trace; early 413 records losing their endpoint template; and reopened active sessions failing to poll. A fresh real browser run then exposed a tracing integration mismatch: middleware and the OTel hook generated different IDs. Two ordering tests and the deployed checks now prove one ASGI attempt ID reaches headers, logs, the tagged root and outbox metadata. The failed initial browser output remains in `checks/browser-final.txt`; the corrected run passed all 13 tests. The real transfer/replay produced one transfer, distinct attempt IDs, distinct exact trace branches and asynchronous effects attached only to the committing attempt.
+
+Actual final CPU inference session: `8c8082d5-2dd5-46d4-80d5-c07ef1e92a4c`; HTTP404 / ACCOUNT_NOT_FOUND call `92061c99-11b6-40f4-b374-557af2de7ebc`. Inference took **8652.07 ms**, with 811 state tokens and zero dropped tokens. The model proposed database connectivity (uncalibrated score 0.4975) despite no supporting symptom; policy withheld it as **insufficient evidence**. This is a functional and safety PASS, **not a successful diagnosis or accuracy qualification**. No tools executed. The saved response survived reload without another inference. Its sealed export is `artifacts/phase4/sessions/8c8082d5-2dd5-46d4-80d5-c07ef1e92a4c/`; release validation checks hashes, exact SDK input completeness, ID exclusion and secret-value absence.
+
+Post-release verifier run `c725da62-7249-4345-a882-87237b1f96df` inspected 200 accounts and 115,094 transfers, with no violations, no pending outbox rows, no overdue projections and no quarantine. Global synthetic funds still match issuance. Historical model input excludes current recovery and later async events. Current model/controller availability is independent of the selected call's evidence; financial health is visible in the existing System/Grafana views.
+
+Remaining limits: call metadata begins with this release and discovery is bounded to 24 hours/retention; requests never reaching the API are unavailable; separate worker trace hierarchies open through Grafana rather than the compact call view; diagnostic usefulness/calibration and autonomous executor qualification remain unresolved research gates. No new fault-response evaluation or new platform qualification was claimed.

@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from opentelemetry import trace
 
 request_id_var: contextvars.ContextVar[str] = contextvars.ContextVar("request_id", default="")
+call_id_var: contextvars.ContextVar[str] = contextvars.ContextVar("call_id", default="")
 
 
 class JsonFormatter(logging.Formatter):
@@ -23,6 +24,22 @@ class JsonFormatter(logging.Formatter):
                 ),
                 "operation_id": getattr(record, "operation_id", ""),
                 "error_class": getattr(record, "error_class", ""),
+                "call_id": getattr(record, "call_id", call_id_var.get()),
+                **{
+                    key: getattr(record, key)
+                    for key in (
+                        "record_schema",
+                        "method",
+                        "route",
+                        "status_code",
+                        "duration_ms",
+                        "started_at",
+                        "completed_at",
+                        "error_code",
+                        "client_kind",
+                    )
+                    if hasattr(record, key)
+                },
             }
         )
 

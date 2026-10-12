@@ -91,6 +91,7 @@ async def ready():
             "checkpoint": "multilingual",
             "revision": os.environ.get("LAYA_REVISION"),
             "device": "cpu",
+            "busy": busy.locked() or inference_task is not None and not inference_task.done(),
             "load_ms": load_ms,
             "error_class": "INFERENCE_DEADLINE_EXCEEDED" if expired else failure,
         },

@@ -44,11 +44,34 @@ class Store:
             return [
                 dict(row)
                 for row in await c.fetch(
-                    "SELECT id,state,mode,dataset_ref,created_at,ended_at,last_error,recovery_status FROM decision_intel.investigation_sessions ORDER BY created_at DESC,id DESC LIMIT $1 OFFSET $2",
+                    "SELECT s.id,s.state,s.mode,s.dataset_ref,s.created_at,s.ended_at,s.last_error,s.recovery_status,a.call_id FROM decision_intel.investigation_sessions s LEFT JOIN decision_intel.call_analyses a ON a.session_id=s.id ORDER BY s.created_at DESC,s.id DESC LIMIT $1 OFFSET $2",
                     limit,
                     offset,
                 )
             ]
+
+    async def call_analysis(self, uid):
+        async with self.pool.acquire(timeout=3) as c:
+            row = await c.fetchrow(
+                "SELECT s.id,s.state,s.ended_at,s.last_error FROM decision_intel.call_analyses a JOIN decision_intel.investigation_sessions s ON s.id=a.session_id WHERE a.call_id=$1 ORDER BY a.created_at DESC,a.session_id DESC LIMIT 1",
+                UUID(str(uid)),
+            )
+            return dict(row) if row else None
+
+    async def session_call(self, uid):
+        async with self.pool.acquire(timeout=3) as c:
+            return await c.fetchval(
+                "SELECT call_id FROM decision_intel.call_analyses WHERE session_id=$1",
+                UUID(str(uid)),
+            )
+
+    async def analysis_busy(self):
+        async with self.pool.acquire(timeout=3) as c:
+            return bool(
+                await c.fetchval(
+                    "SELECT EXISTS(SELECT 1 FROM decision_intel.investigation_sessions WHERE ended_at IS NULL)"
+                )
+            )
 
     async def timeline(self, identifier):
         async with self.pool.acquire(timeout=3) as c:

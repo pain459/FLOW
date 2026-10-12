@@ -33,6 +33,7 @@ services:
       DECISION_DATABASE_URL: postgresql://pulsepay_decision:${DECISION_PASSWORD:-unprovisioned}@postgres:5432/${POSTGRES_DB:-pulsepay}
       DECISION_API_TOKEN: ${DECISION_API_TOKEN:-unprovisioned}
       SOURCE_REVISION: ${SOURCE_REVISION:-94cfb14}
+      GRAFANA_PORT: ${GRAFANA_PORT:-3000}
     depends_on:
       postgres: {condition: service_healthy}
       evidence-reader: {condition: service_healthy}

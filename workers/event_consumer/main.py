@@ -11,7 +11,7 @@ from apps.pulsepay.infrastructure.db import Database
 from apps.pulsepay.infrastructure.redis import redis_client
 from shared.config import Settings
 from shared.contracts import BusinessEvent
-from shared.logging import request_id_var
+from shared.logging import request_id_var, call_id_var
 from shared import metrics
 from opentelemetry import trace, propagate
 
@@ -75,12 +75,15 @@ class Consumer:
             await self.quarantine(stream_id, fields, "UNKNOWN_OR_MISMATCHED_EVENT")
             return
         token = request_id_var.set(envelope.metadata.get("request_id", ""))
+        call_token = call_id_var.set(envelope.metadata.get("call_id", ""))
         try:
             parent = propagate.extract(envelope.metadata)
             context = trace.get_current_span(parent).get_span_context()
             with tracer.start_as_current_span(
                 "event.project", links=[trace.Link(context)] if context.is_valid else []
-            ):
+            ) as span:
+                if call_id_var.get():
+                    span.set_attribute("pulsepay.call_id", call_id_var.get())
                 async with self.db.session() as session, session.begin():
                     receipt = await session.scalar(
                         text("""INSERT INTO consumer_receipts(consumer_name,event_id)
@@ -101,10 +104,12 @@ class Consumer:
                     )
                 )
                 logging.getLogger(__name__).info(
-                    "event_processed" if receipt else "event_duplicate"
+                    "event_processed" if receipt else "event_duplicate",
+                    extra={"event": "event_processed" if receipt else "event_duplicate"},
                 )
             await self.redis.xack(self.config.stream_name, self.config.consumer_group, stream_id)
         finally:
+            call_id_var.reset(call_token)
             request_id_var.reset(token)
 
     async def tick(self) -> int:
